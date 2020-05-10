@@ -80,26 +80,40 @@ class SqlTest(object):
             )
 
     def insert_therapist_info(self, scrapy_item)->int:
-        id = self.cur.execute('''INSERT INTO therapists VALUES (
-            %(first_name)s, %(last_name)s, 
-            %(address)s, %(primary_credential)s, 
-            %(license_status)s, %(website)s, 
-            %(info_source)s, %(verified)s, 
-            %(license_num)s, %(license_state)s, 
-            %(years_in_practice)s, %(school)s, 
-            %(year_graduated)s)
-            RETURNING therapist_id
-            ;''',
-            {'first_name':scrapy_item['first_name'], 'last_name':scrapy_item['last_name'], 
-            'address':scrapy_item['address'], 'primary_credential':scrapy_item['primary_credential'], 
-            'license_status':scrapy_item['license_status'], 'website':scrapy_item['website'],
-            'info_source':scrapy_item['info_source'], 'verified':scrapy_item['verified'], 
-            'license_num':scrapy_item['license_num'], 'license_state':scrapy_item['license_state'], 
-            'years_in_practice':scrapy_item['years_in_practice'], 'school':scrapy_item['school'],
-            'year_graduated':scrapy_item['year_graduated']}
-            )
+        #print(f'SCRAPY ITEM FIELD: {scrapy_item}')
+        self.cur.execute('''INSERT INTO therapists (
+        first_name, last_name, 
+        address, primary_credential, 
+        license_status, website, 
+        info_source, verified) 
+        VALUES (%(first_name)s,%(last_name)s,
+        %(address)s, %(primary_credential)s,
+        %(license_status)s, %(website)s,
+        %(info_source)s, %(verified)s) 
+        RETURNING therapist_id;''',
 
-        return id
+        # id = self.cur.execute('''INSERT INTO therapists VALUES (\
+        #     %(first_name)s, %(last_name)s\
+        #     ,%(address)s, %(primary_credential)s\
+        #     ,%(license_status)s, %(website)s\
+        #     ,%(info_source)s, %(verified)s\
+        #     )\
+        #     RETURNING therapist_id\
+        #     ;''',
+        {
+        'first_name':scrapy_item.get('first_name'), 'last_name':scrapy_item.get('last_name'), 
+        'address':scrapy_item.get('address'), 'primary_credential':scrapy_item.get('primary_credential'), 
+        'license_status':scrapy_item.get('license_status'), 'website':scrapy_item.get('website'),
+        'info_source':scrapy_item.get('info_source'), 'verified':bool(scrapy_item.get('verified')), 
+        
+        #These are PsychologyToday fields, ignore for now
+        #'license_num':int(scrapy_item.get('license_num')), 'license_state':scrapy_item.get('license_state'), 
+        #'years_in_practice':int(scrapy_item.get('years_in_practice')), 'school':scrapy_item.get('school'),
+        #'year_graduated':int(scrapy_item.get('year_graduated'))
+        }
+        )
+
+        return cur.fetchone()[0]
 
     def insert_something(self, table, therapist_id:int, other_id:int)->None:
         # cur.execute('''INSERT INTO therapist_writing_samples VALUES (%(therapist_id)s, %(writing_sample_id)s);''',
@@ -143,15 +157,16 @@ if __name__ == '__main__':
             'year_graduated':'year_graduated'}]
 
     item = TherapistItem()
-    item['first_name'] = 'Bilbo'
+    item['first_name'] = 'Sam'
     item['last_name'] = 'Baggins'
-    item['address'] = '312 Hobbiton Ln'
+    item['address'] = None
     item['primary_credential'] = 'Master Thief'
     item['license_status'] = 'Active'
-    item['website'] = 'www.prescious.com'
+    item['website'] = None
     item['info_source'] = 'GoodTherapy.com'
     item['verified'] = 'True'
     
+    #these are PsychToday fields, so ignore them for now
     item['license_num'] = None
     item['license_state'] = None
     item['years_in_practice'] = None
@@ -159,7 +174,8 @@ if __name__ == '__main__':
     item['year_graduated'] = None
     
 
-    sql_test.insert_therapist_info(item)
+    tx_id = sql_test.insert_therapist_info(item)
+    print(tx_id)
     
     conn.commit()
         
