@@ -7,5 +7,12 @@ CREATE TABLE therapists(
     license_status VARCHAR (100) ,
     website VARCHAR (300) ,
     info_source VARCHAR (200) ,
+    verified Boolean NOT NULL DEFAULT FALSE,
+    license_num Integer UNIQUE,
+    license_state VARCHAR (5),
+    years_in_practice Integer,
+    school VARCHAR (100),
+    year_graduated Integer,
     creation_date TIMESTAMP WITHOUT TIME ZONE DEFAULT CURRENT_TIMESTAMP
+    UNIQUE (first_name, last_name)
 );
