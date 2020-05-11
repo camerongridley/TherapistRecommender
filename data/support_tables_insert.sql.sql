@@ -15,13 +15,15 @@ VALUES ('Coaching',
  'Mediation',
  'Telehealth')
 ;
-    
 
-SELECT * FROM age_groups;
 
 SELECT * FROM issues;
 
 SELECT * FROM orientations;
+
+SELECT * FROM therapists;
+
+SELECT * FROM age_groups;
 
 SELECT * FROM professions;
 
@@ -37,7 +39,7 @@ SELECT * FROM therapist_professions;
 
 SELECT * FROM therapist_services;
 
-SELECT * FROM therapists;
+
 
 SELECT * FROM 
 
