@@ -10,6 +10,7 @@ import scrapy
 
 class TherapistItem(scrapy.Item):
     # define the fields for your item here like:
+    full_name = scrapy.Field()
     first_name = scrapy.Field()
     last_name = scrapy.Field()
     address = scrapy.Field()

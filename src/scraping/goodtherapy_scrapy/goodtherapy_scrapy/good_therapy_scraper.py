@@ -72,7 +72,12 @@ class GoodTherapySoupScraper(object):
         
     def get_all_data(self, soup: BeautifulSoup) -> dict:
         all_data = {}
-        all_data['name'] = self.get_name(soup)
+        full_name_ls = self.get_name(soup).split()
+        first_name = full_name_ls[0]
+        last_name = full_name_ls[-1]
+        all_data['full_name'] = self.get_name(soup)
+        all_data['first_name'] = first_name
+        all_data['last_name'] = last_name
         all_data['writing_sample'] = self.get_writing_sample(soup)
         all_data['issues'] = self.get_tx_issues(soup)
         all_data['orientations'] = self.get_orientations(soup)
@@ -85,6 +90,7 @@ class GoodTherapySoupScraper(object):
         all_data['address'] = self.get_address(soup)
         all_data['phone'] = self.get_phone(soup)
         all_data['verified'] = self.get_verification(soup)
+        all_data['html_source_code'] = soup
         
         return all_data
 
@@ -226,6 +232,8 @@ if __name__ == '__main__':
 
     #therapist_id = cur.execute("""DROP TABLE IF EXISTS quotes""")
     services = good_scraper.get_services(soup)
-    print(services)
+    print(all_data['full_name'])
+    print(all_data['first_name'])
+    print(all_data['last_name'])
 
     conn.close()
