@@ -78,19 +78,22 @@ class GoodTherapySoupScraper(object):
         all_data['full_name'] = self.get_name(soup)
         all_data['first_name'] = first_name
         all_data['last_name'] = last_name
-        all_data['writing_sample'] = self.get_writing_sample(soup)
-        all_data['issues'] = self.get_tx_issues(soup)
-        all_data['orientations'] = self.get_orientations(soup)
-        all_data['services'] = self.get_services(soup)
-        all_data['ages'] = self.get_client_ages(soup)
-        all_data['professions'] = self.get_professions(soup)
-        all_data['credential'] = self.get_primary_credential(soup)
+        all_data['street'] = self.sub_get_street(soup)
+        all_data['city'] = self.sub_get_city(soup)
+        all_data['state'] = self.sub_get_state(soup)
+        all_data['zip_code'] = self.sub_get_zip(soup)
+        all_data['phone'] = self.get_phone(soup)
+        all_data['primary_credential'] = self.get_primary_credential(soup)
         all_data['license_status'] = self.get_license_status(soup)
         all_data['website'] = self.get_website(soup)
-        all_data['address'] = self.get_address(soup)
-        all_data['phone'] = self.get_phone(soup)
+        all_data['info_source'] = 'goodtherapy'
         all_data['verified'] = self.get_verification(soup)
-        all_data['html_source_code'] = soup
+        all_data['age_group_list'] = self.get_client_ages(soup)
+        all_data['issues_list'] = self.get_tx_issues(soup)
+        all_data['orientations_list'] = self.get_orientations(soup)
+        all_data['professions_list'] = self.get_professions(soup)
+        all_data['services_list'] = self.get_services(soup)
+        all_data['writing_sample'] = self.get_writing_sample(soup)
         
         return all_data
 
@@ -207,7 +210,6 @@ class GoodTherapySoupScraper(object):
     @dec_check_none
     def get_phone(self, soup: BeautifulSoup) -> str:
         phone  =soup.find('span', {'class':'profilePhone'}).text
-        #phone = soup.find('span', class='profilePhone').contents[1].contents[0].get_text()
 
         return self.clean_string(phone)
 
@@ -224,7 +226,7 @@ if __name__ == '__main__':
     cur = conn.cursor()
 
     #start_url = 'https://www.goodtherapy.org/therapists/profile/jessica-fern-cooley-20170717'
-    start_url = '/home/cgridley/Galvanize/repos/capstones/TherapistFitter/data/html/Jennifer.html'
+    start_url = '/home/cgridley/Galvanize/repos/capstones/TherapistFitter/data/html/TherapistListings/Jennifer.html'
     good_scraper = GoodTherapySoupScraper(starting_url=start_url, is_local_file=True)
     soup = good_scraper.get_soup()
 
@@ -235,5 +237,6 @@ if __name__ == '__main__':
     print(all_data['full_name'])
     print(all_data['first_name'])
     print(all_data['last_name'])
+    print(all_data['phone'])
 
     conn.close()

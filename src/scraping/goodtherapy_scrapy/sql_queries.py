@@ -81,27 +81,30 @@ class SqlQueries(object):
         #print(f'SCRAPY ITEM FIELD: {scrapy_item}')
         self.cur.execute('''INSERT INTO therapists (
         first_name, last_name, 
-        address, primary_credential, 
+        street, city,
+        state, zip_code,
+        phone, primary_credential, 
         license_status, website, 
         info_source, verified,
-        writing_sample, full_name,
-        html_source_code) 
+        writing_sample, full_name) 
         VALUES (%(first_name)s,%(last_name)s,
-        %(address)s, %(primary_credential)s,
+        %(street)s, %(city)s, 
+        %(state)s, %(zip_code)s, 
+        %(phone)s, %(primary_credential)s,
         %(license_status)s, %(website)s,
         %(info_source)s, %(verified)s,
-        %(writing_sample)s, %(full_name)s,
-        %(html_source_code)s
+        %(writing_sample)s, %(full_name)s
         ) 
         RETURNING therapist_id;''',
 
         {
         'first_name':scrapy_item.get('first_name'), 'last_name':scrapy_item.get('last_name'), 
-        'address':scrapy_item.get('address'), 'primary_credential':scrapy_item.get('primary_credential'), 
+        'street':scrapy_item.get('street'),'city':scrapy_item.get('city'),
+        'state':scrapy_item.get('state'),'zip_code':scrapy_item.get('zip_code'),
+        'phone':scrapy_item.get('phone'), 'primary_credential':scrapy_item.get('primary_credential'), 
         'license_status':scrapy_item.get('license_status'), 'website':scrapy_item.get('website'),
         'info_source':scrapy_item.get('info_source'), 'verified':bool(scrapy_item.get('verified')),
-        'writing_sample':scrapy_item.get('writing_sample'), 'full_name':scrapy_item.get('full_name'),
-        'html_source_code':scrapy_item.get('html_source_code')
+        'writing_sample':scrapy_item.get('writing_sample'), 'full_name':scrapy_item.get('full_name')
 
         #These are PsychologyToday fields, ignore for now
         #'license_num':int(scrapy_item.get('license_num')), 'license_state':scrapy_item.get('license_state'), 
