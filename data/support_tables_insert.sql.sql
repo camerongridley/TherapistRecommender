@@ -16,3 +16,31 @@ VALUES ('Coaching',
  'Telehealth')
 ;
     
+
+SELECT * FROM age_groups;
+
+SELECT * FROM issues;
+
+SELECT * FROM orientations;
+
+SELECT * FROM professions;
+
+SELECT * FROM services;
+
+SELECT * FROM therapist_age_groups;
+
+SELECT * FROM therapist_issues;
+
+SELECT * FROM therapist_orientations;
+
+SELECT * FROM therapist_professions;
+
+SELECT * FROM therapist_services;
+
+SELECT * FROM therapists;
+
+SELECT * FROM 
+
+SELECT * FROM 
+
+SELECT * FROM 

@@ -30,7 +30,7 @@ class TherapistItem(scrapy.Item):
     professions_list = scrapy.Field()
     services_list = scrapy.Field()
     writing_sample = scrapy.Field()
-    writing_sample_source = scrapy.Field()
+    html_source_code = scrapy.Field()
 
 # class AgeGroupItem(scrapy.Item):
 #     age_group = scrapy.Field()
