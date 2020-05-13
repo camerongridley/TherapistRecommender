@@ -25,6 +25,6 @@ CREATE TABLE issues(
 
 CREATE TABLE writing_samples(
 	sample_id serial PRIMARY KEY,
-	sample TEXT UNIQUE NOT NULL, 
+	sample TEXT NOT NULL, 
 	source VARCHAR (255) 
 );

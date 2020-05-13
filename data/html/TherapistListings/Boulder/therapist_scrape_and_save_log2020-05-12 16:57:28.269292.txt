@@ -1,0 +1,222 @@
+Crawling page: /home/cgridley/Galvanize/repos/capstones/TherapistFitter/data/html/TherapistListings/Boulder/SearchResult9.html
+
+Found profile links: - ['https://www.goodtherapy.org/therapists/profile/becky-natenberg-20160322', 'https://www.goodtherapy.org/therapists/profile/sandy-pryor-20181107', 'https://www.goodtherapy.org/therapists/profile/cole-struhar-20200413', 'https://www.goodtherapy.org/therapists/profile/karen-lenzi-20160719', 'https://www.goodtherapy.org/therapists/profile/greta-faracohadlock-20121015', 'https://www.goodtherapy.org/therapists/profile/anna-kris-bell-20200224', 'https://www.goodtherapy.org/therapists/profile/lori-johnson-20140627', 'https://www.goodtherapy.org/therapists/profile/matt-trowbridge-20180426', 'https://www.goodtherapy.org/therapists/profile/sujatha-reddy-20161016', 'https://www.goodtherapy.org/therapists/profile/angie-douglas-20200427']
+
+
+SKIPPING Becky Natenberg - Therapist already exists in database.
+SKIPPING Sandy Pryor - Therapist already exists in database.
+SKIPPING Cole Struhar - Therapist already exists in database.
+SKIPPING Karen Lenzi - Therapist already exists in database.
+SKIPPING Greta Faraco-Hadlock - Therapist already exists in database.
+Created therapist id: 264 for Anna Kris Bell
+Therapist saved to Postgres: Anna Kris Bell
+SKIPPING Lori Johnson - Therapist already exists in database.
+SKIPPING Matt Trowbridge - Therapist already exists in database.
+SKIPPING Sujatha Reddy - Therapist already exists in database.
+SKIPPING Angie Douglas - Therapist already exists in database.
+Crawling page: /home/cgridley/Galvanize/repos/capstones/TherapistFitter/data/html/TherapistListings/Boulder/SearchResults1.html
+
+Found profile links: - ['https://www.goodtherapy.org/therapists/profile/amy-winters-20121201', 'https://www.goodtherapy.org/therapists/profile/claudia-hartke-20181016', 'https://www.goodtherapy.org/therapists/profile/vasudha-daver-20191029', 'https://www.goodtherapy.org/therapists/profile/annemarie-carzoli-20190508', 'https://www.goodtherapy.org/therapists/profile/heidi-wilson-20090410', 'https://www.goodtherapy.org/therapists/profile/jennifer-abbott-20160705', 'https://www.goodtherapy.org/therapists/profile/scott-boyd-20160331', 'https://www.goodtherapy.org/therapists/profile/april-pojman-20131001', 'https://www.goodtherapy.org/therapists/profile/lyndsey-lee-20161109', 'https://www.goodtherapy.org/therapists/profile/nikolas-maslow-20190121', 'https://www.goodtherapy.org/therapists/profile/lynne-foote-20091026', 'https://www.goodtherapy.org/therapists/profile/jennifer-gibson-20140625']
+
+
+SKIPPING Amy Winters - Therapist already exists in database.
+SKIPPING Claudia Hartke, PhD, SEP - Therapist already exists in database.
+SKIPPING Vasudha Daver - Therapist already exists in database.
+SKIPPING Annemarie Carzoli - Therapist already exists in database.
+SKIPPING Heidi Wilson - Therapist already exists in database.
+SKIPPING Jennifer Abbott - Therapist already exists in database.
+SKIPPING Scott Boyd - Therapist already exists in database.
+SKIPPING April Pojman - Therapist already exists in database.
+SKIPPING Lyndsey Ryan - Therapist already exists in database.
+SKIPPING Nikolas H. Maslow - Therapist already exists in database.
+SKIPPING Lynne Foote - Therapist already exists in database.
+Created therapist id: 265 for Jennifer Gibson
+Therapist saved to Postgres: Jennifer Gibson
+Crawling page: /home/cgridley/Galvanize/repos/capstones/TherapistFitter/data/html/TherapistListings/Boulder/SearchResults10.html
+
+Found profile links: - ['https://www.goodtherapy.org/therapists/profile/tamra-hughes-20101030', 'https://www.goodtherapy.org/therapists/profile/cheaven-roberts-20180830', 'https://www.goodtherapy.org/therapists/profile/carrie-mccrudden-20101220', 'https://www.goodtherapy.org/therapists/profile/lacey-wilkins-20170127', 'https://www.goodtherapy.org/therapists/profile/suzanne-sellers-20190701', 'https://www.goodtherapy.org/therapists/profile/michelle-keelan', 'https://www.goodtherapy.org/therapists/profile/jacob-meyer-20190710', 'https://www.goodtherapy.org/therapists/profile/allison-white-20170929', 'https://www.goodtherapy.org/therapists/profile/savana-meisner-20200410', 'https://www.goodtherapy.org/therapists/profile/nancy-sherrod-20150717']
+
+
+SKIPPING Tamra Hughes - Therapist already exists in database.
+SKIPPING Cheaven Roberts - Therapist already exists in database.
+SKIPPING Carrie McCrudden - Therapist already exists in database.
+SKIPPING Lacey Wilkins - Therapist already exists in database.
+SKIPPING Suzanne Sellers - Therapist already exists in database.
+SKIPPING Michelle Keelan - Therapist already exists in database.
+SKIPPING Jacob Meyer - Therapist already exists in database.
+SKIPPING Allison White - Therapist already exists in database.
+SKIPPING Savana Meisner - Therapist already exists in database.
+SKIPPING Nancy Sherrod - Therapist already exists in database.
+Crawling page: /home/cgridley/Galvanize/repos/capstones/TherapistFitter/data/html/TherapistListings/Boulder/SearchResults11.html
+
+Found profile links: - ['https://www.goodtherapy.org/therapists/profile/dara-williams--20180101', 'https://www.goodtherapy.org/therapists/profile/robert-vitaletti-20170521', 'https://www.goodtherapy.org/therapists/profile/kurt-moore-20170119', 'https://www.goodtherapy.org/therapists/profile/auburn-meisner-20181004', 'https://www.goodtherapy.org/therapists/profile/audsley-rich-20190126', 'https://www.goodtherapy.org/therapists/profile/blake-ruble-20190823', 'https://www.goodtherapy.org/therapists/profile/peg-vroom-20161011', 'https://www.goodtherapy.org/therapists/profile/alecia-zunker-20200220', 'https://www.goodtherapy.org/therapists/profile/julie-reichenberger-20200327', 'https://www.goodtherapy.org/therapists/profile/allison-bratsch-20191013']
+
+
+SKIPPING Dara Williams - Therapist already exists in database.
+SKIPPING Robert Vitaletti - Therapist already exists in database.
+SKIPPING Kurt Moore - Therapist already exists in database.
+SKIPPING Auburn Meisner - Therapist already exists in database.
+SKIPPING Rich Audsley - Therapist already exists in database.
+SKIPPING Blake Ruble - Therapist already exists in database.
+SKIPPING Peg Vroom - Therapist already exists in database.
+SKIPPING Alecia Zunker - Therapist already exists in database.
+SKIPPING Julie Reichenberger - Therapist already exists in database.
+SKIPPING Allison Bratsch - Therapist already exists in database.
+Crawling page: /home/cgridley/Galvanize/repos/capstones/TherapistFitter/data/html/TherapistListings/Boulder/SearchResults12.html
+
+Found profile links: - ['https://www.goodtherapy.org/therapists/profile/andrea-risi-20130730', 'https://www.goodtherapy.org/therapists/profile/ruth-weinberg-20140408', 'https://www.goodtherapy.org/therapists/profile/eric-eichler-20190613', 'https://www.goodtherapy.org/therapists/profile/jessica-dolgan-20090429', 'https://www.goodtherapy.org/therapists/profile/peder-furuseth-20090522', 'https://www.goodtherapy.org/therapists/profile/melissa-laflamme-20080128', 'https://www.goodtherapy.org/therapists/profile/jason-wells-phd-20190513', 'https://www.goodtherapy.org/therapists/profile/whitney-cline-20200211', 'https://www.goodtherapy.org/therapists/profile/julia-olson-20151125', 'https://www.goodtherapy.org/therapists/profile/lizzie-stevenson-20180415']
+
+
+SKIPPING Andrea Risi - Therapist already exists in database.
+SKIPPING Ruth Weinberg - Therapist already exists in database.
+SKIPPING Eric Eichler - Therapist already exists in database.
+SKIPPING Jessica Dolgan - Therapist already exists in database.
+SKIPPING Peder Furuseth - Therapist already exists in database.
+SKIPPING Melissa LaFlamme - Therapist already exists in database.
+SKIPPING Jason Wells PhD - Therapist already exists in database.
+SKIPPING Whitney Cline - Therapist already exists in database.
+SKIPPING Julia Olson - Therapist already exists in database.
+SKIPPING Lizzie Stevenson - Therapist already exists in database.
+Crawling page: /home/cgridley/Galvanize/repos/capstones/TherapistFitter/data/html/TherapistListings/Boulder/SearchResults13.html
+
+Found profile links: - ['https://www.goodtherapy.org/therapists/profile/emily-pattee-20171101', 'https://www.goodtherapy.org/therapists/profile/shoshana-aal-20190218']
+
+
+SKIPPING Emily Pattee - Therapist already exists in database.
+SKIPPING Dr. Shoshana Aal - Therapist already exists in database.
+Crawling page: /home/cgridley/Galvanize/repos/capstones/TherapistFitter/data/html/TherapistListings/Boulder/SearchResults2.html
+
+Found profile links: - ['https://www.goodtherapy.org/therapists/profile/heather-pylant-20131120', 'https://www.goodtherapy.org/therapists/profile/suzanne-holmes-20100113', 'https://www.goodtherapy.org/therapists/profile/daniel-minerva-20180711', 'https://www.goodtherapy.org/therapists/profile/natalie-henry-20191111', 'https://www.goodtherapy.org/therapists/profile/trelsie-cople-20200119', 'https://www.goodtherapy.org/therapists/profile/celia-bockhoff-20100319', 'https://www.goodtherapy.org/therapists/profile/nancy-nunes-20110312', 'https://www.goodtherapy.org/therapists/profile/elizabeth-klaers-20141026', 'https://www.goodtherapy.org/therapists/profile/allison-villarreal-20170830', 'https://www.goodtherapy.org/therapists/profile/shara-brun-20140715', 'https://www.goodtherapy.org/therapists/profile/chris-davis-20181010']
+
+
+Created therapist id: 266 for Heather Pylant
+Therapist saved to Postgres: Heather Pylant
+Created therapist id: 267 for Suzanne Holmes
+Therapist saved to Postgres: Suzanne Holmes
+SKIPPING Daniel Minerva - Therapist already exists in database.
+Created therapist id: 268 for Natalie Henry
+Therapist saved to Postgres: Natalie Henry
+Created therapist id: 269 for Trelsie Cople
+Therapist saved to Postgres: Trelsie Cople
+SKIPPING Celia Bockhoff - Therapist already exists in database.
+SKIPPING Nancy Nunes - Therapist already exists in database.
+SKIPPING Elizabeth Klaers - Therapist already exists in database.
+SKIPPING Allison Villarreal - Therapist already exists in database.
+SKIPPING Shara Brun - Therapist already exists in database.
+SKIPPING Chris Davis - Therapist already exists in database.
+Crawling page: /home/cgridley/Galvanize/repos/capstones/TherapistFitter/data/html/TherapistListings/Boulder/SearchResults3.html
+
+Found profile links: - ['https://www.goodtherapy.org/therapists/profile/jaylynne-chasejacobsen-20070903', 'https://www.goodtherapy.org/therapists/profile/lynne-foote-20091026', 'https://www.goodtherapy.org/therapists/profile/mariana-iurcovich-20190211', 'https://www.goodtherapy.org/therapists/profile/vikki-dial-20190905', 'https://www.goodtherapy.org/therapists/profile/megan-ramos-20191203', 'https://www.goodtherapy.org/therapists/profile/gary-howard-20200227', 'https://www.goodtherapy.org/therapists/profile/kathryn-mcguirk-20141006', 'https://www.goodtherapy.org/therapists/profile/allison-weliky-20071116', 'https://www.goodtherapy.org/therapists/profile/claudia-hartke-20181016', 'https://www.goodtherapy.org/therapists/profile/angela-bigford-20091006', 'https://www.goodtherapy.org/therapists/profile/david-robbins-20110901', 'https://www.goodtherapy.org/therapists/profile/amy-winters-20121201']
+
+
+Created therapist id: 270 for Jaylynne Chase-Jacobsen
+Therapist saved to Postgres: Jaylynne Chase-Jacobsen
+SKIPPING Lynne Foote - Therapist already exists in database.
+SKIPPING Mariana Iurcovich - Therapist already exists in database.
+SKIPPING Vikki Dial - Therapist already exists in database.
+SKIPPING Megan Ramos - Therapist already exists in database.
+SKIPPING Gary Howard - Therapist already exists in database.
+SKIPPING Kathryn McGuirk - Therapist already exists in database.
+SKIPPING Allison Weliky - Therapist already exists in database.
+SKIPPING Claudia Hartke, PhD, SEP - Therapist already exists in database.
+SKIPPING Angela Bigford - Therapist already exists in database.
+SKIPPING David Robbins - Therapist already exists in database.
+SKIPPING Amy Winters - Therapist already exists in database.
+Crawling page: /home/cgridley/Galvanize/repos/capstones/TherapistFitter/data/html/TherapistListings/Boulder/SearchResults4.html
+
+Found profile links: - ['https://www.goodtherapy.org/therapists/profile/celia-bockhoff-20100319', 'https://www.goodtherapy.org/therapists/profile/allison-weliky-20071116', 'https://www.goodtherapy.org/therapists/profile/eve-kilmer-20130218', 'https://www.goodtherapy.org/therapists/profile/cedar-barstow-20071022', 'https://www.goodtherapy.org/therapists/profile/gil-shalit-20070915', 'https://www.goodtherapy.org/therapists/profile/jaylynne-chasejacobsen-20070903', 'https://www.goodtherapy.org/therapists/profile/emily-hoyt-20200215', 'https://www.goodtherapy.org/therapists/profile/aiya-staller-20180609', 'https://www.goodtherapy.org/therapists/profile/susan-guthrie-20140723', 'https://www.goodtherapy.org/therapists/profile/sarah-carlson-20140408', 'https://www.goodtherapy.org/therapists/profile/kathy-naman-20090211', 'https://www.goodtherapy.org/therapists/profile/hilah-neisha-remaily-20200206']
+
+
+SKIPPING Celia Bockhoff - Therapist already exists in database.
+SKIPPING Allison Weliky - Therapist already exists in database.
+SKIPPING Eve Kilmer - Therapist already exists in database.
+Created therapist id: 271 for Dr. Cedar Barstow
+Therapist saved to Postgres: Dr. Cedar Barstow
+Created therapist id: 272 for Gil Shalit
+Therapist saved to Postgres: Gil Shalit
+SKIPPING Jaylynne Chase-Jacobsen - Therapist already exists in database.
+Created therapist id: 273 for Emily Hoyt
+Therapist saved to Postgres: Emily Hoyt
+SKIPPING Aiya Staller - Therapist already exists in database.
+Created therapist id: 274 for Susan Guthrie
+Therapist saved to Postgres: Susan Guthrie
+SKIPPING Sarah Carlson - Therapist already exists in database.
+Created therapist id: 275 for Kathy Naman
+Therapist saved to Postgres: Kathy Naman
+Created therapist id: 276 for Hilah Neisha Remaily
+Therapist saved to Postgres: Hilah Neisha Remaily
+Crawling page: /home/cgridley/Galvanize/repos/capstones/TherapistFitter/data/html/TherapistListings/Boulder/SearchResults5.html
+
+Found profile links: - ['https://www.goodtherapy.org/therapists/profile/jennifer-abbott-20160705', 'https://www.goodtherapy.org/therapists/profile/david-robbins-20110901', 'https://www.goodtherapy.org/therapists/profile/brianna-hammerman-20150106', 'https://www.goodtherapy.org/therapists/profile/suzanne-holmes-20100113', 'https://www.goodtherapy.org/therapists/profile/sunda-friedman-tebockhorst-20111230', 'https://www.goodtherapy.org/therapists/profile/monica-ramunda-20160913', 'https://www.goodtherapy.org/therapists/profile/rosalind-bard-20091212', 'https://www.goodtherapy.org/therapists/profile/kaia-livingstone-20190325', 'https://www.goodtherapy.org/therapists/profile/genna-brocone-20131210', 'https://www.goodtherapy.org/therapists/profile/heather-m-bair-20150112', 'https://www.goodtherapy.org/therapists/profile/michael-da-20181229', 'https://www.goodtherapy.org/therapists/profile/gail-margolis-20160327']
+
+
+SKIPPING Jennifer Abbott - Therapist already exists in database.
+SKIPPING David Robbins - Therapist already exists in database.
+SKIPPING Brianna Hammerman - Therapist already exists in database.
+SKIPPING Suzanne Holmes - Therapist already exists in database.
+Created therapist id: 277 for Sunda Friedman TeBockhorst
+Therapist saved to Postgres: Sunda Friedman TeBockhorst
+SKIPPING Monica Ramunda - Therapist already exists in database.
+SKIPPING Rosalind Bard - Therapist already exists in database.
+Created therapist id: 278 for Kaia Livingstone
+Therapist saved to Postgres: Kaia Livingstone
+SKIPPING Genna Brocone - Therapist already exists in database.
+SKIPPING Heather M Bair - Therapist already exists in database.
+Created therapist id: 279 for Michael Da
+Therapist saved to Postgres: Michael Da
+Created therapist id: 280 for Gail Margolis
+Therapist saved to Postgres: Gail Margolis
+Crawling page: /home/cgridley/Galvanize/repos/capstones/TherapistFitter/data/html/TherapistListings/Boulder/SearchResults6.html
+
+Found profile links: - ['https://www.goodtherapy.org/therapists/profile/allison-villarreal-20170830', 'https://www.goodtherapy.org/therapists/profile/monica-ramunda-20160913', 'https://www.goodtherapy.org/therapists/profile/cassidy-erickson-20110606', 'https://www.goodtherapy.org/therapists/profile/rachael-collins-20170919', 'https://www.goodtherapy.org/therapists/profile/heather-auttersonkniss-20170621', 'https://www.goodtherapy.org/therapists/profile/jennifer-barber-20180825', 'https://www.goodtherapy.org/therapists/profile/cynthia-gordon-20110925', 'https://www.goodtherapy.org/therapists/profile/caitlan-siegenthaler-20200416', 'https://www.goodtherapy.org/therapists/profile/kristen-lewis-20180216', 'https://www.goodtherapy.org/therapists/profile/vickie-kulinski-20160324', 'https://www.goodtherapy.org/therapists/profile/michael-smith-20111025', 'https://www.goodtherapy.org/therapists/profile/kate-kendrick-20140810']
+
+
+SKIPPING Allison Villarreal - Therapist already exists in database.
+SKIPPING Monica Ramunda - Therapist already exists in database.
+SKIPPING Cassidy Erickson - Therapist already exists in database.
+SKIPPING Rachael Collins - Therapist already exists in database.
+SKIPPING Heather Autterson Kniss - Therapist already exists in database.
+SKIPPING Jennifer Barber - Therapist already exists in database.
+Created therapist id: 281 for Cynthia Gordon
+Therapist saved to Postgres: Cynthia Gordon
+SKIPPING Caitlan Siegenthaler - Therapist already exists in database.
+SKIPPING Kristen Lewis - Therapist already exists in database.
+Created therapist id: 282 for Vickie Kulinski
+Therapist saved to Postgres: Vickie Kulinski
+Created therapist id: 283 for Michael Smith
+Therapist saved to Postgres: Michael Smith
+Created therapist id: 284 for Kate Kendrick
+Therapist saved to Postgres: Kate Kendrick
+Crawling page: /home/cgridley/Galvanize/repos/capstones/TherapistFitter/data/html/TherapistListings/Boulder/SearchResults7.html
+
+Found profile links: - ['https://www.goodtherapy.org/therapists/profile/april-pojman-20131001', 'https://www.goodtherapy.org/therapists/profile/sunda-friedman-tebockhorst-20111230', 'https://www.goodtherapy.org/therapists/profile/dan-kendrick-20170127', 'https://www.goodtherapy.org/therapists/profile/linda-chassman-20100617', 'https://www.goodtherapy.org/therapists/profile/joanna-mctevia-20140604', 'https://www.goodtherapy.org/therapists/profile/lisa-kishpittman-20190405', 'https://www.goodtherapy.org/therapists/profile/aaron-anderson-20130521', 'https://www.goodtherapy.org/therapists/profile/melissa-walker-20120531', 'https://www.goodtherapy.org/therapists/profile/mary-foster-20120918', 'https://www.goodtherapy.org/therapists/profile/kathryn-montgomery-20160321', 'https://www.goodtherapy.org/therapists/profile/stephanie-camins-20170522', 'https://www.goodtherapy.org/therapists/profile/clare-comstock-20170911']
+
+
+SKIPPING April Pojman - Therapist already exists in database.
+SKIPPING Sunda Friedman TeBockhorst - Therapist already exists in database.
+Created therapist id: 285 for Dan Kendrick
+Therapist saved to Postgres: Dan Kendrick
+SKIPPING Linda Chassman - Therapist already exists in database.
+SKIPPING JoAnna McTevia - Therapist already exists in database.
+SKIPPING Lisa Kish-Pittman - Therapist already exists in database.
+SKIPPING Aaron Anderson - Therapist already exists in database.
+SKIPPING Melissa Walker - Therapist already exists in database.
+SKIPPING Mary Foster - Therapist already exists in database.
+SKIPPING Kathryn Montgomery - Therapist already exists in database.
+SKIPPING Stephanie Camins - Therapist already exists in database.
+SKIPPING Clare Comstock - Therapist already exists in database.
+Crawling page: /home/cgridley/Galvanize/repos/capstones/TherapistFitter/data/html/TherapistListings/Boulder/SearchResults8.html
+
+Found profile links: - ['https://www.goodtherapy.org/therapists/profile/heather-smith-20180111', 'https://www.goodtherapy.org/therapists/profile/morgan-dingle-20191203', 'https://www.goodtherapy.org/therapists/profile/kate-heit-20200204', 'https://www.goodtherapy.org/therapists/profile/hans-sieber-20090923', 'https://www.goodtherapy.org/therapists/profile/pam-snyder-20100809', 'https://www.goodtherapy.org/therapists/profile/annie-hutt-20140922', 'https://www.goodtherapy.org/therapists/profile/nancy-gunzner-20140403', 'https://www.goodtherapy.org/therapists/profile/angela-romero-20180217', 'https://www.goodtherapy.org/therapists/profile/lisa-elsey-20190219', 'https://www.goodtherapy.org/therapists/profile/anne-perry-20171010']
+
+
+SKIPPING Heather Smith - Therapist already exists in database.
+SKIPPING Morgan Dingle - Therapist already exists in database.
+SKIPPING Kate Heit - Therapist already exists in database.
+SKIPPING Hans Sieber - Therapist already exists in database.
+SKIPPING Pam Snyder - Therapist already exists in database.
+SKIPPING Annie Hutt - Therapist already exists in database.
+SKIPPING Nancy Gunzner - Therapist already exists in database.
+SKIPPING Angela Romero - Therapist already exists in database.
+SKIPPING Lisa Elsey - Therapist already exists in database.
+SKIPPING Anne Perry - Therapist already exists in database.

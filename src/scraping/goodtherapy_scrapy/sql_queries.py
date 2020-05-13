@@ -7,6 +7,21 @@ class SqlQueries(object):
         self.conn = conn
         self.cur = cur
 
+    def full_name_exists(self, full_name:str)->bool:
+        if self.select_full_name(full_name) is not None:
+            return True
+        else:
+            return False
+
+    def select_full_name(self, value:str)->int:
+        self.cur.execute('''SELECT therapist_id FROM therapists WHERE full_name=%(full_name)s;''',
+            {'full_name':value}
+            )
+        if self.cur.rowcount <= 0:
+            return None
+        else:
+            return self.cur.fetchone()[0]
+
     def select_age_group_id(self, value:str)->int:
         self.cur.execute('''SELECT age_group_id FROM age_groups WHERE age_group=%(age_group)s;''',
             {'age_group':value}
@@ -43,39 +58,49 @@ class SqlQueries(object):
         return value_id
 
     def insert_therapist_age_groups(self, therapist_id:int, scrapy_item)->None:
-        for val in scrapy_item.get('age_group_list'):
-            age_group_id = self.select_age_group_id(val)
-            self.cur.execute('''INSERT INTO therapist_age_groups VALUES (%(therapist_id)s, %(age_group_id)s);''',
-            {'therapist_id':therapist_id, 'age_group_id':age_group_id}
-            )
+        ls = scrapy_item.get('age_group_list')
+        if ls is not None:
+            for val in ls:
+                age_group_id = self.select_age_group_id(val)
+                self.cur.execute('''INSERT INTO therapist_age_groups VALUES (%(therapist_id)s, %(age_group_id)s);''',
+                {'therapist_id':therapist_id, 'age_group_id':age_group_id}
+                )
 
     def insert_therapist_issues(self, therapist_id:int, scrapy_item)->None:
-        for val in scrapy_item.get('issues_list'):
-            issue_id = self.select_issue_id(val)
-            self.cur.execute('''INSERT INTO therapist_issues VALUES (%(therapist_id)s, %(issue_id)s);''',
-            {'therapist_id':therapist_id, 'issue_id':issue_id}
-            )
+        ls = scrapy_item.get('issues_list')
+        if ls is not None:
+            for val in ls:
+                issue_id = self.select_issue_id(val)
+                self.cur.execute('''INSERT INTO therapist_issues VALUES (%(therapist_id)s, %(issue_id)s);''',
+                {'therapist_id':therapist_id, 'issue_id':issue_id}
+                )
     
     def insert_therapist_orientations(self, therapist_id:int, scrapy_item)->None:
-        for val in scrapy_item.get('orientations_list'):
-            orientation_id = self.select_orientation_id(val)
-            self.cur.execute('''INSERT INTO therapist_orientations VALUES (%(therapist_id)s, %(orientation_id)s);''',
-            {'therapist_id':therapist_id, 'orientation_id':orientation_id}
-            )
+        ls = scrapy_item.get('orientations_list')
+        if ls is not None:
+            for val in ls:
+                orientation_id = self.select_orientation_id(val)
+                self.cur.execute('''INSERT INTO therapist_orientations VALUES (%(therapist_id)s, %(orientation_id)s);''',
+                {'therapist_id':therapist_id, 'orientation_id':orientation_id}
+                )
 
     def insert_therapist_professions(self, therapist_id:int, scrapy_item)->None:
-        for val in scrapy_item.get('professions_list'):
-            profession_id = self.select_profession_id(val)
-            self.cur.execute('''INSERT INTO therapist_professions VALUES (%(therapist_id)s, %(profession_id)s);''',
-            {'therapist_id':therapist_id, 'profession_id':profession_id}
-            )
+        ls = scrapy_item.get('professions_list')
+        if ls is not None:
+            for val in ls:
+                profession_id = self.select_profession_id(val)
+                self.cur.execute('''INSERT INTO therapist_professions VALUES (%(therapist_id)s, %(profession_id)s);''',
+                {'therapist_id':therapist_id, 'profession_id':profession_id}
+                )
 
     def insert_therapist_services(self, therapist_id:int, scrapy_item)->None:
-        for val in scrapy_item.get('services_list'):
-            service_id = self.select_service_id(val)
-            self.cur.execute('''INSERT INTO therapist_services VALUES (%(therapist_id)s, %(service_id)s);''',
-            {'therapist_id':therapist_id, 'service_id':service_id}
-            )
+        ls = scrapy_item.get('services_list')
+        if ls is not None:
+            for val in ls:
+                service_id = self.select_service_id(val)
+                self.cur.execute('''INSERT INTO therapist_services VALUES (%(therapist_id)s, %(service_id)s);''',
+                {'therapist_id':therapist_id, 'service_id':service_id}
+                )
 
     def insert_therapist_info(self, scrapy_item)->int:
         #print(f'SCRAPY ITEM FIELD: {scrapy_item}')
@@ -116,36 +141,46 @@ class SqlQueries(object):
         return self.cur.fetchone()[0]
 
     def insert_age_groups(self, scrapy_item) -> None:
-        for val in scrapy_item.get('age_group_list'):
-            self.cur.execute('''INSERT INTO age_groups (age_group) 
-            VALUES (%s)
-            ON CONFLICT DO NOTHING
-            ;''', [val])
+        ls = scrapy_item.get('age_group_list')
+        if ls is not None:
+            for val in ls:
+                self.cur.execute('''INSERT INTO age_groups (age_group) 
+                VALUES (%s)
+                ON CONFLICT DO NOTHING
+                ;''', [val])
 
     def insert_issues(self, scrapy_item) -> None:
-        for val in scrapy_item.get('issues_list'):
-            self.cur.execute('''INSERT INTO issues (issue) 
-            VALUES (%s)
-            ON CONFLICT DO NOTHING
-            ;''', [val])
+        ls = scrapy_item.get('issues_list')
+        if ls is not None:
+            for val in ls:
+                self.cur.execute('''INSERT INTO issues (issue) 
+                VALUES (%s)
+                ON CONFLICT DO NOTHING
+                ;''', [val])
 
     def insert_orientations(self, scrapy_item) -> None:
-        for val in scrapy_item.get('orientations_list'):
-            self.cur.execute('''INSERT INTO orientations (orientation) 
-            VALUES (%s)
-            ON CONFLICT DO NOTHING
-            ;''', [val])
+        ls = scrapy_item.get('orientations_list')
+        if ls is not None:
+            for val in ls:
+                self.cur.execute('''INSERT INTO orientations (orientation) 
+                VALUES (%s)
+                ON CONFLICT DO NOTHING
+                ;''', [val])
     
     def insert_professions(self, scrapy_item) -> None:
-        for val in scrapy_item.get('professions_list'):
-            self.cur.execute('''INSERT INTO professions (profession) 
-            VALUES (%s)
-            ON CONFLICT DO NOTHING
-            ;''', [val])
+        ls = scrapy_item.get('professions_list')
+        if ls is not None:
+            for val in ls:
+                self.cur.execute('''INSERT INTO professions (profession) 
+                VALUES (%s)
+                ON CONFLICT DO NOTHING
+                ;''', [val])
 
     def insert_services(self, scrapy_item) -> None:
-        for val in scrapy_item.get('services_list'):
-            self.cur.execute('''INSERT INTO services (service) 
-            VALUES (%s)
-            ON CONFLICT DO NOTHING
-            ;''', [val])
+        ls = scrapy_item.get('services_list')
+        if ls is not None:
+            for val in ls:
+                self.cur.execute('''INSERT INTO services (service) 
+                VALUES (%s)
+                ON CONFLICT DO NOTHING
+                ;''', [val])

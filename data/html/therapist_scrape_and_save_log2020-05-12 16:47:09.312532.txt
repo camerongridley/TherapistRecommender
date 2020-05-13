@@ -1,0 +1,7 @@
+Crawling page: /home/cgridley/Galvanize/repos/capstones/TherapistFitter/data/html/ShortResults.html
+
+Found profile links: - ['https://www.goodtherapy.org/therapists/profile/lori-johnson-20140627', 'https://www.goodtherapy.org/therapists/profile/molly-jenkins-20171030', 'https://www.goodtherapy.org/therapists/profile/lizzie-stevenson-20180415']
+
+
+SKIPING Lori Johnson - Therapist already exists in database.
+SKIPING Lizzie Stevenson - Therapist already exists in database.

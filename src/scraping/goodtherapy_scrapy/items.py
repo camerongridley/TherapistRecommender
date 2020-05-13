@@ -32,28 +32,10 @@ class TherapistItem(scrapy.Item):
     writing_sample = scrapy.Field()
 
     # PsychologyToday-specific fields
-    license_num = scrapy.Field()
-    license_state = scrapy.Field()
-    years_in_practice = scrapy.Field()
-    school = scrapy.Field()
-    year_graduated = scrapy.Field()
+    # license_num = scrapy.Field()
+    # license_state = scrapy.Field()
+    # years_in_practice = scrapy.Field()
+    # school = scrapy.Field()
+    # year_graduated = scrapy.Field()
 
-# class AgeGroupItem(scrapy.Item):
-#     age_group = scrapy.Field()
-
-# class IssueItem(scrapy.Item):
-#     issue = scrapy.Field()
-
-# class OrientationItem(scrapy.Item):
-#     orientation = scrapy.Field()
-
-# class ProfessionItem(scrapy.Item):
-#     profession = scrapy.Field()
-
-# class ServiceItem(scrapy.Item):
-#     service = scrapy.Field()
-
-# class WritingSampleItem(scrapy.Item):
-#     sample = scrapy.Field()
-#     source = scrapy.Field()
 
