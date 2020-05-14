@@ -86,7 +86,7 @@ sample values from each category
 
 |                                                          |                                                              |
 | -------------------------------------------------------- | ------------------------------------------------------------ |
-| ![pca_2_comps_tfidf](img/data_vis/pca_2_comps_tfidf.png) | ![pca_cum_scree_tfidf](/home/cgridley/Galvanize/repos/capstones/TherapistFitter/img/data_vis/pca_cum_scree_tfidf.png) |
+| ![pca_2_comps_tfidf](img/data_vis/pca_2_comps_tfidf.png) | ![pca_cum_scree_tfidf](img/data_vis/pca_cum_scree_tfidf.png) |
 
 
 
@@ -94,11 +94,11 @@ sample values from each category
 
 
 
-![pca_2_comps_tf](/home/cgridley/Galvanize/repos/capstones/TherapistFitter/img/data_vis/pca_2_comps_tf.png)
+![pca_2_comps_tf](img/data_vis/pca_2_comps_tf.png)
 
 
 
-![pca_cum_scree_tf](/home/cgridley/Galvanize/repos/capstones/TherapistFitter/img/data_vis/pca_cum_scree_tf.png)
+![pca_cum_scree_tf](img/data_vis/pca_cum_scree_tf.png)
 
 ## Model Info
 
