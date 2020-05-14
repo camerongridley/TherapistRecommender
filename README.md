@@ -1,6 +1,8 @@
-# TherapistFitter
+# NLP Analysis of Therapists' Writing
 
-### The Problem: 
+![](img/banner-head-shade.png)
+
+## The Problem: 
 
 People often are confused about how to choose a therapist. The best resource for a recommendation tends to be from a trusted family or friend. However, that is often not available or the person doesn't feel comfortable letting others know they are seeking therapy. So where to go? 
 
@@ -14,26 +16,53 @@ In **Denver**, there are **1,912 therapists** listed on PsychologyToday.com's th
 
 Create a machine learning model that matches a client to a therapist based on NLP analysis of a writing sample from each party.
 
-### The First Step and Capstone 1 Goals:
+### Capstone 1 Goals:
 
 - Create a dataset of therapist writing samples from therapist profiles found from publicly available data on GoodTherapy.com
 - Perform topic modeling on writing samples of Greater Denver Area therapists to see what themes cluster therapists together base on what words they use to describe their practice.
 - Therapists often group around their **therapeutic orientation**, which is the primary psychological theory that guides their work. I will explore how the topics generates align with the traditional orientations.
 
-Capstone 3: 
-MVP Predicts a therapist's treatment approach from their writing style.
-
 ## The Data
 
-I obtained profile data for 273 therapists from GoodTherapy.com.
+I obtained profile data for 273 therapists from GoodTherapy.com. 
 
-#### Sample Profile
+### Sample Profile
 
 ![](img/profile_example.png)
 
 
 
+##### Data Fields
 
+Almost all of the data is categorical, many of which were lists.
+
+| strings                  | text                 | boolean          | int  |
+| ------------------------ | -------------------- | ---------------- | ---- |
+| name                     | practice description | license verified |      |
+| address                  |                      |                  |      |
+| phone                    |                      |                  |      |
+| license status           |                      |                  |      |
+| primary credential       |                      |                  |      |
+| website                  |                      |                  |      |
+| types of therapy (list)  |                      |                  |      |
+| issues treated (list)    |                      |                  |      |
+| services provided (list) |                      |                  |      |
+| age groups (list)        |                      |                  |      |
+| professions (list)       |                      |                  |      |
+
+### More on why it is hard to pick a therapist
+
+Usually 
+
+### Workflow
+
+Scrape -> Postgres -> Pandas -> NLTK processing -> SKLearn Analysis (LDA)  - maybe spaCy also
+
+
+
+### Database Design
+
+PostgreSQL is "a general purpose and object-relational database management system, the most advanced open source database system" that implement structures query language (SQL).  PostgreSQL was developed in the Berkeley Computer Science Department at the University of California.
 
 
 
@@ -43,17 +72,9 @@ Created database after designating the key data available on GoodTherapy.org and
 
 
 
-#### Workflow
 
-Scrape -> Postgres -> Pandas -> NLTK processing ->SKLearn Analysis (LDA)  - maybe spaCy also
 
 ## EDA
-
-unique category values plot
-
-sample values from each category
-
-
 
 ![](img/word_count_hist.png)
 
@@ -67,7 +88,10 @@ sample values from each category
 
 
 
-Model Info
+primary credential vs counts of categories - overlapping histograms
 
+sample values from each category
 
-Model Results
+## Model Info
+
+## Model Results
