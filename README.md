@@ -1,4 +1,4 @@
-# NLP Analysis of Therapists' Writing
+# NLP Analysis of Therapists' Profile Writing
 
 ![](img/banner-head-shade.png)
 
@@ -36,37 +36,29 @@ I obtained profile data for 273 therapists from GoodTherapy.com.
 
 Almost all of the data is categorical, many of which were lists.
 
-| strings                  | text                 | boolean          | int  |
-| ------------------------ | -------------------- | ---------------- | ---- |
-| name                     | practice description | license verified |      |
-| address                  |                      |                  |      |
-| phone                    |                      |                  |      |
-| license status           |                      |                  |      |
-| primary credential       |                      |                  |      |
-| website                  |                      |                  |      |
-| types of therapy (list)  |                      |                  |      |
-| issues treated (list)    |                      |                  |      |
-| services provided (list) |                      |                  |      |
-| age groups (list)        |                      |                  |      |
-| professions (list)       |                      |                  |      |
-
-### More on why it is hard to pick a therapist
-
-Usually 
+| strings                  | text                                       | boolean          | int  |
+| ------------------------ | ------------------------------------------ | ---------------- | ---- |
+| name                     | practice description (i.e. writing sample) | license verified |      |
+| address                  |                                            |                  |      |
+| phone                    |                                            |                  |      |
+| license status           |                                            |                  |      |
+| primary credential       |                                            |                  |      |
+| website                  |                                            |                  |      |
+| types of therapy (list)  |                                            |                  |      |
+| issues treated (list)    |                                            |                  |      |
+| services provided (list) |                                            |                  |      |
+| age groups (list)        |                                            |                  |      |
+| professions (list)       |                                            |                  |      |
 
 ### Workflow
 
-Scrape -> Postgres -> Pandas -> NLTK processing -> SKLearn Analysis (LDA)  - maybe spaCy also
-
-
+![workflow](img/workflow.png)
 
 ### Database Design
 
 PostgreSQL is "a general purpose and object-relational database management system, the most advanced open source database system" that implement structures query language (SQL).  PostgreSQL was developed in the Berkeley Computer Science Department at the University of California.
 
-
-
-Created database after designating the key data available on GoodTherapy.org and PsychologyToday.com. Both had very similar data with some different naming conventions. Certain features (issues, specialties, communities, groups, modalities, services) had several spelling variations on values so I reviewed these features and consolidated them to eliminate/reduce redundancy. I also engineered a new feature of **core_orientation** in which I used domain expertise and supplemenal research to in order to group treatment approaches and types of therapy into parent classes. The commonly identified primary therapeutic orientations are Psycho-dynamic, Cognitive Behavioral, Interpersonal, Somatic,  and Eclectic. TA therapist is designated Eclectic if they have more than 1 of the other core_orientations.
+The database design was based of data available on GoodTherapy.org and PsychologyToday.com. Both had very similar data with some different naming conventions. 
 
 ![](img/TherapistFitterSchema.png)
 
@@ -76,21 +68,37 @@ Created database after designating the key data available on GoodTherapy.org and
 
 ## EDA
 
-![](img/word_count_hist.png)
+![](img/data_vis/word_count_hist.png)
+
+![](img/data_vis/uniques_per_category.png)
+
+![](img/data_vis/website_bar.png)
 
 
 
-![](img/website_bar.png)
 
 
 
-![](img/uniques_per_category.png)
-
-
-
-primary credential vs counts of categories - overlapping histograms
 
 sample values from each category
+
+## Looking for Structure with PCA
+
+|                                                          |                                                              |
+| -------------------------------------------------------- | ------------------------------------------------------------ |
+| ![pca_2_comps_tfidf](img/data_vis/pca_2_comps_tfidf.png) | ![pca_cum_scree_tfidf](/home/cgridley/Galvanize/repos/capstones/TherapistFitter/img/data_vis/pca_cum_scree_tfidf.png) |
+
+
+
+
+
+
+
+![pca_2_comps_tf](/home/cgridley/Galvanize/repos/capstones/TherapistFitter/img/data_vis/pca_2_comps_tf.png)
+
+
+
+![pca_cum_scree_tf](/home/cgridley/Galvanize/repos/capstones/TherapistFitter/img/data_vis/pca_cum_scree_tf.png)
 
 ## Model Info
 

@@ -16,17 +16,30 @@ from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
 from sklearn.metrics.pairwise import linear_kernel
 
 from sklearn.decomposition import LatentDirichletAllocation
-
-# see a 2d representation of the data using PCA
 from sklearn.decomposition import PCA
 from sklearn.preprocessing import StandardScaler
+
 scaler = StandardScaler(copy=True, with_mean=True, with_std=True)
+plt.rcParams['font.family'] = 'Ubuntu'
+plt.rcParams['font.weight'] = 'normal'
+plt.rcParams['font.size'] = 18
+plt.rcParams['axes.linewidth'] = 2
+plt.rcParams['axes.spines.top'] = False
+plt.rcParams['axes.spines.right'] = False
+
+plt.rcParams['xtick.major.size'] = 10
+plt.rcParams['xtick.major.width'] = 2
+plt.rcParams['ytick.major.size'] = 2
+plt.rcParams['ytick.major.width'] = 2
+plt.rcParams['figure.figsize'] = [10,6]
 
 class NlpProcessor(object):
 
-    def __init__(self, log_file_path):
+    def __init__(self, log_file_path, log_lda, palette):
         self.conn = self.open_conn()
         self.log_file_path = log_file_path
+        self.log_lda = log_lda
+        self.palette = palette
 
     def open_conn(self):
         return psycopg2.connect(dbname='therapist_predictor', user='postgres', host='localhost', password='password')
@@ -113,20 +126,29 @@ class NlpProcessor(object):
 
         return stop_words.union(custom_stop_words)
 
-    def create_term_freqeuncy_matrix(self, df:pd.DataFrame, all_stop_words:list, n_gram_range, max_features, remove_punc=True, tokenizer='None'):
-        tokens = self.text_tokenization_pipeline(df['writing_sample'],stop_words=all_stop_words,
-                                                remove_punc=True, tokenizer='none')
+    def create_tf_matrix(self, docs, all_stop_words:list, n_gram_range, max_features, remove_punc=True, tokenizer='None'):
+        tokens = self.text_tokenization_pipeline(docs,stop_words=all_stop_words,
+                                                remove_punc=True, tokenizer=tokenizer)
 
         documents = [' '.join(doc) for doc in tokens]
-
-        # tfidf_vect = TfidfVectorizer(lowercase=False)
-        # tfidf_matrix = tfidf_vect.fit_transform(documents)
-        #print(tfidf_vect.get_feature_names())
 
         count_vect = CountVectorizer(max_features=max_features, ngram_range=n_gram_range)
         tf_matrix = count_vect.fit_transform(documents)
 
         return tf_matrix, count_vect
+
+    def create_tf_idf_matrix(self, docs, all_stop_words:list,max_feats , n_gram_range, tokenizer='None'):
+        # tokens is a list of lists - words per document
+        tokens = nlp.text_tokenization_pipeline(docs, stop_words=all_stop_words,
+                                                    remove_punc=True, tokenizer=tokenizer)
+
+        # reconstruct each document after processing
+        documents = [' '.join(doc) for doc in tokens]
+        tfidf_vect = TfidfVectorizer(ngram_range=n_gram_range,max_features=max_feats, lowercase=False)
+        tfidf_matrix = tfidf_vect.fit_transform(documents)
+        #print(tfidf_vect.get_feature_names())
+        
+        return tfidf_matrix
 
     def get_most_freq_words(self, count_vectorizer, tf_matrix, num_words, print_dict_to_terminal=False):
         top_words = []
@@ -139,16 +161,16 @@ class NlpProcessor(object):
         word_freq_dict = dict(zip(word_list, count_list))
         
         # dictionary.values() and .keys() return a view object, so we have to cast it to list in order to use it as desired
+        print('Most Frequent n grams')
         for word_index in np.argsort(list(word_freq_dict.values()))[-num_words:]:
             top_words.append(list(word_freq_dict.keys())[word_index])
             word_freqs.append(list(word_freq_dict.values())[word_index])
-            print('\n')
             if print_dict_to_terminal:
                 print(f'{list(word_freq_dict.keys())[word_index]} : {list(word_freq_dict.values())[word_index]}')
             
         return top_words, word_freqs
         
-    def display_topics(self, model, feature_names, num_top_n_grams, custom_stopwords, log=True)->None:
+    def display_topics(self, model, feature_names, num_top_n_grams, custom_stopwords)->None:
         topic_ngram_dict = {}
 
         for topic_idx, topic in enumerate(model.components_):
@@ -160,7 +182,7 @@ class NlpProcessor(object):
 
             print(single_topic_n_grams)
             topic_ngram_dict[topic_idx] = single_topic_n_grams
-        if log:
+        if self.log_lda:
             self.log_lda_results(model.get_params(), topic_ngram_dict, custom_stopwords)
 
     def log_lda_results(self, model_params:dict, topic_ngram_dict:dict, custom_stopwords:list)->None:
@@ -190,12 +212,108 @@ class NlpProcessor(object):
         file_log.writelines(L)
         file_log.close()
 
+    def plot_2_pca_comps(self, X_pca:np.ndarray, title_suffix='', filename_suffix='')->None:
+        fig, ax = plt.subplots(1, 1)
+        ax.scatter(X_pca[:, 0], X_pca[:, 1],
+                cmap=plt.cm.Set1, edgecolor='k', s=40)
+        ax.set_title(f'First two PCA directions {title_suffix}')
+        ax.set_xlabel("1st eigenvector (PC1)")
+        ax.set_ylabel("2nd eigenvector (PC2)")
+        plt.tight_layout()
+        plt.savefig(f'../img/data_vis/pca_2_comps_{filename_suffix}.png')
+        #plt.show()
+
+    def scree_plot(self, pca:np.ndarray, title='', filename_suffix='')->None:
+        # plot explained variance ratio in a scree plot
+        plt.figure(1)
+        plt.clf()
+        plt.axes([.2, .2, .7, .7])
+        plt.plot(pca.explained_variance_, linewidth=2, color=self.palette[0])
+        plt.axis('tight')
+        plt.xlabel('n_components')
+        plt.ylabel('explained_variance_')
+        plt.title(title)
+        plt.tight_layout()
+        plt.savefig(f'../img/data_vis/pca_scree_{filename_suffix}.png')
+        #plt.show()
+    
+    def cum_scree_plot(self, pca:np.ndarray, title='', filename_suffix='')->None:
+        total_variance = np.sum(pca.explained_variance_)
+        cum_variance = np.cumsum(pca.explained_variance_)
+        prop_var_expl = cum_variance/total_variance
+
+        fig, ax = plt.subplots()
+        ax.plot(prop_var_expl, color=self.palette[0], linewidth=2, label='Explained variance')
+        ax.axhline(0.9, label='90% goal', linestyle='--', color=self.palette[3], linewidth=1)
+        ax.set_ylabel('cumulative prop. of explained variance')
+        ax.set_xlabel('number of principal components')
+        plt.title(title)
+        ax.legend()
+        plt.tight_layout()
+        plt.savefig(f'../img/data_vis/pca_cum_scree_{filename_suffix}.png')
+        #plt.show()
+
+    def save_initial_eda_charts(self, df):
+        # word length histogram
+        writing_lengths = []
+        for body in df['writing_sample']:
+            writing_lengths.append(len(body))
+            
+        writing_lengths.sort()
+
+        mean = np.mean(writing_lengths)
+        mean_label = f'Mean: {np.around(mean, decimals=0)}'
+        c1 = self.palette[0]
+        c2 = self.palette[4]
+        fig, ax = plt.subplots()
+        ax.set_xlabel('Word Count')
+        ax.set_ylabel('Therapists')
+        ax.set_title('Practice Description Word Counts')
+        ax.hist(writing_lengths, bins=100, color=c1)
+        ax.axvline(x=mean, c=c2)
+        plt.text(mean+200, 22, mean_label, bbox=dict(facecolor=c2, alpha=0.5))
+        plt.savefig('../img/data_vis/word_count_hist.png')
+
+        # number of unique values per category
+        age_groups_unique_size = df_age_groups['age_group'].unique().size
+        issues_unique_size = df_issues['issue'].unique().size
+        orientations_unique_size = df_orientations['orientation'].unique().size
+        professions_unique_size = df_professions['profession'].unique().size
+        service_unique_size = df_services['service'].unique().size
+
+        heights = [age_groups_unique_size, issues_unique_size, orientations_unique_size,
+           professions_unique_size, service_unique_size]
+        labels = ['age groups', 'issues', 'orientations', 'professions', 'services']
+        colors = [self.palette[i] for i in range(len(heights))]
+
+        fig, ax = plt.subplots()
+        ax.set_title('Unique Entries for Profile Categories')
+        ax.set_ylabel('Number of Unique Entries')
+        ax.bar(height = heights, x=labels, color=colors)
+        plt.savefig('../img/data_vis/uniques_per_category.png')
+
+        # has website bar chart
+        mask_no_website = df['website']=='None'
+        height = [df[~mask_no_website]['website'].size, df[mask_no_website]['website'].size]
+        labels = ['Website', 'No Website']
+
+        c = [self.palette[0], self.palette[3]]
+        fig, ax = plt.subplots()
+        ax.bar(labels, height, color=c)
+        ax.set_ylabel('Num. of Therapists')
+        ax.set_title("Therapists with Websites")
+        plt.savefig('../img/data_vis/website_bar.png')
+
+
+
+
+
 if __name__ == '__main__':
-    nlp = NlpProcessor(log_file_path='../logs/lda_results_log.txt')
+    palette = ['#13bdb4','#80d090','#dad977','#e49046','#d43d51']
+    nlp = NlpProcessor(log_file_path='../logs/lda_results_log.txt', log_lda=False, palette=palette)
 
     sql = "select * from therapists;"
     df = nlp.sql_to_pandas(sql)
-    print(df.info())
 
     sql_age = 'SELECT * FROM age_groups;'
     sql_issues = 'SELECT  * FROM issues;'
@@ -210,30 +328,61 @@ if __name__ == '__main__':
     df_services = nlp.sql_to_pandas(sql_services)
     
     nlp.close_conn()
+    #nlp.save_initial_eda_charts(df)
 
     custom_stopwords = ['change','family','find','approach','couples','issues','also',
     'anxiety','working','experience','relationship','relationships','therapist','counseling',
     'people','feel','clients','help','work','life','therapy','psychotherapy', 'feel', 
-    'feeling','get', 'warson', 'counseling', 'way', 'practice']
+    'feeling','get', 'warson', 'counseling', 'way', 'practice', 'call', 'today']
     #custom_stop_words = []
 
     final_stop_words = nlp.combine_stop_words(custom_stopwords)
 
-    tf_matrix, count_vect = nlp.create_term_freqeuncy_matrix(df=df, all_stop_words=final_stop_words, n_gram_range=(3,3), 
-        max_features=1000, remove_punc=True, tokenizer='None')
+    tfidf_matrix = nlp.create_tf_idf_matrix(df['writing_sample'], all_stop_words=final_stop_words,max_feats=1000, n_gram_range=(1,3), tokenizer='None')
 
-    tf_feature_names = count_vect.get_feature_names()
+    tf_matrix, count_vect = nlp.create_tf_matrix(docs=df['writing_sample'], all_stop_words=final_stop_words, n_gram_range=(1,3), 
+        max_features=1000, remove_punc=True, tokenizer='wordnet')
 
-    num_topics = 5
-    lda = LatentDirichletAllocation(n_components=num_topics, learning_offset = 50., verbose=1,
-                                    doc_topic_prior=1/num_topics, topic_word_prior= 1/num_topics,
-                                    n_jobs=-1, learning_method = 'online',
-                                    random_state=0)
+    # PCA with TFIDF
+    X_tfidf_scaled = scaler.fit_transform(tfidf_matrix.todense()) # standardize data
 
-    lda.fit(tf_matrix)
-
-    num_top_n_grams = 10
-    print(nlp.display_topics(lda, tf_feature_names, num_top_n_grams, custom_stopwords,log=True))
-    print("\nModel perplexity: {0:0.3f}".format(lda.perplexity(tf_matrix)))
+    # Just 2 components - see any sig change between component 1 and 2? Hopefully!
+    pca_tfidf = PCA(n_components=2) 
+    X_pca_tfidf = pca_tfidf.fit_transform(X_tfidf_scaled) 
+    nlp.plot_2_pca_comps(X_pca_tfidf, title_suffix='with TFIDF Matrix', filename_suffix='tfidf')
     
-    words, counts = nlp.get_most_freq_words(count_vect, tf_matrix, 20, print_dict_to_terminal=True)
+    # How many components will explain enough variance?
+    pca_tfidf = PCA()
+    pca_tfidf.fit(X_tfidf_scaled)
+    nlp.cum_scree_plot(pca_tfidf, title='Cumulative Variance Explained using TF-IDF Matrix', filename_suffix='tfidf')
+
+
+    # PCA with TF
+    X_tf_scaled = scaler.fit_transform(tf_matrix.todense()) # standardize data
+
+    # with just 2
+    pca_tf = PCA(n_components=2)
+    X_pca_tf = pca_tf.fit_transform(X_tf_scaled)
+    nlp.plot_2_pca_comps(X_pca_tf, title_suffix='with TF Matrix', filename_suffix='tf')
+
+    # How many components will explain enough variance?
+    pca_tf = PCA()
+    pca_tf.fit(X_tf_scaled)
+    nlp.cum_scree_plot(pca_tf, title='Cumulative Variance Explained using TF Matrix', filename_suffix='tf')
+
+
+    # LDA
+    # num_topics = 5
+    # lda = LatentDirichletAllocation(n_components=num_topics, learning_offset = 50., verbose=1,
+    #                                 doc_topic_prior=1/num_topics, topic_word_prior= 1/num_topics,
+    #                                 n_jobs=-1, learning_method = 'online',
+    #                                 random_state=0)
+
+    # lda.fit(tf_matrix)
+
+    # num_top_n_grams = 10
+    # tf_feature_names = count_vect.get_feature_names()
+    # print(nlp.display_topics(lda, tf_feature_names, num_top_n_grams, custom_stopwords))
+    # print("\nModel perplexity: {0:0.3f}".format(lda.perplexity(tf_matrix)))
+    
+    # words, counts = nlp.get_most_freq_words(count_vect, tf_matrix, 20, print_dict_to_terminal=True)
