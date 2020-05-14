@@ -35,10 +35,9 @@ plt.rcParams['figure.figsize'] = [10,6]
 
 class NlpProcessor(object):
 
-    def __init__(self, log_file_path, log_lda, palette):
+    def __init__(self, log_file_path, palette):
         self.conn = self.open_conn()
         self.log_file_path = log_file_path
-        self.log_lda = log_lda
         self.palette = palette
 
     def open_conn(self):
@@ -170,7 +169,7 @@ class NlpProcessor(object):
             
         return top_words, word_freqs
         
-    def display_topics(self, model, feature_names, num_top_n_grams, custom_stopwords)->None:
+    def display_topics(self, model, feature_names, num_top_n_grams, custom_stopwords, log_lda=False)->None:
         topic_ngram_dict = {}
 
         for topic_idx, topic in enumerate(model.components_):
@@ -182,12 +181,12 @@ class NlpProcessor(object):
 
             print(single_topic_n_grams)
             topic_ngram_dict[topic_idx] = single_topic_n_grams
-        if self.log_lda:
-            self.log_lda_results(model.get_params(), topic_ngram_dict, custom_stopwords)
+        if log_lda:
+            self.log_lda_results(model, topic_ngram_dict, custom_stopwords)
 
-    def log_lda_results(self, model_params:dict, topic_ngram_dict:dict, custom_stopwords:list)->None:
+    def log_lda_results(self, model, topic_ngram_dict:dict, custom_stopwords:list)->None:
         file_log = open(self.log_file_path, 'a')
-
+        model_params = model.get_params()
         header = '\n\n**************************************** LDA Results ****************************************'
         date_and_time = 'Timestamp: ' + str(dt.datetime.now())
         model_params_header = '\nModel Parameters: \n-------------------------'
@@ -195,17 +194,16 @@ class NlpProcessor(object):
         for k, v in model_params.items():
             params_str += f'{k} : {v}\n'
 
+        perplex = "Model perplexity: {0:0.3f}".format(lda.perplexity(tf_matrix)) + '\n'
+
         stopwords_header = 'Stop words used:'
         stopwords_str = ', '.join([stop for stop in custom_stopwords])
         stopwords_str += '\n'
 
-        L = [header, date_and_time, model_params_header, params_str, stopwords_header, stopwords_str]
+        L = [header, date_and_time, model_params_header, params_str, perplex, stopwords_header, stopwords_str]
 
         for topic_idx, n_gram_list in topic_ngram_dict.items():
             L.append(f'Topic: {str(topic_idx)}\n\t{", ".join([ng for ng in n_gram_list])}')
-        # topics = ''
-        # for i, words in enumerate(topic_words_list):
-        #     topics += f'Topic {i+1}\n\t{words}'
 
         for i in range(len(L)):
             L[i] += '\n'
@@ -310,7 +308,7 @@ class NlpProcessor(object):
 
 if __name__ == '__main__':
     palette = ['#13bdb4','#80d090','#dad977','#e49046','#d43d51']
-    nlp = NlpProcessor(log_file_path='../logs/lda_results_log.txt', log_lda=False, palette=palette)
+    nlp = NlpProcessor(log_file_path='../logs/lda_results_log.txt', palette=palette)
 
     sql = "select * from therapists;"
     df = nlp.sql_to_pandas(sql)
@@ -343,46 +341,47 @@ if __name__ == '__main__':
     tf_matrix, count_vect = nlp.create_tf_matrix(docs=df['writing_sample'], all_stop_words=final_stop_words, n_gram_range=(1,3), 
         max_features=1000, remove_punc=True, tokenizer='wordnet')
 
-    # PCA with TFIDF
-    X_tfidf_scaled = scaler.fit_transform(tfidf_matrix.todense()) # standardize data
+    # # PCA with TFIDF
+    # X_tfidf_scaled = scaler.fit_transform(tfidf_matrix.todense()) # standardize data
 
-    # Just 2 components - see any sig change between component 1 and 2? Hopefully!
-    pca_tfidf = PCA(n_components=2) 
-    X_pca_tfidf = pca_tfidf.fit_transform(X_tfidf_scaled) 
-    nlp.plot_2_pca_comps(X_pca_tfidf, title_suffix='with TFIDF Matrix', filename_suffix='tfidf')
+    # # Just 2 components - see any sig change between component 1 and 2? Hopefully!
+    # pca_tfidf = PCA(n_components=2) 
+    # X_pca_tfidf = pca_tfidf.fit_transform(X_tfidf_scaled) 
+    # nlp.plot_2_pca_comps(X_pca_tfidf, title_suffix='with TFIDF Matrix', filename_suffix='tfidf')
     
-    # How many components will explain enough variance?
-    pca_tfidf = PCA()
-    pca_tfidf.fit(X_tfidf_scaled)
-    nlp.cum_scree_plot(pca_tfidf, title='Cumulative Variance Explained using TF-IDF Matrix', filename_suffix='tfidf')
+    # # How many components will explain enough variance?
+    # pca_tfidf = PCA()
+    # pca_tfidf.fit(X_tfidf_scaled)
+    # nlp.cum_scree_plot(pca_tfidf, title='Cumulative Variance Explained using TF-IDF Matrix', filename_suffix='tfidf')
 
 
-    # PCA with TF
-    X_tf_scaled = scaler.fit_transform(tf_matrix.todense()) # standardize data
+    # # PCA with TF
+    # X_tf_scaled = scaler.fit_transform(tf_matrix.todense()) # standardize data
 
-    # with just 2
-    pca_tf = PCA(n_components=2)
-    X_pca_tf = pca_tf.fit_transform(X_tf_scaled)
-    nlp.plot_2_pca_comps(X_pca_tf, title_suffix='with TF Matrix', filename_suffix='tf')
+    # # with just 2
+    # pca_tf = PCA(n_components=2)
+    # X_pca_tf = pca_tf.fit_transform(X_tf_scaled)
+    # nlp.plot_2_pca_comps(X_pca_tf, title_suffix='with TF Matrix', filename_suffix='tf')
 
-    # How many components will explain enough variance?
-    pca_tf = PCA()
-    pca_tf.fit(X_tf_scaled)
-    nlp.cum_scree_plot(pca_tf, title='Cumulative Variance Explained using TF Matrix', filename_suffix='tf')
+    # # How many components will explain enough variance?
+    # pca_tf = PCA()
+    # pca_tf.fit(X_tf_scaled)
+    # nlp.cum_scree_plot(pca_tf, title='Cumulative Variance Explained using TF Matrix', filename_suffix='tf')
 
 
     # LDA
-    # num_topics = 5
-    # lda = LatentDirichletAllocation(n_components=num_topics, learning_offset = 50., verbose=1,
-    #                                 doc_topic_prior=1/num_topics, topic_word_prior= 1/num_topics,
-    #                                 n_jobs=-1, learning_method = 'online',
-    #                                 random_state=0)
+    num_topics = 5
+    lda = LatentDirichletAllocation(n_components=num_topics, learning_offset = 50., verbose=1,
+                                    doc_topic_prior=1/num_topics, topic_word_prior= 1/num_topics,
+                                    n_jobs=-1, learning_method = 'online',
+                                    random_state=0)
 
-    # lda.fit(tf_matrix)
+    lda.fit(tf_matrix)
 
-    # num_top_n_grams = 10
-    # tf_feature_names = count_vect.get_feature_names()
-    # print(nlp.display_topics(lda, tf_feature_names, num_top_n_grams, custom_stopwords))
-    # print("\nModel perplexity: {0:0.3f}".format(lda.perplexity(tf_matrix)))
+    num_top_n_grams = 10
+    tf_feature_names = count_vect.get_feature_names()
+
+    print(nlp.display_topics(lda, tf_feature_names, num_top_n_grams, custom_stopwords, log_lda=True))
+    print("\nModel perplexity: {0:0.3f}".format(lda.perplexity(tf_matrix)))
     
-    # words, counts = nlp.get_most_freq_words(count_vect, tf_matrix, 20, print_dict_to_terminal=True)
+    words, counts = nlp.get_most_freq_words(count_vect, tf_matrix, 20, print_dict_to_terminal=True)

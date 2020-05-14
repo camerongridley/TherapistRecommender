@@ -1,6 +1,6 @@
 # NLP Analysis of Therapists' Profile Writing
 
-![](img/banner-head-shade.png)
+![](img/design/banner-head-shade.png)
 
 ## The Problem: 
 
@@ -28,7 +28,7 @@ I obtained profile data for 273 therapists from GoodTherapy.com.
 
 ### Sample Profile
 
-![](img/profile_example.png)
+![](img/design/profile_example.png)
 
 
 
@@ -52,7 +52,7 @@ Almost all of the data is categorical, many of which were lists.
 
 ### Workflow
 
-![workflow](img/workflow.png)
+![workflow](img/design/workflow.png)
 
 ### Database Design
 
@@ -60,7 +60,7 @@ PostgreSQL is "a general purpose and object-relational database management syste
 
 The database design was based of data available on GoodTherapy.org and PsychologyToday.com. Both had very similar data with some different naming conventions. 
 
-![](img/TherapistFitterSchema.png)
+![](img/design/TherapistFitterSchema.png)
 
 
 
@@ -82,24 +82,30 @@ The database design was based of data available on GoodTherapy.org and Psycholog
 
 sample values from each category
 
-## Looking for Structure with PCA
+## Looking for Structure with Principal Component Analysis
 
-|                                                          |                                                              |
+| With TFIDF Matrix                                        |                                                              |
 | -------------------------------------------------------- | ------------------------------------------------------------ |
 | ![pca_2_comps_tfidf](img/data_vis/pca_2_comps_tfidf.png) | ![pca_cum_scree_tfidf](img/data_vis/pca_cum_scree_tfidf.png) |
 
+Here we see that there isn't a lot of structure with the TFIDF.
 
 
 
+| With TF Matrix                                     |                                                        |
+| -------------------------------------------------- | ------------------------------------------------------ |
+| ![pca_2_comps_tf](img/data_vis/pca_2_comps_tf.png) | ![pca_cum_scree_tf](img/data_vis/pca_cum_scree_tf.png) |
+
+Unfortunately, while things improve with the TF Matrix, the model still lacks solid structure.
 
 
 
-![pca_2_comps_tf](img/data_vis/pca_2_comps_tf.png)
+## Latent Dirichlet Allocation Model (LDA)
 
+Stopwords list: 
 
+## LDA Results
 
-![pca_cum_scree_tf](img/data_vis/pca_cum_scree_tf.png)
+### Topics
 
-## Model Info
-
-## Model Results
+### ![freud_speech_bubble1](img/design/freud_speech_bubble1.png)

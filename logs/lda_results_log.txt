@@ -37,8 +37,9 @@ Topic: 4
 	contribute participate healthy, trainers share reverence, healing believe duty, values beliefs upon, children adolescents experiencing, profession unlike field, freely express effectively, respect integrity dignity, resources need lead, care hands mission
 
 
+
 **************************************** LDA Results ****************************************
-Timestamp: 2020-05-14 11:48:30.159147
+Timestamp: 2020-05-14 17:51:48.249625
 
 Model Parameters: 
 -------------------------
@@ -59,238 +60,18 @@ topic_word_prior : 0.2
 total_samples : 1000000.0
 verbose : 1
 
-Stop words used:
-change, family, find, approach, couples, issues, also, anxiety, working, experience, relationship, relationships, therapist, counseling, people, feel, clients, help, work, life, therapy, psychotherapy, feel, feeling, get, warson, counseling, way, practice
-
-Topic: 0
-	free phone consultation, seeking mental health, many different approaches, make necessary changes, someone telling giving, children adolescents families, much compassion understanding, free initial consultation, takes lot guts, probably even make
-Topic: 1
-	check engine light, national certified counselor, american association marriage, make positive changes, call today discuss, loveland fort collins, day within hours, locations loveland fort, cultural backgrounds sexual, heal past trauma
-Topic: 2
-	call today schedule, licensed professional counselor, today schedule appointment, offers free initial, substance use severe, offer free consultation, reimbursement insurance company, free initial consultations, professional counselor lpc, safe space share
-Topic: 3
-	movement desensitization reprocessing, eye movement desensitization, desensitization reprocessing emdr, principles care planning, private apply research, colorado state university, principal investigator student, safe space support, major credit cards, helping individuals families
-Topic: 4
-	contribute participate healthy, trainers share reverence, healing believe duty, values beliefs upon, children adolescents experiencing, profession unlike field, freely express effectively, respect integrity dignity, resources need lead, care hands mission
-
-
-**************************************** LDA Results ****************************************
-Timestamp: 2020-05-14 13:17:33.472863
-
-Model Parameters: 
--------------------------
-batch_size : 128
-doc_topic_prior : 0.2
-evaluate_every : -1
-learning_decay : 0.7
-learning_method : online
-learning_offset : 50.0
-max_doc_update_iter : 100
-max_iter : 10
-mean_change_tol : 0.001
-n_components : 5
-n_jobs : -1
-perp_tol : 0.1
-random_state : 0
-topic_word_prior : 0.2
-total_samples : 1000000.0
-verbose : 1
-
-Stop words used:
-change, family, find, approach, couples, issues, also, anxiety, working, experience, relationship, relationships, therapist, counseling, people, feel, clients, help, work, life, therapy, psychotherapy, feel, feeling, get, warson, counseling, way, practice
-
-Topic: 0
-	mental health, good match, thoughts feelings, children adolescents, moving forward, first time, personal growth, free minute, free consultation, individuals families
-Topic: 1
-	individuals families, call today, today schedule, call today schedule, children adolescents, northern colorado, free consultation, schedule appointment, today schedule appointment, healthy therapeutic
-Topic: 2
-	cultural backgrounds, licensed marriage, want know, association marriage, look forward, toward healing, step toward, first step, years helping, without judgment
-Topic: 3
-	mental health, cognitive behavioral, many years, look forward, one another, like ca, answer questions, mental illness, new ways, psychological association
-Topic: 4
-	licensed professional, professional counselor, licensed professional counselor, first step, good fit, free consultation, make positive, call today, phone consultation, offer free
-
-
-**************************************** LDA Results ****************************************
-Timestamp: 2020-05-14 14:31:06.495972
-
-Model Parameters: 
--------------------------
-batch_size : 128
-doc_topic_prior : 0.2
-evaluate_every : -1
-learning_decay : 0.7
-learning_method : online
-learning_offset : 50.0
-max_doc_update_iter : 100
-max_iter : 10
-mean_change_tol : 0.001
-n_components : 5
-n_jobs : -1
-perp_tol : 0.1
-random_state : 0
-topic_word_prior : 0.2
-total_samples : 1000000.0
-verbose : 1
-
-Stop words used:
-change, family, find, approach, couples, issues, also, anxiety, working, experience, relationship, relationships, therapist, counseling, people, feel, clients, help, work, life, therapy, psychotherapy, feel, feeling, get, warson, counseling, way, practice
-
-Topic: 0
-	mental health, good match, thoughts feelings, children adolescents, moving forward, first time, personal growth, free minute, free consultation, individuals families
-Topic: 1
-	individuals families, call today, today schedule, call today schedule, children adolescents, northern colorado, free consultation, schedule appointment, today schedule appointment, healthy therapeutic
-Topic: 2
-	cultural backgrounds, licensed marriage, want know, association marriage, look forward, toward healing, step toward, first step, years helping, without judgment
-Topic: 3
-	mental health, cognitive behavioral, many years, look forward, one another, like ca, answer questions, mental illness, new ways, psychological association
-Topic: 4
-	licensed professional, professional counselor, licensed professional counselor, first step, good fit, free consultation, make positive, call today, phone consultation, offer free
-
-
-**************************************** LDA Results ****************************************
-Timestamp: 2020-05-14 14:37:44.201148
-
-Model Parameters: 
--------------------------
-batch_size : 128
-doc_topic_prior : 0.2
-evaluate_every : -1
-learning_decay : 0.7
-learning_method : online
-learning_offset : 50.0
-max_doc_update_iter : 100
-max_iter : 10
-mean_change_tol : 0.001
-n_components : 5
-n_jobs : -1
-perp_tol : 0.1
-random_state : 0
-topic_word_prior : 0.2
-total_samples : 1000000.0
-verbose : 1
-
-Stop words used:
-change, family, find, approach, couples, issues, also, anxiety, working, experience, relationship, relationships, therapist, counseling, people, feel, clients, help, work, life, therapy, psychotherapy, feel, feeling, get, warson, counseling, way, practice
-
-Topic: 0
-	mental health, good match, thoughts feelings, children adolescents, moving forward, first time, personal growth, free minute, free consultation, individuals families
-Topic: 1
-	individuals families, call today, today schedule, call today schedule, children adolescents, northern colorado, free consultation, schedule appointment, today schedule appointment, healthy therapeutic
-Topic: 2
-	cultural backgrounds, licensed marriage, want know, association marriage, look forward, toward healing, step toward, first step, years helping, without judgment
-Topic: 3
-	mental health, cognitive behavioral, many years, look forward, one another, like ca, answer questions, mental illness, new ways, psychological association
-Topic: 4
-	licensed professional, professional counselor, licensed professional counselor, first step, good fit, free consultation, make positive, call today, phone consultation, offer free
-
-
-**************************************** LDA Results ****************************************
-Timestamp: 2020-05-14 14:40:50.384517
-
-Model Parameters: 
--------------------------
-batch_size : 128
-doc_topic_prior : 0.2
-evaluate_every : -1
-learning_decay : 0.7
-learning_method : online
-learning_offset : 50.0
-max_doc_update_iter : 100
-max_iter : 10
-mean_change_tol : 0.001
-n_components : 5
-n_jobs : -1
-perp_tol : 0.1
-random_state : 0
-topic_word_prior : 0.2
-total_samples : 1000000.0
-verbose : 1
-
-Stop words used:
-change, family, find, approach, couples, issues, also, anxiety, working, experience, relationship, relationships, therapist, counseling, people, feel, clients, help, work, life, therapy, psychotherapy, feel, feeling, get, warson, counseling, way, practice
-
-Topic: 0
-	offer free, mental health, child adolescent, initial consultation, free initial, free initial consultation, good match, free minute, good fit, offer free initial
-Topic: 1
-	individual family, first time, call today, visit website, free consultation, free phone, make change, phone consultation, thought feeling, personal growth
-Topic: 2
-	cultural background, age cultural, mental health, fee per, without judgment, sliding scale, time together, toward healing, passionate helping, want know
-Topic: 3
-	licensed professional counselor, licensed professional, professional counselor, call today, free consultation, first step, northern colorado, make positive, stress disorder, cognitive behavioral
-Topic: 4
-	network provider, adolescent adult, passionate helping, insurance company, free consultation, healing growth, helping overcome, reimbursement insurance, reimbursement insurance company, mental physical
-
-
-**************************************** LDA Results ****************************************
-Timestamp: 2020-05-14 14:41:38.213049
-
-Model Parameters: 
--------------------------
-batch_size : 128
-doc_topic_prior : 0.2
-evaluate_every : -1
-learning_decay : 0.7
-learning_method : online
-learning_offset : 50.0
-max_doc_update_iter : 100
-max_iter : 10
-mean_change_tol : 0.001
-n_components : 5
-n_jobs : -1
-perp_tol : 0.1
-random_state : 0
-topic_word_prior : 0.2
-total_samples : 1000000.0
-verbose : 1
-
-Stop words used:
-change, family, find, approach, couples, issues, also, anxiety, working, experience, relationship, relationships, therapist, counseling, people, feel, clients, help, work, life, therapy, psychotherapy, feel, feeling, get, warson, counseling, way, practice, call today
-
-Topic: 0
-	offer free, mental health, child adolescent, initial consultation, free initial, free initial consultation, good match, free minute, good fit, offer free initial
-Topic: 1
-	individual family, first time, call today, visit website, free consultation, free phone, make change, phone consultation, thought feeling, personal growth
-Topic: 2
-	cultural background, age cultural, mental health, fee per, without judgment, sliding scale, time together, toward healing, passionate helping, want know
-Topic: 3
-	licensed professional counselor, licensed professional, professional counselor, call today, free consultation, first step, northern colorado, make positive, stress disorder, cognitive behavioral
-Topic: 4
-	network provider, adolescent adult, passionate helping, insurance company, free consultation, healing growth, helping overcome, reimbursement insurance, reimbursement insurance company, mental physical
-
-
-**************************************** LDA Results ****************************************
-Timestamp: 2020-05-14 14:42:13.712530
-
-Model Parameters: 
--------------------------
-batch_size : 128
-doc_topic_prior : 0.2
-evaluate_every : -1
-learning_decay : 0.7
-learning_method : online
-learning_offset : 50.0
-max_doc_update_iter : 100
-max_iter : 10
-mean_change_tol : 0.001
-n_components : 5
-n_jobs : -1
-perp_tol : 0.1
-random_state : 0
-topic_word_prior : 0.2
-total_samples : 1000000.0
-verbose : 1
+Model perplexity: 837.160
 
 Stop words used:
 change, family, find, approach, couples, issues, also, anxiety, working, experience, relationship, relationships, therapist, counseling, people, feel, clients, help, work, life, therapy, psychotherapy, feel, feeling, get, warson, counseling, way, practice, call, today
 
 Topic: 0
-	individual family, value belief, mission provide, cultural background, licensed marriage, eating disorder, without judgment, step toward, first step, sliding scale
+	personal, individual, emotion, may, session, one, time, make, process, need
 Topic: 1
-	initial consultation, free initial consultation, free initial, visit website, offer free, offer free initial, schedule appointment, healing growth, please visit, please visit website
+	sarah, office, make, someone, humor, free, schedule, consultation, need, helping
 Topic: 2
-	look forward, jungian psychotherapist, depth psychology, finding way, committed helping, natural world, clinical depth, authentic self, new way, good fit
+	together, want, need, know, world, like, depression, place, body, feeling
 Topic: 3
-	mental health, make sure, move forward, young adult, believe everyone, personal growth, adult young, peace love, individual foster, creating place
+	need, individual, offer, time, believe, child, may, want, session, goal
 Topic: 4
-	free consultation, mental health, offer free, child adolescent, individual family, professional counselor, licensed professional, licensed professional counselor, good match, northern colorado
+	one, need, together, offer, process, make, goal, life, time, support
