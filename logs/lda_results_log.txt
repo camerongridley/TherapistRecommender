@@ -1,7 +1,8 @@
 
 
-******************** LDA Results ********************
-Timestamp: 2020-05-13 16:38:56.859181
+**************************************** LDA Results ****************************************
+Timestamp: 2020-05-14 09:35:59.307821
+
 Model Parameters: 
 -------------------------
 batch_size : 128
@@ -21,9 +22,16 @@ topic_word_prior : 0.2
 total_samples : 1000000.0
 verbose : 1
 
-Topic 1
-	free phone consultation - seeking mental health - many different approaches - make necessary changes - someone telling giving - children adolescents families - much compassion understanding - free initial consultation - takes lot guts - probably even makeTopic 2
-	check engine light - national certified counselor - american association marriage - make positive changes - call today discuss - loveland fort collins - day within hours - locations loveland fort - cultural backgrounds sexual - heal past traumaTopic 3
-	call today schedule - licensed professional counselor - today schedule appointment - offers free initial - substance use severe - offer free consultation - reimbursement insurance company - free initial consultations - professional counselor lpc - safe space shareTopic 4
-	movement desensitization reprocessing - eye movement desensitization - desensitization reprocessing emdr - principles care planning - private apply research - colorado state university - principal investigator student - safe space support - major credit cards - helping individuals familiesTopic 5
-	contribute participate healthy - trainers share reverence - healing believe duty - values beliefs upon - children adolescents experiencing - profession unlike field - freely express effectively - respect integrity dignity - resources need lead - care hands mission
+Stop words used:
+change, family, find, approach, couples, issues, also, anxiety, working, experience, relationship, relationships, therapist, counseling, people, feel, clients, help, work, life, therapy, psychotherapy, feel, feeling, get, warson, counseling, way, practice
+
+Topic: 0
+	free phone consultation, seeking mental health, many different approaches, make necessary changes, someone telling giving, children adolescents families, much compassion understanding, free initial consultation, takes lot guts, probably even make
+Topic: 1
+	check engine light, national certified counselor, american association marriage, make positive changes, call today discuss, loveland fort collins, day within hours, locations loveland fort, cultural backgrounds sexual, heal past trauma
+Topic: 2
+	call today schedule, licensed professional counselor, today schedule appointment, offers free initial, substance use severe, offer free consultation, reimbursement insurance company, free initial consultations, professional counselor lpc, safe space share
+Topic: 3
+	movement desensitization reprocessing, eye movement desensitization, desensitization reprocessing emdr, principles care planning, private apply research, colorado state university, principal investigator student, safe space support, major credit cards, helping individuals families
+Topic: 4
+	contribute participate healthy, trainers share reverence, healing believe duty, values beliefs upon, children adolescents experiencing, profession unlike field, freely express effectively, respect integrity dignity, resources need lead, care hands mission

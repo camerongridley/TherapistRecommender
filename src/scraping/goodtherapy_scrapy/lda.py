@@ -147,36 +147,42 @@ class NlpProcessor(object):
             
         return top_words, word_freqs
         
-    def display_topics(self, model, feature_names, num_top_n_grams, log=True)->None:
-        topic_headers = []
-        topic_n_grams = []
+    def display_topics(self, model, feature_names, num_top_n_grams, custom_stopwords, log=True)->None:
+        topic_ngram_dict = {}
+
         for topic_idx, topic in enumerate(model.components_):
             topic_header = "Topic %d:" % (topic_idx)
-            topic_ngram_list = " - ".join([feature_names[i]
-                            for i in topic.argsort()[:-num_top_n_grams - 1:-1]])
-            
             print(topic_header)
-            topic_headers.append(topic_header)
-            print(topic_ngram_list)
-            topic_n_grams.append(topic_ngram_list)
+            single_topic_n_grams = []
+            for i in topic.argsort()[:-num_top_n_grams - 1:-1]:
+                single_topic_n_grams.append(feature_names[i]) 
 
-        self.log_lda_results(model.get_params(), topic_headers, topic_n_grams)
+            print(single_topic_n_grams)
+            topic_ngram_dict[topic_idx] = single_topic_n_grams
+        if log:
+            self.log_lda_results(model.get_params(), topic_ngram_dict, custom_stopwords)
 
-    def log_lda_results(self, model_params:dict, topic_headers:list, topic_words_list:list)->None:
+    def log_lda_results(self, model_params:dict, topic_ngram_dict:dict, custom_stopwords:list)->None:
         file_log = open('../logs/lda_results_log.txt', 'a')
-        breakpoint()
-        header = '\n\n******************** LDA Results ********************'
+
+        header = '\n\n**************************************** LDA Results ****************************************'
         date_and_time = 'Timestamp: ' + str(dt.datetime.now())
-        model_params_header = 'Model Parameters: \n-------------------------'
-        params_s = ''
+        model_params_header = '\nModel Parameters: \n-------------------------'
+        params_str = ''
         for k, v in model_params.items():
-            params_s += f'{k} : {v}\n'
+            params_str += f'{k} : {v}\n'
 
-        topics = ''
-        for i, words in enumerate(topic_words_list):
-            topics += f'Topic {i+1}\n\t{words}'
+        stopwords_header = 'Stop words used:'
+        stopwords_str = ', '.join([stop for stop in custom_stopwords])
+        stopwords_str += '\n'
 
-        L = [header, date_and_time, model_params_header, params_s, topics]
+        L = [header, date_and_time, model_params_header, params_str, stopwords_header, stopwords_str]
+
+        for topic_idx, n_gram_list in topic_ngram_dict.items():
+            L.append(f'Topic: {str(topic_idx)}\n\t{", ".join([ng for ng in n_gram_list])}')
+        # topics = ''
+        # for i, words in enumerate(topic_words_list):
+        #     topics += f'Topic {i+1}\n\t{words}'
 
         for i in range(len(L)):
             L[i] += '\n'
@@ -204,13 +210,13 @@ if __name__ == '__main__':
     
     nlp.close_conn()
 
-    custom_stop_words = ['change','family','find','approach','couples','issues','also',
+    custom_stopwords = ['change','family','find','approach','couples','issues','also',
     'anxiety','working','experience','relationship','relationships','therapist','counseling',
     'people','feel','clients','help','work','life','therapy','psychotherapy', 'feel', 
     'feeling','get', 'warson', 'counseling', 'way', 'practice']
     #custom_stop_words = []
 
-    final_stop_words = nlp.combine_stop_words(custom_stop_words)
+    final_stop_words = nlp.combine_stop_words(custom_stopwords)
 
     tf_matrix, count_vect = nlp.create_term_freqeuncy_matrix(df=df, all_stop_words=final_stop_words, n_gram_range=(3,3), 
         max_features=1000, remove_punc=True, tokenizer='None')
@@ -226,7 +232,7 @@ if __name__ == '__main__':
     lda.fit(tf_matrix)
 
     num_top_n_grams = 10
-    print(nlp.display_topics(lda, tf_feature_names, num_top_n_grams))
+    print(nlp.display_topics(lda, tf_feature_names, num_top_n_grams, custom_stopwords,log=False))
     print("\nModel perplexity: {0:0.3f}".format(lda.perplexity(tf_matrix)))
     
     words, counts = nlp.get_most_freq_words(count_vect, tf_matrix, 20, print_dict_to_terminal=True)
