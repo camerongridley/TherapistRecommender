@@ -29,7 +29,7 @@ I obtained profile data for 273 therapists from GoodTherapy.com.
 
 #### Sample Profile
 
-![](img/profile example.png)
+![](img/profile_example.png)
 
 
 
