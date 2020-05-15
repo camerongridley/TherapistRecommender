@@ -16,13 +16,13 @@ In **Denver**, there are **1,912 therapists** listed on PsychologyToday.com's th
 
 Create a machine learning model that matches a client to a therapist based on NLP analysis of a writing sample from each party.
 
-### Capstone 1 Goals:
+### Capstone 2 Goals:
 
 - Create a dataset of therapist writing samples from therapist profiles found from publicly available data on GoodTherapy.com
 
 - Perform **topic modeling on writing samples** of Greater Denver Area therapists to see what themes cluster therapists together base on what words they use to describe their practice.
 
-- A key part of the training and education of therapists is learning the different **theoretical orientations** that are the bedrock of psychotherapy. "A theoretical orientation is a counselor’s philosophy about how problems develop and how these are resolved or treated. It also informs the  counselor’s focus in each counseling session, goals of counseling, and  interventions you will experience in counseling sessions." A theoretical orientation is different than a type of therapy in that it can be seen as the parent class to the type of therapy. I hope to explore how the topics generated align with the traditional orientations.
+- A key part of the training and education of therapists is learning the different **theoretical orientations** that are the bedrock of psychotherapy. "*A theoretical orientation is a counselor’s philosophy about how problems develop and how these are resolved or treated. It also informs the  counselor’s focus in each counseling session, goals of counseling, and  interventions you will experience in counseling sessions.*" A theoretical orientation is different than a type of therapy in that it can be seen as the parent class to the type of therapy. I hope to explore how the topics generated align with the traditional orientations.
 
   - The classic theoretical orientations are:
     - Psychoanalytic/Psychodymanic
@@ -37,7 +37,7 @@ Create a machine learning model that matches a client to a therapist based on NL
 
 ## The Data
 
-I obtained profile data for **273** therapists from **GoodTherapy.com**. 
+I obtained profile data for **273** therapists in the Denver Metro Area from **GoodTherapy.com**. 
 
 ### Sample Profile
 
@@ -99,14 +99,6 @@ The database design was based of data available on GoodTherapy.org and Psycholog
 
 
 
-
-
-![](img/data_vis/website_bar.png)
-
-###### This one was a personal curiosity. When I first started my practice, I would estimate only about half of the therapists I knew had websites. I am glad more people are catching on to this inter-web craze.
-
-
-
 ## Looking for Structure with Principal Component Analysis
 
 #### PCA With TFIDF Matrix
@@ -135,9 +127,17 @@ Unfortunately, while things improve with the TF Matrix, the model still lacks so
 
 ## Latent Dirichlet Allocation Model (LDA)
 
+#### Number of Features: 1000
+
+#### Number of Topics: 3
+
 #### Custom Stop Words list: 
 
 change, find, approach, couples, issues, also, anxiety, working, relationship, relationships, therapist, counseling, people, feel, clients, help, work, therapy, psychotherapy, get, warson, counseling, way, practice, call, today, health, helping, free, depression, like, trauma, may, together, make, process, want, support, believe, goal, one, session, time, offer, individual, need, year, need, consultation, well, skill, new, emotional, provide, take, use, goal, person, individual,  many, healing, problem, see, know
+
+
+
+[**Perplexity**](https://en.wikipedia.org/wiki/Perplexity) is a statistical measure of how well a probability model predicts a sample. Lower is better.
 
 ##### Model perplexity: 878.052
 
