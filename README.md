@@ -102,10 +102,28 @@ Unfortunately, while things improve with the TF Matrix, the model still lacks so
 
 ## Latent Dirichlet Allocation Model (LDA)
 
-Stopwords list: 
+#### Stopwords list: 
 
-## LDA Results
+change, family, find, approach, couples, issues, also, anxiety, working, experience, relationship, relationships, therapist, counseling, people, feel, clients, help, work, life, therapy, psychotherapy, feel, feeling, get, warson, counseling, way, practice, call, today, health, helping, free, depression, like, trauma, may, together, make, process, want, support, believe, goal, one, session, time, offer, individual, need, year, need, consultation, well, skill, new, emotional, provide, take, use, goal, person, child, individual, life, many, healing, problem, see, know
 
-### Topics
+##### Model perplexity: 878.052
 
-### ![freud_speech_bubble1](img/design/freud_speech_bubble1.png)
+Despite having quite a high perplexity score, some interesting topics emerged.
+
+
+
+### Topic: Adult Relationships, Couples
+
+![freud_speech_bubble1](img/design/freud_speech_bubble1.png)
+
+
+
+### Topic: Mind-Body/Somatic
+
+![freud_speech_bubble2](img/design/freud_speech_bubble2.png)
+
+
+
+### Topic: Family and Children
+
+![freud_speech_bubble3](img/design/freud_speech_bubble3.png)

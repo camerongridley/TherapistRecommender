@@ -37,9 +37,8 @@ Topic: 4
 	contribute participate healthy, trainers share reverence, healing believe duty, values beliefs upon, children adolescents experiencing, profession unlike field, freely express effectively, respect integrity dignity, resources need lead, care hands mission
 
 
-
 **************************************** LDA Results ****************************************
-Timestamp: 2020-05-14 17:51:48.249625
+Timestamp: 2020-05-14 19:14:16.913048
 
 Model Parameters: 
 -------------------------
@@ -75,3 +74,217 @@ Topic: 3
 	need, individual, offer, time, believe, child, may, want, session, goal
 Topic: 4
 	one, need, together, offer, process, make, goal, life, time, support
+
+
+**************************************** LDA Results ****************************************
+Timestamp: 2020-05-14 20:41:11.066928
+
+Model Parameters: 
+-------------------------
+batch_size : 128
+doc_topic_prior : 0.2
+evaluate_every : -1
+learning_decay : 0.7
+learning_method : online
+learning_offset : 50.0
+max_doc_update_iter : 100
+max_iter : 10
+mean_change_tol : 0.001
+n_components : 5
+n_jobs : -1
+perp_tol : 0.1
+random_state : 0
+topic_word_prior : 0.2
+total_samples : 1000000.0
+verbose : 1
+
+Model perplexity: 893.664
+
+Stop words used:
+change, family, find, approach, couples, issues, also, anxiety, working, experience, relationship, relationships, therapist, counseling, people, feel, clients, help, work, life, therapy, psychotherapy, feel, feeling, get, warson, counseling, way, practice, call, today, health, helping, free, depression, like, trauma, may, together, make, process, want, support, believe, goal, one, session, time, offer, individual, need
+
+Topic: 0
+	child, use, come, personal, problem, know, whether, emotional, parent, provide
+Topic: 1
+	child, know, take, healing, client, office, family, individual, life, many
+Topic: 2
+	body, self, purpose, healing, psychology, jungian, world, way, wisdom, heart
+Topic: 3
+	growth, know, feeling, personal, purpose, provide, goal, therapeutic, important, person
+Topic: 4
+	eft, secure, deeper, rate, sense, way, become, emotion, developed, safety
+
+
+**************************************** LDA Results ****************************************
+Timestamp: 2020-05-14 20:43:18.186813
+
+Model Parameters: 
+-------------------------
+batch_size : 128
+doc_topic_prior : 0.3333333333333333
+evaluate_every : -1
+learning_decay : 0.7
+learning_method : online
+learning_offset : 50.0
+max_doc_update_iter : 100
+max_iter : 10
+mean_change_tol : 0.001
+n_components : 3
+n_jobs : -1
+perp_tol : 0.1
+random_state : 0
+topic_word_prior : 0.3333333333333333
+total_samples : 1000000.0
+verbose : 1
+
+Model perplexity: 860.551
+
+Stop words used:
+change, family, find, approach, couples, issues, also, anxiety, working, experience, relationship, relationships, therapist, counseling, people, feel, clients, help, work, life, therapy, psychotherapy, feel, feeling, get, warson, counseling, way, practice, call, today, health, helping, free, depression, like, trauma, may, together, make, process, want, support, believe, goal, one, session, time, offer, individual, need
+
+Topic: 0
+	emotional, use, provide, child, know, personal, emotion, individual, fit, need
+Topic: 1
+	child, family, individual, office, client, healing, life, counselor, therapeutic, many
+Topic: 2
+	know, take, see, come, thing, feeling, world, first, sense, experience
+
+
+**************************************** LDA Results ****************************************
+Timestamp: 2020-05-14 20:46:50.302420
+
+Model Parameters: 
+-------------------------
+batch_size : 128
+doc_topic_prior : 0.3333333333333333
+evaluate_every : -1
+learning_decay : 0.7
+learning_method : online
+learning_offset : 50.0
+max_doc_update_iter : 100
+max_iter : 10
+mean_change_tol : 0.001
+n_components : 3
+n_jobs : -1
+perp_tol : 0.1
+random_state : 0
+topic_word_prior : 0.3333333333333333
+total_samples : 1000000.0
+verbose : 1
+
+Model perplexity: 883.415
+
+Stop words used:
+change, family, find, approach, couples, issues, also, anxiety, working, experience, relationship, relationships, therapist, counseling, people, feel, clients, help, work, life, therapy, psychotherapy, feel, feeling, get, warson, counseling, way, practice, call, today, health, helping, free, depression, like, trauma, may, together, make, process, want, support, believe, goal, one, session, time, offer, individual, need, year, need, consultation, well, skill, new, emotional, provide, take, use, goal, person, child, individual, life, many, healing, problem, see, know
+
+Topic: 0
+	research, disorder, clinical, stress, university, treatment, study, community, approach, practice
+Topic: 1
+	client, office, family, individual, life, child, therapeutic, come, counselor, first
+Topic: 2
+	marriage, partner, love, body, pain, way, year, world, bring, thing
+
+
+**************************************** LDA Results ****************************************
+Timestamp: 2020-05-14 20:47:54.730932
+
+Model Parameters: 
+-------------------------
+batch_size : 128
+doc_topic_prior : 0.3333333333333333
+evaluate_every : -1
+learning_decay : 0.7
+learning_method : online
+learning_offset : 50.0
+max_doc_update_iter : 100
+max_iter : 10
+mean_change_tol : 0.001
+n_components : 3
+n_jobs : -1
+perp_tol : 0.1
+random_state : 0
+topic_word_prior : 0.3333333333333333
+total_samples : 1000000.0
+verbose : 1
+
+Model perplexity: 878.052
+
+Stop words used:
+change, family, find, approach, couples, issues, also, anxiety, working, experience, relationship, relationships, therapist, counseling, people, feel, clients, help, work, life, therapy, psychotherapy, feel, feeling, get, warson, counseling, way, practice, call, today, health, helping, free, depression, like, trauma, may, together, make, process, want, support, believe, goal, one, session, time, offer, individual, need, year, need, consultation, well, skill, new, emotional, provide, take, use, goal, person, child, individual, life, many, healing, problem, see, know
+
+Topic: 0
+	experience, place, love, marriage, often, safe, life, feeling, thought, thing
+Topic: 1
+	body, wellbeing, philosophy, towards, mind, mental, year, behavioral, meaningful, stress
+Topic: 2
+	client, family, office, counselor, child, mental, right, adolescent, adult, first
+
+
+**************************************** LDA Results ****************************************
+Timestamp: 2020-05-14 21:08:46.145059
+
+Model Parameters: 
+-------------------------
+batch_size : 128
+doc_topic_prior : None
+evaluate_every : -1
+learning_decay : 0.7
+learning_method : online
+learning_offset : 50.0
+max_doc_update_iter : 100
+max_iter : 10
+mean_change_tol : 0.001
+n_components : 3
+n_jobs : -1
+perp_tol : 0.1
+random_state : 0
+topic_word_prior : None
+total_samples : 1000000.0
+verbose : 1
+
+Model perplexity: 878.052
+
+Stop words used:
+change, family, find, approach, couples, issues, also, anxiety, working, experience, relationship, relationships, therapist, counseling, people, feel, clients, help, work, life, therapy, psychotherapy, feel, feeling, get, warson, counseling, way, practice, call, today, health, helping, free, depression, like, trauma, may, together, make, process, want, support, believe, goal, one, session, time, offer, individual, need, year, need, consultation, well, skill, new, emotional, provide, take, use, goal, person, child, individual, life, many, healing, problem, see, know
+
+Topic: 0
+	experience, place, love, marriage, often, safe, life, feeling, thought, thing
+Topic: 1
+	body, wellbeing, philosophy, towards, mind, mental, year, behavioral, meaningful, stress
+Topic: 2
+	client, family, office, counselor, child, mental, right, adolescent, adult, first
+
+
+**************************************** LDA Results ****************************************
+Timestamp: 2020-05-14 21:09:59.613561
+
+Model Parameters: 
+-------------------------
+batch_size : 128
+doc_topic_prior : 0.3333333333333333
+evaluate_every : -1
+learning_decay : 0.7
+learning_method : online
+learning_offset : 50.0
+max_doc_update_iter : 100
+max_iter : 10
+mean_change_tol : 0.001
+n_components : 3
+n_jobs : -1
+perp_tol : 0.1
+random_state : 0
+topic_word_prior : 0.3333333333333333
+total_samples : 1000000.0
+verbose : 1
+
+Model perplexity: 878.052
+
+Stop words used:
+change, family, find, approach, couples, issues, also, anxiety, working, experience, relationship, relationships, therapist, counseling, people, feel, clients, help, work, life, therapy, psychotherapy, feel, feeling, get, warson, counseling, way, practice, call, today, health, helping, free, depression, like, trauma, may, together, make, process, want, support, believe, goal, one, session, time, offer, individual, need, year, need, consultation, well, skill, new, emotional, provide, take, use, goal, person, child, individual, life, many, healing, problem, see, know
+
+Topic: 0
+	experience, place, love, marriage, often, safe, life, feeling, thought, thing
+Topic: 1
+	body, wellbeing, philosophy, towards, mind, mental, year, behavioral, meaningful, stress
+Topic: 2
+	client, family, office, counselor, child, mental, right, adolescent, adult, first

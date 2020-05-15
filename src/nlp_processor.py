@@ -39,6 +39,15 @@ class NlpProcessor(object):
         self.conn = self.open_conn()
         self.log_file_path = log_file_path
         self.palette = palette
+        self.save_figs = False
+        self.show_figs = False
+        self.visualiztion_directory = '../img/testing/'
+
+    def set_save_figs(self, choice:bool)->None:
+        self.save_figs = choice
+
+    def set_show_figs(self, choice:bool)->None:
+        self.show_figs = choice
 
     def open_conn(self):
         return psycopg2.connect(dbname='therapist_predictor', user='postgres', host='localhost', password='password')
@@ -160,7 +169,6 @@ class NlpProcessor(object):
         word_freq_dict = dict(zip(word_list, count_list))
         
         # dictionary.values() and .keys() return a view object, so we have to cast it to list in order to use it as desired
-        print('Most Frequent n grams')
         for word_index in np.argsort(list(word_freq_dict.values()))[-num_words:]:
             top_words.append(list(word_freq_dict.keys())[word_index])
             word_freqs.append(list(word_freq_dict.values())[word_index])
@@ -218,8 +226,10 @@ class NlpProcessor(object):
         ax.set_xlabel("1st eigenvector (PC1)")
         ax.set_ylabel("2nd eigenvector (PC2)")
         plt.tight_layout()
-        plt.savefig(f'../img/data_vis/pca_2_comps_{filename_suffix}.png')
-        #plt.show()
+        if self.save_figs:
+            plt.savefig(f'{self.visualiztion_directory}data_vis/pca_2_comps_{filename_suffix}.png')
+        if self.show_figs:
+            plt.show()
 
     def scree_plot(self, pca:np.ndarray, title='', filename_suffix='')->None:
         # plot explained variance ratio in a scree plot
@@ -232,8 +242,10 @@ class NlpProcessor(object):
         plt.ylabel('explained_variance_')
         plt.title(title)
         plt.tight_layout()
-        plt.savefig(f'../img/data_vis/pca_scree_{filename_suffix}.png')
-        #plt.show()
+        if self.save_figs:
+            plt.savefig(f'{self.visualiztion_directory}data_vis/pca_scree_{filename_suffix}.png')
+        if self.show_figs:
+            plt.show()
     
     def cum_scree_plot(self, pca:np.ndarray, title='', filename_suffix='')->None:
         total_variance = np.sum(pca.explained_variance_)
@@ -248,10 +260,12 @@ class NlpProcessor(object):
         plt.title(title)
         ax.legend()
         plt.tight_layout()
-        plt.savefig(f'../img/data_vis/pca_cum_scree_{filename_suffix}.png')
-        #plt.show()
+        if self.save_figs:
+            plt.savefig(f'{self.visualiztion_directory}data_vis/pca_cum_scree_{filename_suffix}.png')
+        if self.show_figs:
+            plt.show()
 
-    def save_initial_eda_charts(self, df):
+    def run_initial_eda_charts(self, df):
         # word length histogram
         writing_lengths = []
         for body in df['writing_sample']:
@@ -270,7 +284,8 @@ class NlpProcessor(object):
         ax.hist(writing_lengths, bins=100, color=c1)
         ax.axvline(x=mean, c=c2)
         plt.text(mean+200, 22, mean_label, bbox=dict(facecolor=c2, alpha=0.5))
-        plt.savefig('../img/data_vis/word_count_hist.png')
+        if self.save_figs:
+            plt.savefig(f'{self.visualiztion_directory}design/word_count_hist.png')
 
         # number of unique values per category
         age_groups_unique_size = df_age_groups['age_group'].unique().size
@@ -288,7 +303,8 @@ class NlpProcessor(object):
         ax.set_title('Unique Entries for Profile Categories')
         ax.set_ylabel('Number of Unique Entries')
         ax.bar(height = heights, x=labels, color=colors)
-        plt.savefig('../img/data_vis/uniques_per_category.png')
+        if self.save_figs:
+            plt.savefig(f'{self.visualiztion_directory}design/uniques_per_category.png')
 
         # has website bar chart
         mask_no_website = df['website']=='None'
@@ -300,16 +316,55 @@ class NlpProcessor(object):
         ax.bar(labels, height, color=c)
         ax.set_ylabel('Num. of Therapists')
         ax.set_title("Therapists with Websites")
-        plt.savefig('../img/data_vis/website_bar.png')
+        if self.save_figs:
+            plt.savefig(f'{self.visualiztion_directory}design/website_bar.png')
 
+    def run_pca_tfidf(self, tfidf_matrix):
+        # PCA with TFIDF
+        X_tfidf_scaled = scaler.fit_transform(tfidf_matrix.todense()) # standardize data
 
+        # Just 2 components - see any sig change between component 1 and 2? Hopefully!
+        pca_tfidf = PCA(n_components=2) 
+        X_pca_tfidf = pca_tfidf.fit_transform(X_tfidf_scaled) 
+        self.plot_2_pca_comps(X_pca_tfidf, title_suffix='with TFIDF Matrix', filename_suffix='tfidf')
+        
+        # How many components will explain enough variance?
+        pca_tfidf = PCA()
+        pca_tfidf.fit(X_tfidf_scaled)
+        self.cum_scree_plot(pca_tfidf, title='Cumulative Variance Explained using TF-IDF Matrix', filename_suffix='tfidf')
 
+    def run_pca_tf(self, tf_matrix):
+        # PCA with TF
+        X_tf_scaled = scaler.fit_transform(tf_matrix.todense()) # standardize data
 
+        # with just 2
+        pca_tf = PCA(n_components=2)
+        X_pca_tf = pca_tf.fit_transform(X_tf_scaled)
+        self.plot_2_pca_comps(X_pca_tf, title_suffix='with TF Matrix', filename_suffix='tf')
+
+        # How many components will explain enough variance?
+        pca_tf = PCA()
+        pca_tf.fit(X_tf_scaled)
+        self.cum_scree_plot(pca_tf, title='Cumulative Variance Explained using TF Matrix', filename_suffix='tf')
+
+    def fit_lda_model(self, tf_matrix, num_topics=5):
+        lda = LatentDirichletAllocation(n_components=num_topics, learning_offset = 50., verbose=1,
+                                        doc_topic_prior=1/num_topics, topic_word_prior= 1/num_topics,
+                                        n_jobs=-1, learning_method = 'online',
+                                        random_state=0)
+
+        lda.fit(tf_matrix)
+
+        return lda
 
 if __name__ == '__main__':
+    # define colors for visualizations
     palette = ['#13bdb4','#80d090','#dad977','#e49046','#d43d51']
+
+    # instantiate nlp processor
     nlp = NlpProcessor(log_file_path='../logs/lda_results_log.txt', palette=palette)
 
+    # connect to the database and load pandas dataframes
     sql = "select * from therapists;"
     df = nlp.sql_to_pandas(sql)
 
@@ -326,62 +381,45 @@ if __name__ == '__main__':
     df_services = nlp.sql_to_pandas(sql_services)
     
     nlp.close_conn()
-    #nlp.save_initial_eda_charts(df)
 
+    # NLP analysis
     custom_stopwords = ['change','family','find','approach','couples','issues','also',
     'anxiety','working','experience','relationship','relationships','therapist','counseling',
     'people','feel','clients','help','work','life','therapy','psychotherapy', 'feel', 
     'feeling','get', 'warson', 'counseling', 'way', 'practice', 'call', 'today']
-    #custom_stop_words = []
+
+    custom_stopwords += ['health', 'helping', 'free', 'depression', 'like', 'trauma', 'may', 'together', 'make',
+    'process', 'want', 'support', 'believe', 'goal', 'one', 'session', 'time', 'offer',
+    'individual', 'need']
+
+    custom_stopwords += ['year', 'need', 'consultation', 'well', 'skill', 'new', 'emotional',
+     'provide', 'take', 'use', 'goal', 'person', 'child', 'individual', 'life', 'many', 'healing',
+      'problem', 'see', 'know']
 
     final_stop_words = nlp.combine_stop_words(custom_stopwords)
 
-    tfidf_matrix = nlp.create_tf_idf_matrix(df['writing_sample'], all_stop_words=final_stop_words,max_feats=1000, n_gram_range=(1,3), tokenizer='None')
+    tfidf_matrix = nlp.create_tf_idf_matrix(df['writing_sample'], all_stop_words=final_stop_words,max_feats=1000, 
+        n_gram_range=(1,3), tokenizer='None')
 
-    tf_matrix, count_vect = nlp.create_tf_matrix(docs=df['writing_sample'], all_stop_words=final_stop_words, n_gram_range=(1,3), 
-        max_features=1000, remove_punc=True, tokenizer='wordnet')
+    tf_matrix, count_vect = nlp.create_tf_matrix(docs=df['writing_sample'], all_stop_words=final_stop_words, 
+        n_gram_range=(1,1), max_features=1000, remove_punc=True, tokenizer='wordnet')
 
-    # # PCA with TFIDF
-    # X_tfidf_scaled = scaler.fit_transform(tfidf_matrix.todense()) # standardize data
+    nlp.set_save_figs(True)
+    nlp.set_show_figs(False)
 
-    # # Just 2 components - see any sig change between component 1 and 2? Hopefully!
-    # pca_tfidf = PCA(n_components=2) 
-    # X_pca_tfidf = pca_tfidf.fit_transform(X_tfidf_scaled) 
-    # nlp.plot_2_pca_comps(X_pca_tfidf, title_suffix='with TFIDF Matrix', filename_suffix='tfidf')
+    # # General EDA
+    # nlp.run_initial_eda_charts(df)
     
-    # # How many components will explain enough variance?
-    # pca_tfidf = PCA()
-    # pca_tfidf.fit(X_tfidf_scaled)
-    # nlp.cum_scree_plot(pca_tfidf, title='Cumulative Variance Explained using TF-IDF Matrix', filename_suffix='tfidf')
-
-
-    # # PCA with TF
-    # X_tf_scaled = scaler.fit_transform(tf_matrix.todense()) # standardize data
-
-    # # with just 2
-    # pca_tf = PCA(n_components=2)
-    # X_pca_tf = pca_tf.fit_transform(X_tf_scaled)
-    # nlp.plot_2_pca_comps(X_pca_tf, title_suffix='with TF Matrix', filename_suffix='tf')
-
-    # # How many components will explain enough variance?
-    # pca_tf = PCA()
-    # pca_tf.fit(X_tf_scaled)
-    # nlp.cum_scree_plot(pca_tf, title='Cumulative Variance Explained using TF Matrix', filename_suffix='tf')
-
+    # PCA
+    nlp.run_pca_tfidf(tfidf_matrix)
+    nlp.run_pca_tf(tf_matrix)
 
     # LDA
-    num_topics = 5
-    lda = LatentDirichletAllocation(n_components=num_topics, learning_offset = 50., verbose=1,
-                                    doc_topic_prior=1/num_topics, topic_word_prior= 1/num_topics,
-                                    n_jobs=-1, learning_method = 'online',
-                                    random_state=0)
-
-    lda.fit(tf_matrix)
-
+    lda = nlp.fit_lda_model(tf_matrix, num_topics=3)    
     num_top_n_grams = 10
     tf_feature_names = count_vect.get_feature_names()
-
-    print(nlp.display_topics(lda, tf_feature_names, num_top_n_grams, custom_stopwords, log_lda=True))
-    print("\nModel perplexity: {0:0.3f}".format(lda.perplexity(tf_matrix)))
-    
-    words, counts = nlp.get_most_freq_words(count_vect, tf_matrix, 20, print_dict_to_terminal=True)
+    nlp.display_topics(lda, tf_feature_names, num_top_n_grams, custom_stopwords, log_lda=True)
+    words, counts = nlp.get_most_freq_words(count_vect, tf_matrix, 20, print_dict_to_terminal=False)
+    print('Most Frequent words/n_grams')
+    print(words)
+    print("Model perplexity: {0:0.3f}".format(lda.perplexity(tf_matrix)))
