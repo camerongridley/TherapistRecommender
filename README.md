@@ -24,7 +24,7 @@ Create a machine learning model that matches a client to a therapist based on NL
 
 ## The Data
 
-I obtained profile data for 273 therapists from GoodTherapy.com. 
+I obtained profile data for **273** therapists from GoodTherapy.com. 
 
 ### Sample Profile
 
@@ -36,19 +36,19 @@ I obtained profile data for 273 therapists from GoodTherapy.com.
 
 Almost all of the data is categorical, many of which were lists.
 
-| strings                  | text                                       | boolean          | int  |
-| ------------------------ | ------------------------------------------ | ---------------- | ---- |
-| name                     | practice description (i.e. writing sample) | license verified |      |
-| address                  |                                            |                  |      |
-| phone                    |                                            |                  |      |
-| license status           |                                            |                  |      |
-| primary credential       |                                            |                  |      |
-| website                  |                                            |                  |      |
-| types of therapy (list)  |                                            |                  |      |
-| issues treated (list)    |                                            |                  |      |
-| services provided (list) |                                            |                  |      |
-| age groups (list)        |                                            |                  |      |
-| professions (list)       |                                            |                  |      |
+| strings                      | text                                       | boolean          | int  |
+| ---------------------------- | ------------------------------------------ | ---------------- | ---- |
+| name                         | practice description (i.e. writing sample) | license verified |      |
+| address                      |                                            |                  |      |
+| phone                        |                                            |                  |      |
+| license status               |                                            |                  |      |
+| primary credential           |                                            |                  |      |
+| website                      |                                            |                  |      |
+| types of therapy **(list)**  |                                            |                  |      |
+| issues treated **(list)**    |                                            |                  |      |
+| services provided **(list)** |                                            |                  |      |
+| age groups **(list)**        |                                            |                  |      |
+| professions **(list)**       |                                            |                  |      |
 
 ### Workflow
 
@@ -70,17 +70,23 @@ The database design was based of data available on GoodTherapy.org and Psycholog
 
 ![](img/data_vis/word_count_hist.png)
 
+###### Most people seem to use about 200 words in their profile.
+
+
+
 ![](img/data_vis/uniques_per_category.png)
+
+###### Here we see that there are far more possible options for issues and orientations and accordingly, these are the categories that have the most entries on therapist profiles. Might this be unhelpful to potential clients in that it could be overwhelming to understand what so many terms mean?
+
+
+
+
 
 ![](img/data_vis/website_bar.png)
 
+###### This one was a personal curiosity. When I first started my practice, I would estimate only about half of the therapists I knew had websites. I am glad more people are catching on to this inter-web craze.
 
 
-
-
-
-
-sample values from each category
 
 ## Looking for Structure with Principal Component Analysis
 
@@ -102,9 +108,9 @@ Unfortunately, while things improve with the TF Matrix, the model still lacks so
 
 ## Latent Dirichlet Allocation Model (LDA)
 
-#### Stopwords list: 
+#### Custom Stop Words list: 
 
-change, family, find, approach, couples, issues, also, anxiety, working, experience, relationship, relationships, therapist, counseling, people, feel, clients, help, work, life, therapy, psychotherapy, feel, feeling, get, warson, counseling, way, practice, call, today, health, helping, free, depression, like, trauma, may, together, make, process, want, support, believe, goal, one, session, time, offer, individual, need, year, need, consultation, well, skill, new, emotional, provide, take, use, goal, person, child, individual, life, many, healing, problem, see, know
+change, find, approach, couples, issues, also, anxiety, working, relationship, relationships, therapist, counseling, people, feel, clients, help, work, therapy, psychotherapy, get, warson, counseling, way, practice, call, today, health, helping, free, depression, like, trauma, may, together, make, process, want, support, believe, goal, one, session, time, offer, individual, need, year, need, consultation, well, skill, new, emotional, provide, take, use, goal, person, individual,  many, healing, problem, see, know
 
 ##### Model perplexity: 878.052
 

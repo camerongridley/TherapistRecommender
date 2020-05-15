@@ -399,7 +399,7 @@ if __name__ == '__main__':
     final_stop_words = nlp.combine_stop_words(custom_stopwords)
 
     tfidf_matrix = nlp.create_tf_idf_matrix(df['writing_sample'], all_stop_words=final_stop_words,max_feats=1000, 
-        n_gram_range=(1,3), tokenizer='None')
+        n_gram_range=(1,3), tokenizer='wordnet')
 
     tf_matrix, count_vect = nlp.create_tf_matrix(docs=df['writing_sample'], all_stop_words=final_stop_words, 
         n_gram_range=(1,1), max_features=1000, remove_punc=True, tokenizer='wordnet')
