@@ -418,7 +418,7 @@ if __name__ == '__main__':
     lda = nlp.fit_lda_model(tf_matrix, num_topics=3)    
     num_top_n_grams = 10
     tf_feature_names = count_vect.get_feature_names()
-    nlp.display_topics(lda, tf_feature_names, num_top_n_grams, custom_stopwords, log_lda=True)
+    nlp.display_topics(lda, tf_feature_names, num_top_n_grams, custom_stopwords, log_lda=False)
     words, counts = nlp.get_most_freq_words(count_vect, tf_matrix, 20, print_dict_to_terminal=False)
     print('Most Frequent words/n_grams')
     print(words)
