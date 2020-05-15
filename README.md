@@ -45,7 +45,7 @@ I obtained profile data for **273** therapists from **GoodTherapy.com**.
 
 
 
-##### Data Fields
+### Data Fields
 
 Almost all of the data is categorical, many of which were lists.
 
