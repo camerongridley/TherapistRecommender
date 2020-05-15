@@ -166,3 +166,11 @@ Despite having quite a high perplexity score, some interesting topics emerged.
 #### Orientation: Family Systems?
 
 ![freud_speech_bubble3](img/design/freud_speech_bubble3.png)
+
+
+
+## Conclusions
+
+The lack of structure is likely due to having too little data. Obtaining more profiles and writing samples will hopefully allow for greater structure.
+
+Still, there appears to be promise that theoretical orientation may be found in the latent topics of the text.
