@@ -65,22 +65,17 @@ class NlpProcessor(object):
     def tokenize_doc(self, set_of_docs)->list:
         return [word_tokenize(content.lower()) for content in set_of_docs ]
 
-    def remove_stopwords_and_punc(self, tokenized_set_of_docs:list, stop_words, remove_punc=True)->list:
-        no_stops_docs = []
+    def remove_punc(self, tokenized_set_of_docs:list)->list:
+        no_punc_docs = []
         for tokens in tokenized_set_of_docs:
             saved_tokens = []
             for token in tokens:
-                if remove_punc:
-                    if token.isalpha():
-                        if token not in stop_words:
-                            saved_tokens.append(token)
-                else:
-                    if token not in stop_words:
-                        saved_tokens.append(token)
-            no_stops_docs.append(saved_tokens)
-            #no_stops_docs.append([word for word in words if word not in final_stop_words and word])
+                if token.isalpha():
+                    saved_tokens.append(token)
+
+            no_punc_docs.append(saved_tokens)
         
-        return no_stops_docs
+        return no_punc_docs
 
     def stem_porter(self, tokenized_set_of_docs:list)->list:
         porter = PorterStemmer()
@@ -106,18 +101,22 @@ class NlpProcessor(object):
         
         return wordnet_docs
 
-    def text_tokenization_pipeline(self, list_of_docs : list, stop_words, remove_punc : bool, tokenizer='wordnet') -> list:
+    def text_tokenization_pipeline(self, list_of_docs : list, remove_punc : bool, tokenizer='wordnet') -> list:
         tokenized_docs = self.tokenize_doc(list_of_docs)
-        no_stops_docs = self.remove_stopwords_and_punc(tokenized_docs, stop_words, remove_punc=remove_punc)
+        if remove_punc:
+            updated_docs = self.remove_punc(tokenized_docs)
+        else:
+            updated_docs = tokenized_docs
+
         lemm_stemm_docs = []
         if tokenizer == 'wordnet':
-            lemm_stemm_docs = self.lemm_wordnet(no_stops_docs)
+            lemm_stemm_docs = self.lemm_wordnet(updated_docs)
         elif tokenizer == 'porter':
-            lemm_stemm_docs = self.stem_porter(no_stops_docs)
+            lemm_stemm_docs = self.stem_porter(updated_docs)
         elif tokenizer == 'snowball':
-            lemm_stemm_docs = self.stem_snowball(no_stops_docs)
+            lemm_stemm_docs = self.stem_snowball(updated_docs)
         else:
-            lemm_stemm_docs = no_stops_docs
+            lemm_stemm_docs = updated_docs
             
         return lemm_stemm_docs
 
@@ -135,24 +134,22 @@ class NlpProcessor(object):
         return stop_words.union(custom_stop_words)
 
     def create_tf_matrix(self, docs, all_stop_words:list, n_gram_range, max_features, remove_punc=True, tokenizer='None'):
-        tokens = self.text_tokenization_pipeline(docs,stop_words=all_stop_words,
-                                                remove_punc=True, tokenizer=tokenizer)
+        tokens = self.text_tokenization_pipeline(docs, remove_punc=True, tokenizer=tokenizer)
 
         documents = [' '.join(doc) for doc in tokens]
 
-        count_vect = CountVectorizer(max_features=max_features, ngram_range=n_gram_range)
+        count_vect = CountVectorizer(max_features=max_features, ngram_range=n_gram_range, lowercase=True, stop_words=all_stop_words)
         tf_matrix = count_vect.fit_transform(documents)
 
         return tf_matrix, count_vect
 
-    def create_tf_idf_matrix(self, docs, all_stop_words:list,max_feats , n_gram_range, tokenizer='None'):
+    def create_tf_idf_matrix(self, docs, all_stop_words:list, max_feats, n_gram_range, remove_punc=True, tokenizer='None'):
         # tokens is a list of lists - words per document
-        tokens = nlp.text_tokenization_pipeline(docs, stop_words=all_stop_words,
-                                                    remove_punc=True, tokenizer=tokenizer)
+        tokens = nlp.text_tokenization_pipeline(docs, remove_punc=remove_punc, tokenizer=tokenizer)
 
         # reconstruct each document after processing
         documents = [' '.join(doc) for doc in tokens]
-        tfidf_vect = TfidfVectorizer(ngram_range=n_gram_range,max_features=max_feats, lowercase=False)
+        tfidf_vect = TfidfVectorizer(ngram_range=n_gram_range,max_features=max_feats, lowercase=True, stop_words=all_stop_words)
         tfidf_matrix = tfidf_vect.fit_transform(documents)
         #print(tfidf_vect.get_feature_names())
         
@@ -386,20 +383,17 @@ if __name__ == '__main__':
     custom_stopwords = ['change','family','find','approach','couples','issues','also',
     'anxiety','working','experience','relationship','relationships','therapist','counseling',
     'people','feel','clients','help','work','life','therapy','psychotherapy', 'feel', 
-    'feeling','get', 'warson', 'counseling', 'way', 'practice', 'call', 'today']
-
-    custom_stopwords += ['health', 'helping', 'free', 'depression', 'like', 'trauma', 'may', 'together', 'make',
+    'feeling','get', 'warson', 'counseling', 'way', 'practice', 'call', 'today','health',
+    'helping', 'free', 'depression', 'like', 'trauma', 'may', 'together', 'make',
     'process', 'want', 'support', 'believe', 'goal', 'one', 'session', 'time', 'offer',
-    'individual', 'need']
-
-    custom_stopwords += ['year', 'need', 'consultation', 'well', 'skill', 'new', 'emotional',
+    'individual', 'need', 'year', 'need', 'consultation', 'well', 'skill', 'new', 'emotional',
      'provide', 'take', 'use', 'goal', 'person', 'child', 'individual', 'life', 'many', 'healing',
-      'problem', 'see', 'know']
+      'problem', 'see', 'know', 'right', 'place', 'strength', 'important', 'good', 'learn', 'therapeutic', 'best', 'love', 'safe', 'personal', 'mental', 'emotion', 'often', 'others', 'challenge', 'ha', 'couple', 'issue', 'client']
 
     final_stop_words = nlp.combine_stop_words(custom_stopwords)
 
     tfidf_matrix = nlp.create_tf_idf_matrix(df['writing_sample'], all_stop_words=final_stop_words,max_feats=1000, 
-        n_gram_range=(1,3), tokenizer='wordnet')
+        n_gram_range=(1,3), remove_punc=True, tokenizer='wordnet')
 
     tf_matrix, count_vect = nlp.create_tf_matrix(docs=df['writing_sample'], all_stop_words=final_stop_words, 
         n_gram_range=(1,1), max_features=1000, remove_punc=True, tokenizer='wordnet')
@@ -418,7 +412,7 @@ if __name__ == '__main__':
     lda = nlp.fit_lda_model(tf_matrix, num_topics=3)    
     num_top_n_grams = 10
     tf_feature_names = count_vect.get_feature_names()
-    nlp.display_topics(lda, tf_feature_names, num_top_n_grams, custom_stopwords, log_lda=False)
+    nlp.display_topics(lda, tf_feature_names, num_top_n_grams, custom_stopwords, log_lda=True)
     words, counts = nlp.get_most_freq_words(count_vect, tf_matrix, 20, print_dict_to_terminal=False)
     print('Most Frequent words/n_grams')
     print(words)
