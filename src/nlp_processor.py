@@ -388,7 +388,7 @@ if __name__ == '__main__':
     'process', 'want', 'support', 'believe', 'goal', 'one', 'session', 'time', 'offer',
     'individual', 'need', 'year', 'need', 'consultation', 'well', 'skill', 'new', 'emotional',
      'provide', 'take', 'use', 'goal', 'person', 'child', 'individual', 'life', 'many', 'healing',
-      'problem', 'see', 'know', 'right', 'place', 'strength', 'important', 'good', 'learn', 'therapeutic', 'best', 'love', 'safe', 'personal', 'mental', 'emotion', 'often', 'others', 'challenge', 'ha', 'couple', 'issue', 'client']
+      'problem', 'see', 'know']
 
     final_stop_words = nlp.combine_stop_words(custom_stopwords)
 
