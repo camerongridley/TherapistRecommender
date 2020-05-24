@@ -9,24 +9,25 @@ from items import TherapistItem
 #from pipelines import GoodtherapyScrapyPipeline
 from good_therapy_scraper import GoodTherapySoupScraper
 import datetime as dt
+import pickle
 
 from sql_queries import SqlQueries
 
 class LocalCrawler(object):
 
-    def __init__(self, path, prefix='file://'):
+    def __init__(self, log_path='../logs'):
         #dir_path = '/home/cgridley/Galvanize/repos/capstones/TherapistFitter/data/html/TherapistListings/Denver/'
-        self.dir_path = path
-        self.prefix = prefix
-        self.file_list = [(self.prefix + self.dir_path + f) for f in listdir(self.dir_path) if isfile(join(self.dir_path, f))]
+        self.log_path = log_path
 
-    #file_and_path = prefix + dir_path + f
-
-    def get_search_results_paths(self)->list:
+    def get_search_results_paths(self, path:str, prefix='file://')->list:
         #dir_path = '/home/cgridley/Galvanize/repos/capstones/TherapistFitter/data/html/TherapistListings/Denver/'
         # dir_path = '/home/cgridley/Galvanize/repos/capstones/TherapistFitter/data/html/'
         # prefix = 'file://'
         # return [(prefix + dir_path + f) for f in listdir(dir_path) if isfile(join(dir_path, f))]
+        self.dir_path = path
+        self.prefix = prefix
+        self.file_list = [(self.prefix + self.dir_path + f) for f in listdir(self.dir_path) if isfile(join(self.dir_path, f))]
+
         return self.file_list
         
     # pass therapist info dict received from GoodTherapyScraper.get_all_data()
@@ -54,7 +55,36 @@ class LocalCrawler(object):
 
         return therapist_item
 
-    def crawl_profiles(self):
+    def scrape_profile_page(self, profile_links):
+        sql_pipeline = SqlPipeline()
+        sql_pipeline.create_connection()
+        logger = Logger(self.log_path)
+
+        # for each profile link, go to that url and scrape the therapist information with GoodTherapySoupScraper class
+        for link in profile_links:
+            # pause between requests
+            sleep(randint(1,3))
+            good_tx_scraper = GoodTherapySoupScraper(starting_url=link, is_local_file=False)
+            profile_soup = good_tx_scraper.get_soup()
+            
+            therapist_info_dict = good_tx_scraper.get_all_data(profile_soup)
+            if therapist_info_dict is not None:
+                therapist_item = self.build_therapist_item(therapist_info_dict)
+                #print(therapist_item)
+                sql_pipeline.process_item(therapist_item, logger)       
+
+        sql_pipeline.close_connection()
+        logger.save_to_file()
+
+    def crawl_pickle_files(self, pickle_files):
+        for p in pickle_files:
+            print('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@')
+            print(f'@@@@@@@@@@@@@@@@@@@ PICKLE FILE: {p} @@@@@@@@@@@@@@@@@@@')
+            print('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@')
+            links = pickle.load( open( p, "rb" ) )
+            self.scrape_profile_page(links)
+
+    def crawl_local_html_file(self):
         sql_pipeline = SqlPipeline()
         sql_pipeline.create_connection()
         logger = Logger(self.dir_path)
@@ -79,24 +109,18 @@ class LocalCrawler(object):
             print(str_links)
             logger.log_message(str_links)
             
-            for link in profile_links:
-                good_tx_scraper = GoodTherapySoupScraper(link, False)
-                profile_soup = good_tx_scraper.get_soup()
-                
-                therapist_info_dict = good_tx_scraper.get_all_data(profile_soup)
-                if therapist_info_dict is not None:
-                    therapist_item = self.build_therapist_item(therapist_info_dict)
-                    #print(therapist_item)
-                    sql_pipeline.process_item(therapist_item, logger)        
-                    
-            # #scrape links
-            # for link in profile_links:
-            #     # good_tx_scraper = GoodTherapySoupScraper(f, True)
-            #     # soup = good_tx_scraper.get_soup()
-            #     # print(good_tx_scraper.get_all_data(soup))
-            #     # print('\n')
-            #     pass
 
+            self.scrape_profile_page(profile_links)
+            # # for each profile link, go to that url and scrape the therapist information with GoodTherapySoupScraper class
+            # for link in profile_links:
+            #     good_tx_scraper = GoodTherapySoupScraper(link, False)
+            #     profile_soup = good_tx_scraper.get_soup()
+                
+            #     therapist_info_dict = good_tx_scraper.get_all_data(profile_soup)
+            #     if therapist_info_dict is not None:
+            #         therapist_item = self.build_therapist_item(therapist_info_dict)
+            #         #print(therapist_item)
+            #         sql_pipeline.process_item(therapist_item, logger)        
 
         sql_pipeline.close_connection()
         logger.save_to_file()
@@ -152,15 +176,14 @@ class SqlPipeline(object):
                 print(str_saved)
                 logger.log_message(str_saved)
 
-                # pause for 1-3 seconds between requests
-                sleep(randint(1,3))
             else:
                 skipping_msg = f'SKIPPING {item["full_name"]} - Therapist already exists in database.'
                 print(skipping_msg)
                 logger.log_message(skipping_msg)
 
-        except(psycopg2.IntegrityError) as e:
+        except Exception as e:
             logger.log_message(f'\nPOSTGRES ERROR:{e}')
+            print(f'POSTGRES ERROR: {e}')
         
         
 
@@ -184,33 +207,34 @@ class Logger(object):
                 f.write("%s\n" % item)
 
 if __name__ == '__main__':
-    '''
-    Supply the directory that contains the search results files manually saved from GoodTherapy.com.
-    These files contain the links to the therapist found in the seach performed. The cralwer scrapes
-    each of these and saves the profile into the database.
-    '''
-    prefix = ''
-    # include forward slacs('/') at the beginning and end of the path
-    #denver_listings = '/home/cgridley/Galvanize/repos/capstones/TherapistFitter/data/html/TherapistListings/Denver/'
-    #boulder_listings = '/home/cgridley/Galvanize/repos/capstones/TherapistFitter/data/html/TherapistListings/Boulder/'
-    #springs_listings = '/home/cgridley/Galvanize/repos/capstones/TherapistFitter/data/html/TherapistListings/COSprings/'
-    #ft_collins_listings = '/home/cgridley/Galvanize/repos/capstones/TherapistFitter/data/html/TherapistListings/FortCollins/'
-    vail_listings = '/home/cgridley/Galvanize/repos/capstones/TherapistFitter/data/html/TherapistListings/Vail/'
+    crawler = LocalCrawler()
+    # '''
+    # Supply the directory that contains the search results files manually saved from GoodTherapy.com.
+    # These files contain the links to the therapist found in the seach performed. The cralwer scrapes
+    # each of these and saves the profile into the database.
+    # '''
+    # prefix = ''
+    # # include forward slacs('/') at the beginning and end of the path
+    # #denver_listings = '/home/cgridley/Galvanize/repos/capstones/TherapistFitter/data/html/TherapistListings/Denver/'
+    # #boulder_listings = '/home/cgridley/Galvanize/repos/capstones/TherapistFitter/data/html/TherapistListings/Boulder/'
+    # #springs_listings = '/home/cgridley/Galvanize/repos/capstones/TherapistFitter/data/html/TherapistListings/COSprings/'
+    # #ft_collins_listings = '/home/cgridley/Galvanize/repos/capstones/TherapistFitter/data/html/TherapistListings/FortCollins/'
+    # #vail_listings = '/home/cgridley/Galvanize/repos/capstones/TherapistFitter/data/html/TherapistListings/Vail/'
 
-    test = '/home/cgridley/Galvanize/repos/capstones/TherapistFitter/data/html/'
+    # test = '/home/cgridley/Galvanize/repos/capstones/TherapistFitter/data/html/TherapistListings/Utah/'
 
-    cities_lisitings = [vail_listings]
+    # cities_lisitings = [test]
+    
+    # for city in cities_lisitings:
 
-    for city in cities_lisitings:
-        path = city
-        print('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@')
-        print(f'@@@@@@@@@@@@@@@@@@@ CRAWLING {city} @@@@@@@@@@@@@@@@@@@')
-        print('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@')
-        crawler = LocalCrawler(path, prefix)
-        crawler.get_search_results_paths()
-        crawler.crawl_profiles()
+    #     path = city
+    #     print('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@')
+    #     print(f'@@@@@@@@@@@@@@@@@@@ CRAWLING {city} @@@@@@@@@@@@@@@@@@@')
+    #     print('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@')
+    #     crawler.get_search_results_paths(path, prefix)
+    #     crawler.crawl_local_html_file()
 
-    #build therapist item
-    # therapist_item = TherapistItem()
-    # therapist_item.
+    
+    pickle_files = ['nyc_links_leftovers_1.pkl']
+    crawler.crawl_pickle_files(pickle_files)
 

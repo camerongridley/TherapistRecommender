@@ -1,8 +1,0 @@
-Crawling page: /home/cgridley/Galvanize/repos/capstones/TherapistFitter/data/html/TherapistListings/Vail/SearchResults.html
-
-Found profile links: - ['https://www.goodtherapy.org/therapists/profile/kristen-beau-howard-20140722', 'https://www.goodtherapy.org/therapists/profile/steven-chen-20091014']
-
-
-SKIPPING Kristen Howard - Therapist already exists in database.
-Created therapist id: 353 for Steven J. Chen
-Therapist saved to Postgres: Steven J. Chen
