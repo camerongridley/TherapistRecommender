@@ -404,18 +404,18 @@ if __name__ == '__main__':
     nlp.set_show_figs(False)
 
     # # General EDA
-    # nlp.run_initial_eda_charts(df)
+    nlp.run_initial_eda_charts(df)
     
     # PCA
     #nlp.run_pca_tfidf(selected_matrix)
     #nlp.run_pca_tf(selected_matrix)
 
     # LDA
-    lda = nlp.fit_lda_model(selected_matrix, num_topics=3)    
-    num_top_n_grams = 10
-    tf_feature_names = count_vect.get_feature_names()
-    nlp.display_topics(lda, tf_feature_names, num_top_n_grams, custom_stopwords, log_lda=True)
-    words, counts = nlp.get_most_freq_words(count_vect, tf_matrix, 20, print_dict_to_terminal=False)
-    print('Most Frequent words/n_grams')
-    print(words)
-    print("Model perplexity: {0:0.3f}".format(lda.perplexity(selected_matrix)))
+    # lda = nlp.fit_lda_model(selected_matrix, num_topics=3)    
+    # num_top_n_grams = 10
+    # tf_feature_names = count_vect.get_feature_names()
+    # nlp.display_topics(lda, tf_feature_names, num_top_n_grams, custom_stopwords, log_lda=True)
+    # words, counts = nlp.get_most_freq_words(count_vect, tf_matrix, 20, print_dict_to_terminal=False)
+    # print('Most Frequent words/n_grams')
+    # print(words)
+    # print("Model perplexity: {0:0.3f}".format(lda.perplexity(selected_matrix)))
