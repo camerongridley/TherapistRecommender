@@ -19,6 +19,8 @@ from sklearn.decomposition import LatentDirichletAllocation
 from sklearn.decomposition import PCA
 from sklearn.preprocessing import StandardScaler
 
+import spacy
+
 scaler = StandardScaler(copy=True, with_mean=True, with_std=True)
 plt.rcParams['font.family'] = 'Ubuntu'
 plt.rcParams['font.weight'] = 'normal'
@@ -153,14 +155,14 @@ class NlpProcessor(object):
         tfidf_matrix = tfidf_vect.fit_transform(documents)
         #print(tfidf_vect.get_feature_names())
         
-        return tfidf_matrix
+        return tfidf_matrix, tfidf_vect
 
-    def get_most_freq_words(self, count_vectorizer, tf_matrix, num_words, print_dict_to_terminal=False):
+    def get_most_freq_words(self, vectorizer, X_matrix, num_words, print_dict_to_terminal=False):
         top_words = []
         word_freqs = []
         
-        word_list = count_vect.get_feature_names()
-        count_list = tf_matrix.toarray().sum(axis=0)
+        word_list = vectorizer.get_feature_names()
+        count_list = X_matrix.toarray().sum(axis=0)
 
         #combine these in a dictionary
         word_freq_dict = dict(zip(word_list, count_list))
@@ -199,7 +201,7 @@ class NlpProcessor(object):
         for k, v in model_params.items():
             params_str += f'{k} : {v}\n'
 
-        perplex = "Model perplexity: {0:0.3f}".format(lda.perplexity(tf_matrix)) + '\n'
+        perplex = 'N/A'#"Model perplexity: {0:0.3f}".format(lda.perplexity(tf_matrix)) + '\n'
 
         stopwords_header = 'Stop words used:'
         stopwords_str = ', '.join([stop for stop in custom_stopwords])
@@ -344,13 +346,13 @@ class NlpProcessor(object):
         pca_tf.fit(X_tf_scaled)
         self.cum_scree_plot(pca_tf, title='Cumulative Variance Explained using TF Matrix', filename_suffix='tf')
 
-    def fit_lda_model(self, tf_matrix, num_topics=5, alpha=.2 , beta=.2):
+    def fit_lda_model(self, X_matrix, num_topics=5, alpha=.2 , beta=.2):
         lda = LatentDirichletAllocation(n_components=num_topics, learning_offset = 50., verbose=1,
                                         doc_topic_prior=alpha, topic_word_prior= beta,
                                         n_jobs=-1, learning_method = 'online',
                                         random_state=0)
 
-        lda.fit(tf_matrix)
+        lda.fit(X_matrix)
 
         return lda
 
@@ -392,31 +394,32 @@ if __name__ == '__main__':
 
     final_stop_words = nlp.combine_stop_words(custom_stopwords)
 
-    tfidf_matrix = nlp.create_tf_idf_matrix(df['writing_sample'], all_stop_words=final_stop_words,max_feats=1000, 
+    tfidf_matrix, tfidf_vect = nlp.create_tf_idf_matrix(df['writing_sample'], all_stop_words=final_stop_words,max_feats=1000, 
         n_gram_range=(1,3), remove_punc=True, tokenizer='wordnet')
 
-    tf_matrix, count_vect = nlp.create_tf_matrix(docs=df['writing_sample'], all_stop_words=final_stop_words, 
-        n_gram_range=(1,1), max_features=1000, remove_punc=True, tokenizer='wordnet')
+    # tf_matrix, count_vect = nlp.create_tf_matrix(docs=df['writing_sample'], all_stop_words=final_stop_words, 
+    #     n_gram_range=(1,1), max_features=1000, remove_punc=True, tokenizer='wordnet')
 
     selected_matrix = tfidf_matrix
+    selected_vectorizer = tfidf_vect
 
-    nlp.set_save_figs(True)
-    nlp.set_show_figs(False)
+    # nlp.set_save_figs(True)
+    # nlp.set_show_figs(False)
 
     # # General EDA
-    nlp.run_initial_eda_charts(df)
+    # nlp.run_initial_eda_charts(df)
     
     # PCA
     #nlp.run_pca_tfidf(selected_matrix)
     #nlp.run_pca_tf(selected_matrix)
 
     # LDA
-    #n_topics = 3
-    #lda = nlp.fit_lda_model(selected_matrix, num_topics=n_topics, alpha=1/n_topics, beta=1/n_topics)    
-    # num_top_n_grams = 10
-    # tf_feature_names = count_vect.get_feature_names()
-    # nlp.display_topics(lda, tf_feature_names, num_top_n_grams, custom_stopwords, log_lda=True)
-    # words, counts = nlp.get_most_freq_words(count_vect, tf_matrix, 20, print_dict_to_terminal=False)
-    # print('Most Frequent words/n_grams')
-    # print(words)
-    # print("Model perplexity: {0:0.3f}".format(lda.perplexity(selected_matrix)))
+    n_topics = 3
+    lda = nlp.fit_lda_model(selected_matrix, num_topics=n_topics, alpha=1/n_topics, beta=1/n_topics)    
+    num_top_n_grams = 10
+    feature_names = selected_vectorizer.get_feature_names()
+    nlp.display_topics(lda, feature_names, num_top_n_grams, custom_stopwords, log_lda=True)
+    words, counts = nlp.get_most_freq_words(selected_vectorizer, selected_matrix, 20, print_dict_to_terminal=False)
+    print('Most Frequent words/n_grams')
+    print(words)
+    print("Model perplexity: {0:0.3f}".format(lda.perplexity(selected_matrix)))
