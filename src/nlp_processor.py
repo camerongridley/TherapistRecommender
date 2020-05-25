@@ -41,7 +41,7 @@ class NlpProcessor(object):
         self.palette = palette
         self.save_figs = False
         self.show_figs = False
-        self.visualiztion_directory = '../img/testing/'
+        self.visualiztion_directory = 'img/testing/'
 
     def set_save_figs(self, choice:bool)->None:
         self.save_figs = choice
@@ -359,7 +359,7 @@ if __name__ == '__main__':
     palette = ['#13bdb4','#80d090','#dad977','#e49046','#d43d51']
 
     # instantiate nlp processor
-    nlp = NlpProcessor(log_file_path='../logs/lda_results_log.txt', palette=palette)
+    nlp = NlpProcessor(log_file_path='logs/lda_results_log.txt', palette=palette)
 
     # connect to the database and load pandas dataframes
     sql = "select * from therapists;"
@@ -398,6 +398,8 @@ if __name__ == '__main__':
     tf_matrix, count_vect = nlp.create_tf_matrix(docs=df['writing_sample'], all_stop_words=final_stop_words, 
         n_gram_range=(1,1), max_features=1000, remove_punc=True, tokenizer='wordnet')
 
+    selected_matrix = tfidf_matrix
+
     nlp.set_save_figs(True)
     nlp.set_show_figs(False)
 
@@ -405,15 +407,15 @@ if __name__ == '__main__':
     # nlp.run_initial_eda_charts(df)
     
     # PCA
-    nlp.run_pca_tfidf(tfidf_matrix)
-    nlp.run_pca_tf(tf_matrix)
+    #nlp.run_pca_tfidf(selected_matrix)
+    #nlp.run_pca_tf(selected_matrix)
 
     # LDA
-    lda = nlp.fit_lda_model(tf_matrix, num_topics=3)    
+    lda = nlp.fit_lda_model(selected_matrix, num_topics=3)    
     num_top_n_grams = 10
     tf_feature_names = count_vect.get_feature_names()
     nlp.display_topics(lda, tf_feature_names, num_top_n_grams, custom_stopwords, log_lda=True)
     words, counts = nlp.get_most_freq_words(count_vect, tf_matrix, 20, print_dict_to_terminal=False)
     print('Most Frequent words/n_grams')
     print(words)
-    print("Model perplexity: {0:0.3f}".format(lda.perplexity(tf_matrix)))
+    print("Model perplexity: {0:0.3f}".format(lda.perplexity(selected_matrix)))

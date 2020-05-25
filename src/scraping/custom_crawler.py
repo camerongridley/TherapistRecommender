@@ -150,6 +150,7 @@ class SqlPipeline(object):
 
         # create new therapist and get resulting id
         try:
+            breakpoint()
             # see if thereapist is already in database
             if sql.full_name_exists(item['full_name']) == False:
                 therapist_id = sql.insert_therapist_info(item)
@@ -233,8 +234,9 @@ if __name__ == '__main__':
     #     print('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@')
     #     crawler.get_search_results_paths(path, prefix)
     #     crawler.crawl_local_html_file()
-
-    
     pickle_files = ['nyc_links_leftovers_1.pkl']
+    pickle_path = 'data/cities_final/'
+    pickle_files = [pickle_path + f for f in listdir(pickle_path) if isfile(join(pickle_path, f))]
+    print(pickle_files)
     crawler.crawl_pickle_files(pickle_files)
 
