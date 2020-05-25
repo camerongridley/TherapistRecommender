@@ -344,9 +344,9 @@ class NlpProcessor(object):
         pca_tf.fit(X_tf_scaled)
         self.cum_scree_plot(pca_tf, title='Cumulative Variance Explained using TF Matrix', filename_suffix='tf')
 
-    def fit_lda_model(self, tf_matrix, num_topics=5):
+    def fit_lda_model(self, tf_matrix, num_topics=5, alpha=.2 , beta=.2):
         lda = LatentDirichletAllocation(n_components=num_topics, learning_offset = 50., verbose=1,
-                                        doc_topic_prior=1/num_topics, topic_word_prior= 1/num_topics,
+                                        doc_topic_prior=alpha, topic_word_prior= beta,
                                         n_jobs=-1, learning_method = 'online',
                                         random_state=0)
 
@@ -411,7 +411,8 @@ if __name__ == '__main__':
     #nlp.run_pca_tf(selected_matrix)
 
     # LDA
-    # lda = nlp.fit_lda_model(selected_matrix, num_topics=3)    
+    #n_topics = 3
+    #lda = nlp.fit_lda_model(selected_matrix, num_topics=n_topics, alpha=1/n_topics, beta=1/n_topics)    
     # num_top_n_grams = 10
     # tf_feature_names = count_vect.get_feature_names()
     # nlp.display_topics(lda, tf_feature_names, num_top_n_grams, custom_stopwords, log_lda=True)
