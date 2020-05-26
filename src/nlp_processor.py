@@ -1,10 +1,9 @@
 import psycopg2
 import numpy as np
-from bs4 import BeautifulSoup
 import pandas as pd
 from string import punctuation
-import matplotlib.pyplot as plt
 import datetime as dt
+from visualizer import Visualizer
 
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
@@ -22,37 +21,18 @@ from sklearn.preprocessing import StandardScaler
 import spacy
 
 scaler = StandardScaler(copy=True, with_mean=True, with_std=True)
-plt.rcParams['font.family'] = 'Ubuntu'
-plt.rcParams['font.weight'] = 'normal'
-plt.rcParams['font.size'] = 18
-plt.rcParams['axes.linewidth'] = 2
-plt.rcParams['axes.spines.top'] = False
-plt.rcParams['axes.spines.right'] = False
-
-plt.rcParams['xtick.major.size'] = 10
-plt.rcParams['xtick.major.width'] = 2
-plt.rcParams['ytick.major.size'] = 2
-plt.rcParams['ytick.major.width'] = 2
-plt.rcParams['figure.figsize'] = [10,6]
 
 class NlpProcessor(object):
 
-    def __init__(self, log_file_path, palette):
+    def __init__(self, log_file_path):
         self.conn = self.open_conn()
         self.log_file_path = log_file_path
-        self.palette = palette
-        self.save_figs = False
-        self.show_figs = False
-        self.visualiztion_directory = 'img/testing/'
-
-    def set_save_figs(self, choice:bool)->None:
-        self.save_figs = choice
-
-    def set_show_figs(self, choice:bool)->None:
-        self.show_figs = choice
 
     def open_conn(self):
         return psycopg2.connect(dbname='therapist_predictor', user='postgres', host='localhost', password='password')
+
+    def get_conn(self):
+        return self.conn
 
     def close_conn(self):
         self.conn = None
@@ -217,134 +197,50 @@ class NlpProcessor(object):
         file_log.writelines(L)
         file_log.close()
 
-    def plot_2_pca_comps(self, X_pca:np.ndarray, title_suffix='', filename_suffix='')->None:
-        fig, ax = plt.subplots(1, 1)
-        ax.scatter(X_pca[:, 0], X_pca[:, 1],
-                cmap=plt.cm.Set1, edgecolor='k', s=40)
-        ax.set_title(f'First two PCA directions {title_suffix}')
-        ax.set_xlabel("1st eigenvector (PC1)")
-        ax.set_ylabel("2nd eigenvector (PC2)")
-        plt.tight_layout()
-        if self.save_figs:
-            plt.savefig(f'{self.visualiztion_directory}data_vis/pca_2_comps_{filename_suffix}.png')
-        if self.show_figs:
-            plt.show()
-
-    def scree_plot(self, pca:np.ndarray, title='', filename_suffix='')->None:
-        # plot explained variance ratio in a scree plot
-        plt.figure(1)
-        plt.clf()
-        plt.axes([.2, .2, .7, .7])
-        plt.plot(pca.explained_variance_, linewidth=2, color=self.palette[0])
-        plt.axis('tight')
-        plt.xlabel('n_components')
-        plt.ylabel('explained_variance_')
-        plt.title(title)
-        plt.tight_layout()
-        if self.save_figs:
-            plt.savefig(f'{self.visualiztion_directory}data_vis/pca_scree_{filename_suffix}.png')
-        if self.show_figs:
-            plt.show()
-    
-    def cum_scree_plot(self, pca:np.ndarray, title='', filename_suffix='')->None:
-        total_variance = np.sum(pca.explained_variance_)
-        cum_variance = np.cumsum(pca.explained_variance_)
-        prop_var_expl = cum_variance/total_variance
-
-        fig, ax = plt.subplots()
-        ax.plot(prop_var_expl, color=self.palette[0], linewidth=2, label='Explained variance')
-        ax.axhline(0.9, label='90% goal', linestyle='--', color=self.palette[3], linewidth=1)
-        ax.set_ylabel('cumulative prop. of explained variance')
-        ax.set_xlabel('number of principal components')
-        plt.title(title)
-        ax.legend()
-        plt.tight_layout()
-        if self.save_figs:
-            plt.savefig(f'{self.visualiztion_directory}data_vis/pca_cum_scree_{filename_suffix}.png')
-        if self.show_figs:
-            plt.show()
-
-    def run_initial_eda_charts(self, df):
-        # word length histogram
-        writing_lengths = []
-        for body in df['writing_sample']:
-            writing_lengths.append(len(body))
-            
-        writing_lengths.sort()
-
-        mean = np.mean(writing_lengths)
-        mean_label = f'Mean: {np.around(mean, decimals=0)}'
-        c1 = self.palette[0]
-        c2 = self.palette[4]
-        fig, ax = plt.subplots()
-        ax.set_xlabel('Word Count')
-        ax.set_ylabel('Therapists')
-        ax.set_title('Practice Description Word Counts')
-        ax.hist(writing_lengths, bins=100, color=c1)
-        ax.axvline(x=mean, c=c2)
-        plt.text(mean+200, 22, mean_label, bbox=dict(facecolor=c2, alpha=0.5))
-        if self.save_figs:
-            plt.savefig(f'{self.visualiztion_directory}design/word_count_hist.png')
-
-        # number of unique values per category
-        age_groups_unique_size = df_age_groups['age_group'].unique().size
-        issues_unique_size = df_issues['issue'].unique().size
-        orientations_unique_size = df_orientations['orientation'].unique().size
-        professions_unique_size = df_professions['profession'].unique().size
-        service_unique_size = df_services['service'].unique().size
-
-        heights = [age_groups_unique_size, issues_unique_size, orientations_unique_size,
-           professions_unique_size, service_unique_size]
-        labels = ['age groups', 'issues', 'orientations', 'professions', 'services']
-        colors = [self.palette[i] for i in range(len(heights))]
-
-        fig, ax = plt.subplots()
-        ax.set_title('Unique Entries for Profile Categories')
-        ax.set_ylabel('Number of Unique Entries')
-        ax.bar(height = heights, x=labels, color=colors)
-        if self.save_figs:
-            plt.savefig(f'{self.visualiztion_directory}design/uniques_per_category.png')
-
-        # has website bar chart
-        mask_no_website = df['website']=='None'
-        height = [df[~mask_no_website]['website'].size, df[mask_no_website]['website'].size]
-        labels = ['Website', 'No Website']
-
-        c = [self.palette[0], self.palette[3]]
-        fig, ax = plt.subplots()
-        ax.bar(labels, height, color=c)
-        ax.set_ylabel('Num. of Therapists')
-        ax.set_title("Therapists with Websites")
-        if self.save_figs:
-            plt.savefig(f'{self.visualiztion_directory}design/website_bar.png')
-
-    def run_pca_tfidf(self, tfidf_matrix):
+    def run_pca_tfidf(self, vis, tfidf_matrix):
         # PCA with TFIDF
         X_tfidf_scaled = scaler.fit_transform(tfidf_matrix.todense()) # standardize data
 
         # Just 2 components - see any sig change between component 1 and 2? Hopefully!
         pca_tfidf = PCA(n_components=2) 
         X_pca_tfidf = pca_tfidf.fit_transform(X_tfidf_scaled) 
-        self.plot_2_pca_comps(X_pca_tfidf, title_suffix='with TFIDF Matrix', filename_suffix='tfidf')
+        vis.plot_2_pca_comps(X_pca_tfidf, title_suffix='with TFIDF Matrix', filename_suffix='tfidf')
         
         # How many components will explain enough variance?
         pca_tfidf = PCA()
         pca_tfidf.fit(X_tfidf_scaled)
-        self.cum_scree_plot(pca_tfidf, title='Cumulative Variance Explained using TF-IDF Matrix', filename_suffix='tfidf')
+        vis.cum_scree_plot(pca_tfidf, title='Cumulative Variance Explained using TF-IDF Matrix', filename_suffix='tfidf')
 
-    def run_pca_tf(self, tf_matrix):
+    def run_pca_tf(self, vis, tf_matrix):
         # PCA with TF
         X_tf_scaled = scaler.fit_transform(tf_matrix.todense()) # standardize data
 
         # with just 2
         pca_tf = PCA(n_components=2)
         X_pca_tf = pca_tf.fit_transform(X_tf_scaled)
-        self.plot_2_pca_comps(X_pca_tf, title_suffix='with TF Matrix', filename_suffix='tf')
+        vis.plot_2_pca_comps(X_pca_tf, title_suffix='with TF Matrix', filename_suffix='tf')
 
         # How many components will explain enough variance?
         pca_tf = PCA()
         pca_tf.fit(X_tf_scaled)
-        self.cum_scree_plot(pca_tf, title='Cumulative Variance Explained using TF Matrix', filename_suffix='tf')
+        vis.cum_scree_plot(pca_tf, title='Cumulative Variance Explained using TF Matrix', filename_suffix='tf')
+
+    def run_initial_eda(self, visualizer, df):
+        # number of unique values per category
+        sql_age = 'SELECT * FROM age_groups;'
+        sql_issues = 'SELECT  * FROM issues;'
+        sql_orientations = 'SELECT * FROM orientations'
+        sql_professions = 'SELECT * FROM professions'
+        sql_services = 'SELECT * FROM services'
+
+        df_age_groups = self.sql_to_pandas(sql_age)
+        df_issues = self.sql_to_pandas(sql_issues)
+        df_orientations = self.sql_to_pandas(sql_orientations)
+        df_professions = self.sql_to_pandas(sql_professions)
+        df_services = self.sql_to_pandas(sql_services)
+
+        visualizer.run_initial_eda_charts(df, df_age_groups, df_issues, 
+            df_orientations, df_professions, df_services)
 
     def fit_lda_model(self, X_matrix, num_topics=5, alpha=.2 , beta=.2):
         lda = LatentDirichletAllocation(n_components=num_topics, learning_offset = 50., verbose=1,
@@ -357,29 +253,18 @@ class NlpProcessor(object):
         return lda
 
 if __name__ == '__main__':
+    # instantiate nlp processor
+    nlp = NlpProcessor(log_file_path='logs/lda_results_log.txt')
+    
     # define colors for visualizations
     palette = ['#13bdb4','#80d090','#dad977','#e49046','#d43d51']
-
-    # instantiate nlp processor
-    nlp = NlpProcessor(log_file_path='logs/lda_results_log.txt', palette=palette)
+    vis = Visualizer(nlp.get_conn, palette)
 
     # connect to the database and load pandas dataframes
     sql = "select * from therapists;"
     df = nlp.sql_to_pandas(sql)
-
-    sql_age = 'SELECT * FROM age_groups;'
-    sql_issues = 'SELECT  * FROM issues;'
-    sql_orientations = 'SELECT * FROM orientations'
-    sql_professions = 'SELECT * FROM professions'
-    sql_services = 'SELECT * FROM services'
-
-    df_age_groups = nlp.sql_to_pandas(sql_age)
-    df_issues = nlp.sql_to_pandas(sql_issues)
-    df_orientations = nlp.sql_to_pandas(sql_orientations)
-    df_professions = nlp.sql_to_pandas(sql_professions)
-    df_services = nlp.sql_to_pandas(sql_services)
     
-    nlp.close_conn()
+    
 
     # NLP analysis
     custom_stopwords = ['change','family','find','approach','couples','issues','also',
@@ -397,21 +282,21 @@ if __name__ == '__main__':
     tfidf_matrix, tfidf_vect = nlp.create_tf_idf_matrix(df['writing_sample'], all_stop_words=final_stop_words,max_feats=1000, 
         n_gram_range=(1,3), remove_punc=True, tokenizer='wordnet')
 
-    # tf_matrix, count_vect = nlp.create_tf_matrix(docs=df['writing_sample'], all_stop_words=final_stop_words, 
-    #     n_gram_range=(1,1), max_features=1000, remove_punc=True, tokenizer='wordnet')
+    tf_matrix, count_vect = nlp.create_tf_matrix(docs=df['writing_sample'], all_stop_words=final_stop_words, 
+        n_gram_range=(1,1), max_features=1000, remove_punc=True, tokenizer='wordnet')
 
     selected_matrix = tfidf_matrix
     selected_vectorizer = tfidf_vect
 
-    # nlp.set_save_figs(True)
-    # nlp.set_show_figs(False)
+    # vis.set_save_figs(False)
+    vis.set_show_figs(True)
 
-    # # General EDA
-    # nlp.run_initial_eda_charts(df)
+    # General EDA
+    #nlp.run_initial_eda(vis, df)
     
     # PCA
-    #nlp.run_pca_tfidf(selected_matrix)
-    #nlp.run_pca_tf(selected_matrix)
+    nlp.run_pca_tfidf(vis, tfidf_matrix)
+    nlp.run_pca_tf(vis, tf_matrix)
 
     # LDA
     n_topics = 3
@@ -423,3 +308,5 @@ if __name__ == '__main__':
     print('Most Frequent words/n_grams')
     print(words)
     print("Model perplexity: {0:0.3f}".format(lda.perplexity(selected_matrix)))
+    
+    nlp.close_conn()
