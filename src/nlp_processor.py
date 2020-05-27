@@ -18,7 +18,15 @@ from sklearn.decomposition import LatentDirichletAllocation
 from sklearn.decomposition import PCA
 from sklearn.preprocessing import StandardScaler
 
+import re
 import spacy
+
+import pyLDAvis
+import pyLDAvis.sklearn
+
+from plotly.offline import plot
+import plotly.graph_objects as go
+import plotly.express as px
 
 scaler = StandardScaler(copy=True, with_mean=True, with_std=True)
 
@@ -101,14 +109,6 @@ class NlpProcessor(object):
             lemm_stemm_docs = updated_docs
             
         return lemm_stemm_docs
-
-    def remove_dupes_decorator(self, func):
-        def func_wrapper(*args, **kwargs):
-            dupes_removed_docs = func(*args, **kwargs)
-            
-            return [list(set(ls)) for ls in dupes_removed_docs]
-
-        return func_wrapper
 
     def combine_stop_words(self, custom_stop_words:list)->list:
         stop_words = set(stopwords.words('english'))
@@ -251,6 +251,7 @@ class NlpProcessor(object):
         lda.fit(X_matrix)
 
         return lda
+
 
 if __name__ == '__main__':
     # instantiate nlp processor
