@@ -1,3 +1,6 @@
+# testing pickle files
+data/df_processed_testing.pkl
+
 # GIMP file
 *.xcf
 
