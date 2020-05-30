@@ -7,7 +7,7 @@ import pandas as pd
 
 
 
-def get_pickle_file(pkl_path):
+def load_pickle_file(pkl_path):
     return pickle.load( open( pkl_path, "rb" ) )
 
 def loop_cities_dict(cities):
@@ -19,11 +19,11 @@ def loop_cities_dict(cities):
         print(f'{city}: First: {len_first} -- Second: {len_second}')
 
 def get_pickle_length(pkl_path):
-    links = get_pickle_file(pkl_path)
+    links = load_pickle_file(pkl_path)
     return (len(links))
 
 def print_pickle_file(pkl_path):
-    file = get_pickle_file(pkl_path)
+    file = load_pickle_file(pkl_path)
     print(file)
     return file
 
@@ -57,7 +57,7 @@ def backup_therapists_table():
     return df
 
 def open_backup():
-    df = get_pickle_file('data/backups/therapist_table_backup.pkl')
+    df = load_pickle_file('data/backups/therapist_table_backup.pkl')
     
     print(df.info())
 

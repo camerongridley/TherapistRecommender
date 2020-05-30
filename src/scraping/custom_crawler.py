@@ -15,7 +15,7 @@ from sql_queries import SqlQueries
 
 class LocalCrawler(object):
 
-    def __init__(self, log_path='../logs'):
+    def __init__(self, log_path='../logs/scraping/'):
         #dir_path = '/home/cgridley/Galvanize/repos/capstones/TherapistFitter/data/html/TherapistListings/Denver/'
         self.log_path = log_path
 
@@ -87,7 +87,7 @@ class LocalCrawler(object):
     def crawl_local_html_file(self):
         sql_pipeline = SqlPipeline()
         sql_pipeline.create_connection()
-        logger = Logger(self.dir_path)
+        logger = Logger(self.log_path)
 
         #sort files for better legibility of log
         self.file_list.sort()

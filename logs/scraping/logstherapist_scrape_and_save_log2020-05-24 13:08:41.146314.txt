@@ -1,0 +1,178 @@
+SKIPPING Michael Salas - Therapist already exists in database.
+SKIPPING Christopher Dufour - Therapist already exists in database.
+SKIPPING Jimmy Owen - Therapist already exists in database.
+SKIPPING Meredith Skaggs - Therapist already exists in database.
+SKIPPING Jordan Edmondson - Therapist already exists in database.
+SKIPPING Ashley Evans - Therapist already exists in database.
+SKIPPING Tabatha Gunn - Therapist already exists in database.
+SKIPPING Sandy Stillo, PhD - Therapist already exists in database.
+SKIPPING Amber Bailey - Therapist already exists in database.
+SKIPPING Lauren Attiah - Therapist already exists in database.
+SKIPPING Don Zablosky - Therapist already exists in database.
+SKIPPING T.D. Minter - Therapist already exists in database.
+SKIPPING Paula D. Miller - Therapist already exists in database.
+SKIPPING Angela Taylor - Therapist already exists in database.
+SKIPPING Sarah Keramati - Therapist already exists in database.
+SKIPPING Charity Adams - Therapist already exists in database.
+SKIPPING Robbie Redmon - Therapist already exists in database.
+SKIPPING Berit Johnson - Therapist already exists in database.
+SKIPPING Amy Einspruch - Therapist already exists in database.
+SKIPPING Edward D. Goodman - Therapist already exists in database.
+SKIPPING Christiane Roehrborn - Therapist already exists in database.
+SKIPPING Debby Dudley - Therapist already exists in database.
+SKIPPING Maxi Malone - Therapist already exists in database.
+SKIPPING Wendy Bates, PsyD - Therapist already exists in database.
+SKIPPING Krista McKelvin - Therapist already exists in database.
+SKIPPING Carmen Smith - Therapist already exists in database.
+SKIPPING Alfonso Bermea - Therapist already exists in database.
+SKIPPING Taran McGowen - Therapist already exists in database.
+SKIPPING L. Kay Byers - Therapist already exists in database.
+SKIPPING Karina Samaniego Estrada - Therapist already exists in database.
+SKIPPING Dr. Paul Stanford - Therapist already exists in database.
+SKIPPING Harold Duncan - Therapist already exists in database.
+SKIPPING DeWone Bennett - Therapist already exists in database.
+SKIPPING Jamie Wilson - Therapist already exists in database.
+SKIPPING Nicole Keehn - Therapist already exists in database.
+SKIPPING Denise Humphrey - Therapist already exists in database.
+SKIPPING Michelle Williams - Therapist already exists in database.
+SKIPPING Dr. Jan Dunn - Therapist already exists in database.
+SKIPPING Barbara Ritchie - Therapist already exists in database.
+SKIPPING Priscilla Bayola Supervised by Guadalupe Escamilla, LPC - Therapist already exists in database.
+SKIPPING Kevin Lambert - Therapist already exists in database.
+SKIPPING Dr. Stephanie Christine Lang - Therapist already exists in database.
+SKIPPING Holly Forman-Patel - Therapist already exists in database.
+SKIPPING Mary Potenti - Therapist already exists in database.
+SKIPPING Lisa Epstein - Therapist already exists in database.
+SKIPPING Sabrina Gharib - Therapist already exists in database.
+SKIPPING Melissa Stringer - Therapist already exists in database.
+SKIPPING Linda Pilone - Therapist already exists in database.
+SKIPPING Jasmine Gonzalez - Therapist already exists in database.
+SKIPPING Carl Pearce - Therapist already exists in database.
+SKIPPING John Shackelford - Therapist already exists in database.
+SKIPPING Joseph Shaw - Therapist already exists in database.
+SKIPPING Galit Ribakoff - Therapist already exists in database.
+SKIPPING Kim Reynolds - Therapist already exists in database.
+SKIPPING Pamela Garcy - Therapist already exists in database.
+SKIPPING Ellen Chernoff Simon - Therapist already exists in database.
+SKIPPING Nubia Ballesteros - Therapist already exists in database.
+SKIPPING Amanda Prater - Therapist already exists in database.
+SKIPPING LeTeshia Rockwell - Therapist already exists in database.
+SKIPPING Heather Resneder - Therapist already exists in database.
+SKIPPING Pamela Simmons - Therapist already exists in database.
+SKIPPING Sylvia Hill - Therapist already exists in database.
+SKIPPING Wendy Aporta - Therapist already exists in database.
+SKIPPING Harmony Moses - Therapist already exists in database.
+SKIPPING Marcie Waters - Therapist already exists in database.
+SKIPPING Dr. Diann Sanford - Therapist already exists in database.
+SKIPPING Lana M. Bagley - Therapist already exists in database.
+SKIPPING Helen E. Chalmers - Therapist already exists in database.
+SKIPPING Carissa Toviessi - Therapist already exists in database.
+SKIPPING Lucretia Reed - Therapist already exists in database.
+SKIPPING Felicia Henderson - Therapist already exists in database.
+SKIPPING Prentisha Robinson - Therapist already exists in database.
+SKIPPING Crystal Jackson supervised by Lennard Lathan, LPC-S - Therapist already exists in database.
+SKIPPING Morgan Williams, LPC-Intern, NCC Supervised by Kenyatta Jacobs, LPC - Therapist already exists in database.
+SKIPPING Susan Cizmas - Therapist already exists in database.
+SKIPPING Brian Powers - Therapist already exists in database.
+SKIPPING Jeanna Harwood - Therapist already exists in database.
+SKIPPING Lacey Wright - Therapist already exists in database.
+SKIPPING Traci Koen - Therapist already exists in database.
+SKIPPING Antonia Guerra-Watson - Therapist already exists in database.
+SKIPPING Shannon Francom - Therapist already exists in database.
+SKIPPING Debra Iversen - Therapist already exists in database.
+SKIPPING Susan Dillinger - Therapist already exists in database.
+SKIPPING Feda Shawwa - Therapist already exists in database.
+SKIPPING Demetra Caston - Therapist already exists in database.
+SKIPPING Kimberly Gist Miller - Therapist already exists in database.
+SKIPPING Jocelyn Womack - Therapist already exists in database.
+SKIPPING Paul D. Myers - Therapist already exists in database.
+SKIPPING Lizelle Fischer - Therapist already exists in database.
+SKIPPING Janelle Jackson - Therapist already exists in database.
+SKIPPING Dawn Nelson - Therapist already exists in database.
+SKIPPING Hilary Yurtin - Therapist already exists in database.
+SKIPPING Erica Rivers - Therapist already exists in database.
+SKIPPING Camille Matthews - Therapist already exists in database.
+SKIPPING Shameela Keshavjee - Therapist already exists in database.
+SKIPPING Maryellen Dabal - Therapist already exists in database.
+SKIPPING Tracy Crain - Therapist already exists in database.
+SKIPPING Jessica Walker - Therapist already exists in database.
+SKIPPING Dawn Rachel Floran - Therapist already exists in database.
+SKIPPING Kristi DuCote - Therapist already exists in database.
+SKIPPING Janet Dougherty - Therapist already exists in database.
+SKIPPING Todd Gjerdevig - Therapist already exists in database.
+SKIPPING Lisa Williams - Therapist already exists in database.
+SKIPPING Joyce Buckner - Therapist already exists in database.
+SKIPPING Michelle Richards - Therapist already exists in database.
+SKIPPING Rebecca Welsh - Therapist already exists in database.
+SKIPPING Crystal Lockett-Thomas - Therapist already exists in database.
+SKIPPING Jonathan Taglione - Therapist already exists in database.
+SKIPPING Amy Kreins Kreins - Therapist already exists in database.
+SKIPPING Neetha Devdas - Therapist already exists in database.
+SKIPPING Blaine Moore - Therapist already exists in database.
+SKIPPING Adrienne Fields - Therapist already exists in database.
+SKIPPING Amy Alley - Therapist already exists in database.
+SKIPPING Stacy Hyde - Therapist already exists in database.
+SKIPPING Chris Guzniczak - Therapist already exists in database.
+SKIPPING Kyle Bryan - Therapist already exists in database.
+SKIPPING Troy Callaway - Therapist already exists in database.
+SKIPPING Becki Willis - Therapist already exists in database.
+SKIPPING Zach Baldridge - Therapist already exists in database.
+SKIPPING Dr. Valencia Campbell-Chapin - Therapist already exists in database.
+SKIPPING Ellen Ortega - Therapist already exists in database.
+SKIPPING Sally Rye - Therapist already exists in database.
+SKIPPING Alyssa Floresca - Therapist already exists in database.
+SKIPPING Laura Handley - Therapist already exists in database.
+SKIPPING Shywanna Glenn-Honore' - Therapist already exists in database.
+SKIPPING Desiree Richards - Therapist already exists in database.
+SKIPPING Ashlee Howard - Therapist already exists in database.
+SKIPPING Ashley Knight - Therapist already exists in database.
+SKIPPING Tahirah Samuels - Therapist already exists in database.
+SKIPPING Robert Good - Therapist already exists in database.
+SKIPPING Constance Ingrum - Therapist already exists in database.
+SKIPPING Deidre Wilson - Therapist already exists in database.
+SKIPPING Lisa Rattner - Therapist already exists in database.
+SKIPPING Meredith Kriz - Therapist already exists in database.
+SKIPPING Loren Gibson - Therapist already exists in database.
+SKIPPING Toneisha Baker - Therapist already exists in database.
+SKIPPING Deborah Netz - Therapist already exists in database.
+SKIPPING Jasmine Baranpourian Supervised by Lori Vann, LPCS - Therapist already exists in database.
+SKIPPING Shele Lillis - Therapist already exists in database.
+SKIPPING Elina Kharmats - Therapist already exists in database.
+SKIPPING Kelly Sevin - Therapist already exists in database.
+SKIPPING Genniffer Williams - Therapist already exists in database.
+SKIPPING Lance Garrison - Therapist already exists in database.
+SKIPPING Bree Bozeman-Ajayi - Therapist already exists in database.
+SKIPPING Heather Landeros - Therapist already exists in database.
+SKIPPING Carolyn Becker - Therapist already exists in database.
+SKIPPING Jeana Pullen - Therapist already exists in database.
+SKIPPING Becki Hein - Therapist already exists in database.
+SKIPPING Phelicia Hughes - Therapist already exists in database.
+SKIPPING Jacob Wasonga - Therapist already exists in database.
+SKIPPING Deitra Baker - Therapist already exists in database.
+SKIPPING Richard Miller - Therapist already exists in database.
+SKIPPING Laura Foulds - Therapist already exists in database.
+SKIPPING Dr. Angela Emerson - Therapist already exists in database.
+SKIPPING Cynthia Shrode - Therapist already exists in database.
+SKIPPING Jane Hardwick - Therapist already exists in database.
+SKIPPING Rachel Gracia - Therapist already exists in database.
+SKIPPING Zully Schultz - Therapist already exists in database.
+SKIPPING Brad Nowlin - Therapist already exists in database.
+SKIPPING Angie Hesselbrock - Therapist already exists in database.
+SKIPPING Elise Mederos - Therapist already exists in database.
+SKIPPING Penny Haight - Therapist already exists in database.
+SKIPPING Jaime Corona - Therapist already exists in database.
+SKIPPING Lauren Barrett - Therapist already exists in database.
+SKIPPING Jennifer Loyd - Therapist already exists in database.
+SKIPPING Dr. Courtney Martin - Therapist already exists in database.
+SKIPPING Angel Carlock - Therapist already exists in database.
+SKIPPING Melissa Clayton - Therapist already exists in database.
+SKIPPING Londa Vance - Therapist already exists in database.
+SKIPPING Joy Minshew - Therapist already exists in database.
+SKIPPING Lauren Leising - Therapist already exists in database.
+SKIPPING Quinton Neighbors - Therapist already exists in database.
+SKIPPING Bryan Tzeng - Therapist already exists in database.
+SKIPPING Teresa Johnson - Therapist already exists in database.
+SKIPPING susan schultz - Therapist already exists in database.
+SKIPPING Linda Levine - Therapist already exists in database.
+SKIPPING Tammy Holland - Therapist already exists in database.
+SKIPPING Tancy C. Horn-Johnson - Therapist already exists in database.

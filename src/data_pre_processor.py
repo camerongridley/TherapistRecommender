@@ -7,7 +7,7 @@ import re, nltk, spacy, string
 
 class DataPreProcessor(object):
     def __init__(self):
-        super().__init__()
+        self.nlp = spacy.load("en")
 
     def clean_text(self, text:str, remove_punc=True)->str:
         '''
@@ -22,22 +22,46 @@ class DataPreProcessor(object):
 
         return text
 
-    def lemmatize(self, nlp, text):
-        pass
+    def lemmatize(self, nlp, text:str)->str:
+        lemmed = []
+        doc = nlp(text)
+
+        for word in doc:
+            lemmed.append(word.lemma_)
+        
+        return ' '.join(lemmed)
+
+    def processing_pipeline(self, df:pd.DataFrame)->pd.DataFrame:
+        # initial text cleaning
+        df_clean = pd.DataFrame(df['writing_sample'].apply(lambda x: self.clean_text(x)))
+        # lemmatize with spaCy
+        df_clean['writing_sample_lemmatize'] = df_clean.apply(lambda x: self.lemmatize(self.nlp, x['writing_sample']), axis=1)
+        # remove spaCy -PRON-
+        df_clean['writing_sample_processed'] = df_clean['writing_sample_lemmatize'].str.replace('-PRON-', '')
+
+        return df_clean
 
 if __name__ == '__main__':
+    from visualizer import Visualizer
     processor = DataPreProcessor()
     psql = PostgreSQLHandler()
-    nlp = spacy.load("en_core_web_sm")
-    print(type(nlp))
-    sql = 'SELECT therapist_id, writing_sample FROM therapists'
+    vis = Visualizer(psql.get_conn())
+    vis.set_show_figs(True)
+    vis.set_save_figs(False)
+
+    sql = 'SELECT * FROM therapists LIMIT 100'
     df = psql.sql_to_pandas(sql)
     
-    df_clean = pd.DataFrame(df['writing_sample'].apply(lambda x: processor.clean_text(x)))
+    df_processed = processor.processing_pipeline(df)
 
-    #print(df_clean.head())
+    print(df.head())
+    print(df_processed.head())
+    
+    vis.word_distribution(df)
+
+
+
+    psql.close_conn()
 
 
     
-
-    psql.close_conn()

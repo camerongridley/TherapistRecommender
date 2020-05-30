@@ -1,0 +1,788 @@
+Created therapist id: 1597 for Laura Spinelli
+Therapist saved to Postgres: Laura Spinelli
+Created therapist id: 1598 for Victoria Morabito
+Therapist saved to Postgres: Victoria Morabito
+Created therapist id: 1599 for Kenya Washington
+Therapist saved to Postgres: Kenya Washington
+Created therapist id: 1600 for Marianne Esolen
+Therapist saved to Postgres: Marianne Esolen
+Created therapist id: 1601 for Stephanie Colace
+Therapist saved to Postgres: Stephanie Colace
+Created therapist id: 1602 for Karen Kieser
+Therapist saved to Postgres: Karen Kieser
+Created therapist id: 1603 for Paula S. Gilbert
+Therapist saved to Postgres: Paula S. Gilbert
+Created therapist id: 1604 for Dr. Daniel J. Sapen
+Therapist saved to Postgres: Dr. Daniel J. Sapen
+Created therapist id: 1605 for Kay Posillico
+Therapist saved to Postgres: Kay Posillico
+Created therapist id: 1606 for Carol Pironi
+Therapist saved to Postgres: Carol Pironi
+Created therapist id: 1607 for Dominique Padmore
+Therapist saved to Postgres: Dominique Padmore
+Created therapist id: 1608 for Kalli Kontos
+Therapist saved to Postgres: Kalli Kontos
+Created therapist id: 1609 for Kristin Li
+Therapist saved to Postgres: Kristin Li
+Created therapist id: 1610 for Christine Slobodin
+Therapist saved to Postgres: Christine Slobodin
+Created therapist id: 1611 for Cynthia Luik
+Therapist saved to Postgres: Cynthia Luik
+Created therapist id: 1612 for Andrew Benevento
+Therapist saved to Postgres: Andrew Benevento
+Created therapist id: 1613 for Dawn Cheetham
+Therapist saved to Postgres: Dawn Cheetham
+Created therapist id: 1614 for Kerri Morris
+Therapist saved to Postgres: Kerri Morris
+Created therapist id: 1615 for Kyla Black
+Therapist saved to Postgres: Kyla Black
+Created therapist id: 1616 for Laura Brielmeier
+Therapist saved to Postgres: Laura Brielmeier
+Created therapist id: 1617 for Glenn Wolff
+Therapist saved to Postgres: Glenn Wolff
+Created therapist id: 1618 for Andrew Golden
+Therapist saved to Postgres: Andrew Golden
+Created therapist id: 1619 for Carissa Ali
+Therapist saved to Postgres: Carissa Ali
+Created therapist id: 1620 for Gina Radice-Vella
+Therapist saved to Postgres: Gina Radice-Vella
+Created therapist id: 1621 for Agnes Raczynski
+Therapist saved to Postgres: Agnes Raczynski
+Created therapist id: 1622 for Marc Wax
+Therapist saved to Postgres: Marc Wax
+Created therapist id: 1623 for Nancy Sidhu
+Therapist saved to Postgres: Nancy Sidhu
+Created therapist id: 1624 for Frances Thuro
+Therapist saved to Postgres: Frances Thuro
+Created therapist id: 1625 for Stephanie Gaspari
+Therapist saved to Postgres: Stephanie Gaspari
+Created therapist id: 1626 for Jennifer Nielsen
+Therapist saved to Postgres: Jennifer Nielsen
+Created therapist id: 1627 for Kerri Weiss
+Therapist saved to Postgres: Kerri Weiss
+Created therapist id: 1628 for Daphne Camille
+Therapist saved to Postgres: Daphne Camille
+Created therapist id: 1629 for Stacey Chernin
+Therapist saved to Postgres: Stacey Chernin
+Created therapist id: 1630 for Edward Regensburg
+Therapist saved to Postgres: Edward Regensburg
+Created therapist id: 1631 for Tabitha Gonzalez
+Therapist saved to Postgres: Tabitha Gonzalez
+Created therapist id: 1632 for Laura Vraney
+Therapist saved to Postgres: Laura Vraney
+Created therapist id: 1633 for Deirdre A. Cole
+Therapist saved to Postgres: Deirdre A. Cole
+Created therapist id: 1634 for Jessica DeLuca
+Therapist saved to Postgres: Jessica DeLuca
+Created therapist id: 1635 for Isabel Frankel Rachlin
+Therapist saved to Postgres: Isabel Frankel Rachlin
+Created therapist id: 1636 for Christine Lawlor
+Therapist saved to Postgres: Christine Lawlor
+Created therapist id: 1637 for Ena Edouard
+Therapist saved to Postgres: Ena Edouard
+Created therapist id: 1638 for Ashley Appleton
+Therapist saved to Postgres: Ashley Appleton
+Created therapist id: 1639 for Dr. Marion Rollings
+Therapist saved to Postgres: Dr. Marion Rollings
+Created therapist id: 1640 for Liz Ikle
+Therapist saved to Postgres: Liz Ikle
+Created therapist id: 1641 for Sherry D'Elia
+Therapist saved to Postgres: Sherry D'Elia
+Created therapist id: 1642 for R. Ellen Runyon
+Therapist saved to Postgres: R. Ellen Runyon
+Created therapist id: 1643 for Shan Reeves
+Therapist saved to Postgres: Shan Reeves
+Created therapist id: 1644 for Nicholas Despoelberch
+Therapist saved to Postgres: Nicholas Despoelberch
+Created therapist id: 1645 for Aileen Blitz
+Therapist saved to Postgres: Aileen Blitz
+Created therapist id: 1646 for Cliff Koblin
+Therapist saved to Postgres: Cliff Koblin
+Created therapist id: 1647 for Dorine D'Angelo
+Therapist saved to Postgres: Dorine D'Angelo
+Created therapist id: 1648 for Laura Mercogliano
+Therapist saved to Postgres: Laura Mercogliano
+Created therapist id: 1649 for Asimena Charalambidis-Urban
+Therapist saved to Postgres: Asimena Charalambidis-Urban
+Created therapist id: 1650 for Letitia Brown
+Therapist saved to Postgres: Letitia Brown
+Created therapist id: 1651 for Rikki Lyn Hauss-McCarthy
+Therapist saved to Postgres: Rikki Lyn Hauss-McCarthy
+Created therapist id: 1652 for Peter A. Miller
+Therapist saved to Postgres: Peter A. Miller
+Created therapist id: 1653 for Jane Martin
+Therapist saved to Postgres: Jane Martin
+Created therapist id: 1654 for Vincent Franco
+Therapist saved to Postgres: Vincent Franco
+Created therapist id: 1655 for Danielle Bissett
+Therapist saved to Postgres: Danielle Bissett
+Created therapist id: 1656 for Joseph Volpe
+Therapist saved to Postgres: Joseph Volpe
+Created therapist id: 1657 for Janet Mentore Lee
+Therapist saved to Postgres: Janet Mentore Lee
+Created therapist id: 1658 for Candice Baugh
+Therapist saved to Postgres: Candice Baugh
+Created therapist id: 1659 for Stephen Horgan
+Therapist saved to Postgres: Stephen Horgan
+Created therapist id: 1660 for Amy Nolan
+Therapist saved to Postgres: Amy Nolan
+Created therapist id: 1661 for Abby Grayson
+Therapist saved to Postgres: Abby Grayson
+Created therapist id: 1662 for Annabella Sollaccio
+Therapist saved to Postgres: Annabella Sollaccio
+Created therapist id: 1663 for Linda Jame
+Therapist saved to Postgres: Linda Jame
+Created therapist id: 1664 for Rachel Perlman
+Therapist saved to Postgres: Rachel Perlman
+Created therapist id: 1665 for Laura O'Keefe
+Therapist saved to Postgres: Laura O'Keefe
+Created therapist id: 1666 for Susan Williams
+Therapist saved to Postgres: Susan Williams
+Created therapist id: 1667 for Rachel Siehs
+Therapist saved to Postgres: Rachel Siehs
+Created therapist id: 1668 for Patricia Magnotta
+Therapist saved to Postgres: Patricia Magnotta
+Created therapist id: 1669 for Judith Margolin
+Therapist saved to Postgres: Judith Margolin
+Created therapist id: 1670 for Tai Pimputkar
+Therapist saved to Postgres: Tai Pimputkar
+Created therapist id: 1671 for Michele Lucas
+Therapist saved to Postgres: Michele Lucas
+Created therapist id: 1672 for Shira Schaktman
+Therapist saved to Postgres: Shira Schaktman
+Created therapist id: 1673 for Pamela farrell
+Therapist saved to Postgres: Pamela farrell
+Created therapist id: 1674 for Frank Thewes
+Therapist saved to Postgres: Frank Thewes
+Created therapist id: 1675 for Selma A. Sisco
+Therapist saved to Postgres: Selma A. Sisco
+Created therapist id: 1676 for Sue Sirlin
+Therapist saved to Postgres: Sue Sirlin
+Created therapist id: 1677 for Marjorie Demshock
+Therapist saved to Postgres: Marjorie Demshock
+Created therapist id: 1678 for Rachel Lessard
+Therapist saved to Postgres: Rachel Lessard
+Created therapist id: 1679 for John Callahan
+Therapist saved to Postgres: John Callahan
+Created therapist id: 1680 for Laurel Levin
+Therapist saved to Postgres: Laurel Levin
+Created therapist id: 1681 for A Susan Brenner
+Therapist saved to Postgres: A Susan Brenner
+Created therapist id: 1682 for Saadia Safian
+Therapist saved to Postgres: Saadia Safian
+Created therapist id: 1683 for Richelle Walling
+Therapist saved to Postgres: Richelle Walling
+Created therapist id: 1684 for Roberta Tessler
+Therapist saved to Postgres: Roberta Tessler
+Created therapist id: 1685 for Lori Goldman
+Therapist saved to Postgres: Lori Goldman
+Created therapist id: 1686 for Brianna Conklin
+Therapist saved to Postgres: Brianna Conklin
+Created therapist id: 1687 for Carolyn Stout
+Therapist saved to Postgres: Carolyn Stout
+Created therapist id: 1688 for Carolanne Hunt
+Therapist saved to Postgres: Carolanne Hunt
+Created therapist id: 1689 for Margaret Plantes
+Therapist saved to Postgres: Margaret Plantes
+Created therapist id: 1690 for Deborah Therkorn
+Therapist saved to Postgres: Deborah Therkorn
+Created therapist id: 1691 for Lauren Zavodnick
+Therapist saved to Postgres: Lauren Zavodnick
+Created therapist id: 1692 for Constance Cloonan
+Therapist saved to Postgres: Constance Cloonan
+Created therapist id: 1693 for Sangeeta Akundi
+Therapist saved to Postgres: Sangeeta Akundi
+Created therapist id: 1694 for Vanessa Hitchman
+Therapist saved to Postgres: Vanessa Hitchman
+Created therapist id: 1695 for Jeffrey Kaplan
+Therapist saved to Postgres: Jeffrey Kaplan
+Created therapist id: 1696 for Eve Hornstein
+Therapist saved to Postgres: Eve Hornstein
+Created therapist id: 1697 for Paula Levy
+Therapist saved to Postgres: Paula Levy
+Created therapist id: 1698 for Sean Travis
+Therapist saved to Postgres: Sean Travis
+Created therapist id: 1699 for Raquel Jones
+Therapist saved to Postgres: Raquel Jones
+Created therapist id: 1700 for David King
+Therapist saved to Postgres: David King
+Created therapist id: 1701 for Nancy Scherlong
+Therapist saved to Postgres: Nancy Scherlong
+Created therapist id: 1702 for Jodi Berman
+Therapist saved to Postgres: Jodi Berman
+Created therapist id: 1703 for Joyce Colburn
+Therapist saved to Postgres: Joyce Colburn
+Created therapist id: 1704 for Wendy Eisenberg
+Therapist saved to Postgres: Wendy Eisenberg
+Created therapist id: 1705 for Mirel Adler
+Therapist saved to Postgres: Mirel Adler
+Created therapist id: 1706 for Amy Cargill
+Therapist saved to Postgres: Amy Cargill
+Created therapist id: 1707 for Leo Battenhausen
+Therapist saved to Postgres: Leo Battenhausen
+Created therapist id: 1708 for Ruth Altamura-Roll
+Therapist saved to Postgres: Ruth Altamura-Roll
+Created therapist id: 1709 for Randi Cohen
+Therapist saved to Postgres: Randi Cohen
+Created therapist id: 1710 for Gwendolyn Blake
+Therapist saved to Postgres: Gwendolyn Blake
+Created therapist id: 1711 for Leticia Vitucci
+Therapist saved to Postgres: Leticia Vitucci
+Created therapist id: 1712 for Jamie Vollmoeller
+Therapist saved to Postgres: Jamie Vollmoeller
+Created therapist id: 1713 for Stefanie Stadler
+Therapist saved to Postgres: Stefanie Stadler
+Created therapist id: 1714 for Belle Lopes
+Therapist saved to Postgres: Belle Lopes
+Created therapist id: 1715 for Danna Anderson
+Therapist saved to Postgres: Danna Anderson
+Created therapist id: 1716 for Yvonne Bregman
+Therapist saved to Postgres: Yvonne Bregman
+Created therapist id: 1717 for Susan Jennifer Polese
+Therapist saved to Postgres: Susan Jennifer Polese
+Created therapist id: 1718 for Kelley Hopkins-Alvarez
+Therapist saved to Postgres: Kelley Hopkins-Alvarez
+Created therapist id: 1719 for Nicole Steen
+Therapist saved to Postgres: Nicole Steen
+Created therapist id: 1720 for Kimberly Hession
+Therapist saved to Postgres: Kimberly Hession
+Created therapist id: 1721 for Christine Colavito
+Therapist saved to Postgres: Christine Colavito
+Created therapist id: 1722 for Matthew Love
+Therapist saved to Postgres: Matthew Love
+Created therapist id: 1723 for Tamara Pommells
+Therapist saved to Postgres: Tamara Pommells
+Created therapist id: 1724 for Rhonda Loft
+Therapist saved to Postgres: Rhonda Loft
+Created therapist id: 1725 for Nicole Commercio
+Therapist saved to Postgres: Nicole Commercio
+Created therapist id: 1726 for Mary Goepfert
+Therapist saved to Postgres: Mary Goepfert
+Created therapist id: 1727 for Kara Yass
+Therapist saved to Postgres: Kara Yass
+Created therapist id: 1728 for Jodie Rinde
+Therapist saved to Postgres: Jodie Rinde
+Created therapist id: 1729 for Robby Foster
+Therapist saved to Postgres: Robby Foster
+Created therapist id: 1730 for Amy Wohl
+Therapist saved to Postgres: Amy Wohl
+Created therapist id: 1731 for Cynthia Fischer
+Therapist saved to Postgres: Cynthia Fischer
+Created therapist id: 1732 for Laura Van Schaick-Harman
+Therapist saved to Postgres: Laura Van Schaick-Harman
+Created therapist id: 1733 for Amy M. Negri
+Therapist saved to Postgres: Amy M. Negri
+Created therapist id: 1734 for Alicia A. Williams, Ed.D.
+Therapist saved to Postgres: Alicia A. Williams, Ed.D.
+Created therapist id: 1735 for Neil Klatsky
+Therapist saved to Postgres: Neil Klatsky
+Created therapist id: 1736 for Marcos Rosa
+Therapist saved to Postgres: Marcos Rosa
+Created therapist id: 1737 for Morgan Burgess
+Therapist saved to Postgres: Morgan Burgess
+Created therapist id: 1738 for Amie Markowitz
+Therapist saved to Postgres: Amie Markowitz
+Created therapist id: 1739 for Deja Harford
+Therapist saved to Postgres: Deja Harford
+Created therapist id: 1740 for Lori Capri
+Therapist saved to Postgres: Lori Capri
+Created therapist id: 1741 for Jacqueline Dudas
+Therapist saved to Postgres: Jacqueline Dudas
+Created therapist id: 1742 for Rachel Coombs
+Therapist saved to Postgres: Rachel Coombs
+Created therapist id: 1743 for Christine Lynch
+Therapist saved to Postgres: Christine Lynch
+Created therapist id: 1744 for Joanne Martin
+Therapist saved to Postgres: Joanne Martin
+Created therapist id: 1745 for Celeste Aliberti
+Therapist saved to Postgres: Celeste Aliberti
+Created therapist id: 1746 for Elizabeth Cruickshank
+Therapist saved to Postgres: Elizabeth Cruickshank
+Created therapist id: 1747 for Danielle Sangalli
+Therapist saved to Postgres: Danielle Sangalli
+Created therapist id: 1748 for Laura Chiusano
+Therapist saved to Postgres: Laura Chiusano
+Created therapist id: 1749 for Christine Etzrodt
+Therapist saved to Postgres: Christine Etzrodt
+Created therapist id: 1750 for David Piltz
+Therapist saved to Postgres: David Piltz
+Created therapist id: 1751 for Mary Anne Fielding
+Therapist saved to Postgres: Mary Anne Fielding
+Created therapist id: 1752 for Janet Cunningham
+Therapist saved to Postgres: Janet Cunningham
+Created therapist id: 1753 for Brianna Fava
+Therapist saved to Postgres: Brianna Fava
+Created therapist id: 1754 for Mary Shull
+Therapist saved to Postgres: Mary Shull
+Created therapist id: 1755 for Judith Barr
+Therapist saved to Postgres: Judith Barr
+Created therapist id: 1756 for Randy W. Green
+Therapist saved to Postgres: Randy W. Green
+Created therapist id: 1757 for Prunella Harris
+Therapist saved to Postgres: Prunella Harris
+Created therapist id: 1758 for Elisabeth Burrelli
+Therapist saved to Postgres: Elisabeth Burrelli
+Created therapist id: 1759 for Eric Jackson
+Therapist saved to Postgres: Eric Jackson
+Created therapist id: 1760 for Carmen Garrison
+Therapist saved to Postgres: Carmen Garrison
+Created therapist id: 1761 for Joyce Cooney
+Therapist saved to Postgres: Joyce Cooney
+Created therapist id: 1762 for Stacee Paley
+Therapist saved to Postgres: Stacee Paley
+Created therapist id: 1763 for Emily Easterling
+Therapist saved to Postgres: Emily Easterling
+Created therapist id: 1764 for Lavanya Devdas
+Therapist saved to Postgres: Lavanya Devdas
+Created therapist id: 1765 for Kristen Marsar-Perez
+Therapist saved to Postgres: Kristen Marsar-Perez
+Created therapist id: 1766 for Meghan Jerry
+Therapist saved to Postgres: Meghan Jerry
+Created therapist id: 1767 for Kevin Drab
+Therapist saved to Postgres: Kevin Drab
+Created therapist id: 1768 for Stephen Britchkow
+Therapist saved to Postgres: Stephen Britchkow
+Created therapist id: 1769 for Erica Holtz
+Therapist saved to Postgres: Erica Holtz
+Created therapist id: 1770 for Susan Krauss
+Therapist saved to Postgres: Susan Krauss
+Created therapist id: 1771 for Wendy Blair
+Therapist saved to Postgres: Wendy Blair
+Created therapist id: 1772 for Kelly Reed
+Therapist saved to Postgres: Kelly Reed
+Created therapist id: 1773 for Dori Kovacs
+Therapist saved to Postgres: Dori Kovacs
+Created therapist id: 1774 for Linda Hill
+Therapist saved to Postgres: Linda Hill
+Created therapist id: 1775 for Persida Ghibilic
+Therapist saved to Postgres: Persida Ghibilic
+Created therapist id: 1776 for Charmaine Samuda
+Therapist saved to Postgres: Charmaine Samuda
+Created therapist id: 1777 for Thomas Reilly
+Therapist saved to Postgres: Thomas Reilly
+Created therapist id: 1778 for Lucrezia Mangione
+Therapist saved to Postgres: Lucrezia Mangione
+Created therapist id: 1779 for Ellen Faulkner
+Therapist saved to Postgres: Ellen Faulkner
+Created therapist id: 1780 for Thomas Blackwell
+Therapist saved to Postgres: Thomas Blackwell
+Created therapist id: 1781 for Meredith Messinger
+Therapist saved to Postgres: Meredith Messinger
+Created therapist id: 1782 for Kaitlyn Russell
+Therapist saved to Postgres: Kaitlyn Russell
+Created therapist id: 1783 for Tara Reynolds
+Therapist saved to Postgres: Tara Reynolds
+Created therapist id: 1784 for Jaime Benedetti
+Therapist saved to Postgres: Jaime Benedetti
+Created therapist id: 1785 for Lyz DeBoer Kreider
+Therapist saved to Postgres: Lyz DeBoer Kreider
+Created therapist id: 1786 for Gina Rossini
+Therapist saved to Postgres: Gina Rossini
+Created therapist id: 1787 for M. Catherine Ambrose
+Therapist saved to Postgres: M. Catherine Ambrose
+Created therapist id: 1788 for Ms. Rowan G Moore
+Therapist saved to Postgres: Ms. Rowan G Moore
+Created therapist id: 1789 for Stacey Vinci
+Therapist saved to Postgres: Stacey Vinci
+Created therapist id: 1790 for Ellen Schrier
+Therapist saved to Postgres: Ellen Schrier
+Created therapist id: 1791 for Howard Ratner
+Therapist saved to Postgres: Howard Ratner
+Created therapist id: 1792 for Karen Wister Kearns
+Therapist saved to Postgres: Karen Wister Kearns
+Created therapist id: 1793 for Rusty Stewart, Ph.D.
+Therapist saved to Postgres: Rusty Stewart, Ph.D.
+Created therapist id: 1794 for Joan Cybulski
+Therapist saved to Postgres: Joan Cybulski
+Created therapist id: 1795 for Angela Kurzyna
+Therapist saved to Postgres: Angela Kurzyna
+Created therapist id: 1796 for Molly Guest
+Therapist saved to Postgres: Molly Guest
+Created therapist id: 1797 for Jennifer Matthes
+Therapist saved to Postgres: Jennifer Matthes
+Created therapist id: 1798 for Jill Harle
+Therapist saved to Postgres: Jill Harle
+Created therapist id: 1799 for Elizabeth Casey
+Therapist saved to Postgres: Elizabeth Casey
+Created therapist id: 1800 for Alexis Ledner
+Therapist saved to Postgres: Alexis Ledner
+Created therapist id: 1801 for Rebecca Kornberg
+Therapist saved to Postgres: Rebecca Kornberg
+Created therapist id: 1802 for Lori Christine Young
+Therapist saved to Postgres: Lori Christine Young
+Created therapist id: 1803 for Eugene Kayser
+Therapist saved to Postgres: Eugene Kayser
+Created therapist id: 1804 for Robert Smith
+Therapist saved to Postgres: Robert Smith
+Created therapist id: 1805 for Victoria Sayles
+Therapist saved to Postgres: Victoria Sayles
+Created therapist id: 1806 for Rhoda Fuchs-Morton
+Therapist saved to Postgres: Rhoda Fuchs-Morton
+Created therapist id: 1807 for James Baldwin
+Therapist saved to Postgres: James Baldwin
+Created therapist id: 1808 for Renee Frierson-Briscoe
+Therapist saved to Postgres: Renee Frierson-Briscoe
+Created therapist id: 1809 for Stephen Sell
+Therapist saved to Postgres: Stephen Sell
+Created therapist id: 1810 for Francine Roberts
+Therapist saved to Postgres: Francine Roberts
+Created therapist id: 1811 for Jeffrey Carter
+Therapist saved to Postgres: Jeffrey Carter
+Created therapist id: 1812 for Jeannine Coyne
+Therapist saved to Postgres: Jeannine Coyne
+Created therapist id: 1813 for Taniek Gentles
+Therapist saved to Postgres: Taniek Gentles
+Created therapist id: 1814 for Raul Avila
+Therapist saved to Postgres: Raul Avila
+Created therapist id: 1815 for Gabrielle Morreale
+Therapist saved to Postgres: Gabrielle Morreale
+Created therapist id: 1816 for David Leibovitz
+Therapist saved to Postgres: David Leibovitz
+Created therapist id: 1817 for RaShun Stewart
+Therapist saved to Postgres: RaShun Stewart
+Created therapist id: 1818 for Dr. Jason Cohen
+Therapist saved to Postgres: Dr. Jason Cohen
+Created therapist id: 1819 for Meg Clark Soriano
+Therapist saved to Postgres: Meg Clark Soriano
+Created therapist id: 1820 for Dr. Janeen Cross
+Therapist saved to Postgres: Dr. Janeen Cross
+Created therapist id: 1821 for Todd Koser
+Therapist saved to Postgres: Todd Koser
+Created therapist id: 1822 for Yamillis Hernandez
+Therapist saved to Postgres: Yamillis Hernandez
+Created therapist id: 1823 for Tammy Henderson
+Therapist saved to Postgres: Tammy Henderson
+Created therapist id: 1824 for Peter Golboro
+Therapist saved to Postgres: Peter Golboro
+Created therapist id: 1825 for Jasmin Rahman
+Therapist saved to Postgres: Jasmin Rahman
+Created therapist id: 1826 for Allison Macher
+Therapist saved to Postgres: Allison Macher
+Created therapist id: 1827 for Bonnie Stevens
+Therapist saved to Postgres: Bonnie Stevens
+Created therapist id: 1828 for Michael Haas
+Therapist saved to Postgres: Michael Haas
+Created therapist id: 1829 for Rosemary Williams
+Therapist saved to Postgres: Rosemary Williams
+Created therapist id: 1830 for Jennifer Perry
+Therapist saved to Postgres: Jennifer Perry
+Created therapist id: 1831 for Annie Fisher
+Therapist saved to Postgres: Annie Fisher
+Created therapist id: 1832 for Lyn Felix
+Therapist saved to Postgres: Lyn Felix
+Created therapist id: 1833 for Daniel Gottlieb
+Therapist saved to Postgres: Daniel Gottlieb
+Created therapist id: 1834 for Randy Carrin
+Therapist saved to Postgres: Randy Carrin
+Created therapist id: 1835 for Lucy S Raizman
+Therapist saved to Postgres: Lucy S Raizman
+Created therapist id: 1836 for Emily Masko
+Therapist saved to Postgres: Emily Masko
+Created therapist id: 1837 for William Dewart
+Therapist saved to Postgres: William Dewart
+Created therapist id: 1838 for Willie Knight
+Therapist saved to Postgres: Willie Knight
+Created therapist id: 1839 for Kaitlin Staples
+Therapist saved to Postgres: Kaitlin Staples
+Created therapist id: 1840 for Deidre Ashton
+Therapist saved to Postgres: Deidre Ashton
+Created therapist id: 1841 for Ellen Piper
+Therapist saved to Postgres: Ellen Piper
+Created therapist id: 1842 for Amanda Haidet
+Therapist saved to Postgres: Amanda Haidet
+Created therapist id: 1843 for Helena W. King
+Therapist saved to Postgres: Helena W. King
+Created therapist id: 1844 for Earl Lewis
+Therapist saved to Postgres: Earl Lewis
+Created therapist id: 1845 for Julia Markovitz
+Therapist saved to Postgres: Julia Markovitz
+Created therapist id: 1846 for Iolanda Marucci
+Therapist saved to Postgres: Iolanda Marucci
+Created therapist id: 1847 for David Steinberg
+Therapist saved to Postgres: David Steinberg
+Created therapist id: 1848 for Marla Cohen
+Therapist saved to Postgres: Marla Cohen
+Created therapist id: 1849 for Leah Behl
+Therapist saved to Postgres: Leah Behl
+Created therapist id: 1850 for Leana Sykes
+Therapist saved to Postgres: Leana Sykes
+Created therapist id: 1851 for Amy Kasten
+Therapist saved to Postgres: Amy Kasten
+Created therapist id: 1852 for Carolynn Aristone
+Therapist saved to Postgres: Carolynn Aristone
+Created therapist id: 1853 for Amy Kempe
+Therapist saved to Postgres: Amy Kempe
+Created therapist id: 1854 for Barry Lessin
+Therapist saved to Postgres: Barry Lessin
+Created therapist id: 1855 for Katherine Schneider
+Therapist saved to Postgres: Katherine Schneider
+Created therapist id: 1856 for Marquita Bolden
+Therapist saved to Postgres: Marquita Bolden
+Created therapist id: 1857 for Jessica Getson
+Therapist saved to Postgres: Jessica Getson
+Created therapist id: 1858 for Philip Friedman
+Therapist saved to Postgres: Philip Friedman
+Created therapist id: 1859 for Colleen Brigid Fitzpatrick
+Therapist saved to Postgres: Colleen Brigid Fitzpatrick
+Created therapist id: 1860 for Tracy Clough
+Therapist saved to Postgres: Tracy Clough
+Created therapist id: 1861 for Ashley Baldwin
+Therapist saved to Postgres: Ashley Baldwin
+Created therapist id: 1862 for Yong Lee
+Therapist saved to Postgres: Yong Lee
+Created therapist id: 1863 for Susan Rosenberg
+Therapist saved to Postgres: Susan Rosenberg
+Created therapist id: 1864 for Dr. Maria Pandolfi
+Therapist saved to Postgres: Dr. Maria Pandolfi
+Created therapist id: 1865 for Rita Garcia
+Therapist saved to Postgres: Rita Garcia
+Created therapist id: 1866 for Maureen Fiorelli
+Therapist saved to Postgres: Maureen Fiorelli
+Created therapist id: 1867 for Josh Dodes
+Therapist saved to Postgres: Josh Dodes
+Created therapist id: 1868 for Harold P. Kirby
+Therapist saved to Postgres: Harold P. Kirby
+Created therapist id: 1869 for Casey McCollum
+Therapist saved to Postgres: Casey McCollum
+Created therapist id: 1870 for Sonya Kearney
+Therapist saved to Postgres: Sonya Kearney
+Created therapist id: 1871 for Hope Nichols
+Therapist saved to Postgres: Hope Nichols
+Created therapist id: 1872 for Jeremy Frank
+Therapist saved to Postgres: Jeremy Frank
+Created therapist id: 1873 for Ruth Conviser
+Therapist saved to Postgres: Ruth Conviser
+Created therapist id: 1874 for Timothy Walsh
+Therapist saved to Postgres: Timothy Walsh
+Created therapist id: 1875 for Richard Brewer
+Therapist saved to Postgres: Richard Brewer
+Created therapist id: 1876 for Marcus Krohner
+Therapist saved to Postgres: Marcus Krohner
+Created therapist id: 1877 for Erin O'Brien
+Therapist saved to Postgres: Erin O'Brien
+Created therapist id: 1878 for Danielle Massi
+Therapist saved to Postgres: Danielle Massi
+Created therapist id: 1879 for Amy Scarano
+Therapist saved to Postgres: Amy Scarano
+Created therapist id: 1880 for Elise Gaul
+Therapist saved to Postgres: Elise Gaul
+Created therapist id: 1881 for Marram Emily Jane Plapp
+Therapist saved to Postgres: Marram Emily Jane Plapp
+Created therapist id: 1882 for Julie Sponsler
+Therapist saved to Postgres: Julie Sponsler
+Created therapist id: 1883 for Margaret Hogan
+Therapist saved to Postgres: Margaret Hogan
+Created therapist id: 1884 for Ellen Ostroff
+Therapist saved to Postgres: Ellen Ostroff
+Created therapist id: 1885 for Marcia Polansky
+Therapist saved to Postgres: Marcia Polansky
+Created therapist id: 1886 for Katrina Pinkney
+Therapist saved to Postgres: Katrina Pinkney
+Created therapist id: 1887 for Michael Bernstein
+Therapist saved to Postgres: Michael Bernstein
+Created therapist id: 1888 for Sarah Allen
+Therapist saved to Postgres: Sarah Allen
+Created therapist id: 1889 for Nicola Pierre-Smith
+Therapist saved to Postgres: Nicola Pierre-Smith
+Created therapist id: 1890 for Craig Cohen
+Therapist saved to Postgres: Craig Cohen
+Created therapist id: 1891 for Jacqueline Falkenheim
+Therapist saved to Postgres: Jacqueline Falkenheim
+Created therapist id: 1892 for Walter Matweychuk
+Therapist saved to Postgres: Walter Matweychuk
+Created therapist id: 1893 for Lindsay Bauer
+Therapist saved to Postgres: Lindsay Bauer
+Created therapist id: 1894 for Marie Papalia
+Therapist saved to Postgres: Marie Papalia
+Created therapist id: 1895 for Jennifer Bullock
+Therapist saved to Postgres: Jennifer Bullock
+Created therapist id: 1896 for Perri Shaw Borish
+Therapist saved to Postgres: Perri Shaw Borish
+Created therapist id: 1897 for Jill Lipschutz Snyder
+Therapist saved to Postgres: Jill Lipschutz Snyder
+Created therapist id: 1898 for Chris Fariello
+Therapist saved to Postgres: Chris Fariello
+Created therapist id: 1899 for Medb Marsceill
+Therapist saved to Postgres: Medb Marsceill
+Created therapist id: 1900 for Marion Frank
+Therapist saved to Postgres: Marion Frank
+Created therapist id: 1901 for Josh Zlatkus
+Therapist saved to Postgres: Josh Zlatkus
+Created therapist id: 1902 for Julie Present Koller
+Therapist saved to Postgres: Julie Present Koller
+Created therapist id: 1903 for Inger Colzie
+Therapist saved to Postgres: Inger Colzie
+Created therapist id: 1904 for Carol Schaefer
+Therapist saved to Postgres: Carol Schaefer
+Created therapist id: 1905 for Audrey Morrow
+Therapist saved to Postgres: Audrey Morrow
+Created therapist id: 1906 for Alison Dye
+Therapist saved to Postgres: Alison Dye
+Created therapist id: 1907 for Linda Spero
+Therapist saved to Postgres: Linda Spero
+Created therapist id: 1908 for Andrew Matusiak
+Therapist saved to Postgres: Andrew Matusiak
+Created therapist id: 1909 for Wanda Sevey
+Therapist saved to Postgres: Wanda Sevey
+Created therapist id: 1910 for Nancy MacGregor
+Therapist saved to Postgres: Nancy MacGregor
+Created therapist id: 1911 for Diana Cofsky
+Therapist saved to Postgres: Diana Cofsky
+Created therapist id: 1912 for Jennifer Adamski
+Therapist saved to Postgres: Jennifer Adamski
+Created therapist id: 1913 for Caroline Chait
+Therapist saved to Postgres: Caroline Chait
+Created therapist id: 1914 for Carole Landis
+Therapist saved to Postgres: Carole Landis
+Created therapist id: 1915 for Allison Bogdanoff
+Therapist saved to Postgres: Allison Bogdanoff
+Created therapist id: 1916 for Ashley Cook
+Therapist saved to Postgres: Ashley Cook
+Created therapist id: 1917 for Tasnim Sulaiman
+Therapist saved to Postgres: Tasnim Sulaiman
+Created therapist id: 1918 for Morton Axelrod
+Therapist saved to Postgres: Morton Axelrod
+Created therapist id: 1919 for Kristina Ferrari
+Therapist saved to Postgres: Kristina Ferrari
+Created therapist id: 1920 for Dina Harth
+Therapist saved to Postgres: Dina Harth
+Created therapist id: 1921 for Arlene Foreman
+Therapist saved to Postgres: Arlene Foreman
+Created therapist id: 1922 for Patricia Constantinian
+Therapist saved to Postgres: Patricia Constantinian
+Created therapist id: 1923 for Dorothy H Winrow
+Therapist saved to Postgres: Dorothy H Winrow
+Created therapist id: 1924 for Persa DeLapp
+Therapist saved to Postgres: Persa DeLapp
+Created therapist id: 1925 for Jed Yalof
+Therapist saved to Postgres: Jed Yalof
+Created therapist id: 1926 for Sarah Murphy
+Therapist saved to Postgres: Sarah Murphy
+Created therapist id: 1927 for Dr. Brian Berman
+Therapist saved to Postgres: Dr. Brian Berman
+Created therapist id: 1928 for Dawn Altman
+Therapist saved to Postgres: Dawn Altman
+Created therapist id: 1929 for Jeffrey Cox
+Therapist saved to Postgres: Jeffrey Cox
+Created therapist id: 1930 for Dr. Sudi Kash
+Therapist saved to Postgres: Dr. Sudi Kash
+Created therapist id: 1931 for Eileen Jason
+Therapist saved to Postgres: Eileen Jason
+Created therapist id: 1932 for Melissa McLean
+Therapist saved to Postgres: Melissa McLean
+Created therapist id: 1933 for Brian Stemetzki
+Therapist saved to Postgres: Brian Stemetzki
+Created therapist id: 1934 for Charles Zeiders
+Therapist saved to Postgres: Charles Zeiders
+Created therapist id: 1935 for Karen Ognibene
+Therapist saved to Postgres: Karen Ognibene
+Created therapist id: 1936 for Kathryn Burnett
+Therapist saved to Postgres: Kathryn Burnett
+Created therapist id: 1937 for Jacquelynn Cunliffe
+Therapist saved to Postgres: Jacquelynn Cunliffe
+Created therapist id: 1938 for Debra Nelson
+Therapist saved to Postgres: Debra Nelson
+Created therapist id: 1939 for Stacia Bjarnason
+Therapist saved to Postgres: Stacia Bjarnason
+Created therapist id: 1940 for John J Novielli
+Therapist saved to Postgres: John J Novielli
+Created therapist id: 1941 for Jan Blumenthal
+Therapist saved to Postgres: Jan Blumenthal
+Created therapist id: 1942 for Randy Rex
+Therapist saved to Postgres: Randy Rex
+Created therapist id: 1943 for John Mondello
+Therapist saved to Postgres: John Mondello
+Created therapist id: 1944 for Christine Bishop-Edkins
+Therapist saved to Postgres: Christine Bishop-Edkins
+Created therapist id: 1945 for Meg Schneider
+Therapist saved to Postgres: Meg Schneider
+Created therapist id: 1946 for Bridgette Montgomery
+Therapist saved to Postgres: Bridgette Montgomery
+Created therapist id: 1947 for Heather Vargo
+Therapist saved to Postgres: Heather Vargo
+Created therapist id: 1948 for Scott Giacomucci
+Therapist saved to Postgres: Scott Giacomucci
+Created therapist id: 1949 for Mary Deitch
+Therapist saved to Postgres: Mary Deitch
+Created therapist id: 1950 for Sarah Tolvaisa
+Therapist saved to Postgres: Sarah Tolvaisa
+Created therapist id: 1951 for Dwight Norwood
+Therapist saved to Postgres: Dwight Norwood
+Created therapist id: 1952 for Jeannette Lofas
+Therapist saved to Postgres: Jeannette Lofas
+Created therapist id: 1953 for Stephanie Menta
+Therapist saved to Postgres: Stephanie Menta
+Created therapist id: 1954 for Sherry Osadchey
+Therapist saved to Postgres: Sherry Osadchey
+Created therapist id: 1955 for Joel Kaye
+Therapist saved to Postgres: Joel Kaye
+Created therapist id: 1956 for Renee Balthrop
+Therapist saved to Postgres: Renee Balthrop
+Created therapist id: 1957 for Neil Becker
+Therapist saved to Postgres: Neil Becker
+Created therapist id: 1958 for Kanjana Hartshorne
+Therapist saved to Postgres: Kanjana Hartshorne
+Created therapist id: 1959 for Paula Tropiano
+Therapist saved to Postgres: Paula Tropiano
+Created therapist id: 1960 for Matthew Gelber
+Therapist saved to Postgres: Matthew Gelber
+Created therapist id: 1961 for Randall Dwenger
+Therapist saved to Postgres: Randall Dwenger
+Created therapist id: 1962 for Dr. Soraya Sawicki
+Therapist saved to Postgres: Dr. Soraya Sawicki
+Created therapist id: 1963 for Janet Edgette
+Therapist saved to Postgres: Janet Edgette
+Created therapist id: 1964 for Christine Brunetti
+Therapist saved to Postgres: Christine Brunetti
+Created therapist id: 1965 for Karen Fraley
+Therapist saved to Postgres: Karen Fraley
+Created therapist id: 1966 for Ronald Sabadish
+Therapist saved to Postgres: Ronald Sabadish
+Created therapist id: 1967 for Eileen Stecker
+Therapist saved to Postgres: Eileen Stecker
+Created therapist id: 1968 for Lori Carpenos
+Therapist saved to Postgres: Lori Carpenos
+Created therapist id: 1969 for Joshua Cohen
+Therapist saved to Postgres: Joshua Cohen
+Created therapist id: 1970 for Jessica Assard-Wu
+Therapist saved to Postgres: Jessica Assard-Wu
+Created therapist id: 1971 for Bryon Remo
+Therapist saved to Postgres: Bryon Remo
+Created therapist id: 1972 for Michael Jody
+Therapist saved to Postgres: Michael Jody
+Created therapist id: 1973 for Elliott Strick
+Therapist saved to Postgres: Elliott Strick
+Created therapist id: 1974 for Terry Nowakowski
+Therapist saved to Postgres: Terry Nowakowski
+Created therapist id: 1975 for Kate DeStefano-Torres
+Therapist saved to Postgres: Kate DeStefano-Torres
+Created therapist id: 1976 for Maria Gabelberger
+Therapist saved to Postgres: Maria Gabelberger
+Created therapist id: 1977 for Andrew Burkamp
+Therapist saved to Postgres: Andrew Burkamp
+Created therapist id: 1978 for Erik Young
+Therapist saved to Postgres: Erik Young
+Created therapist id: 1979 for Kristina Chomick
+Therapist saved to Postgres: Kristina Chomick
+Created therapist id: 1980 for Shelby Riley
+Therapist saved to Postgres: Shelby Riley
+Created therapist id: 1981 for Nancy DePaul
+Therapist saved to Postgres: Nancy DePaul
+Created therapist id: 1982 for Lisa Brugger
+Therapist saved to Postgres: Lisa Brugger
+Created therapist id: 1983 for Nancy Brockett
+Therapist saved to Postgres: Nancy Brockett
+Created therapist id: 1984 for Angeles Ramos
+Therapist saved to Postgres: Angeles Ramos
+Created therapist id: 1985 for Peggy Phipps
+Therapist saved to Postgres: Peggy Phipps
+Created therapist id: 1986 for John O'Bell
+Therapist saved to Postgres: John O'Bell
+Created therapist id: 1987 for Nicole Lewis
+Therapist saved to Postgres: Nicole Lewis
+Created therapist id: 1988 for Taryn Sharkey
+Therapist saved to Postgres: Taryn Sharkey
+Created therapist id: 1989 for Egypciel Victor-Lowderback
+Therapist saved to Postgres: Egypciel Victor-Lowderback
+Created therapist id: 1990 for Adam Bernstein
+Therapist saved to Postgres: Adam Bernstein

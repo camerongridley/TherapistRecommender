@@ -111,9 +111,10 @@ class NlpProcessor(object):
         return lemm_stemm_docs
 
     def combine_stop_words(self, custom_stop_words:list)->list:
-        stop_words = set(stopwords.words('english'))
-
-        return stop_words.union(custom_stop_words)
+        stop_words = list(set(custom_stop_words))
+        stop_words = stop_words + stopwords.words('english')
+        
+        return stop_words
 
     def create_tf_matrix(self, docs, all_stop_words:list, n_gram_range, max_features, remove_punc=True, tokenizer='None'):
         tokens = self.text_tokenization_pipeline(docs, remove_punc=True, tokenizer=tokenizer)
@@ -127,7 +128,7 @@ class NlpProcessor(object):
 
     def create_tf_idf_matrix(self, docs, all_stop_words:list, max_feats, n_gram_range, remove_punc=True, tokenizer='None'):
         # tokens is a list of lists - words per document
-        tokens = nlp.text_tokenization_pipeline(docs, remove_punc=remove_punc, tokenizer=tokenizer)
+        tokens = self.text_tokenization_pipeline(docs, remove_punc=remove_punc, tokenizer=tokenizer)
 
         # reconstruct each document after processing
         documents = [' '.join(doc) for doc in tokens]

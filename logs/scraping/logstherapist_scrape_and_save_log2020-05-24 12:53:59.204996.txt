@@ -1,0 +1,1083 @@
+SKIPPING Katherine Schneider - Therapist already exists in database.
+SKIPPING Wanda Sevey - Therapist already exists in database.
+SKIPPING Casey McCollum - Therapist already exists in database.
+SKIPPING Sonya Kearney - Therapist already exists in database.
+SKIPPING Erin O'Brien - Therapist already exists in database.
+SKIPPING Danielle Massi - Therapist already exists in database.
+SKIPPING Craig Cohen - Therapist already exists in database.
+SKIPPING Jacqueline Falkenheim - Therapist already exists in database.
+SKIPPING Marcia Polansky - Therapist already exists in database.
+SKIPPING Marram Emily Jane Plapp - Therapist already exists in database.
+SKIPPING Elise Gaul - Therapist already exists in database.
+SKIPPING Michael Bernstein - Therapist already exists in database.
+SKIPPING Kaitlin Staples - Therapist already exists in database.
+SKIPPING Ruth Conviser - Therapist already exists in database.
+SKIPPING Sarah Allen - Therapist already exists in database.
+SKIPPING Nicola Pierre-Smith - Therapist already exists in database.
+SKIPPING Walter Matweychuk - Therapist already exists in database.
+SKIPPING Lindsay Bauer - Therapist already exists in database.
+SKIPPING Marie Papalia - Therapist already exists in database.
+SKIPPING Katrina Pinkney - Therapist already exists in database.
+SKIPPING Richard Brewer - Therapist already exists in database.
+SKIPPING Marcus Krohner - Therapist already exists in database.
+SKIPPING Amy Scarano - Therapist already exists in database.
+SKIPPING Rita Garcia - Therapist already exists in database.
+SKIPPING Deidre Ashton - Therapist already exists in database.
+SKIPPING Ellen Ostroff - Therapist already exists in database.
+SKIPPING Jennifer Bullock - Therapist already exists in database.
+SKIPPING Perri Shaw Borish - Therapist already exists in database.
+SKIPPING Jill Lipschutz Snyder - Therapist already exists in database.
+SKIPPING Chris Fariello - Therapist already exists in database.
+SKIPPING Marion Frank - Therapist already exists in database.
+SKIPPING Medb Marsceill - Therapist already exists in database.
+SKIPPING Timothy Walsh - Therapist already exists in database.
+SKIPPING Julie Sponsler - Therapist already exists in database.
+SKIPPING Margaret Hogan - Therapist already exists in database.
+SKIPPING Josh Zlatkus - Therapist already exists in database.
+SKIPPING Julie Present Koller - Therapist already exists in database.
+SKIPPING Hope Nichols - Therapist already exists in database.
+SKIPPING Maureen Fiorelli - Therapist already exists in database.
+SKIPPING Josh Dodes - Therapist already exists in database.
+SKIPPING Harold P. Kirby - Therapist already exists in database.
+SKIPPING Wanda Sevey - Therapist already exists in database.
+SKIPPING Julia Markovitz - Therapist already exists in database.
+SKIPPING Katherine Schneider - Therapist already exists in database.
+SKIPPING Inger Colzie - Therapist already exists in database.
+SKIPPING Dr. Maria Pandolfi - Therapist already exists in database.
+SKIPPING Jeremy Frank - Therapist already exists in database.
+SKIPPING Dr. Janeen Cross - Therapist already exists in database.
+SKIPPING Eileen Jason - Therapist already exists in database.
+SKIPPING Linda Spero - Therapist already exists in database.
+SKIPPING David Steinberg - Therapist already exists in database.
+SKIPPING Marquita Bolden - Therapist already exists in database.
+SKIPPING Annie Fisher - Therapist already exists in database.
+SKIPPING Leah Behl - Therapist already exists in database.
+SKIPPING Allison Bogdanoff - Therapist already exists in database.
+SKIPPING Carole Landis - Therapist already exists in database.
+SKIPPING Ashley Cook - Therapist already exists in database.
+SKIPPING Caroline Chait - Therapist already exists in database.
+SKIPPING Arlene Foreman - Therapist already exists in database.
+SKIPPING Kaitlin Staples - Therapist already exists in database.
+SKIPPING Colleen Brigid Fitzpatrick - Therapist already exists in database.
+SKIPPING Peter Golboro - Therapist already exists in database.
+SKIPPING Willie Knight - Therapist already exists in database.
+SKIPPING Yong Lee - Therapist already exists in database.
+SKIPPING Leana Sykes - Therapist already exists in database.
+SKIPPING Amy Kasten - Therapist already exists in database.
+SKIPPING Tasnim Sulaiman - Therapist already exists in database.
+SKIPPING Carolynn Aristone - Therapist already exists in database.
+SKIPPING Karen Ognibene - Therapist already exists in database.
+SKIPPING Charles Zeiders - Therapist already exists in database.
+SKIPPING Kristina Ferrari - Therapist already exists in database.
+SKIPPING Deidre Ashton - Therapist already exists in database.
+SKIPPING Jed Yalof - Therapist already exists in database.
+SKIPPING Patricia Constantinian - Therapist already exists in database.
+SKIPPING Marla Cohen - Therapist already exists in database.
+SKIPPING Dina Harth - Therapist already exists in database.
+SKIPPING Renee Frierson-Briscoe - Therapist already exists in database.
+SKIPPING Sarah Murphy - Therapist already exists in database.
+SKIPPING Dr. Brian Berman - Therapist already exists in database.
+SKIPPING Rhoda Fuchs-Morton - Therapist already exists in database.
+SKIPPING Jeffrey Carter - Therapist already exists in database.
+SKIPPING Taniek Gentles - Therapist already exists in database.
+SKIPPING Dawn Altman - Therapist already exists in database.
+SKIPPING William Dewart - Therapist already exists in database.
+SKIPPING Amy Kempe - Therapist already exists in database.
+SKIPPING Mary Deitch - Therapist already exists in database.
+SKIPPING Daniel Gottlieb - Therapist already exists in database.
+SKIPPING Jessica Getson - Therapist already exists in database.
+SKIPPING Yamillis Hernandez - Therapist already exists in database.
+SKIPPING Tammy Henderson - Therapist already exists in database.
+SKIPPING Jasmin Rahman - Therapist already exists in database.
+SKIPPING Allison Macher - Therapist already exists in database.
+SKIPPING Bonnie Stevens - Therapist already exists in database.
+SKIPPING Michael Haas - Therapist already exists in database.
+SKIPPING Nancy MacGregor - Therapist already exists in database.
+SKIPPING Diana Cofsky - Therapist already exists in database.
+SKIPPING Jennifer Adamski - Therapist already exists in database.
+SKIPPING Jennifer Perry - Therapist already exists in database.
+SKIPPING Todd Koser - Therapist already exists in database.
+SKIPPING Angela Kurzyna - Therapist already exists in database.
+SKIPPING Scott Giacomucci - Therapist already exists in database.
+SKIPPING Sarah Tolvaisa - Therapist already exists in database.
+SKIPPING RaShun Stewart - Therapist already exists in database.
+SKIPPING Amanda Haidet - Therapist already exists in database.
+SKIPPING Rusty Stewart, Ph.D. - Therapist already exists in database.
+SKIPPING Dr. Jason Cohen - Therapist already exists in database.
+SKIPPING David Leibovitz - Therapist already exists in database.
+SKIPPING Christine Bishop-Edkins - Therapist already exists in database.
+SKIPPING Persida Ghibilic - Therapist already exists in database.
+SKIPPING M. Catherine Ambrose - Therapist already exists in database.
+SKIPPING Philip Friedman - Therapist already exists in database.
+SKIPPING Kaitlyn Russell - Therapist already exists in database.
+SKIPPING Tara Reynolds - Therapist already exists in database.
+SKIPPING Jaime Benedetti - Therapist already exists in database.
+SKIPPING Brian Stemetzki - Therapist already exists in database.
+SKIPPING Meredith Messinger - Therapist already exists in database.
+SKIPPING Melissa McLean - Therapist already exists in database.
+SKIPPING Stacey Vinci - Therapist already exists in database.
+SKIPPING Ellen Schrier - Therapist already exists in database.
+SKIPPING Bridgette Montgomery - Therapist already exists in database.
+SKIPPING Meg Clark Soriano - Therapist already exists in database.
+SKIPPING Morton Axelrod - Therapist already exists in database.
+SKIPPING Ms. Rowan G Moore - Therapist already exists in database.
+SKIPPING Jacquelynn Cunliffe - Therapist already exists in database.
+SKIPPING Earl Lewis - Therapist already exists in database.
+SKIPPING Francine Roberts - Therapist already exists in database.
+SKIPPING Renee Balthrop - Therapist already exists in database.
+SKIPPING Emily Masko - Therapist already exists in database.
+SKIPPING Lucy S Raizman - Therapist already exists in database.
+SKIPPING Jan Blumenthal - Therapist already exists in database.
+SKIPPING Erica Holtz - Therapist already exists in database.
+SKIPPING John J Novielli - Therapist already exists in database.
+SKIPPING Barry Lessin - Therapist already exists in database.
+SKIPPING Gabrielle Morreale - Therapist already exists in database.
+SKIPPING Ellen Piper - Therapist already exists in database.
+SKIPPING Jeffrey Cox - Therapist already exists in database.
+SKIPPING Stephen Britchkow - Therapist already exists in database.
+SKIPPING Heather Vargo - Therapist already exists in database.
+SKIPPING Susan Rosenberg - Therapist already exists in database.
+SKIPPING Jeannine Coyne - Therapist already exists in database.
+SKIPPING Carol Schaefer - Therapist already exists in database.
+SKIPPING Audrey Morrow - Therapist already exists in database.
+SKIPPING Paula Tropiano - Therapist already exists in database.
+SKIPPING Eugene Kayser - Therapist already exists in database.
+SKIPPING Robert Smith - Therapist already exists in database.
+SKIPPING Victoria Sayles - Therapist already exists in database.
+SKIPPING Randy Rex - Therapist already exists in database.
+SKIPPING Stephanie Menta - Therapist already exists in database.
+SKIPPING David Piltz - Therapist already exists in database.
+SKIPPING Nancy DePaul - Therapist already exists in database.
+SKIPPING Persa DeLapp - Therapist already exists in database.
+SKIPPING Matthew Gelber - Therapist already exists in database.
+SKIPPING Kanjana Hartshorne - Therapist already exists in database.
+SKIPPING Ellen Faulkner - Therapist already exists in database.
+SKIPPING Taryn Sharkey - Therapist already exists in database.
+SKIPPING Nicole Lewis - Therapist already exists in database.
+SKIPPING Adam Bernstein - Therapist already exists in database.
+SKIPPING Christine Etzrodt - Therapist already exists in database.
+SKIPPING Maria Gabelberger - Therapist already exists in database.
+SKIPPING Kelly Reed - Therapist already exists in database.
+SKIPPING Meghan Jerry - Therapist already exists in database.
+SKIPPING Stacee Paley - Therapist already exists in database.
+SKIPPING Emily Easterling - Therapist already exists in database.
+SKIPPING Lavanya Devdas - Therapist already exists in database.
+SKIPPING Kate DeStefano-Torres - Therapist already exists in database.
+SKIPPING Kevin Drab - Therapist already exists in database.
+Created therapist id: 2582 for Donald Berman
+Therapist saved to Postgres: Donald Berman
+SKIPPING Joyce Cooney - Therapist already exists in database.
+SKIPPING Janet Edgette - Therapist already exists in database.
+SKIPPING Karen Fraley - Therapist already exists in database.
+SKIPPING Ronald Sabadish - Therapist already exists in database.
+Created therapist id: 2583 for Traci Seery
+Therapist saved to Postgres: Traci Seery
+SKIPPING Peggy Phipps - Therapist already exists in database.
+SKIPPING Erik Young - Therapist already exists in database.
+Created therapist id: 2584 for Rebecca Toddes-Miller
+Therapist saved to Postgres: Rebecca Toddes-Miller
+SKIPPING Shelby Riley - Therapist already exists in database.
+SKIPPING Lisa Brugger - Therapist already exists in database.
+SKIPPING Alicia A. Williams, Ed.D. - Therapist already exists in database.
+SKIPPING James Baldwin - Therapist already exists in database.
+Created therapist id: 2585 for Andrea Bosbach-Largent
+Therapist saved to Postgres: Andrea Bosbach-Largent
+Created therapist id: 2586 for Edward Jenny
+Therapist saved to Postgres: Edward Jenny
+SKIPPING Christine Lynch - Therapist already exists in database.
+Created therapist id: 2587 for Dennis Carradin
+Therapist saved to Postgres: Dennis Carradin
+Created therapist id: 2588 for Terry Ramsey
+Therapist saved to Postgres: Terry Ramsey
+Created therapist id: 2589 for Margalita Poletunow
+Therapist saved to Postgres: Margalita Poletunow
+Created therapist id: 2590 for David Guseman
+Therapist saved to Postgres: David Guseman
+SKIPPING Mary Goepfert - Therapist already exists in database.
+Created therapist id: 2591 for Babette Jenny
+Therapist saved to Postgres: Babette Jenny
+SKIPPING Tamara Pommells - Therapist already exists in database.
+SKIPPING Mary Shull - Therapist already exists in database.
+Created therapist id: 2592 for Stephanie Baffone
+Therapist saved to Postgres: Stephanie Baffone
+SKIPPING Jill Harle - Therapist already exists in database.
+SKIPPING Elizabeth Casey - Therapist already exists in database.
+SKIPPING Alexis Ledner - Therapist already exists in database.
+SKIPPING Rebecca Kornberg - Therapist already exists in database.
+SKIPPING Jennifer Matthes - Therapist already exists in database.
+SKIPPING Sean Travis - Therapist already exists in database.
+SKIPPING Raquel Jones - Therapist already exists in database.
+SKIPPING Roberta Tessler - Therapist already exists in database.
+SKIPPING Lori Goldman - Therapist already exists in database.
+SKIPPING Brianna Conklin - Therapist already exists in database.
+SKIPPING Carolyn Stout - Therapist already exists in database.
+SKIPPING Carolanne Hunt - Therapist already exists in database.
+SKIPPING Margaret Plantes - Therapist already exists in database.
+SKIPPING Deborah Therkorn - Therapist already exists in database.
+SKIPPING Lauren Zavodnick - Therapist already exists in database.
+SKIPPING Constance Cloonan - Therapist already exists in database.
+SKIPPING Sangeeta Akundi - Therapist already exists in database.
+SKIPPING Vanessa Hitchman - Therapist already exists in database.
+SKIPPING Richelle Walling - Therapist already exists in database.
+Created therapist id: 2593 for Alba Reynoso
+Therapist saved to Postgres: Alba Reynoso
+SKIPPING Kathryn Burnett - Therapist already exists in database.
+SKIPPING Pamela farrell - Therapist already exists in database.
+SKIPPING Frank Thewes - Therapist already exists in database.
+SKIPPING Shira Schaktman - Therapist already exists in database.
+SKIPPING Judith Margolin - Therapist already exists in database.
+SKIPPING Elizabeth Cruickshank - Therapist already exists in database.
+SKIPPING Celeste Aliberti - Therapist already exists in database.
+SKIPPING Stephen Horgan - Therapist already exists in database.
+SKIPPING Abby Grayson - Therapist already exists in database.
+SKIPPING Leo Battenhausen - Therapist already exists in database.
+SKIPPING Jane Martin - Therapist already exists in database.
+SKIPPING Peter A. Miller - Therapist already exists in database.
+SKIPPING Rikki Lyn Hauss-McCarthy - Therapist already exists in database.
+SKIPPING Cliff Koblin - Therapist already exists in database.
+SKIPPING Ruth Altamura-Roll - Therapist already exists in database.
+SKIPPING Amy Cargill - Therapist already exists in database.
+SKIPPING Ashley Baldwin - Therapist already exists in database.
+SKIPPING Lyn Felix - Therapist already exists in database.
+SKIPPING Shan Reeves - Therapist already exists in database.
+SKIPPING Dr. Marion Rollings - Therapist already exists in database.
+SKIPPING Dawn Cheetham - Therapist already exists in database.
+SKIPPING Molly Guest - Therapist already exists in database.
+Created therapist id: 2594 for Bonnie Hancock
+Therapist saved to Postgres: Bonnie Hancock
+SKIPPING Lori Christine Young - Therapist already exists in database.
+SKIPPING Stephen Sell - Therapist already exists in database.
+SKIPPING Jessica DeLuca - Therapist already exists in database.
+SKIPPING Gwendolyn Blake - Therapist already exists in database.
+Created therapist id: 2595 for Elizabeth Heffner
+Therapist saved to Postgres: Elizabeth Heffner
+SKIPPING Ashley Appleton - Therapist already exists in database.
+SKIPPING Daphne Camille - Therapist already exists in database.
+SKIPPING Stephanie Gaspari - Therapist already exists in database.
+SKIPPING Morgan Burgess - Therapist already exists in database.
+SKIPPING Carissa Ali - Therapist already exists in database.
+SKIPPING Gina Radice-Vella - Therapist already exists in database.
+SKIPPING Agnes Raczynski - Therapist already exists in database.
+SKIPPING Marc Wax - Therapist already exists in database.
+SKIPPING Selma A. Sisco - Therapist already exists in database.
+SKIPPING Lyz DeBoer Kreider - Therapist already exists in database.
+SKIPPING Amy Nolan - Therapist already exists in database.
+SKIPPING Christine Slobodin - Therapist already exists in database.
+SKIPPING Stephanie Nonnenmacher - Therapist already exists in database.
+SKIPPING Justyna Dmowski - Therapist already exists in database.
+SKIPPING Tahisa Jamison - Therapist already exists in database.
+SKIPPING Robert DeGutis - Therapist already exists in database.
+SKIPPING Vanessa Howard - Therapist already exists in database.
+SKIPPING Alexa Burgess, MS, LAMFT Supervised by Margo Tarasov, LCSW - Therapist already exists in database.
+SKIPPING Meghan Green - Therapist already exists in database.
+SKIPPING Hal Jordan Ketofsky - Therapist already exists in database.
+SKIPPING Karen Wister Kearns - Therapist already exists in database.
+Created therapist id: 2596 for Dr. Marie Laurent
+Therapist saved to Postgres: Dr. Marie Laurent
+SKIPPING Robin Richards-Greene - Therapist already exists in database.
+SKIPPING Dionne Frank - Therapist already exists in database.
+SKIPPING Daniel Noll - Therapist already exists in database.
+SKIPPING Pat Spencer - Therapist already exists in database.
+SKIPPING Carmen Garrison - Therapist already exists in database.
+SKIPPING Margaret Nichols - Therapist already exists in database.
+SKIPPING Mirel Adler - Therapist already exists in database.
+Created therapist id: 2597 for Ashley Crooks
+Therapist saved to Postgres: Ashley Crooks
+SKIPPING Scott Pace - Therapist already exists in database.
+SKIPPING Rochelle Ladin - Therapist already exists in database.
+SKIPPING Wendy Huntley - Therapist already exists in database.
+SKIPPING Dr. Barbara Jortner - Therapist already exists in database.
+SKIPPING Asimena Charalambidis-Urban - Therapist already exists in database.
+Created therapist id: 2598 for Tara Waltman
+Therapist saved to Postgres: Tara Waltman
+SKIPPING Rachel Perlman - Therapist already exists in database.
+SKIPPING Patricia Magnotta - Therapist already exists in database.
+Created therapist id: 2599 for Lauren Farace
+Therapist saved to Postgres: Lauren Farace
+SKIPPING Annabella Sollaccio - Therapist already exists in database.
+SKIPPING Mark Aronson - Therapist already exists in database.
+SKIPPING Nancy Howard - Therapist already exists in database.
+SKIPPING Anthony Girod - Therapist already exists in database.
+SKIPPING Christopher Waters - Therapist already exists in database.
+SKIPPING Christina Hoffman - Therapist already exists in database.
+SKIPPING Angela Capece - Therapist already exists in database.
+SKIPPING Kerri Weiss - Therapist already exists in database.
+SKIPPING Nancy Sidhu - Therapist already exists in database.
+SKIPPING Donna Coulter - Therapist already exists in database.
+SKIPPING Marie DiMatteo - Therapist already exists in database.
+SKIPPING Sabrina Dixon - Therapist already exists in database.
+SKIPPING Jessenia Rivera - Therapist already exists in database.
+SKIPPING Deborah Lee - Therapist already exists in database.
+SKIPPING Cathy Noblick - Therapist already exists in database.
+Created therapist id: 2600 for Amy Titzer
+Therapist saved to Postgres: Amy Titzer
+SKIPPING Phoebe Jeffrey - Therapist already exists in database.
+SKIPPING Barbara Fane - Therapist already exists in database.
+SKIPPING Margaret Lundrigan - Therapist already exists in database.
+SKIPPING Bonnie Gorscak - Therapist already exists in database.
+SKIPPING Elizabeth Karlinski - Therapist already exists in database.
+SKIPPING Jessica Schwartz - Therapist already exists in database.
+SKIPPING Ann Wolf - Therapist already exists in database.
+SKIPPING Liz Walter - Therapist already exists in database.
+SKIPPING John Soper - Therapist already exists in database.
+SKIPPING Michele Cole - Therapist already exists in database.
+SKIPPING Michele Smith - Therapist already exists in database.
+SKIPPING Annette Provencher - Therapist already exists in database.
+SKIPPING David Helfgott - Therapist already exists in database.
+SKIPPING William MacLaney - Therapist already exists in database.
+SKIPPING Ted Rostiac - Therapist already exists in database.
+SKIPPING Tahlia DeLorenzo - Therapist already exists in database.
+SKIPPING Jessica Romain - Therapist already exists in database.
+SKIPPING Ashley Karaman - Therapist already exists in database.
+SKIPPING James Gordon - Therapist already exists in database.
+SKIPPING Ashley Sibiga - Therapist already exists in database.
+SKIPPING Meghan Yahrling - Therapist already exists in database.
+SKIPPING Wendy Baum - Therapist already exists in database.
+SKIPPING Lisa SanFilippo - Therapist already exists in database.
+SKIPPING Gurlynn Singh - Therapist already exists in database.
+SKIPPING Alison Kulick - Therapist already exists in database.
+SKIPPING Anne Marie Urbanski - Therapist already exists in database.
+SKIPPING R. Ellen Runyon - Therapist already exists in database.
+SKIPPING Chuck Beardsley - Therapist already exists in database.
+SKIPPING Carmen Hernandez - Therapist already exists in database.
+SKIPPING Dr. Craig Springer - Therapist already exists in database.
+SKIPPING Silvina Falcon Levine - Therapist already exists in database.
+SKIPPING James Genovese - Therapist already exists in database.
+Created therapist id: 2601 for Katie Mauro
+Therapist saved to Postgres: Katie Mauro
+Created therapist id: 2602 for Erica Roland
+Therapist saved to Postgres: Erica Roland
+SKIPPING John Migueis - Therapist already exists in database.
+SKIPPING Wendi Dumbroff - Therapist already exists in database.
+SKIPPING Emily Ryzuk - Therapist already exists in database.
+SKIPPING Judy Lapides - Therapist already exists in database.
+SKIPPING Lillesol Kane - Therapist already exists in database.
+SKIPPING Kristin Cizek - Therapist already exists in database.
+SKIPPING Tiffany Hauptman - Therapist already exists in database.
+SKIPPING Bill Salzer - Therapist already exists in database.
+SKIPPING Raisa Shams - Therapist already exists in database.
+SKIPPING Travis Fragale - Therapist already exists in database.
+SKIPPING Elyce Jackson - Therapist already exists in database.
+SKIPPING Nicole Rafanello - Therapist already exists in database.
+SKIPPING Gail Wodkiewicz - Therapist already exists in database.
+SKIPPING Danielle Mikhail - Therapist already exists in database.
+SKIPPING Meredith Strauss - Therapist already exists in database.
+SKIPPING Gemma Boyd - Therapist already exists in database.
+SKIPPING Valarie C. Greco - Therapist already exists in database.
+Created therapist id: 2603 for DR. Rony Kusnadi
+Therapist saved to Postgres: DR. Rony Kusnadi
+SKIPPING Elizabeth Fadale - Therapist already exists in database.
+SKIPPING Lisa Marie Isley - Therapist already exists in database.
+Created therapist id: 2604 for Michelle Perry
+Therapist saved to Postgres: Michelle Perry
+Created therapist id: 2605 for Jennifer Stachowiak
+Therapist saved to Postgres: Jennifer Stachowiak
+SKIPPING Marnie Grossman - Therapist already exists in database.
+SKIPPING Kim Williams-Jenkins - Therapist already exists in database.
+SKIPPING Tennille Raney - Therapist already exists in database.
+SKIPPING Diana Ceron - Therapist already exists in database.
+SKIPPING Daniel Linehan - Therapist already exists in database.
+SKIPPING Gary Goldberg - Therapist already exists in database.
+SKIPPING Zoya McCants - Therapist already exists in database.
+SKIPPING Kama Schulte - Therapist already exists in database.
+SKIPPING Tessa Vining - Therapist already exists in database.
+SKIPPING Kristen Marsar-Perez - Therapist already exists in database.
+SKIPPING Teresa deBoer - Therapist already exists in database.
+SKIPPING Roseanna Zoubek - Therapist already exists in database.
+SKIPPING Myles Paulson - Therapist already exists in database.
+SKIPPING Prunella Harris - Therapist already exists in database.
+SKIPPING Rebecca Logunovskiy - Therapist already exists in database.
+SKIPPING Laurie Leinwand - Therapist already exists in database.
+SKIPPING Randolph Shipon - Therapist already exists in database.
+SKIPPING Lindsay Hafner - Therapist already exists in database.
+SKIPPING Jessica Coviello - Therapist already exists in database.
+SKIPPING Kathleen Gravino - Therapist already exists in database.
+SKIPPING Charlie Calantone - Therapist already exists in database.
+SKIPPING Penny Beil - Therapist already exists in database.
+SKIPPING Jillian Calotta - Therapist already exists in database.
+SKIPPING Joshua Szporn - Therapist already exists in database.
+SKIPPING Suzanne Donohue - Therapist already exists in database.
+SKIPPING Fredric Shulman - Therapist already exists in database.
+SKIPPING Eileen Feliciano - Therapist already exists in database.
+SKIPPING Helen Schwartz - Therapist already exists in database.
+SKIPPING Daniel Rowen - Therapist already exists in database.
+SKIPPING Jay Hartman - Therapist already exists in database.
+SKIPPING Joshua Taffet - Therapist already exists in database.
+Created therapist id: 2606 for Elizabeth DeMatteo
+Therapist saved to Postgres: Elizabeth DeMatteo
+SKIPPING Lewis Pagano - Therapist already exists in database.
+SKIPPING Olga Rothschild - Therapist already exists in database.
+SKIPPING Kathleen Aveno Porter - Therapist already exists in database.
+SKIPPING Amy Edelstein - Therapist already exists in database.
+SKIPPING Joel Levine - Therapist already exists in database.
+SKIPPING Suzanne Farkas - Therapist already exists in database.
+SKIPPING Angela DeCandia Vitoria - Therapist already exists in database.
+SKIPPING Jose M. Perez - Therapist already exists in database.
+SKIPPING Nicholas Bizzarro - Therapist already exists in database.
+SKIPPING Jennifer Vogel-Davis - Therapist already exists in database.
+SKIPPING Dara Mastro - Therapist already exists in database.
+SKIPPING Stephen F. Lewis - Therapist already exists in database.
+SKIPPING Rachel Ralston - Therapist already exists in database.
+SKIPPING Nikki Rollo - Therapist already exists in database.
+SKIPPING Lynne Spevack - Therapist already exists in database.
+SKIPPING Susan Williams - Therapist already exists in database.
+SKIPPING Lynn Carroll - Therapist already exists in database.
+SKIPPING Rachel Liles - Therapist already exists in database.
+SKIPPING Katie Johntz - Therapist already exists in database.
+SKIPPING Elizabeth MacGregor - Therapist already exists in database.
+SKIPPING Steven Gordon - Therapist already exists in database.
+SKIPPING Briana Weiner - Therapist already exists in database.
+SKIPPING William Murray - Therapist already exists in database.
+SKIPPING Gretta Keene - Therapist already exists in database.
+SKIPPING Simona Cassatly - Therapist already exists in database.
+SKIPPING Kieran (Kyra) Grosman - Therapist already exists in database.
+SKIPPING Sarah Noel - Therapist already exists in database.
+SKIPPING Michele Vallone - Therapist already exists in database.
+SKIPPING Rosalie Cespedes - Therapist already exists in database.
+SKIPPING Jeanne Murphy - Therapist already exists in database.
+SKIPPING Kathy Gordon - Therapist already exists in database.
+SKIPPING Patti Geier - Therapist already exists in database.
+SKIPPING Flora Margolis - Therapist already exists in database.
+SKIPPING Sarah Zahnstecher - Therapist already exists in database.
+SKIPPING Ellen Krug - Therapist already exists in database.
+SKIPPING Jacqueline DeCarlo - Therapist already exists in database.
+SKIPPING Michael Guglielmino - Therapist already exists in database.
+SKIPPING Meredith Shirey - Therapist already exists in database.
+SKIPPING Pamela Berger - Therapist already exists in database.
+SKIPPING Christina Arceri - Therapist already exists in database.
+SKIPPING Pamela Sloane - Therapist already exists in database.
+SKIPPING Maggie Shi - Therapist already exists in database.
+SKIPPING Ryan Selzer - Therapist already exists in database.
+SKIPPING David Amarel - Therapist already exists in database.
+SKIPPING Allison Lefkowitz - Therapist already exists in database.
+SKIPPING Jane Hammerslough - Therapist already exists in database.
+SKIPPING Gundu Reddy - Therapist already exists in database.
+SKIPPING Mary McGregor - Therapist already exists in database.
+SKIPPING Sonia Mbabazi - Therapist already exists in database.
+SKIPPING Evan Lawrence - Therapist already exists in database.
+SKIPPING Diana Deutsch - Therapist already exists in database.
+SKIPPING Christina Marie Tobey - Therapist already exists in database.
+SKIPPING Elise Bourgeois-Munoz - Therapist already exists in database.
+SKIPPING Susie Greenebaum - Therapist already exists in database.
+SKIPPING Daniel J. Brooks - Therapist already exists in database.
+SKIPPING Michael fischman - Therapist already exists in database.
+SKIPPING Beth Lawrence - Therapist already exists in database.
+SKIPPING Heather Aldridge-Venitucci - Therapist already exists in database.
+SKIPPING Suzy Lieber - Therapist already exists in database.
+SKIPPING Ramona Clifton - Therapist already exists in database.
+SKIPPING Lotoya Charles - Therapist already exists in database.
+SKIPPING LESLEY ALDERMAN - Therapist already exists in database.
+SKIPPING Lynn Mirabito - Therapist already exists in database.
+SKIPPING Pia Roper-Evans - Therapist already exists in database.
+SKIPPING Jenny Cartmell - Therapist already exists in database.
+SKIPPING Sarah Person - Therapist already exists in database.
+SKIPPING Anna Holtzman - Therapist already exists in database.
+SKIPPING Teresa Stern - Therapist already exists in database.
+SKIPPING Joan Brady - Therapist already exists in database.
+SKIPPING Stephanie Zemon - Therapist already exists in database.
+SKIPPING Rachel Gersten - Therapist already exists in database.
+SKIPPING Elisabeth Fox, Ph.D. - Therapist already exists in database.
+SKIPPING Patricia Ductan - Therapist already exists in database.
+SKIPPING Daniel Lee - Therapist already exists in database.
+SKIPPING Katherine Crespo - Therapist already exists in database.
+SKIPPING Jaime Prince - Therapist already exists in database.
+SKIPPING Alahna Blakeman - Therapist already exists in database.
+SKIPPING Rivkah Kaufman - Therapist already exists in database.
+SKIPPING Yana Elbert - Therapist already exists in database.
+SKIPPING Julia Schaffer - Therapist already exists in database.
+SKIPPING Susannah Hyland - Therapist already exists in database.
+SKIPPING Sherry Jerimie - Therapist already exists in database.
+SKIPPING Renata Hadis - Therapist already exists in database.
+Created therapist id: 2607 for Rebecca Hanus
+Therapist saved to Postgres: Rebecca Hanus
+Created therapist id: 2608 for Yasmine Saad
+Therapist saved to Postgres: Yasmine Saad
+Created therapist id: 2609 for Marc Wayne
+Therapist saved to Postgres: Marc Wayne
+Created therapist id: 2610 for Raymond Zakhari
+Therapist saved to Postgres: Raymond Zakhari
+SKIPPING Annette A. Fertuck, Ph.D. - Therapist already exists in database.
+Created therapist id: 2611 for Quai Nystrom
+Therapist saved to Postgres: Quai Nystrom
+Created therapist id: 2612 for Ronald R. Liteanu, M.D., D-NBME
+Therapist saved to Postgres: Ronald R. Liteanu, M.D., D-NBME
+Created therapist id: 2613 for Luz Vargas
+Therapist saved to Postgres: Luz Vargas
+Created therapist id: 2614 for Camille Lester
+Therapist saved to Postgres: Camille Lester
+Created therapist id: 2615 for Lee Heeter
+Therapist saved to Postgres: Lee Heeter
+SKIPPING Jody Smith - Therapist already exists in database.
+SKIPPING Tricia DiMarco-Perez - Therapist already exists in database.
+SKIPPING Sarah Perl - Therapist already exists in database.
+SKIPPING Anita Mambo Cohn - Therapist already exists in database.
+SKIPPING Jane Kober - Therapist already exists in database.
+SKIPPING Hubertus Raben - Therapist already exists in database.
+SKIPPING nataliya rusetskaya - Therapist already exists in database.
+SKIPPING Janice Bryer - Therapist already exists in database.
+SKIPPING Konstantin Lukin - Therapist already exists in database.
+SKIPPING Shannon Bradley - Therapist already exists in database.
+SKIPPING Catherine C Montifiore - Therapist already exists in database.
+Created therapist id: 2616 for Paulette Trueblood
+Therapist saved to Postgres: Paulette Trueblood
+SKIPPING Erika Updegrove - Therapist already exists in database.
+SKIPPING Dr. Alison Gurley - Therapist already exists in database.
+SKIPPING Shari Ferere - Therapist already exists in database.
+SKIPPING Taylor Colbert - Therapist already exists in database.
+SKIPPING Amina Ellrott - Therapist already exists in database.
+SKIPPING Sarah West - Therapist already exists in database.
+SKIPPING Devin McManus - Therapist already exists in database.
+SKIPPING Scott Maciag - Therapist already exists in database.
+SKIPPING Kristine Alfano - Therapist already exists in database.
+SKIPPING Larissa Ranglin - Therapist already exists in database.
+SKIPPING Bethny Brown - Therapist already exists in database.
+SKIPPING Rolando Watley - Therapist already exists in database.
+SKIPPING Claudia Chavez - Therapist already exists in database.
+SKIPPING Rosemary Williams - Therapist already exists in database.
+SKIPPING Robin Brady - Therapist already exists in database.
+SKIPPING Andre Moore - Therapist already exists in database.
+SKIPPING Risa Neuwirth - Therapist already exists in database.
+SKIPPING Rachael Hyatt - Therapist already exists in database.
+SKIPPING Lance Levitt - Therapist already exists in database.
+SKIPPING Derrick Alloway - Therapist already exists in database.
+SKIPPING Michelle Funaioli - Therapist already exists in database.
+SKIPPING Kimberly A. Davis - Therapist already exists in database.
+SKIPPING Michael Carollo - Therapist already exists in database.
+SKIPPING Caren Shapiro - Therapist already exists in database.
+SKIPPING Josephine Ferraro - Therapist already exists in database.
+SKIPPING Helen Bird - Therapist already exists in database.
+SKIPPING Kenneth Feingold - Therapist already exists in database.
+SKIPPING Dr Lisa Eskalyo - Therapist already exists in database.
+SKIPPING Denise Lanes - Therapist already exists in database.
+SKIPPING Denise Clay - Therapist already exists in database.
+SKIPPING Tanya Bannister - Therapist already exists in database.
+SKIPPING Karen Campbell - Therapist already exists in database.
+SKIPPING Anna Ogle - Therapist already exists in database.
+SKIPPING Barbara Danish - Therapist already exists in database.
+SKIPPING Charles Herr - Therapist already exists in database.
+SKIPPING Tessa Addison - Therapist already exists in database.
+SKIPPING Anne Cutler - Therapist already exists in database.
+SKIPPING Dan Bloom - Therapist already exists in database.
+SKIPPING Marc Tallent - Therapist already exists in database.
+SKIPPING Michelle Shubin - Therapist already exists in database.
+SKIPPING Patricia Tidwell - Therapist already exists in database.
+SKIPPING Zelik Mintz - Therapist already exists in database.
+SKIPPING Marisa Mickel - Therapist already exists in database.
+SKIPPING John Marchini - Therapist already exists in database.
+SKIPPING Meris Powell - Therapist already exists in database.
+SKIPPING Carmen Chang-Arratia - Therapist already exists in database.
+SKIPPING Sherman Pheiffer - Therapist already exists in database.
+SKIPPING Erin Rivelis - Therapist already exists in database.
+SKIPPING Katherine Rabinowitz - Therapist already exists in database.
+SKIPPING James Wells - Therapist already exists in database.
+SKIPPING Andrew DeSear - Therapist already exists in database.
+SKIPPING E. Celeste Rivera - Therapist already exists in database.
+SKIPPING Tom Moglia - Therapist already exists in database.
+SKIPPING Lois Horowitz - Therapist already exists in database.
+SKIPPING Susan Pollack - Therapist already exists in database.
+SKIPPING Renata Novak Ziarnik - Therapist already exists in database.
+SKIPPING Debra Flics - Therapist already exists in database.
+SKIPPING Lois Ellen Cohen - Therapist already exists in database.
+SKIPPING Andrea Iatrou - Therapist already exists in database.
+SKIPPING Randi Torstenson - Therapist already exists in database.
+SKIPPING Katrina Michelle - Therapist already exists in database.
+SKIPPING Cara Maniaci - Therapist already exists in database.
+SKIPPING Sarah Saffian - Therapist already exists in database.
+SKIPPING Laura Frasier - Therapist already exists in database.
+SKIPPING Gina Rossini - Therapist already exists in database.
+SKIPPING Brenda Massie - Therapist already exists in database.
+SKIPPING Gregory Kushnick - Therapist already exists in database.
+SKIPPING Matthew Graziano - Therapist already exists in database.
+SKIPPING Michelle Magno - Therapist already exists in database.
+SKIPPING Kristina Jones - Therapist already exists in database.
+SKIPPING Carla Nita - Therapist already exists in database.
+SKIPPING Rose Ortiz - Therapist already exists in database.
+SKIPPING Rachel McDavid - Therapist already exists in database.
+SKIPPING Laurence Schwartz - Therapist already exists in database.
+SKIPPING Robin Friedman - Therapist already exists in database.
+SKIPPING Nina Chaifetz - Therapist already exists in database.
+SKIPPING Suzy Daren - Therapist already exists in database.
+SKIPPING Georgiana Avram - Therapist already exists in database.
+SKIPPING Zi Wang - Therapist already exists in database.
+SKIPPING Monique Lang - Therapist already exists in database.
+SKIPPING Tom Kearns - Therapist already exists in database.
+SKIPPING Juan Robles-Gil Aleman - Therapist already exists in database.
+SKIPPING Carolyn Hartl - Therapist already exists in database.
+SKIPPING Kirsten Wittenborn - Therapist already exists in database.
+SKIPPING Portia Franklin - Therapist already exists in database.
+SKIPPING Jonathan Kastner - Therapist already exists in database.
+SKIPPING Benjamin Seaman - Therapist already exists in database.
+SKIPPING Rachel Moheban-Wachtel - Therapist already exists in database.
+SKIPPING Natasha Walker-O'Brien - Therapist already exists in database.
+SKIPPING Richard Schaedle - Therapist already exists in database.
+SKIPPING Amie Roe Chadwick - Therapist already exists in database.
+SKIPPING Melorra Sochet - Therapist already exists in database.
+SKIPPING Dr. Alexander Bingham - Therapist already exists in database.
+SKIPPING Jennifer Charney - Therapist already exists in database.
+SKIPPING Edy Nathan - Therapist already exists in database.
+SKIPPING Matthew Whaley - Therapist already exists in database.
+SKIPPING Daniel Tisman - Therapist already exists in database.
+SKIPPING Mike Evers - Therapist already exists in database.
+SKIPPING Astrid Burke - Therapist already exists in database.
+SKIPPING Amanda Lenox - Therapist already exists in database.
+SKIPPING Cheryl Gerson - Therapist already exists in database.
+SKIPPING Sharon Friedman - Therapist already exists in database.
+SKIPPING Maria Lebron - Therapist already exists in database.
+SKIPPING Ben Velez - Therapist already exists in database.
+SKIPPING Lauren Deakin - Therapist already exists in database.
+SKIPPING Diana Tumminia - Therapist already exists in database.
+SKIPPING Snehal Kumar - Therapist already exists in database.
+SKIPPING Ken Hollander - Therapist already exists in database.
+SKIPPING Nathan Rice - Therapist already exists in database.
+SKIPPING Carole Shepherd - Therapist already exists in database.
+SKIPPING Elena Coronges - Therapist already exists in database.
+SKIPPING Bette Pounds - Therapist already exists in database.
+SKIPPING Wendy Bassett - Therapist already exists in database.
+SKIPPING Melissa Lesan - Therapist already exists in database.
+SKIPPING Carol Mavronicolas - Therapist already exists in database.
+SKIPPING Karen Steinberg - Therapist already exists in database.
+SKIPPING Linda Kane - Therapist already exists in database.
+SKIPPING Yelena Ivanova - Therapist already exists in database.
+SKIPPING Victoria Rivera - Therapist already exists in database.
+SKIPPING Coryn Nadeau - Therapist already exists in database.
+SKIPPING Mona Lee Yousef - Therapist already exists in database.
+SKIPPING Richard Mills - Therapist already exists in database.
+SKIPPING Martin Maidenberg - Therapist already exists in database.
+SKIPPING Christina Jeffrey - Therapist already exists in database.
+SKIPPING Aaron Rodwin - Therapist already exists in database.
+SKIPPING Adrienne Gorman - Therapist already exists in database.
+SKIPPING Amna Adamjee - Therapist already exists in database.
+SKIPPING Benjamin Young - Therapist already exists in database.
+SKIPPING Briony Pittaway - Therapist already exists in database.
+SKIPPING Dana Kane - Therapist already exists in database.
+SKIPPING Darius Coleman - Therapist already exists in database.
+SKIPPING Diana Naftal - Therapist already exists in database.
+SKIPPING Eleonora Odes - Therapist already exists in database.
+SKIPPING James Clementi - Therapist already exists in database.
+SKIPPING Jasmine Sundri - Therapist already exists in database.
+SKIPPING Jordan Rands - Therapist already exists in database.
+SKIPPING Kristi Halberstein - Therapist already exists in database.
+SKIPPING Micaela Stein - Therapist already exists in database.
+SKIPPING Michelle Hong - Therapist already exists in database.
+SKIPPING Rachel Relkin - Therapist already exists in database.
+SKIPPING Vanina Lerman Waters - Therapist already exists in database.
+SKIPPING Charnell Neptune-Darby - Therapist already exists in database.
+SKIPPING Zarin Yaqubie - Therapist already exists in database.
+SKIPPING Elizabeth Savettiere - Therapist already exists in database.
+SKIPPING Lisa Siclari - Therapist already exists in database.
+SKIPPING Cheryl Lim - Therapist already exists in database.
+SKIPPING Gomattie Bell - Therapist already exists in database.
+SKIPPING Janay Bailey - Therapist already exists in database.
+SKIPPING Abigail Ruben - Therapist already exists in database.
+SKIPPING Stephanie Manning - Therapist already exists in database.
+SKIPPING Lyndsay Fee - Therapist already exists in database.
+SKIPPING Javier Moreira - Therapist already exists in database.
+SKIPPING Jessica Ermilio - Therapist already exists in database.
+SKIPPING Janelle Thompson - Therapist already exists in database.
+SKIPPING Stephanie Ganor - Therapist already exists in database.
+SKIPPING Alexandra Kadish - Therapist already exists in database.
+SKIPPING Steve Akchayan - Therapist already exists in database.
+SKIPPING Julia LaFauci - Therapist already exists in database.
+SKIPPING Alyssa Zimmerman - Therapist already exists in database.
+SKIPPING Morgan Dominguez - Therapist already exists in database.
+SKIPPING Kayla Kalousdian - Therapist already exists in database.
+SKIPPING Lynn Dada - Therapist already exists in database.
+SKIPPING Stephanie Deltor - Therapist already exists in database.
+SKIPPING Cynthia Poorbaugh - Therapist already exists in database.
+SKIPPING Travis Atkinson - Therapist already exists in database.
+SKIPPING Jeff Robinson - Therapist already exists in database.
+SKIPPING Heddie Tinker - Therapist already exists in database.
+SKIPPING Ana Christina Minerly - Therapist already exists in database.
+SKIPPING Angela R. Di Manno - Therapist already exists in database.
+SKIPPING Susan Ulinski - Therapist already exists in database.
+SKIPPING Chris Kingman - Therapist already exists in database.
+SKIPPING Racquel Jones - Therapist already exists in database.
+SKIPPING Xiao Ling - Therapist already exists in database.
+SKIPPING SUSAN RAZAVI - Therapist already exists in database.
+SKIPPING Yaffa Dyckman - Therapist already exists in database.
+SKIPPING Abra Havens - Therapist already exists in database.
+SKIPPING Eva K. Fernandez - Therapist already exists in database.
+SKIPPING Jacklyn Krol - Therapist already exists in database.
+SKIPPING Maya Benattar - Therapist already exists in database.
+SKIPPING Patricia Esposito - Therapist already exists in database.
+SKIPPING Christina Karlowski - Therapist already exists in database.
+SKIPPING Eleanor Pope - Therapist already exists in database.
+SKIPPING Dr. Zonya Mitchell - Therapist already exists in database.
+SKIPPING Dr. Alice Rizzi - Therapist already exists in database.
+SKIPPING Gesine Sauter - Therapist already exists in database.
+SKIPPING Moshe Ratson - Therapist already exists in database.
+SKIPPING Yana Elbert - Therapist already exists in database.
+SKIPPING Amy Muller - Therapist already exists in database.
+SKIPPING Dr. Patricia J. Schneider - Therapist already exists in database.
+SKIPPING Dana Levinson - Therapist already exists in database.
+SKIPPING Amanda Volper - Therapist already exists in database.
+SKIPPING Robin Stone - Therapist already exists in database.
+SKIPPING Fritz Galette - Therapist already exists in database.
+SKIPPING Dawn Hughes - Therapist already exists in database.
+SKIPPING Randi Borow-Berdon - Therapist already exists in database.
+SKIPPING Daniel Minuchin - Therapist already exists in database.
+SKIPPING Barbara Mazzarella - Therapist already exists in database.
+SKIPPING Maya Geyer - Therapist already exists in database.
+SKIPPING Kathy M. Cosgrove - Therapist already exists in database.
+SKIPPING Bryan Bruno - Therapist already exists in database.
+SKIPPING Hillary Geffner - Therapist already exists in database.
+SKIPPING Emma Viglucci - Therapist already exists in database.
+SKIPPING Ami Bhalodkar-Haque - Therapist already exists in database.
+SKIPPING Carolyn Ezrin - Therapist already exists in database.
+SKIPPING Gary Trosclair - Therapist already exists in database.
+SKIPPING David Cole - Therapist already exists in database.
+SKIPPING Karla Fallon - Therapist already exists in database.
+SKIPPING Jennifer Uhrlass - Therapist already exists in database.
+SKIPPING Javier Ballesteros - Therapist already exists in database.
+SKIPPING Christopher Smith - Therapist already exists in database.
+SKIPPING Sylvia Gindy - Therapist already exists in database.
+SKIPPING Jessi Kupfer - Therapist already exists in database.
+SKIPPING Alexander Alvarado - Therapist already exists in database.
+SKIPPING Dr. Matthew Milburn - Therapist already exists in database.
+SKIPPING Elizabeth Barone LMHC - Therapist already exists in database.
+SKIPPING Irina Firstein - Therapist already exists in database.
+SKIPPING Dr. J Ryan Fuller - Therapist already exists in database.
+SKIPPING Simona Noaghiul-Yland - Therapist already exists in database.
+SKIPPING Joyce Bluestone - Therapist already exists in database.
+SKIPPING Chloe Carmichael - Therapist already exists in database.
+SKIPPING Alexandra Roldan - Therapist already exists in database.
+SKIPPING Deanna Richards - Therapist already exists in database.
+SKIPPING Ori Shinar, PsyD - Therapist already exists in database.
+SKIPPING Linda Kocieniewski - Therapist already exists in database.
+SKIPPING Kristie Tse - Therapist already exists in database.
+SKIPPING Cynthia Fischer - Therapist already exists in database.
+SKIPPING Mark Sehl - Therapist already exists in database.
+SKIPPING Laura Young - Therapist already exists in database.
+SKIPPING Arthur McGrath - Therapist already exists in database.
+SKIPPING Maria Shifrin, Ph.D - Therapist already exists in database.
+SKIPPING Maggie Vaughan - Therapist already exists in database.
+Created therapist id: 2617 for Dr. Hector P. DiNardo
+Therapist saved to Postgres: Dr. Hector P. DiNardo
+Created therapist id: 2618 for Boyd Eustace
+Therapist saved to Postgres: Boyd Eustace
+SKIPPING James Egede - Therapist already exists in database.
+SKIPPING Ivy T Frenkel - Therapist already exists in database.
+SKIPPING Andrea Levin - Therapist already exists in database.
+SKIPPING Babita Spinelli - Therapist already exists in database.
+SKIPPING Jessica Latack - Therapist already exists in database.
+SKIPPING Lee Saltzman - Therapist already exists in database.
+SKIPPING Claudia Covo - Therapist already exists in database.
+SKIPPING Anne Malave - Therapist already exists in database.
+SKIPPING Fabiana Franco - Therapist already exists in database.
+SKIPPING Daniel Olavarria - Therapist already exists in database.
+SKIPPING Amy Lyburn - Therapist already exists in database.
+SKIPPING Jim Walkup - Therapist already exists in database.
+SKIPPING Marisha Krupkin - Therapist already exists in database.
+SKIPPING Gene Gardino - Therapist already exists in database.
+SKIPPING Kore Nissenson Glied - Therapist already exists in database.
+SKIPPING Risa Giordano - Therapist already exists in database.
+SKIPPING Jasmin Terrany - Therapist already exists in database.
+SKIPPING Cindy Kasovitz Sichel - Therapist already exists in database.
+SKIPPING Calliope Callias - Therapist already exists in database.
+SKIPPING Darren Bedrosian - Therapist already exists in database.
+SKIPPING Beverly Amsel - Therapist already exists in database.
+SKIPPING Sedi Flugelman - Therapist already exists in database.
+SKIPPING Arvin Bains - Therapist already exists in database.
+SKIPPING Deborah Yamin, LCSW - Therapist already exists in database.
+SKIPPING Joseph Markowicz - Therapist already exists in database.
+SKIPPING Kathleen Brown McNally - Therapist already exists in database.
+SKIPPING Martin Rock - Therapist already exists in database.
+SKIPPING Ron Panvini - Therapist already exists in database.
+SKIPPING Richard Beck - Therapist already exists in database.
+SKIPPING Laura Price - Therapist already exists in database.
+SKIPPING Adam Jacobson - Therapist already exists in database.
+SKIPPING Kevin Kulic - Therapist already exists in database.
+SKIPPING Deborah Agrest - Therapist already exists in database.
+SKIPPING Fran Weiss - Therapist already exists in database.
+SKIPPING Jeannette Lofas - Therapist already exists in database.
+SKIPPING Eve Picower, LCSW - Therapist already exists in database.
+SKIPPING Allegra Parks - Therapist already exists in database.
+Created therapist id: 2619 for Victoria Logan
+Therapist saved to Postgres: Victoria Logan
+SKIPPING Alena Gerst - Therapist already exists in database.
+SKIPPING Emily S. Rosen - Therapist already exists in database.
+SKIPPING Eric Leventhal - Therapist already exists in database.
+Created therapist id: 2620 for Cathy Brookman
+Therapist saved to Postgres: Cathy Brookman
+SKIPPING Ellen Carni - Therapist already exists in database.
+SKIPPING Linda Walter - Therapist already exists in database.
+Created therapist id: 2621 for Jennifer Sober
+Therapist saved to Postgres: Jennifer Sober
+SKIPPING Sylvia Welsh - Therapist already exists in database.
+SKIPPING Athena Tritaris - Therapist already exists in database.
+Created therapist id: 2622 for Gretchen Forbes
+Therapist saved to Postgres: Gretchen Forbes
+Created therapist id: 2623 for Lynda Klau
+Therapist saved to Postgres: Lynda Klau
+SKIPPING Robert Teixeira - Therapist already exists in database.
+Created therapist id: 2624 for David Neale-Lorello
+Therapist saved to Postgres: David Neale-Lorello
+SKIPPING Paul Matkovic - Therapist already exists in database.
+SKIPPING Rutie Havazelet - Therapist already exists in database.
+Created therapist id: 2625 for Eileen Epstein
+Therapist saved to Postgres: Eileen Epstein
+Created therapist id: 2626 for Kathy Metcalf
+Therapist saved to Postgres: Kathy Metcalf
+SKIPPING Audrey Sussman - Therapist already exists in database.
+Created therapist id: 2627 for Nancy Serling
+Therapist saved to Postgres: Nancy Serling
+SKIPPING Judith Kellner - Therapist already exists in database.
+SKIPPING Lynn Somerstein - Therapist already exists in database.
+SKIPPING Mitchell Levy - Therapist already exists in database.
+SKIPPING Alexandra Goletka - Therapist already exists in database.
+SKIPPING Courtney Minarsky - Therapist already exists in database.
+SKIPPING Leslie Cardell - Therapist already exists in database.
+SKIPPING Jennifer Rosvally - Therapist already exists in database.
+Created therapist id: 2628 for Dawn Lewis
+Therapist saved to Postgres: Dawn Lewis
+SKIPPING Allison Abrams - Therapist already exists in database.
+SKIPPING Sheldon Weiss - Therapist already exists in database.
+SKIPPING Michael Fraser - Therapist already exists in database.
+SKIPPING Owen Mazon - Therapist already exists in database.
+SKIPPING Claudia Oberweger - Therapist already exists in database.
+Created therapist id: 2629 for Natalie O'Neil
+Therapist saved to Postgres: Natalie O'Neil
+SKIPPING Kristie Doheny - Therapist already exists in database.
+SKIPPING Savbtrie B. Kanhai - Therapist already exists in database.
+SKIPPING Mary Wallach - Therapist already exists in database.
+Created therapist id: 2630 for Tanya M. Morrel
+Therapist saved to Postgres: Tanya M. Morrel
+SKIPPING Gloria Choi - Therapist already exists in database.
+Created therapist id: 2631 for Gerald Bray
+Therapist saved to Postgres: Gerald Bray
+Created therapist id: 2632 for Leny V Bolivar
+Therapist saved to Postgres: Leny V Bolivar
+SKIPPING Nancy Becker - Therapist already exists in database.
+SKIPPING Karen Landmann - Therapist already exists in database.
+Created therapist id: 2633 for Priska Imberti
+Therapist saved to Postgres: Priska Imberti
+Created therapist id: 2634 for Rachel Landman
+Therapist saved to Postgres: Rachel Landman
+Created therapist id: 2635 for Peter Douglas
+Therapist saved to Postgres: Peter Douglas
+SKIPPING Jody Friedman - Therapist already exists in database.
+Created therapist id: 2636 for Barbara Borsi
+Therapist saved to Postgres: Barbara Borsi
+Created therapist id: 2637 for Vaia Delidimitropulu
+Therapist saved to Postgres: Vaia Delidimitropulu
+Created therapist id: 2638 for Joseph Scrivani
+Therapist saved to Postgres: Joseph Scrivani
+SKIPPING Marc Handelman - Therapist already exists in database.
+Created therapist id: 2639 for Debbie Kidwell
+Therapist saved to Postgres: Debbie Kidwell
+Created therapist id: 2640 for Jan Nolan
+Therapist saved to Postgres: Jan Nolan
+SKIPPING Amy Bosk - Therapist already exists in database.
+SKIPPING Carlo Borea - Therapist already exists in database.
+SKIPPING Victoria Drob - Therapist already exists in database.
+SKIPPING Susan Galperin - Therapist already exists in database.
+Created therapist id: 2641 for Michael Heady
+Therapist saved to Postgres: Michael Heady
+SKIPPING Patricio Destvet - Therapist already exists in database.
+SKIPPING Su Jin (Suzy) Feuer - Therapist already exists in database.
+Created therapist id: 2642 for Lorah Bess Hauf
+Therapist saved to Postgres: Lorah Bess Hauf
+Created therapist id: 2643 for Patti Desert
+Therapist saved to Postgres: Patti Desert
+SKIPPING Dr. Jeffrey R Gardere - Therapist already exists in database.
+SKIPPING Maria Cosentino - Therapist already exists in database.
+SKIPPING Dr. Joel Stukalin - Therapist already exists in database.
+SKIPPING Sheila Robinson-Kiss - Therapist already exists in database.
+SKIPPING John Gartner - Therapist already exists in database.
+SKIPPING Deb Hirschhorn - Therapist already exists in database.
+SKIPPING Anne Rothenberg - Therapist already exists in database.
+SKIPPING Julie Stanton - Therapist already exists in database.
+SKIPPING Kelly McGuire - Therapist already exists in database.
+SKIPPING Yedida Bomzer - Therapist already exists in database.
+SKIPPING Philip Bomzer - Therapist already exists in database.
+SKIPPING Rebekah Thompson - Therapist already exists in database.
+SKIPPING Averi Baker - Therapist already exists in database.
+SKIPPING Thomas Divins - Therapist already exists in database.
+SKIPPING Chris Buro - Therapist already exists in database.
+SKIPPING Roland Achtau - Therapist already exists in database.
+SKIPPING Teran Chartier - Therapist already exists in database.
+SKIPPING Zipora Herzberg - Therapist already exists in database.
+SKIPPING Patricia Ramjohn - Therapist already exists in database.
+SKIPPING Carlos Tirado - Therapist already exists in database.
+SKIPPING Michael Alves - Therapist already exists in database.
+SKIPPING Wendy Yecies - Therapist already exists in database.
+SKIPPING Helene Miller - Therapist already exists in database.
+SKIPPING Leonard Pikaard - Therapist already exists in database.
+SKIPPING Zisa Levine - Therapist already exists in database.
+SKIPPING Libby Linick - Therapist already exists in database.
+SKIPPING Kurt McKinley - Therapist already exists in database.
+SKIPPING Anastasia Krosnick - Therapist already exists in database.
+SKIPPING Tracey Waldman - Therapist already exists in database.
+Created therapist id: 2644 for Chris Kraft
+Therapist saved to Postgres: Chris Kraft
+SKIPPING Virginia Bailey - Therapist already exists in database.
+SKIPPING Richard Drobnick - Therapist already exists in database.
+Created therapist id: 2645 for Rachel Beck
+Therapist saved to Postgres: Rachel Beck
+Created therapist id: 2646 for Ann Smith
+Therapist saved to Postgres: Ann Smith
+SKIPPING Paul Cohen - Therapist already exists in database.
+SKIPPING Lorise Mayer - Therapist already exists in database.
+SKIPPING Florian Lewenstein - Therapist already exists in database.
+SKIPPING Carol LoCurcio - Therapist already exists in database.
+SKIPPING phyllis thomas - Therapist already exists in database.
+SKIPPING Tali Moskowitz - Therapist already exists in database.
+SKIPPING Karen Lewis - Therapist already exists in database.
+SKIPPING Ellen Grosovsky - Therapist already exists in database.
+SKIPPING Mae Miller - Therapist already exists in database.
+Created therapist id: 2647 for Lizbeth Binks
+Therapist saved to Postgres: Lizbeth Binks
+Created therapist id: 2648 for Susan Stork
+Therapist saved to Postgres: Susan Stork
+Created therapist id: 2649 for Noelle Benach
+Therapist saved to Postgres: Noelle Benach
+Created therapist id: 2650 for Michael Reeder
+Therapist saved to Postgres: Michael Reeder
+SKIPPING Christina Lee - Therapist already exists in database.
+Created therapist id: 2651 for Sarah Diehl
+Therapist saved to Postgres: Sarah Diehl
+Created therapist id: 2652 for Abigail Smith
+Therapist saved to Postgres: Abigail Smith
+Created therapist id: 2653 for Anna Kozitzky
+Therapist saved to Postgres: Anna Kozitzky
+SKIPPING Amy Consovoy - Therapist already exists in database.
+Created therapist id: 2654 for Michelle Lamma
+Therapist saved to Postgres: Michelle Lamma
+Created therapist id: 2655 for Corye Pike
+Therapist saved to Postgres: Corye Pike
+SKIPPING Eva Lazar - Therapist already exists in database.
+SKIPPING Cindy Picht - Therapist already exists in database.
+SKIPPING Ann Gracer - Therapist already exists in database.
+SKIPPING Mitchell Milch - Therapist already exists in database.
+SKIPPING Hope Eliasof - Therapist already exists in database.
+SKIPPING Alicia Bernarducci - Therapist already exists in database.
+SKIPPING Alison Hammonds - Therapist already exists in database.
+SKIPPING Joan Stenzler - Therapist already exists in database.
+SKIPPING Mila Alper - Therapist already exists in database.
+Created therapist id: 2656 for Wendy Berman
+Therapist saved to Postgres: Wendy Berman
+SKIPPING Mariam Ayvazyan - Therapist already exists in database.
+SKIPPING Anthony Dimitrion - Therapist already exists in database.
+Created therapist id: 2657 for Sharon Spector
+Therapist saved to Postgres: Sharon Spector
+SKIPPING Rahul Chauhan - Therapist already exists in database.
+SKIPPING Lynda S-Taylor - Therapist already exists in database.
+Created therapist id: 2658 for Amy Bogdon-Abrams
+Therapist saved to Postgres: Amy Bogdon-Abrams
+SKIPPING Tracey D. Little - Therapist already exists in database.
+Created therapist id: 2659 for Tim Ashdown
+Therapist saved to Postgres: Tim Ashdown
+Created therapist id: 2660 for Lori Hollander
+Therapist saved to Postgres: Lori Hollander
+Created therapist id: 2661 for Bob Hollander
+Therapist saved to Postgres: Bob Hollander
+SKIPPING Anne Pestano - Therapist already exists in database.
+SKIPPING Meredith Megaw - Therapist already exists in database.
+SKIPPING Paul Ammendola - The Well of Truth Christian Counseling Services - Therapist already exists in database.
+Created therapist id: 2662 for Chana Johnson
+Therapist saved to Postgres: Chana Johnson
+SKIPPING Linette Giuliano - Therapist already exists in database.
+SKIPPING Lana Tiersky - Therapist already exists in database.
+SKIPPING Felicita Quinones - Therapist already exists in database.
+SKIPPING Veronica Vaiti - Therapist already exists in database.
+SKIPPING Amir Levine - Therapist already exists in database.
+SKIPPING Atara Wertentheil - Therapist already exists in database.
+SKIPPING Susan Oldis - Therapist already exists in database.
+Created therapist id: 2663 for Jack Tawil
+Therapist saved to Postgres: Jack Tawil
+SKIPPING Debra Castaldo - Therapist already exists in database.
+SKIPPING Dr. Nicole Daisy - Therapist already exists in database.
+SKIPPING Elisa Shaw - Therapist already exists in database.
+SKIPPING Jeanette Feingold - Therapist already exists in database.
+Created therapist id: 2664 for Amanda Levison
+Therapist saved to Postgres: Amanda Levison
+SKIPPING Nancy Wohl - Therapist already exists in database.
+SKIPPING Mary Beth McGuinn - Therapist already exists in database.
+SKIPPING Samantha Tinter - Therapist already exists in database.
+SKIPPING Izabelle Hakim - Therapist already exists in database.
+Created therapist id: 2665 for Samantha Steininger
+Therapist saved to Postgres: Samantha Steininger
+SKIPPING Dr. Linda Alexander - Therapist already exists in database.
+SKIPPING Erin Asquith - Therapist already exists in database.
+SKIPPING Violetta Math - Therapist already exists in database.
+SKIPPING Heather Carella - Therapist already exists in database.
+SKIPPING Veronica Nealis - Therapist already exists in database.
+SKIPPING Margaret Olave - Therapist already exists in database.
+SKIPPING Christine Culbreth - Therapist already exists in database.
+SKIPPING Nadia Qadeer - Therapist already exists in database.
+SKIPPING Blerta Bena - Therapist already exists in database.
+SKIPPING Faye Rigogiannis - Therapist already exists in database.
+SKIPPING Ashley White - Therapist already exists in database.
+SKIPPING Jacqueline D. Pearce - Therapist already exists in database.
+SKIPPING Ariela Bellin - Therapist already exists in database.
+SKIPPING Dr. Phyllis Gildston - Therapist already exists in database.
+Created therapist id: 2666 for Mary Strueber
+Therapist saved to Postgres: Mary Strueber
+Created therapist id: 2667 for Nicole Osborne
+Therapist saved to Postgres: Nicole Osborne
+Created therapist id: 2668 for Jessica Kepner
+Therapist saved to Postgres: Jessica Kepner
+Created therapist id: 2669 for Amy Rich
+Therapist saved to Postgres: Amy Rich
+Created therapist id: 2670 for Pauline Wallin
+Therapist saved to Postgres: Pauline Wallin
+Created therapist id: 2671 for Jennifer Beall
+Therapist saved to Postgres: Jennifer Beall
+SKIPPING Robert Stahl - Therapist already exists in database.
+SKIPPING Desreen Alvaranga-Barrett - Therapist already exists in database.
+SKIPPING Claudia Ribas - Therapist already exists in database.
+Created therapist id: 2672 for Kenneth Kovacs, Ph.D.
+Therapist saved to Postgres: Kenneth Kovacs, Ph.D.
+SKIPPING Stephanie Kahn - Therapist already exists in database.
+SKIPPING Marc Shulman - Therapist already exists in database.
+SKIPPING Peter LaMantia - Therapist already exists in database.
+Created therapist id: 2673 for William Killgore
+Therapist saved to Postgres: William Killgore
+SKIPPING Jennifer Brandt - Therapist already exists in database.
+SKIPPING Danielle Feld - Therapist already exists in database.
+SKIPPING Dr. Michael Rosenfeld - Therapist already exists in database.
+SKIPPING Naomi Kagan - Therapist already exists in database.
+SKIPPING Melissa Jennings - Therapist already exists in database.
+Created therapist id: 2674 for Therese Daniels
+Therapist saved to Postgres: Therese Daniels
+Created therapist id: 2675 for Cheryl Fisher
+Therapist saved to Postgres: Cheryl Fisher
+SKIPPING Laura Salinas - Therapist already exists in database.
+SKIPPING Zarna shah - Therapist already exists in database.
+SKIPPING Jessica Corea - Therapist already exists in database.
+Created therapist id: 2676 for Jason Hovey
+Therapist saved to Postgres: Jason Hovey
+SKIPPING Lauren Feldman - Therapist already exists in database.
+SKIPPING Jeffrey Vallon - Therapist already exists in database.
+SKIPPING Gina Della Penna - Therapist already exists in database.
+SKIPPING Marc Diener - Therapist already exists in database.
+Created therapist id: 2677 for Michael Capozzi
+Therapist saved to Postgres: Michael Capozzi
+Created therapist id: 2678 for Elizabeth Cush
+Therapist saved to Postgres: Elizabeth Cush
+SKIPPING Christine Cione - Therapist already exists in database.
+SKIPPING Felita Granby - Therapist already exists in database.
+SKIPPING Sinead Kennedy - Therapist already exists in database.
+Created therapist id: 2679 for Isabella Scapini-Burrell
+Therapist saved to Postgres: Isabella Scapini-Burrell
+SKIPPING Audrey Feiner, LCSW, BCD - Therapist already exists in database.
+SKIPPING Lisa Langer - Therapist already exists in database.
+SKIPPING Trisha Billard, Ph.D. - Therapist already exists in database.
+Created therapist id: 2680 for Nicole Maus-Chaudhury
+Therapist saved to Postgres: Nicole Maus-Chaudhury
+Created therapist id: 2681 for Valerie McManus
+Therapist saved to Postgres: Valerie McManus
+Created therapist id: 2682 for Christina Meighen
+Therapist saved to Postgres: Christina Meighen
+SKIPPING Regina Cofrin - Therapist already exists in database.
+SKIPPING Abby Mullen - Therapist already exists in database.
+SKIPPING Angela Reiter - Therapist already exists in database.
+Created therapist id: 2683 for Morgan Mahaffey
+Therapist saved to Postgres: Morgan Mahaffey
+Created therapist id: 2684 for Teresa Hunt
+Therapist saved to Postgres: Teresa Hunt
+Created therapist id: 2685 for Gail Bowles
+Therapist saved to Postgres: Gail Bowles
+SKIPPING Larissa Golloub - Therapist already exists in database.
+Created therapist id: 2686 for Flori Willard
+Therapist saved to Postgres: Flori Willard

@@ -13,9 +13,10 @@ class PostgreSQLHandler(object):
         return self.conn
 
     def close_conn(self):
-        self.conn = None
+        self.conn.close()
 
     def sql_to_pandas(self, sql:str)->pd.DataFrame:
+        
         df = pd.read_sql_query(sql, self.conn)
 
         return df

@@ -17,7 +17,7 @@ plt.rcParams['figure.figsize'] = [10,6]
 
 class Visualizer(object):
 
-    def __init__(self, conn, palette):
+    def __init__(self, conn, palette = ['#13bdb4','#80d090','#dad977','#e49046','#d43d51']):
         self.conn = conn
         self.save_figs = False
         self.show_figs = False
@@ -82,9 +82,7 @@ class Visualizer(object):
         if self.show_figs:
             plt.show()
 
-    def run_initial_eda_charts(self, df, df_age_groups, df_issues, 
-        df_orientations, df_professions, df_services):
-
+    def word_distribution(self, df):
         # word length histogram
         writing_lengths = []
         for body in df['writing_sample']:
@@ -106,6 +104,8 @@ class Visualizer(object):
         if self.save_figs:
             plt.savefig(f'{self.visualiztion_directory}design/word_count_hist.png')
 
+    def unique_categories_bar(self, df_age_groups, df_issues, 
+        df_orientations, df_professions, df_services):
         age_groups_unique_size = df_age_groups['age_group'].unique().size
         issues_unique_size = df_issues['issue'].unique().size
         orientations_unique_size = df_orientations['orientation'].unique().size
@@ -124,15 +124,25 @@ class Visualizer(object):
         if self.save_figs:
             plt.savefig(f'{self.visualiztion_directory}design/uniques_per_category.png')
 
-        # has website bar chart
-        mask_no_website = df['website']=='None'
-        height = [df[~mask_no_website]['website'].size, df[mask_no_website]['website'].size]
-        labels = ['Website', 'No Website']
+    def run_initial_eda_charts(self, df, df_age_groups, df_issues, 
+        df_orientations, df_professions, df_services):
 
-        c = [self.palette[0], self.palette[3]]
-        fig, ax = plt.subplots()
-        ax.bar(labels, height, color=c)
-        ax.set_ylabel('Num. of Therapists')
-        ax.set_title("Therapists with Websites")
-        if self.save_figs:
-            plt.savefig(f'{self.visualiztion_directory}design/website_bar.png')
+        # word length histogram
+        self.word_distribution(df)
+
+        # unique categories bar chart
+        self.unique_categories_bar(df_age_groups, df_issues, 
+            df_orientations, df_professions, df_services)
+
+        # # has website bar chart
+        # mask_no_website = df['website']=='None'
+        # height = [df[~mask_no_website]['website'].size, df[mask_no_website]['website'].size]
+        # labels = ['Website', 'No Website']
+
+        # c = [self.palette[0], self.palette[3]]
+        # fig, ax = plt.subplots()
+        # ax.bar(labels, height, color=c)
+        # ax.set_ylabel('Num. of Therapists')
+        # ax.set_title("Therapists with Websites")
+        # if self.save_figs:
+        #     plt.savefig(f'{self.visualiztion_directory}design/website_bar.png')

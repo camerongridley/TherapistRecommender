@@ -1,0 +1,50 @@
+Created therapist id: 1991 for Theresa Stanford
+Therapist saved to Postgres: Theresa Stanford
+Created therapist id: 1992 for Haley Morris
+Therapist saved to Postgres: Haley Morris
+Created therapist id: 1993 for Bruce Kristol
+Therapist saved to Postgres: Bruce Kristol
+Created therapist id: 1994 for Steve Barsky
+Therapist saved to Postgres: Steve Barsky
+Created therapist id: 1995 for Chris Bartkowiak
+Therapist saved to Postgres: Chris Bartkowiak
+Created therapist id: 1996 for Steven Montesinos
+Therapist saved to Postgres: Steven Montesinos
+Created therapist id: 1997 for Julie Ingber
+Therapist saved to Postgres: Julie Ingber
+Created therapist id: 1998 for G. Susanne Mckelvey
+Therapist saved to Postgres: G. Susanne Mckelvey
+Created therapist id: 1999 for Katie Wiggins
+Therapist saved to Postgres: Katie Wiggins
+Created therapist id: 2000 for Richard Nay
+Therapist saved to Postgres: Richard Nay
+Created therapist id: 2001 for Tabitha Johnson
+Therapist saved to Postgres: Tabitha Johnson
+Created therapist id: 2002 for Ida Holem
+Therapist saved to Postgres: Ida Holem
+Created therapist id: 2003 for Stella Breytman
+Therapist saved to Postgres: Stella Breytman
+Created therapist id: 2004 for Michelle Wright
+Therapist saved to Postgres: Michelle Wright
+Created therapist id: 2005 for Evelyn Huntley
+Therapist saved to Postgres: Evelyn Huntley
+Created therapist id: 2006 for Jacqueline Frey
+Therapist saved to Postgres: Jacqueline Frey
+Created therapist id: 2007 for Janeen Herskovitz
+Therapist saved to Postgres: Janeen Herskovitz
+Created therapist id: 2008 for Elizabeth Milano
+Therapist saved to Postgres: Elizabeth Milano
+Created therapist id: 2009 for Jean Kerry
+Therapist saved to Postgres: Jean Kerry
+Created therapist id: 2010 for CaraJean Gray
+Therapist saved to Postgres: CaraJean Gray
+Created therapist id: 2011 for Skye McIntyre
+Therapist saved to Postgres: Skye McIntyre
+Created therapist id: 2012 for Lindsey Bowman
+Therapist saved to Postgres: Lindsey Bowman
+Created therapist id: 2013 for Nelle Stephan-Lutz
+Therapist saved to Postgres: Nelle Stephan-Lutz
+Created therapist id: 2014 for Joshua Sarmiento
+Therapist saved to Postgres: Joshua Sarmiento
+Created therapist id: 2015 for Michelle Protko
+Therapist saved to Postgres: Michelle Protko
