@@ -175,4 +175,5 @@ The lack of structure is likely due to having too little data. Obtaining more pr
 
 Still, there appears to be promise that theoretical orientation may be found in the latent topics of the text.
 
+[a relative link](vis/ldavis_tfidf)
 <a href='vis/ldavis_tfidf'>pyLDAvis</a>
