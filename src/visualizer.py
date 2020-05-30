@@ -1,6 +1,17 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
+from wordcloud import WordCloud
+from spacy.lang.en.stop_words import STOP_WORDS
+
+import pyLDAvis
+import pyLDAvis.sklearn
+
+from plotly.offline import plot
+import plotly.graph_objects as go
+import plotly.express as px
+
+from sklearn.feature_extraction.text import CountVectorizer
 
 plt.rcParams['font.family'] = 'Ubuntu'
 plt.rcParams['font.weight'] = 'normal'
@@ -14,6 +25,7 @@ plt.rcParams['xtick.major.width'] = 2
 plt.rcParams['ytick.major.size'] = 2
 plt.rcParams['ytick.major.width'] = 2
 plt.rcParams['figure.figsize'] = [10,6]
+#plt.rcParams['savefig.dpi']=300
 
 class Visualizer(object):
 
@@ -146,3 +158,67 @@ class Visualizer(object):
         # ax.set_title("Therapists with Websites")
         # if self.save_figs:
         #     plt.savefig(f'{self.visualiztion_directory}design/website_bar.png')
+
+    def word_cloud(self, df, col_name, max_words=500):
+        stopwords = set(STOP_WORDS)
+
+        wordcloud = WordCloud(
+            background_color='white',
+            stopwords = stopwords,
+            max_words = max_words,
+            max_font_size = 40,
+            random_state = 42
+        ).generate(str(df[col_name]))
+
+        print(wordcloud)
+        fig = plt.figure(1)
+        fig.dpi(200)
+        plt.imshow(wordcloud)
+        plt.axis('off')
+        plt.show()
+
+    def get_top_n_grams(self, corpus, n_gram_range=(1,1), n=None, stopwords=STOP_WORDS):
+        vec = CountVectorizer(ngram_range=n_gram_range, stop_words=stopwords).fit(corpus)
+        doc_term_mat = vec.transform(corpus)
+        sum_words = doc_term_mat.sum(axis=0) 
+        words_freq = [(word, sum_words[0, idx]) for word, idx in vec.vocabulary_.items()]
+        words_freq =sorted(words_freq, key = lambda x: x[1], reverse=True)
+        
+        return words_freq[:n]
+        
+    # def unigram_bar_chart(self, corpus, n):
+    #     common_words = self.get_top_n_grams(corpus=corpus, n_gram_range=(1,1), n=n)
+    #     df2 = pd.DataFrame(common_words, columns = ['unigram' , 'count'])
+
+    #     fig = go.Figure([go.Bar(x=df2['unigram'], y=df2['count'])])
+    #     fig.update_layout(title=go.layout.Title(text=f"Top {n} unigrams in the description text after removing stop words and lemmatization"))
+    #     fig.show()
+
+    # def bigram_bar_chart(self, corpus, n):
+    #     #common_words = self.get_top_n_bigrams(corpus, n)
+    #     common_words = self.get_top_n_grams(corpus=corpus, n_gram_range=(2,2), n=n)
+    #     df3 = pd.DataFrame(common_words, columns = ['bigram' , 'count'])
+
+    #     fig = go.Figure([go.Bar(x=df3['bigram'], y=df3['count'])])
+    #     fig.update_layout(title=go.layout.Title(text=f"Top {n} bigrams in the description text after removing stop words and lemmatization"))
+    #     fig.show()
+
+    # def trigram_bar_chart(self, corpus, n):
+    #     #common_words = self.get_top_n_bigrams(corpus, n)
+    #     common_words = self.get_top_n_grams(corpus=corpus, n_gram_range=(3,3), n=n)
+    #     df3 = pd.DataFrame(common_words, columns = ['bigram' , 'count'])
+
+    #     fig = go.Figure([go.Bar(x=df3['bigram'], y=df3['count'])])
+    #     fig.update_layout(title=go.layout.Title(text=f"Top {n} trigrams in the description text after removing stop words and lemmatization"))
+    #     fig.show()
+
+    def ngram_bar_chart(self, corpus, n_gram_range, n):
+        #common_words = self.get_top_n_bigrams(corpus, n)
+        common_words = self.get_top_n_grams(corpus=corpus, n_gram_range=n_gram_range, n=n)
+        df3 = pd.DataFrame(common_words, columns = ['bigram' , 'count'])
+
+        fig = go.Figure([go.Bar(x=df3['bigram'], y=df3['count'])])
+        fig.update_layout(title=go.layout.Title(text=f"Top {n} ngrams of length {n_gram_range[0]} in the description text after removing stop words and lemmatization"))
+        fig.show()
+
+    

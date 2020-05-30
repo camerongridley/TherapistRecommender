@@ -2,6 +2,7 @@ import numpy as np
 import pandas as pd
 from string import punctuation
 from postgresql_handler import PostgreSQLHandler
+from spacy.lang.en.stop_words import STOP_WORDS
 
 import re, nltk, spacy, string
 
@@ -10,15 +11,17 @@ class DataPreProcessor(object):
         self.nlp = spacy.load("en")
 
     def clean_text(self, text:str, remove_punc=True)->str:
-        '''
-        Lowercase
-        Remove punctuation
-        Remove word containing numbers
-        '''
+        # Lowercase
         text = text.lower()
+        # Remove word containing numbers
         text = re.sub(r'\w*\d\w*', '', text)
+
         if remove_punc == True:
             text = re.sub(r'[%s]' % re.escape(punctuation), '', text)
+
+        # remove newlines
+        text = re.sub(r'[%s]' % re.escape('\n'), '', text)
+        text = re.sub(r'[%s]' % re.escape('\r'), '', text)
 
         return text
 
@@ -43,24 +46,29 @@ class DataPreProcessor(object):
 
 if __name__ == '__main__':
     from visualizer import Visualizer
+    import pickle
+
     processor = DataPreProcessor()
     psql = PostgreSQLHandler()
     vis = Visualizer(psql.get_conn())
     vis.set_show_figs(True)
     vis.set_save_figs(False)
 
-    sql = 'SELECT * FROM therapists LIMIT 100'
-    df = psql.sql_to_pandas(sql)
+    # sql = 'SELECT * FROM therapists LIMIT 100'
+    # df = psql.sql_to_pandas(sql)
     
-    df_processed = processor.processing_pipeline(df)
+    # df_processed = processor.processing_pipeline(df)
+    # print(df.head())
+    # pickle.dump(df_processed, open( 'data/df_processed_testing.pkl', "wb" ) )
+    df_processed = pickle.load( open( 'data/df_processed_testing.pkl', "rb" ) )
 
-    print(df.head())
+    
     print(df_processed.head())
-    
-    vis.word_distribution(df)
 
-
-
+    #vis.word_distribution(df_processed)
+    #vis.word_cloud(df_processed, 'writing_sample_processed')
+    vis.ngram_bar_chart(df_processed['writing_sample_processed'],(1,1), 40)
+    vis.ngram_bar_chart(df_processed['writing_sample_processed'],(4,4), 20)
     psql.close_conn()
 
 

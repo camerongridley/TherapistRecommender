@@ -5,7 +5,7 @@ from string import punctuation
 import datetime as dt
 from visualizer import Visualizer
 
-from nltk.corpus import stopwords
+
 from nltk.tokenize import word_tokenize
 from nltk.stem.porter import PorterStemmer
 from nltk.stem.snowball import SnowballStemmer
@@ -20,6 +20,8 @@ from sklearn.preprocessing import StandardScaler
 
 import re
 import spacy
+from spacy.lang.en.stop_words import STOP_WORDS as stopwords
+#from nltk.corpus import stopwords
 
 import pyLDAvis
 import pyLDAvis.sklearn
@@ -113,7 +115,7 @@ class NlpProcessor(object):
     def combine_stop_words(self, custom_stop_words:list)->list:
         stop_words = list(set(custom_stop_words))
         stop_words = stop_words + stopwords.words('english')
-        
+
         return stop_words
 
     def create_tf_matrix(self, docs, all_stop_words:list, n_gram_range, max_features, remove_punc=True, tokenizer='None'):
