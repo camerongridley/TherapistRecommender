@@ -20,7 +20,7 @@ from sklearn.preprocessing import StandardScaler
 
 import re
 import spacy
-from spacy.lang.en.stop_words import STOP_WORDS as stopwords
+from spacy.lang.en.stop_words import STOP_WORDS as spacy_stops
 #from nltk.corpus import stopwords
 
 import pyLDAvis
@@ -114,7 +114,7 @@ class NlpProcessor(object):
 
     def combine_stop_words(self, custom_stop_words:list)->list:
         stop_words = list(set(custom_stop_words))
-        stop_words = stop_words + stopwords.words('english')
+        stop_words = stop_words + spacy_stops
 
         return stop_words
 

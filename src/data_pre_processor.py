@@ -6,6 +6,8 @@ from spacy.lang.en.stop_words import STOP_WORDS
 
 import re, nltk, spacy, string
 
+import argparse
+
 class DataPreProcessor(object):
     def __init__(self):
         self.nlp = spacy.load("en")
@@ -48,27 +50,42 @@ if __name__ == '__main__':
     from visualizer import Visualizer
     import pickle
 
+    parser = argparse.ArgumentParser()
+   
+    parser.add_argument('-fd', '--fromdisk', action='store_true', 
+        help="load data from local file")
+
+    args = parser.parse_args()
+
+    
+
+
     processor = DataPreProcessor()
     psql = PostgreSQLHandler()
     vis = Visualizer(psql.get_conn())
     vis.set_show_figs(True)
     vis.set_save_figs(False)
 
-    # sql = 'SELECT * FROM therapists LIMIT 100'
-    # df = psql.sql_to_pandas(sql)
-    
-    # df_processed = processor.processing_pipeline(df)
-    # print(df.head())
-    # pickle.dump(df_processed, open( 'data/df_processed_testing.pkl', "wb" ) )
-    df_processed = pickle.load( open( 'data/df_processed_testing.pkl', "rb" ) )
+    load_from_disk = False
+    df_processed = None
+    #if load_from_disk:
+    if args.fromdisk:
+        df_processed = pickle.load( open( 'data/df_processed_testing.pkl', "rb" ) )
+    else:
+        sql = 'SELECT * FROM therapists LIMIT 1000'
+        df = psql.sql_to_pandas(sql)
+        
+        df_processed = processor.processing_pipeline(df)
+        print(df.head())
+        pickle.dump(df_processed, open( 'data/df_processed_testing.pkl', "wb" ) )
 
-    
     print(df_processed.head())
 
     #vis.word_distribution(df_processed)
     #vis.word_cloud(df_processed, 'writing_sample_processed')
-    vis.ngram_bar_chart(df_processed['writing_sample_processed'],(1,1), 40)
-    vis.ngram_bar_chart(df_processed['writing_sample_processed'],(4,4), 20)
+    #vis.ngram_bar_chart(df_processed['writing_sample_processed'],(1,1), 40)
+    #vis.ngram_bar_chart(df_processed['writing_sample_processed'],(4,4), 20)
+
     psql.close_conn()
 
 
