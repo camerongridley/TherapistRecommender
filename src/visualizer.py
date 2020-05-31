@@ -94,7 +94,7 @@ class Visualizer(object):
         if self.show_figs:
             plt.show()
 
-    def word_distribution(self, df):
+    def word_distribution(self, df:pd.DataFrame)->None:
         # word length histogram
         writing_lengths = []
         for body in df['writing_sample']:
@@ -116,8 +116,8 @@ class Visualizer(object):
         if self.save_figs:
             plt.savefig(f'{self.visualiztion_directory}design/word_count_hist.png')
 
-    def unique_categories_bar(self, df_age_groups, df_issues, 
-        df_orientations, df_professions, df_services):
+    def unique_categories_bar(self, df_age_groups:pd.DataFrame, df_issues:pd.DataFrame, 
+        df_orientations:pd.DataFrame, df_professions:pd.DataFrame, df_services:pd.DataFrame)->None:
         age_groups_unique_size = df_age_groups['age_group'].unique().size
         issues_unique_size = df_issues['issue'].unique().size
         orientations_unique_size = df_orientations['orientation'].unique().size
@@ -136,8 +136,8 @@ class Visualizer(object):
         if self.save_figs:
             plt.savefig(f'{self.visualiztion_directory}design/uniques_per_category.png')
 
-    def run_initial_eda_charts(self, df, df_age_groups, df_issues, 
-        df_orientations, df_professions, df_services):
+    def run_initial_eda_charts(self, df:pd.DataFrame, df_age_groups:pd.DataFrame, df_issues:pd.DataFrame, 
+        df_orientations:pd.DataFrame, df_professions:pd.DataFrame, df_services:pd.DataFrame)->None:
 
         # word length histogram
         self.word_distribution(df)
@@ -159,7 +159,7 @@ class Visualizer(object):
         # if self.save_figs:
         #     plt.savefig(f'{self.visualiztion_directory}design/website_bar.png')
 
-    def word_cloud(self, df, col_name, max_words=500):
+    def word_cloud(self, df:pd.DataFrame, col_name:str, max_words=500)->None:
         stopwords = set(STOP_WORDS)
 
         wordcloud = WordCloud(
@@ -177,7 +177,7 @@ class Visualizer(object):
         plt.axis('off')
         plt.show()
 
-    def get_top_n_grams(self, corpus, n_gram_range=(1,1), n=None, stopwords=STOP_WORDS):
+    def get_top_n_grams(self, corpus:pd.DataFrame, n_gram_range=(1,1), n=None, stopwords=STOP_WORDS)->list:
         vec = CountVectorizer(ngram_range=n_gram_range, stop_words=stopwords).fit(corpus)
         doc_term_mat = vec.transform(corpus)
         sum_words = doc_term_mat.sum(axis=0) 
@@ -212,7 +212,7 @@ class Visualizer(object):
     #     fig.update_layout(title=go.layout.Title(text=f"Top {n} trigrams in the description text after removing stop words and lemmatization"))
     #     fig.show()
 
-    def ngram_bar_chart(self, corpus, n_gram_range, n):
+    def ngram_bar_chart(self, corpus:pd.DataFrame, n_gram_range:tuple, n:int)->None:
         #common_words = self.get_top_n_bigrams(corpus, n)
         common_words = self.get_top_n_grams(corpus=corpus, n_gram_range=n_gram_range, n=n)
         df3 = pd.DataFrame(common_words, columns = ['bigram' , 'count'])

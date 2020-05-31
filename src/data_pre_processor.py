@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 from string import punctuation
 from postgresql_handler import PostgreSQLHandler
-from spacy.lang.en.stop_words import STOP_WORDS
+from spacy.lang.en.stop_words import STOP_WORDS as spacy_stops
 
 import re, nltk, spacy, string
 
@@ -11,6 +11,16 @@ import argparse
 class DataPreProcessor(object):
     def __init__(self):
         self.nlp = spacy.load("en")
+        self.all_stop_words = spacy_stops
+        self.custom_stop_words = None
+
+    def add_stop_words(self, custom_stops:list)->None:
+        self.all_stop_words = list(set(self.all_stop_words + custom_stops))
+
+    def remove_top_n_percent_words(self, tf_matrix:np.matrix, n_percent:int)->np.matrix:
+        pass
+
+    #def remove_words_
 
     def clean_text(self, text:str, remove_punc=True)->str:
         # Lowercase
@@ -21,12 +31,13 @@ class DataPreProcessor(object):
         if remove_punc == True:
             text = re.sub(r'[%s]' % re.escape(punctuation), '', text)
 
-        # remove newlines
+        # remove newline and return characters
         text = re.sub(r'[%s]' % re.escape('\n'), '', text)
         text = re.sub(r'[%s]' % re.escape('\r'), '', text)
 
         return text
 
+    # lemmatize with spaCy
     def lemmatize(self, nlp, text:str)->str:
         lemmed = []
         doc = nlp(text)

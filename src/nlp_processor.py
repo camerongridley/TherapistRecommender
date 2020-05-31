@@ -21,7 +21,7 @@ from sklearn.preprocessing import StandardScaler
 import re
 import spacy
 from spacy.lang.en.stop_words import STOP_WORDS as spacy_stops
-#from nltk.corpus import stopwords
+#from nltk.corpus import stop_words
 
 import pyLDAvis
 import pyLDAvis.sklearn
@@ -114,7 +114,7 @@ class NlpProcessor(object):
 
     def combine_stop_words(self, custom_stop_words:list)->list:
         stop_words = list(set(custom_stop_words))
-        stop_words = stop_words + spacy_stops
+        stop_words = stop_words + list(spacy_stops)
 
         return stop_words
 
@@ -159,7 +159,7 @@ class NlpProcessor(object):
             
         return top_words, word_freqs
         
-    def display_topics(self, model, feature_names, num_top_n_grams, custom_stopwords, log_lda=False)->None:
+    def display_topics(self, model, feature_names, num_top_n_grams, custom_stop_words, log_lda=False)->None:
         topic_ngram_dict = {}
 
         for topic_idx, topic in enumerate(model.components_):
@@ -172,9 +172,9 @@ class NlpProcessor(object):
             print(single_topic_n_grams)
             topic_ngram_dict[topic_idx] = single_topic_n_grams
         if log_lda:
-            self.log_lda_results(model, topic_ngram_dict, custom_stopwords)
+            self.log_lda_results(model, topic_ngram_dict, custom_stop_words)
 
-    def log_lda_results(self, model, topic_ngram_dict:dict, custom_stopwords:list)->None:
+    def log_lda_results(self, model, topic_ngram_dict:dict, custom_stop_words:list)->None:
         file_log = open(self.log_file_path, 'a')
         model_params = model.get_params()
         header = '\n\n**************************************** LDA Results ****************************************'
@@ -186,11 +186,11 @@ class NlpProcessor(object):
 
         perplex = 'N/A'#"Model perplexity: {0:0.3f}".format(lda.perplexity(tf_matrix)) + '\n'
 
-        stopwords_header = 'Stop words used:'
-        stopwords_str = ', '.join([stop for stop in custom_stopwords])
-        stopwords_str += '\n'
+        stop_words_header = 'Stop words used:'
+        stop_words_str = ', '.join([stop for stop in custom_stop_words])
+        stop_words_str += '\n'
 
-        L = [header, date_and_time, model_params_header, params_str, perplex, stopwords_header, stopwords_str]
+        L = [header, date_and_time, model_params_header, params_str, perplex, stop_words_header, stop_words_str]
 
         for topic_idx, n_gram_list in topic_ngram_dict.items():
             L.append(f'Topic: {str(topic_idx)}\n\t{", ".join([ng for ng in n_gram_list])}')
@@ -271,7 +271,7 @@ if __name__ == '__main__':
     
 
     # NLP analysis
-    custom_stopwords = ['change','family','find','approach','couples','issues','also',
+    custom_stop_words = ['change','family','find','approach','couples','issues','also',
     'anxiety','working','experience','relationship','relationships','therapist','counseling',
     'people','feel','clients','help','work','life','therapy','psychotherapy', 'feel', 
     'feeling','get', 'warson', 'counseling', 'way', 'practice', 'call', 'today','health',
@@ -281,7 +281,7 @@ if __name__ == '__main__':
      'provide', 'take', 'use', 'goal', 'person', 'child', 'individual', 'life', 'many', 'healing',
       'problem', 'see', 'know']
 
-    final_stop_words = nlp.combine_stop_words(custom_stopwords)
+    final_stop_words = nlp.combine_stop_words(custom_stop_words)
 
     tfidf_matrix, tfidf_vect = nlp.create_tf_idf_matrix(df['writing_sample'], all_stop_words=final_stop_words,max_feats=1000, 
         n_gram_range=(1,3), remove_punc=True, tokenizer='wordnet')
@@ -307,7 +307,7 @@ if __name__ == '__main__':
     lda = nlp.fit_lda_model(selected_matrix, num_topics=n_topics, alpha=1/n_topics, beta=1/n_topics)    
     num_top_n_grams = 10
     feature_names = selected_vectorizer.get_feature_names()
-    nlp.display_topics(lda, feature_names, num_top_n_grams, custom_stopwords, log_lda=True)
+    nlp.display_topics(lda, feature_names, num_top_n_grams, custom_stop_words, log_lda=True)
     words, counts = nlp.get_most_freq_words(selected_vectorizer, selected_matrix, 20, print_dict_to_terminal=False)
     print('Most Frequent words/n_grams')
     print(words)

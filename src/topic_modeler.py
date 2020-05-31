@@ -52,23 +52,26 @@ if __name__ == '__main__':
 
     load_from_disk = False
     df_processed = None
+    processed_text_filename = 'data/df_processed_testing.pkl'
     #if load_from_disk:
     if args.fromdisk:
-        df_processed = pickle.load( open( 'data/df_processed_testing.pkl', "rb" ) )
+        df_processed = pickle.load( open( processed_text_filename, "rb" ) )
     else:
         sql = 'SELECT * FROM therapists LIMIT 1000'
         df = psql.sql_to_pandas(sql)
         
         df_processed = processor.processing_pipeline(df)
         print(df.head())
-        pickle.dump(df_processed, open( 'data/df_processed_testing.pkl', "wb" ) )
+        pickle.dump(df_processed, open( processed_text_filename, "wb" ) )
 
     print(df_processed.head())
 
     #vis.word_distribution(df_processed)
     #vis.word_cloud(df_processed, 'writing_sample_processed')
-    #vis.ngram_bar_chart(df_processed['writing_sample_processed'],(1,1), 40)
+    vis.ngram_bar_chart(df_processed['writing_sample_processed'],(1,1), 40)
     #vis.ngram_bar_chart(df_processed['writing_sample_processed'],(4,4), 20)
+
+
 
     tf_vectorizer = CountVectorizer(analyzer='word',       
                             min_df=3,                       
@@ -83,13 +86,13 @@ if __name__ == '__main__':
 
     data_vectorized = vectorizer.fit_transform(df_processed['writing_sample_processed'])
 
-    lda_model = LatentDirichletAllocation(n_components=5, # Number of topics
-                                        learning_method='online',
-                                        random_state=0,       
-                                        n_jobs = -1  # Use all available CPUs
-                                        )
-    lda_model.fit(data_vectorized)
+    # lda_model = LatentDirichletAllocation(n_components=5, # Number of topics
+    #                                     learning_method='online',
+    #                                     random_state=0,       
+    #                                     n_jobs = -1  # Use all available CPUs
+    #                                     )
+    # lda_model.fit(data_vectorized)
 
-    vis = pyLDAvis.sklearn.prepare(lda_model, data_vectorized, vectorizer)
+    #vis = pyLDAvis.sklearn.prepare(lda_model, data_vectorized, vectorizer)
 
-    pyLDAvis.save_html(vis, 'vis/ldavis_tfidf')
+    #pyLDAvis.save_html(vis, 'vis/ldavis_tfidf')
