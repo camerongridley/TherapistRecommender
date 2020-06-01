@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 from wordcloud import WordCloud
-from spacy.lang.en.stop_words import STOP_WORDS
+from spacy.lang.en.stop_words import STOP_WORDS as spacy_stops
 
 import pyLDAvis
 import pyLDAvis.sklearn
@@ -12,6 +12,8 @@ import plotly.graph_objects as go
 import plotly.express as px
 
 from sklearn.feature_extraction.text import CountVectorizer
+
+from data_pre_processor import DataPreProcessor
 
 plt.rcParams['font.family'] = 'Ubuntu'
 plt.rcParams['font.weight'] = 'normal'
@@ -162,7 +164,7 @@ class Visualizer(object):
         #     plt.savefig(f'{self.visualiztion_directory}design/website_bar.png')
 
     def word_cloud(self, df:pd.DataFrame, col_name:str, max_words=500)->None:
-        stopwords = set(STOP_WORDS)
+        stopwords = set(spacy_stops)
 
         wordcloud = WordCloud(
             background_color='white',
@@ -178,18 +180,24 @@ class Visualizer(object):
         plt.axis('off')
         plt.show()
 
-    def get_top_n_grams(self, corpus:pd.DataFrame, n_gram_range=(1,1), n=None, stopwords=STOP_WORDS)->list:
-        vec = CountVectorizer(ngram_range=n_gram_range, stop_words=stopwords).fit(corpus)
-        doc_term_mat = vec.transform(corpus)
-        sum_words = doc_term_mat.sum(axis=0) 
-        words_freq = [(word, sum_words[0, idx]) for word, idx in vec.vocabulary_.items()]
-        words_freq =sorted(words_freq, key = lambda x: x[1], reverse=True)
+    # # returns tuple of ngram and corpus freqency
+    # def get_top_n_grams(self, corpus:pd.DataFrame, n_gram_range=(1,1), n=None, stopwords=spacy_stops)->list:
+    #     vec = CountVectorizer(ngram_range=n_gram_range, stop_words=stopwords).fit(corpus)
+    #     # get tf matrix
+    #     doc_term_mat = vec.transform(corpus)
+    #     # sum all rows to get counts for each feature/word
+    #     sum_words = doc_term_mat.sum(axis=0) 
+    #     # make list of tuples that maps each sum to it's corresponding word using the vocabulary_ dictionary
+    #     words_freq = [(word, sum_words[0, idx]) for word, idx in vec.vocabulary_.items()]
+    #     # sort the list by word count, which is the second item in the tuple 
+    #     words_freq =sorted(words_freq, key = lambda x: x[1], reverse=True)
         
-        return words_freq[:n]
+    #     return words_freq[:n]
 
     def ngram_bar_chart(self, corpus:pd.DataFrame, n_gram_range:tuple, n:int)->None:
-        #common_words = self.get_top_n_bigrams(corpus, n)
-        common_words = self.get_top_n_grams(corpus=corpus, n_gram_range=n_gram_range, n=n)
+        data_processor = DataPreProcessor()
+        common_words = data_processor.get_top_n_grams(corpus=corpus, n_gram_range=n_gram_range, n=n)
+        #common_words = self.get_top_n_grams(corpus=corpus, n_gram_range=n_gram_range, n=n)
         df3 = pd.DataFrame(common_words, columns = ['bigram' , 'count'])
 
         fig = go.Figure([go.Bar(x=df3['bigram'], y=df3['count'])])

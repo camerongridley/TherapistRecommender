@@ -3,6 +3,7 @@ import pandas as pd
 from string import punctuation
 from postgresql_handler import PostgreSQLHandler
 from spacy.lang.en.stop_words import STOP_WORDS as spacy_stops
+from sklearn.feature_extraction.text import CountVectorizer
 
 import re, nltk, spacy, string
 
@@ -16,6 +17,20 @@ class DataPreProcessor(object):
 
     def add_stop_words(self, custom_stops:list)->None:
         self.all_stop_words = list(set(self.all_stop_words + custom_stops))
+
+    # returns tuple of ngram and corpus freqency
+    def get_top_n_grams(self, corpus:pd.DataFrame, n_gram_range=(1,1), n=None, stopwords=spacy_stops)->list:
+        vec = CountVectorizer(ngram_range=n_gram_range, stop_words=stopwords).fit(corpus)
+        # get tf matrix
+        doc_term_mat = vec.transform(corpus)
+        # sum all rows to get counts for each feature/word
+        sum_words = doc_term_mat.sum(axis=0) 
+        # make list of tuples that maps each sum to it's corresponding word using the vocabulary_ dictionary
+        words_freq = [(word, sum_words[0, idx]) for word, idx in vec.vocabulary_.items()]
+        # sort the list by word count, which is the second item in the tuple 
+        words_freq =sorted(words_freq, key = lambda x: x[1], reverse=True)
+        
+        return words_freq[:n]
 
     def remove_top_n_percent_words(self, tf_matrix:np.matrix, n_percent:int)->np.matrix:
         pass

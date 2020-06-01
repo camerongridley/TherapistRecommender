@@ -68,7 +68,7 @@ if __name__ == '__main__':
 
     # vis.word_distribution(df_processed)
     # vis.word_cloud(df_processed, 'writing_sample_processed')
-    # vis.ngram_bar_chart(df_processed['writing_sample_processed'],(1,1), 40)
+    vis.ngram_bar_chart(df_processed['writing_sample_processed'],(1,1), 1000)
     # vis.ngram_bar_chart(df_processed['writing_sample_processed'],(4,4), 20)
 
     # tf_vectorizer = CountVectorizer(analyzer='word',       
