@@ -7,6 +7,9 @@ from sklearn.feature_extraction.text import CountVectorizer
 
 import re, nltk, spacy, string
 
+from nltk.tokenize import word_tokenize
+from nltk.stem.wordnet import WordNetLemmatizer
+
 import argparse
 
 class DataPreProcessor(object):
@@ -85,7 +88,7 @@ class DataPreProcessor(object):
         return ' '.join(filtered_text)
 
     # lemmatize with spaCy
-    def lemmatize(self, nlp, text:str, remove_stops=True)->str:
+    def spacy_lemmatize(self, nlp, text:str, remove_stops=True)->str:
         lemmed = []
         doc = nlp(text)
 
@@ -98,17 +101,34 @@ class DataPreProcessor(object):
         
         return ' '.join(lemmed)
 
+    def wordnet_lemmatize(self, text:str, remove_stops=True)->list:
+        tokenized_text = word_tokenize(text)
+        wordnet = WordNetLemmatizer()
+        wordnet_docs = []
+
+        for token in tokenized_text:
+            if remove_stops:
+                if token.is_stop == False:
+                    wordnet_docs.append(wordnet.lemmatize(token))
+            else:
+                wordnet_docs.append(wordnet.lemmatize(token))
+        wordnet_docs.append([wordnet.lemmatize(word) for word in tokenized_text])
+        
+        return wordnet_docs
+
     def processing_pipeline(self, df:pd.DataFrame, text_col:str, min_doc_length:int, additional_stop_words:list=None)->pd.DataFrame:
         df_clean = self.drop_short_docs(df ,text_col, min_doc_length)
         # initial text cleaning
-        df_clean['writing_sample_processed'] = pd.DataFrame(df_clean[text_col].apply(lambda x: self.clean_text(x)))
+        df_clean['text_processed'] = pd.DataFrame(df_clean[text_col].apply(lambda x: self.clean_text(x)))
         # update additional stop words supplied
         self.add_stop_words(additional_stop_words)
         # lemmatize and remove stop words with spaCy
-        df_clean['writing_sample_processed'] = df_clean.apply(lambda x: self.lemmatize(nlp=self.nlp, text=x['writing_sample_processed'], 
+        df_clean['text_processed'] = df_clean.apply(lambda x: self.spacy_lemmatize(nlp=self.nlp, text=x['text_processed'], 
                 remove_stops=True), axis=1)
+        # df_clean['writing_sample_processed'] = df_clean.apply(lambda x: self.wordnet_lemmatize(text=x['text_processed'], 
+        #         remove_stops=True), axis=1)
         # remove spaCy -PRON-
-        df_clean['writing_sample_processed'] = df_clean['writing_sample_processed'].str.replace('-PRON-', '')
+        df_clean['text_processed'] = df_clean['text_processed'].str.replace('-PRON-', '')
 
         return df_clean
 
