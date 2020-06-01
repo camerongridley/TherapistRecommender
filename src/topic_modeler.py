@@ -50,41 +50,39 @@ if __name__ == '__main__':
     vis.set_show_figs(True)
     vis.set_save_figs(False)
 
-    load_from_disk = False
     df_processed = None
     processed_text_filename = 'data/df_processed_testing.pkl'
-    #if load_from_disk:
+    min_doc_length = 200
+
     if args.fromdisk:
         df_processed = pickle.load( open( processed_text_filename, "rb" ) )
     else:
         sql = 'SELECT * FROM therapists LIMIT 1000'
         df = psql.sql_to_pandas(sql)
         
-        df_processed = processor.processing_pipeline(df)
+        df_processed = processor.processing_pipeline(df,min_doc_length)
         print(df.head())
         pickle.dump(df_processed, open( processed_text_filename, "wb" ) )
 
     print(df_processed.head())
 
-    #vis.word_distribution(df_processed)
-    #vis.word_cloud(df_processed, 'writing_sample_processed')
-    vis.ngram_bar_chart(df_processed['writing_sample_processed'],(1,1), 40)
-    #vis.ngram_bar_chart(df_processed['writing_sample_processed'],(4,4), 20)
+    # vis.word_distribution(df_processed)
+    # vis.word_cloud(df_processed, 'writing_sample_processed')
+    # vis.ngram_bar_chart(df_processed['writing_sample_processed'],(1,1), 40)
+    # vis.ngram_bar_chart(df_processed['writing_sample_processed'],(4,4), 20)
 
+    # tf_vectorizer = CountVectorizer(analyzer='word',       
+    #                         min_df=3,                       
+    #                         stop_words='english',                      
+    #                         token_pattern='[a-zA-Z0-9]{3,}',  
+    #                         max_features=5000,          
+    #                         )
 
+    # tfidf_vectorizer = TfidfVectorizer(**tf_vectorizer.get_params())
 
-    tf_vectorizer = CountVectorizer(analyzer='word',       
-                            min_df=3,                       
-                            stop_words='english',                      
-                            token_pattern='[a-zA-Z0-9]{3,}',  
-                            max_features=5000,          
-                            )
+    # vectorizer = tfidf_vectorizer
 
-    tfidf_vectorizer = TfidfVectorizer(**tf_vectorizer.get_params())
-
-    vectorizer = tfidf_vectorizer
-
-    data_vectorized = vectorizer.fit_transform(df_processed['writing_sample_processed'])
+    # data_vectorized = vectorizer.fit_transform(df_processed['writing_sample_processed'])
 
     # lda_model = LatentDirichletAllocation(n_components=5, # Number of topics
     #                                     learning_method='online',
@@ -93,6 +91,6 @@ if __name__ == '__main__':
     #                                     )
     # lda_model.fit(data_vectorized)
 
-    #vis = pyLDAvis.sklearn.prepare(lda_model, data_vectorized, vectorizer)
+    # vis = pyLDAvis.sklearn.prepare(lda_model, data_vectorized, vectorizer)
 
-    #pyLDAvis.save_html(vis, 'vis/ldavis_tfidf')
+    # pyLDAvis.save_html(vis, 'vis/ldavis_tfidf')

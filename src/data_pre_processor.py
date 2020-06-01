@@ -20,7 +20,13 @@ class DataPreProcessor(object):
     def remove_top_n_percent_words(self, tf_matrix:np.matrix, n_percent:int)->np.matrix:
         pass
 
-    #def remove_words_
+    def drop_short_docs(self, df:pd.DataFrame, text_col:str, min_length:int)->pd.DataFrame:
+        '''
+        drop rows where text is shorter than specified length
+        '''
+        df_truncated = df[df[text_col].str.len() >= min_length]
+
+        return df_truncated
 
     def clean_text(self, text:str, remove_punc=True)->str:
         # Lowercase
@@ -47,13 +53,16 @@ class DataPreProcessor(object):
         
         return ' '.join(lemmed)
 
-    def processing_pipeline(self, df:pd.DataFrame)->pd.DataFrame:
+    def processing_pipeline(self, df:pd.DataFrame, min_doc_length:int)->pd.DataFrame:
+        df_clean = self.drop_short_docs(df ,'writing_sample', min_doc_length)
         # initial text cleaning
-        df_clean = pd.DataFrame(df['writing_sample'].apply(lambda x: self.clean_text(x)))
+        df_clean['writing_sample_clean'] = pd.DataFrame(df_clean['writing_sample'].apply(lambda x: self.clean_text(x)))
         # lemmatize with spaCy
         df_clean['writing_sample_lemmatize'] = df_clean.apply(lambda x: self.lemmatize(self.nlp, x['writing_sample']), axis=1)
         # remove spaCy -PRON-
         df_clean['writing_sample_processed'] = df_clean['writing_sample_lemmatize'].str.replace('-PRON-', '')
+
+        
 
         return df_clean
 

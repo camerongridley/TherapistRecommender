@@ -115,6 +115,8 @@ class Visualizer(object):
         plt.text(mean+200, 22, mean_label, bbox=dict(facecolor=c2, alpha=0.5))
         if self.save_figs:
             plt.savefig(f'{self.visualiztion_directory}design/word_count_hist.png')
+        if self.show_figs:
+            plt.show()
 
     def unique_categories_bar(self, df_age_groups:pd.DataFrame, df_issues:pd.DataFrame, 
         df_orientations:pd.DataFrame, df_professions:pd.DataFrame, df_services:pd.DataFrame)->None:
@@ -172,7 +174,6 @@ class Visualizer(object):
 
         print(wordcloud)
         fig = plt.figure(1)
-        fig.dpi(200)
         plt.imshow(wordcloud)
         plt.axis('off')
         plt.show()
@@ -185,6 +186,15 @@ class Visualizer(object):
         words_freq =sorted(words_freq, key = lambda x: x[1], reverse=True)
         
         return words_freq[:n]
+
+    def ngram_bar_chart(self, corpus:pd.DataFrame, n_gram_range:tuple, n:int)->None:
+        #common_words = self.get_top_n_bigrams(corpus, n)
+        common_words = self.get_top_n_grams(corpus=corpus, n_gram_range=n_gram_range, n=n)
+        df3 = pd.DataFrame(common_words, columns = ['bigram' , 'count'])
+
+        fig = go.Figure([go.Bar(x=df3['bigram'], y=df3['count'])])
+        fig.update_layout(title=go.layout.Title(text=f"Top {n} ngrams of length {n_gram_range[0]} in the description text after removing stop words and lemmatization"))
+        fig.show()
         
     # def unigram_bar_chart(self, corpus, n):
     #     common_words = self.get_top_n_grams(corpus=corpus, n_gram_range=(1,1), n=n)
@@ -212,13 +222,6 @@ class Visualizer(object):
     #     fig.update_layout(title=go.layout.Title(text=f"Top {n} trigrams in the description text after removing stop words and lemmatization"))
     #     fig.show()
 
-    def ngram_bar_chart(self, corpus:pd.DataFrame, n_gram_range:tuple, n:int)->None:
-        #common_words = self.get_top_n_bigrams(corpus, n)
-        common_words = self.get_top_n_grams(corpus=corpus, n_gram_range=n_gram_range, n=n)
-        df3 = pd.DataFrame(common_words, columns = ['bigram' , 'count'])
-
-        fig = go.Figure([go.Bar(x=df3['bigram'], y=df3['count'])])
-        fig.update_layout(title=go.layout.Title(text=f"Top {n} ngrams of length {n_gram_range[0]} in the description text after removing stop words and lemmatization"))
-        fig.show()
+    
 
     
