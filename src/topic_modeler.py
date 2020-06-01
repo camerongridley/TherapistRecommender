@@ -27,9 +27,14 @@ class TopicModeler(object):
     def __init__(self, log_file_path):
         self.log_file_path = log_file_path
 
-    
-
-    
+    def show_topics(self, vectorizer, lda_model, n_words=20):
+        keywords = np.array(vectorizer.get_feature_names())
+        topic_keywords = []
+        
+        for topic_weights in lda_model.components_:
+            top_keyword_locs = (-topic_weights).argsort()[:n_words]
+            topic_keywords.append(keywords.take(top_keyword_locs))
+        return topic_keywords
 
 
 if __name__ == '__main__':
@@ -62,7 +67,7 @@ if __name__ == '__main__':
         sql = 'SELECT * FROM therapists'
         df = psql.sql_to_pandas(sql)
         top_n_percent_words = processor.get_top_n_percent_words(df['writing_sample'],.1)
-        custom_stop_words = []
+        custom_stop_words = ['selfesteem', 'cognitivebehavioral']
         additional_stops = top_n_percent_words + custom_stop_words
         df_processed = processor.processing_pipeline(df=df,text_col='writing_sample', min_doc_length= min_doc_length,
             additional_stop_words=additional_stops)
@@ -76,13 +81,13 @@ if __name__ == '__main__':
 
     # vis.word_distribution(df_processed)
     # vis.word_cloud(df_processed, 'writing_sample_processed')
-    vis.ngram_bar_chart(df_processed['writing_sample_processed'],(1,1), 100)
+    # vis.ngram_bar_chart(df_processed['writing_sample_processed'],(1,1), 100)
     # vis.ngram_bar_chart(df_processed['writing_sample_processed'],(4,4), 20)
 
     tf_vectorizer = CountVectorizer(analyzer='word',       
                             min_df=3,                       
                             stop_words=processor.get_stop_words(),                      
-                            token_pattern='[a-zA-Z0-9]{3,}',  
+                            #token_pattern='[a-zA-Z0-9]{3,}',  
                             max_features=5000,          
                             )
 
@@ -99,6 +104,56 @@ if __name__ == '__main__':
                                         )
     lda_model.fit(data_vectorized)
 
-    vis = pyLDAvis.sklearn.prepare(lda_model, data_vectorized, vectorizer)
+    topic_keywords = tm.show_topics(vectorizer=vectorizer, lda_model=lda_model, n_words=20)
+    df_topic_keywords = pd.DataFrame(topic_keywords)
+    df_topic_keywords.columns = ['Word '+str(i) for i in range(df_topic_keywords.shape[1])]
+    df_topic_keywords.index = ['Topic '+str(i) for i in range(df_topic_keywords.shape[0])]
+    df_topic_keywords
+    #print(df_topic_keywords)
 
-    pyLDAvis.save_html(vis, 'vis/ldavis_tfidf')
+    Topics_theme = ['American/Car/Marriage/Story/Life in general', 'Education/Business/Money', 'Medical Model', 'State/Social/Rights', 
+                'Build new life']
+    df_topic_keywords['topic_theme'] = Topics_theme
+    df_topic_keywords.set_index('topic_theme', inplace=True)
+    
+    print(df_topic_keywords.T)
+
+
+    doc_topic_matrix = lda_model.transform(data_vectorized)
+    # column names
+    topicnames = df_topic_keywords.T.columns
+
+    # index names
+    docnames = ["Doc" + str(i) for i in range(len(df_processed))]
+
+    # Make the pandas dataframe
+    df_document_topic = pd.DataFrame(np.round(doc_topic_matrix, 2), columns=topicnames, index=docnames)
+
+    # Get dominant topic for each document
+    dominant_topic = np.argmax(df_document_topic.values, axis=1)
+    df_document_topic['dominant_topic'] = dominant_topic
+
+    df_document_topic.reset_index(inplace=True)
+    df_sent_topic= pd.merge(df_processed, df_document_topic, left_index=True, right_index=True)
+    df_sent_topic.drop('index', axis=1, inplace=True)
+
+    df_topic_theme = df_sent_topic[['writing_sample_processed', 'dominant_topic']]
+
+    def label_theme(row):
+        if row['dominant_topic'] == 0 :
+            return 'American/Car/Marriage/Story/Life in general'
+        if row['dominant_topic'] == 1 :
+            return 'Education/Business/Money'
+        if row['dominant_topic'] == 2 :
+            return 'American Medicare/Trump'
+        if row['dominant_topic'] == 3:
+            return 'State/Social/Rights'
+        if row['dominant_topic']  == 4:
+            return 'Build new life'
+            
+    df_topic_theme['dominant_topic_theme'] = df_topic_theme.apply (lambda row: label_theme(row), axis=1)
+    print(df_topic_theme.head(15))
+
+    # vis = pyLDAvis.sklearn.prepare(lda_model, data_vectorized, vectorizer)
+
+    # pyLDAvis.save_html(vis, 'vis/ldavis_tfidf')

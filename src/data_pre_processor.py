@@ -101,14 +101,14 @@ class DataPreProcessor(object):
     def processing_pipeline(self, df:pd.DataFrame, text_col:str, min_doc_length:int, additional_stop_words:list=None)->pd.DataFrame:
         df_clean = self.drop_short_docs(df ,text_col, min_doc_length)
         # initial text cleaning
-        df_clean['writing_sample_clean'] = pd.DataFrame(df_clean[text_col].apply(lambda x: self.clean_text(x)))
+        df_clean['writing_sample_processed'] = pd.DataFrame(df_clean[text_col].apply(lambda x: self.clean_text(x)))
         # update additional stop words supplied
         self.add_stop_words(additional_stop_words)
         # lemmatize and remove stop words with spaCy
-        df_clean['writing_sample_lemmatize'] = df_clean.apply(lambda x: self.lemmatize(nlp=self.nlp, text=x['writing_sample_clean'], 
+        df_clean['writing_sample_processed'] = df_clean.apply(lambda x: self.lemmatize(nlp=self.nlp, text=x['writing_sample_processed'], 
                 remove_stops=True), axis=1)
         # remove spaCy -PRON-
-        df_clean['writing_sample_processed'] = df_clean['writing_sample_lemmatize'].str.replace('-PRON-', '')
+        df_clean['writing_sample_processed'] = df_clean['writing_sample_processed'].str.replace('-PRON-', '')
 
         return df_clean
 
