@@ -29,6 +29,8 @@ class TopicModeler(object):
 
     
 
+    
+
 
 if __name__ == '__main__':
     # instantiate nlp processor
@@ -57,42 +59,45 @@ if __name__ == '__main__':
     if args.fromdisk:
         df_processed = pickle.load( open( processed_text_filename, "rb" ) )
     else:
-        sql = 'SELECT * FROM therapists LIMIT 1000'
+        sql = 'SELECT * FROM therapists'
         df = psql.sql_to_pandas(sql)
-        
-        df_processed = processor.processing_pipeline(df,min_doc_length)
+        top_n_percent_words = processor.get_top_n_percent_words(df['writing_sample'],.2)
+        custom_stop_words = []
+        additional_stops = top_n_percent_words + custom_stop_words
+        df_processed = processor.processing_pipeline(df,min_doc_length,additional_stop_words=additional_stops)
         print(df.head())
         pickle.dump(df_processed, open( processed_text_filename, "wb" ) )
 
     print(df_processed.head())
 
-    print(processor.get_top_n_percent_words(df_processed['writing_sample_processed'],.05))
+    
+    
 
     # vis.word_distribution(df_processed)
     # vis.word_cloud(df_processed, 'writing_sample_processed')
-    # vis.ngram_bar_chart(df_processed['writing_sample_processed'],(1,1), 1000)
+    vis.ngram_bar_chart(df_processed['writing_sample_processed'],(1,1), 100)
     # vis.ngram_bar_chart(df_processed['writing_sample_processed'],(4,4), 20)
 
-    # tf_vectorizer = CountVectorizer(analyzer='word',       
-    #                         min_df=3,                       
-    #                         stop_words='english',                      
-    #                         token_pattern='[a-zA-Z0-9]{3,}',  
-    #                         max_features=5000,          
-    #                         )
+    tf_vectorizer = CountVectorizer(analyzer='word',       
+                            min_df=3,                       
+                            # stop_words='english',                      
+                            token_pattern='[a-zA-Z0-9]{3,}',  
+                            max_features=5000,          
+                            )
 
-    # tfidf_vectorizer = TfidfVectorizer(**tf_vectorizer.get_params())
+    tfidf_vectorizer = TfidfVectorizer(**tf_vectorizer.get_params())
 
-    # vectorizer = tfidf_vectorizer
+    vectorizer = tfidf_vectorizer
 
-    # data_vectorized = vectorizer.fit_transform(df_processed['writing_sample_processed'])
+    data_vectorized = vectorizer.fit_transform(df_processed['writing_sample_processed'])
 
-    # lda_model = LatentDirichletAllocation(n_components=5, # Number of topics
-    #                                     learning_method='online',
-    #                                     random_state=0,       
-    #                                     n_jobs = -1  # Use all available CPUs
-    #                                     )
-    # lda_model.fit(data_vectorized)
+    lda_model = LatentDirichletAllocation(n_components=5, # Number of topics
+                                        learning_method='online',
+                                        random_state=0,       
+                                        n_jobs = -1  # Use all available CPUs
+                                        )
+    lda_model.fit(data_vectorized)
 
-    # vis = pyLDAvis.sklearn.prepare(lda_model, data_vectorized, vectorizer)
+    vis = pyLDAvis.sklearn.prepare(lda_model, data_vectorized, vectorizer)
 
-    # pyLDAvis.save_html(vis, 'vis/ldavis_tfidf')
+    pyLDAvis.save_html(vis, 'vis/ldavis_tfidf')
