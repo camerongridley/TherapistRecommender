@@ -61,10 +61,11 @@ if __name__ == '__main__':
     else:
         sql = 'SELECT * FROM therapists'
         df = psql.sql_to_pandas(sql)
-        top_n_percent_words = processor.get_top_n_percent_words(df['writing_sample'],.2)
+        top_n_percent_words = processor.get_top_n_percent_words(df['writing_sample'],.1)
         custom_stop_words = []
         additional_stops = top_n_percent_words + custom_stop_words
-        df_processed = processor.processing_pipeline(df,min_doc_length,additional_stop_words=additional_stops)
+        df_processed = processor.processing_pipeline(df=df,text_col='writing_sample', min_doc_length= min_doc_length,
+            additional_stop_words=additional_stops)
         print(df.head())
         pickle.dump(df_processed, open( processed_text_filename, "wb" ) )
 
@@ -80,7 +81,7 @@ if __name__ == '__main__':
 
     tf_vectorizer = CountVectorizer(analyzer='word',       
                             min_df=3,                       
-                            # stop_words='english',                      
+                            stop_words=processor.get_stop_words(),                      
                             token_pattern='[a-zA-Z0-9]{3,}',  
                             max_features=5000,          
                             )

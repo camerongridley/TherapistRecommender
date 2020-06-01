@@ -19,6 +19,9 @@ class DataPreProcessor(object):
         self.nlp.Defaults.stop_words |= set(custom_stops)
         #self.all_stop_words = list(set(list(self.all_stop_words) + custom_stops))
 
+    def get_stop_words(self):
+        return spacy_stops
+
     # returns tuple of ngram and corpus freqency
     def get_top_n_grams(self, corpus:pd.DataFrame, n_gram_range=(1,1), n=None, stop_words=spacy_stops)->list:
         vec = CountVectorizer(ngram_range=n_gram_range, stop_words=stop_words).fit(corpus)
@@ -63,6 +66,24 @@ class DataPreProcessor(object):
 
         return text
 
+    def remove_stop_words(self, nlp, text):
+        doc = nlp(text)
+
+        # Create list of word tokens
+        token_list = []
+        for token in doc:
+            token_list.append(token.text)
+
+        # Create list of word tokens after removing stopwords
+        filtered_text =[] 
+
+        for word in token_list:
+            lexeme = nlp.vocab[word]
+            if lexeme.is_stop == False:
+                filtered_text.append(word)
+
+        return ' '.join(filtered_text)
+
     # lemmatize with spaCy
     def lemmatize(self, nlp, text:str, remove_stops=True)->str:
         lemmed = []
@@ -77,19 +98,17 @@ class DataPreProcessor(object):
         
         return ' '.join(lemmed)
 
-    def processing_pipeline(self, df:pd.DataFrame, min_doc_length:int, additional_stop_words:list=None)->pd.DataFrame:
-        df_clean = self.drop_short_docs(df ,'writing_sample', min_doc_length)
+    def processing_pipeline(self, df:pd.DataFrame, text_col:str, min_doc_length:int, additional_stop_words:list=None)->pd.DataFrame:
+        df_clean = self.drop_short_docs(df ,text_col, min_doc_length)
         # initial text cleaning
-        df_clean['writing_sample_clean'] = pd.DataFrame(df_clean['writing_sample'].apply(lambda x: self.clean_text(x)))
+        df_clean['writing_sample_clean'] = pd.DataFrame(df_clean[text_col].apply(lambda x: self.clean_text(x)))
         # update additional stop words supplied
         self.add_stop_words(additional_stop_words)
         # lemmatize and remove stop words with spaCy
-        df_clean['writing_sample_lemmatize'] = df_clean.apply(lambda x: self.lemmatize(nlp=self.nlp, text=x['writing_sample'], 
+        df_clean['writing_sample_lemmatize'] = df_clean.apply(lambda x: self.lemmatize(nlp=self.nlp, text=x['writing_sample_clean'], 
                 remove_stops=True), axis=1)
         # remove spaCy -PRON-
         df_clean['writing_sample_processed'] = df_clean['writing_sample_lemmatize'].str.replace('-PRON-', '')
-
-        
 
         return df_clean
 
@@ -122,7 +141,7 @@ if __name__ == '__main__':
         sql = 'SELECT * FROM therapists LIMIT 1000'
         df = psql.sql_to_pandas(sql)
         
-        df_processed = processor.processing_pipeline(df,200)
+        df_processed = processor.processing_pipeline(df,'writing_sample', 200)
         print(df.head())
         pickle.dump(df_processed, open( 'data/df_processed_testing.pkl', "wb" ) )
 
