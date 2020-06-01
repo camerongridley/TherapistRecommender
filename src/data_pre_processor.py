@@ -19,8 +19,8 @@ class DataPreProcessor(object):
         self.all_stop_words = list(set(self.all_stop_words + custom_stops))
 
     # returns tuple of ngram and corpus freqency
-    def get_top_n_grams(self, corpus:pd.DataFrame, n_gram_range=(1,1), n=None, stopwords=spacy_stops)->list:
-        vec = CountVectorizer(ngram_range=n_gram_range, stop_words=stopwords).fit(corpus)
+    def get_top_n_grams(self, corpus:pd.DataFrame, n_gram_range=(1,1), n=None, stop_words=spacy_stops)->list:
+        vec = CountVectorizer(ngram_range=n_gram_range, stop_words=stop_words).fit(corpus)
         # get tf matrix
         doc_term_mat = vec.transform(corpus)
         # sum all rows to get counts for each feature/word
@@ -32,8 +32,12 @@ class DataPreProcessor(object):
         
         return words_freq[:n]
 
-    def remove_top_n_percent_words(self, tf_matrix:np.matrix, n_percent:int)->np.matrix:
-        pass
+    def get_top_n_percent_words(self, corpus:pd.DataFrame, n_percent:float, stop_words=spacy_stops)->list:
+        words_freq = self.get_top_n_grams(corpus, (1,1))
+        cutoff = int(len(words_freq) * n_percent)
+        top_words = [x[0] for x in words_freq[: cutoff]]
+
+        return top_words
 
     def drop_short_docs(self, df:pd.DataFrame, text_col:str, min_length:int)->pd.DataFrame:
         '''

@@ -66,9 +66,11 @@ if __name__ == '__main__':
 
     print(df_processed.head())
 
+    print(processor.get_top_n_percent_words(df_processed['writing_sample_processed'],.05))
+
     # vis.word_distribution(df_processed)
     # vis.word_cloud(df_processed, 'writing_sample_processed')
-    vis.ngram_bar_chart(df_processed['writing_sample_processed'],(1,1), 1000)
+    # vis.ngram_bar_chart(df_processed['writing_sample_processed'],(1,1), 1000)
     # vis.ngram_bar_chart(df_processed['writing_sample_processed'],(4,4), 20)
 
     # tf_vectorizer = CountVectorizer(analyzer='word',       
