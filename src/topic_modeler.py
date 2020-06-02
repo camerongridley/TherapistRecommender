@@ -93,7 +93,7 @@ if __name__ == '__main__':
     tf_vectorizer = CountVectorizer(analyzer='word',       
                             min_df=3,                       
                             stop_words=processor.get_stop_words(),                      
-                            #token_pattern='[a-zA-Z0-9]{3,}',  
+                            token_pattern='[a-zA-Z0-9]{3,}',  
                             max_features=5000,          
                             )
 
@@ -111,7 +111,7 @@ if __name__ == '__main__':
     lda_model.fit(data_vectorized)
 
     df_topic_keywords = tm.show_topics(vectorizer=vectorizer, lda_model=lda_model, n_words=20)
-    print(df_topic_keywords)
+    #print(df_topic_keywords)
 
     topics_theme = ['Topic Theme 0', 'Topic Theme 1', 'Topic Theme 2', 'Topic Theme 3']
     df_topic_keywords['topic_theme'] = topics_theme

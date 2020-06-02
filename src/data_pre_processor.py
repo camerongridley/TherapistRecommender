@@ -64,8 +64,8 @@ class DataPreProcessor(object):
             text = re.sub(r'[%s]' % re.escape(punctuation), '', text)
 
         # remove newline and return characters
-        text = re.sub(r'[%s]' % re.escape('\n'), '', text)
-        text = re.sub(r'[%s]' % re.escape('\r'), '', text)
+        text = re.sub(r'[%s]' % re.escape('\n'), ' ', text)
+        text = re.sub(r'[%s]' % re.escape('\r'), ' ', text)
 
         return text
 
