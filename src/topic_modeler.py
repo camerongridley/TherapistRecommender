@@ -10,6 +10,7 @@ import re, nltk, spacy, string
 
 from sklearn.decomposition import LatentDirichletAllocation
 from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
+from sklearn.decomposition import NMF
 from pprint import pprint
 
 import pyLDAvis
@@ -23,9 +24,12 @@ import plotly.express as px
 import argparse
 import pickle
 
+from spacy.lang.en.stop_words import STOP_WORDS as spacy_stops
+
 class TopicModeler(object):
     def __init__(self, log_file_path):
         self.log_file_path = log_file_path
+        self.stop_words = spacy_stops
 
     def show_topics(self, vectorizer, lda_model, n_words=20):
         keywords = np.array(vectorizer.get_feature_names())
@@ -42,6 +46,62 @@ class TopicModeler(object):
 
         return df_topic_keywords
 
+    def label_theme(self, row, topics_theme):
+            if row['dominant_topic'] == 0 :
+                return topics_theme[0]
+            if row['dominant_topic'] == 1 :
+                return topics_theme[1]
+            if row['dominant_topic'] == 2 :
+                return topics_theme[2]
+            if row['dominant_topic'] == 3:
+                return topics_theme[3]
+            if row['dominant_topic']  == 4:
+                return topics_theme[4]
+
+    def run_lda(self, df_processed, vectorizer, data_vectorized):
+        lda_model = LatentDirichletAllocation(n_components=4, # Number of topics
+                                        learning_method='online',
+                                        random_state=0,       
+                                        n_jobs = -1  # Use all available CPUs
+                                        )
+        lda_model.fit(data_vectorized)
+
+        df_topic_keywords = self.show_topics(vectorizer=vectorizer, lda_model=lda_model, n_words=20)
+        #print(df_topic_keywords)
+
+        topics_theme = ['Topic Theme 0', 'Topic Theme 1', 'Topic Theme 2', 'Topic Theme 3']
+        df_topic_keywords['topic_theme'] = topics_theme
+        df_topic_keywords.set_index('topic_theme', inplace=True)
+        
+        print(df_topic_keywords.T)
+
+
+        doc_topic_matrix = lda_model.transform(data_vectorized)
+        # column names
+        topicnames = df_topic_keywords.T.columns
+
+        # index names
+        docnames = ["Doc" + str(i) for i in range(len(df_processed))]
+
+        # Make the pandas dataframe
+        df_document_topic = pd.DataFrame(np.round(doc_topic_matrix, 2), columns=topicnames, index=docnames)
+
+        # Get dominant topic for each document
+        dominant_topic = np.argmax(df_document_topic.values, axis=1)
+        df_document_topic['dominant_topic'] = dominant_topic
+
+        df_document_topic.reset_index(inplace=True)
+        df_sent_topic= pd.merge(df_processed, df_document_topic, left_index=True, right_index=True)
+        df_sent_topic.drop('index', axis=1, inplace=True)
+
+        df_topic_theme = df_sent_topic[['text_processed', 'dominant_topic']]
+                
+        df_topic_theme['dominant_topic_theme'] = df_topic_theme.apply (lambda row: self.label_theme(row, topics_theme), axis=1)
+        print(df_topic_theme.head(15))
+
+        vis = pyLDAvis.sklearn.prepare(lda_model, data_vectorized, vectorizer)
+
+        pyLDAvis.save_html(vis, 'vis/ldavis_tfidf')
 
 if __name__ == '__main__':
     # instantiate nlp processor
@@ -82,9 +142,6 @@ if __name__ == '__main__':
 
     print(df_processed.head())
 
-    
-    
-
     # vis.word_distribution(df_processed)
     # vis.word_cloud(df_processed, 'text_processed')
     # vis.ngram_bar_chart(df_processed['text_processed'],(1,1), 100)
@@ -103,58 +160,60 @@ if __name__ == '__main__':
 
     data_vectorized = vectorizer.fit_transform(df_processed['text_processed'])
 
-    lda_model = LatentDirichletAllocation(n_components=4, # Number of topics
-                                        learning_method='online',
-                                        random_state=0,       
-                                        n_jobs = -1  # Use all available CPUs
-                                        )
-    lda_model.fit(data_vectorized)
+    tm.run_lda(df_processed, vectorizer, data_vectorized)
 
-    df_topic_keywords = tm.show_topics(vectorizer=vectorizer, lda_model=lda_model, n_words=20)
-    #print(df_topic_keywords)
+    # lda_model = LatentDirichletAllocation(n_components=4, # Number of topics
+    #                                 learning_method='online',
+    #                                 random_state=0,       
+    #                                 n_jobs = -1  # Use all available CPUs
+    #                                 )
+    # lda_model.fit(data_vectorized)
 
-    topics_theme = ['Topic Theme 0', 'Topic Theme 1', 'Topic Theme 2', 'Topic Theme 3']
-    df_topic_keywords['topic_theme'] = topics_theme
-    df_topic_keywords.set_index('topic_theme', inplace=True)
+    # df_topic_keywords = tm.show_topics(vectorizer=vectorizer, lda_model=lda_model, n_words=20)
+    # #print(df_topic_keywords)
+
+    # topics_theme = ['Topic Theme 0', 'Topic Theme 1', 'Topic Theme 2', 'Topic Theme 3']
+    # df_topic_keywords['topic_theme'] = topics_theme
+    # df_topic_keywords.set_index('topic_theme', inplace=True)
     
-    print(df_topic_keywords.T)
+    # print(df_topic_keywords.T)
 
 
-    doc_topic_matrix = lda_model.transform(data_vectorized)
-    # column names
-    topicnames = df_topic_keywords.T.columns
+    # doc_topic_matrix = lda_model.transform(data_vectorized)
+    # # column names
+    # topicnames = df_topic_keywords.T.columns
 
-    # index names
-    docnames = ["Doc" + str(i) for i in range(len(df_processed))]
+    # # index names
+    # docnames = ["Doc" + str(i) for i in range(len(df_processed))]
 
-    # Make the pandas dataframe
-    df_document_topic = pd.DataFrame(np.round(doc_topic_matrix, 2), columns=topicnames, index=docnames)
+    # # Make the pandas dataframe
+    # df_document_topic = pd.DataFrame(np.round(doc_topic_matrix, 2), columns=topicnames, index=docnames)
 
-    # Get dominant topic for each document
-    dominant_topic = np.argmax(df_document_topic.values, axis=1)
-    df_document_topic['dominant_topic'] = dominant_topic
+    # # Get dominant topic for each document
+    # dominant_topic = np.argmax(df_document_topic.values, axis=1)
+    # df_document_topic['dominant_topic'] = dominant_topic
 
-    df_document_topic.reset_index(inplace=True)
-    df_sent_topic= pd.merge(df_processed, df_document_topic, left_index=True, right_index=True)
-    df_sent_topic.drop('index', axis=1, inplace=True)
+    # df_document_topic.reset_index(inplace=True)
+    # df_sent_topic= pd.merge(df_processed, df_document_topic, left_index=True, right_index=True)
+    # df_sent_topic.drop('index', axis=1, inplace=True)
 
-    df_topic_theme = df_sent_topic[['text_processed', 'dominant_topic']]
+    # df_topic_theme = df_sent_topic[['text_processed', 'dominant_topic']]
 
-    def label_theme(row):
-        if row['dominant_topic'] == 0 :
-            return topics_theme[0]
-        if row['dominant_topic'] == 1 :
-            return topics_theme[1]
-        if row['dominant_topic'] == 2 :
-            return topics_theme[2]
-        if row['dominant_topic'] == 3:
-            return topics_theme[3]
-        if row['dominant_topic']  == 4:
-            return topics_theme[4]
+    # def label_theme(row):
+    #     if row['dominant_topic'] == 0 :
+    #         return topics_theme[0]
+    #     if row['dominant_topic'] == 1 :
+    #         return topics_theme[1]
+    #     if row['dominant_topic'] == 2 :
+    #         return topics_theme[2]
+    #     if row['dominant_topic'] == 3:
+    #         return topics_theme[3]
+    #     if row['dominant_topic']  == 4:
+    #         return topics_theme[4]
             
-    df_topic_theme['dominant_topic_theme'] = df_topic_theme.apply (lambda row: label_theme(row), axis=1)
-    print(df_topic_theme.head(15))
+    # df_topic_theme['dominant_topic_theme'] = df_topic_theme.apply (lambda row: label_theme(row), axis=1)
+    # print(df_topic_theme.head(15))
 
-    vis = pyLDAvis.sklearn.prepare(lda_model, data_vectorized, vectorizer)
+    # vis = pyLDAvis.sklearn.prepare(lda_model, data_vectorized, vectorizer)
 
-    pyLDAvis.save_html(vis, 'vis/ldavis_tfidf')
+    # pyLDAvis.save_html(vis, 'vis/ldavis_tfidf')

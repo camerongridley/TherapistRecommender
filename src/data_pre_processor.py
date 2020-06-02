@@ -61,7 +61,7 @@ class DataPreProcessor(object):
         text = re.sub(r'\w*\d\w*', '', text)
 
         if remove_punc == True:
-            text = re.sub(r'[%s]' % re.escape(punctuation), '', text)
+            text = re.sub(r'[%s]' % re.escape(punctuation), ' ', text)
 
         # remove newline and return characters
         text = re.sub(r'[%s]' % re.escape('\n'), ' ', text)
