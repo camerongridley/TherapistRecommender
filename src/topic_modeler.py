@@ -110,13 +110,6 @@ if __name__ == '__main__':
     # define colors for visualizations
     palette = ['#13bdb4','#80d090','#dad977','#e49046','#d43d51']
 
-    parser = argparse.ArgumentParser()
-   
-    parser.add_argument('-fd', '--fromdisk', action='store_true', 
-        help="load data from local file")
-
-    args = parser.parse_args()
-
     processor = DataPreProcessor()
     psql = PostgreSQLHandler()
     vis = Visualizer(psql.get_conn())
@@ -126,6 +119,13 @@ if __name__ == '__main__':
     df_processed = None
     processed_text_filename = 'data/df_processed_testing.pkl'
     min_doc_length = 200
+
+    parser = argparse.ArgumentParser()
+   
+    parser.add_argument('-fd', '--fromdisk', action='store_true', 
+        help="load data from local file")
+
+    args = parser.parse_args()
 
     if args.fromdisk:
         df_processed = pickle.load( open( processed_text_filename, "rb" ) )
