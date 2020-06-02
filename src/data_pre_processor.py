@@ -13,10 +13,11 @@ from nltk.stem.wordnet import WordNetLemmatizer
 import argparse
 
 class DataPreProcessor(object):
-    def __init__(self):
+    def __init__(self, text_processed_colname):
         self.nlp = spacy.load("en")
         self.all_stop_words = spacy_stops
         self.custom_stop_words = None
+        self.text_processed_colname = text_processed_colname
 
     def add_stop_words(self, custom_stops:list)->None:
         self.nlp.Defaults.stop_words |= set(custom_stops)
@@ -119,16 +120,16 @@ class DataPreProcessor(object):
     def processing_pipeline(self, df:pd.DataFrame, text_col:str, min_doc_length:int, additional_stop_words:list=None)->pd.DataFrame:
         df_clean = self.drop_short_docs(df ,text_col, min_doc_length)
         # initial text cleaning
-        df_clean['text_processed'] = pd.DataFrame(df_clean[text_col].apply(lambda x: self.clean_text(x)))
+        df_clean[self.text_processed_colname] = pd.DataFrame(df_clean[text_col].apply(lambda x: self.clean_text(x)))
         # update additional stop words supplied
         self.add_stop_words(additional_stop_words)
         # lemmatize and remove stop words with spaCy
-        df_clean['text_processed'] = df_clean.apply(lambda x: self.spacy_lemmatize(nlp=self.nlp, text=x['text_processed'], 
+        df_clean[self.text_processed_colname] = df_clean.apply(lambda x: self.spacy_lemmatize(nlp=self.nlp, text=x[self.text_processed_colname], 
                 remove_stops=True), axis=1)
-        # df_clean['writing_sample_processed'] = df_clean.apply(lambda x: self.wordnet_lemmatize(text=x['text_processed'], 
+        # df_clean['writing_sample_processed'] = df_clean.apply(lambda x: self.wordnet_lemmatize(text=x[self.text_processed_colname], 
         #         remove_stops=True), axis=1)
         # remove spaCy -PRON-
-        df_clean['text_processed'] = df_clean['text_processed'].str.replace('-PRON-', '')
+        df_clean[self.text_processed_colname] = df_clean[self.text_processed_colname].str.replace('-PRON-', '')
 
         return df_clean
 
@@ -146,7 +147,7 @@ if __name__ == '__main__':
     
 
 
-    processor = DataPreProcessor()
+    processor = DataPreProcessor(text_processed_colname='text_processed')
     psql = PostgreSQLHandler()
     vis = Visualizer(psql.get_conn())
     vis.set_show_figs(True)

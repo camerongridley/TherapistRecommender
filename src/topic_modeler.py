@@ -58,7 +58,7 @@ class TopicModeler(object):
             if row['dominant_topic']  == 4:
                 return topics_theme[4]
 
-    def run_lda(self, df_processed, vectorizer, data_vectorized):
+    def run_lda(self, df_processed, text_col, vectorizer, data_vectorized):
         lda_model = LatentDirichletAllocation(n_components=4, # Number of topics
                                         learning_method='online',
                                         random_state=0,       
@@ -94,7 +94,7 @@ class TopicModeler(object):
         df_sent_topic= pd.merge(df_processed, df_document_topic, left_index=True, right_index=True)
         df_sent_topic.drop('index', axis=1, inplace=True)
 
-        df_topic_theme = df_sent_topic[['text_processed', 'dominant_topic']]
+        df_topic_theme = df_sent_topic[[text_col, 'dominant_topic']]
                 
         df_topic_theme['dominant_topic_theme'] = df_topic_theme.apply (lambda row: self.label_theme(row, topics_theme), axis=1)
         print(df_topic_theme.head(15))
@@ -106,11 +106,13 @@ class TopicModeler(object):
 if __name__ == '__main__':
     # instantiate nlp processor
     tm = TopicModeler(log_file_path='logs/lda_results_log.txt')
+    original_text_col = 'writing_sample'
+    process_text_col = 'text_processed'
     
     # define colors for visualizations
     palette = ['#13bdb4','#80d090','#dad977','#e49046','#d43d51']
 
-    processor = DataPreProcessor()
+    processor = DataPreProcessor(text_processed_colname=process_text_col)
     psql = PostgreSQLHandler()
     vis = Visualizer(psql.get_conn())
     vis.set_show_figs(True)
@@ -132,10 +134,10 @@ if __name__ == '__main__':
     else:
         sql = 'SELECT * FROM therapists'
         df = psql.sql_to_pandas(sql)
-        top_n_percent_words = processor.get_top_n_percent_words(df['writing_sample'],.1)
+        top_n_percent_words = processor.get_top_n_percent_words(df[original_text_col],.1)
         custom_stop_words = ['selfesteem', 'cognitivebehavioral']
         additional_stops = top_n_percent_words + custom_stop_words
-        df_processed = processor.processing_pipeline(df=df,text_col='writing_sample', min_doc_length= min_doc_length,
+        df_processed = processor.processing_pipeline(df=df,text_col=original_text_col, min_doc_length= min_doc_length,
             additional_stop_words=additional_stops)
         print(df.head())
         pickle.dump(df_processed, open( processed_text_filename, "wb" ) )
@@ -143,9 +145,9 @@ if __name__ == '__main__':
     print(df_processed.head())
 
     # vis.word_distribution(df_processed)
-    # vis.word_cloud(df_processed, 'text_processed')
-    # vis.ngram_bar_chart(df_processed['text_processed'],(1,1), 100)
-    # vis.ngram_bar_chart(df_processed['text_processed'],(2,2), 20)
+    # vis.word_cloud(df_processed, process_text_col)
+    # vis.ngram_bar_chart(df_processed[process_text_col],(1,1), 100)
+    # vis.ngram_bar_chart(df_processed[process_text_col],(2,2), 20)
 
     tf_vectorizer = CountVectorizer(analyzer='word',       
                             min_df=3,                       
@@ -160,7 +162,7 @@ if __name__ == '__main__':
 
     data_vectorized = vectorizer.fit_transform(df_processed['text_processed'])
 
-    tm.run_lda(df_processed, vectorizer, data_vectorized)
+    tm.run_lda(df_processed, process_text_col, vectorizer, data_vectorized)
 
     # lda_model = LatentDirichletAllocation(n_components=4, # Number of topics
     #                                 learning_method='online',
