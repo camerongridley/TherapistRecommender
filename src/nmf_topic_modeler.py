@@ -5,6 +5,7 @@ import nltk
 from sklearn.feature_extraction.stop_words import ENGLISH_STOP_WORDS
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.decomposition import NMF
+from sklearn.metrics.pairwise import cosine_similarity
 from tabulate import tabulate
 import matplotlib.pyplot as plt 
 
@@ -69,13 +70,13 @@ class NmfTopicModeler(object):
     def print_topics(self, topics):
         # Print topics in markdown format
         n_words = len(topics[0])
-        cols = ["Word #"+ str(i) for i in range(n_words)]
+        cols = ["Topic #"+ str(i) for i in range(n_words)]
         row_idx = [str(i) for i in range(len(topics))]
         df_pretty = pd.DataFrame(columns=cols)
         for topic in topics:
             df_pretty = df_pretty.append([dict(zip(cols, topic))])
-        df_pretty['Topic #'] = row_idx
-        df_pretty = df_pretty.set_index('Topic #')
+        df_pretty['Word #'] = row_idx
+        df_pretty = df_pretty.set_index('Word #')
         print(tabulate(df_pretty, headers='keys', tablefmt='github'))
         return
         
@@ -83,7 +84,7 @@ class NmfTopicModeler(object):
         return W.argsort()[:,::-1][:,0]
         
     def topic_counts(self, df):
-        grouped = df[['topics',self.text_col]].groupby(['topics']).count().sort_values(by = self.text_col,ascending = False)
+        grouped = df[['dominant_topic',self.text_col]].groupby(['dominant_topic']).count().sort_values(by = self.text_col,ascending = False)
         print(tabulate(grouped, headers='keys', tablefmt='github'))
 
     def prepare_new_text(self, new_text:str):
@@ -97,9 +98,10 @@ class NmfTopicModeler(object):
         df = self.prepare_new_text(new_text)
         prepared_text = df[self.text_col].values
         X = vectorizer.transform(prepared_text)
-        loadings = nmf_model.transform(X)
+        loadings = nmf_model.transform(X)[0]
+        dominant_topic = loadings.argsort()[-1]
 
-        return loadings
+        return dominant_topic, loadings
 
     def run_nmf(self, df):
         additional_stop_words = [
@@ -129,8 +131,9 @@ class NmfTopicModeler(object):
             "manhattan",
             "work",
             "working",
-            "zzz",
-            "zzz"
+            "your",
+            "dont",
+            "youre"
         ]
         stop_words = self.get_stop_words(additional_stop_words)
         punc = punctuation
@@ -138,7 +141,6 @@ class NmfTopicModeler(object):
         n_top_words = 10
         self.clean_column(df, text_col, punc)
 
-        
         # vis.word_distribution(df)
         # vis.word_cloud(df, 'writing_sample')
         # vis.ngram_bar_chart(df['writing_sample'],(1,1), 100)
@@ -147,7 +149,8 @@ class NmfTopicModeler(object):
         X, features, vectorizer = self.vectorize(df, stop_words)
         W, H, nmf = self.get_nmf(X, n_components=n_topics)
         top_words = self.get_topic_words(H, features, n_features=n_top_words)
-        df['topics'] = self.document_topics(W)
+        df['dominant_topic'] = self.document_topics(W)
+        df['topic_weights'] = [x for x in W]
         #self.print_topics(top_words)
         self.print_topics(top_words.T)
         df.to_pickle("data/nmf_pickled_df")
@@ -155,6 +158,7 @@ class NmfTopicModeler(object):
 
         pickle.dump(nmf, open( 'models/nmf_model', "wb" ) )
         pickle.dump(vectorizer, open( 'models/nmf_vectorizer', "wb" ) )
+        pickle.dump(W, open( 'models/nmf_df_topics', "wb" ) )
 
         return nmf, vectorizer
 
@@ -185,17 +189,39 @@ if __name__ == '__main__':
         sql = 'SELECT * FROM therapists'
         df = psql.sql_to_pandas(sql)
 
-        
-
-        model, vectorizer = nmf_modeler.run_nmf(df)
+        model, vectorizer= nmf_modeler.run_nmf(df)
 
         pickle.dump(model, open( model_filename, "wb" ) )
 
-    new_text = '''At a recovery meeting for loved ones, we focused on fear which can crush and overpower. Often we project worst-case scenarios. A litany of “what ifs” take over. We ruminate, we project, we worry. Our hearts sink when the phone rings in the middle of the night. Is our loved one in jail, or a car wreck, or a hospital emergency room? Because these heartbreaking events are often consequences of substance abuse, loved ones often stay on alert.
-        Fear manifests in different ways. There’s fear of a tragic event, like a drug overdose, DUI, or suicide. And then there are less dramatic and more subtle worries. For example, when talking on the phone to my adult son who is in recovery, I pick up on his tone of voice. If it appears off kilter then "what ifs" take over. What if something bad is happening? What if he’s depressed? What if his depression triggers another episode of substance abuse? Although most parents pick up variations in their children’s tone of voice, I doubt that they jump to extreme conclusions. Rather, they might think that their loved one had a bad day or is tired or upset. More times than not this has been the case with my son. As Mark Twain said, “I’ve had a lot of worries in my life, most of which never happened.”
-        But what if the worst thing did happen, then how do we deal with the fear that it will happen again? One way to break the cycle is to stay present. Easier said than done.  But when you think about it, all we have is the present moment. The past is over and the future doesn’t exist. Members in my recovery group have shared ways to stay present.  These include: meditation, prayer, gardening, cooking, painting, interacting with children, and volunteering. I’ve found that some of these suggestions have worked for me.  
-        Recently I participated in a drawing class where I became singularly focused on drawing a simple ceramic bowl. Totally present for two hours: just me, a set of pencils, drawing paper, and that bowl. Swimming laps is another method I’ve found helpful. Stroke, breathe, kick….back and forth from one end of the pool to the other. I recently read a book by Andy Puddicombe, The Headspace Guide to Meditation and Mindfulness, How Mindfulness Can Change Your Life in Ten Minutes a Day.  It's helped motivate me to begin meditating on a regular basis. After all who can't find ten minutes a day to help become less anxious and sad? 
-        The slogan “One Day at a Time”  reminds me to stay present.  It helps pull my attention away from projecting into the future and leaving yesterday's baggage behind. Similarly “Just for today” lightens my load of fear and worry. Another slogan, “Easy does it” reminds me to be gentle with myself when I revert to becoming anxious and fearful.  To quote Mark Twain again, “Courage is resistance to fear, mastery of fear, not the absence of fear.”
+    new_text = '''At a recovery meeting for loved ones, we focused on fear which can crush and overpower. 
+    Often we project worst-case scenarios. A litany of “what ifs” take over. We ruminate, we project, we worry. 
+    Our hearts sink when the phone rings in the middle of the night. Is our loved one in jail, or a car wreck, 
+    or a hospital emergency room? Because these heartbreaking events are often consequences of substance abuse, 
+    loved ones often stay on alert.
+        Fear manifests in different ways. There’s fear of a tragic event, like a drug overdose, DUI, or suicide. 
+        And then there are less dramatic and more subtle worries. For example, when talking on the phone to my 
+        adult son who is in recovery, I pick up on his tone of voice. If it appears off kilter then "what ifs" 
+        take over. What if something bad is happening? What if he’s depressed? What if his depression triggers 
+        another episode of substance abuse? Although most parents pick up variations in their children’s tone 
+        of voice, I doubt that they jump to extreme conclusions. Rather, they might think that their loved one 
+        had a bad day or is tired or upset. More times than not this has been the case with my son. As Mark 
+        Twain said, “I’ve had a lot of worries in my life, most of which never happened.”
+        But what if the worst thing did happen, then how do we deal with the fear that it will happen again? 
+        One way to break the cycle is to stay present. Easier said than done.  But when you think about it, all 
+        we have is the present moment. The past is over and the future doesn’t exist. Members in my recovery 
+        group have shared ways to stay present.  These include: meditation, prayer, gardening, cooking, 
+        painting, interacting with children, and volunteering. I’ve found that some of these suggestions have worked for me.  
+        Recently I participated in a drawing class where I became singularly focused on drawing a simple ceramic 
+        bowl. Totally present for two hours: just me, a set of pencils, drawing paper, and that bowl. Swimming 
+        laps is another method I’ve found helpful. Stroke, breathe, kick….back and forth from one end of the pool 
+        to the other. I recently read a book by Andy Puddicombe, The Headspace Guide to Meditation and Mindfulness, 
+        How Mindfulness Can Change Your Life in Ten Minutes a Day.  It's helped motivate me to begin meditating on a
+         regular basis. After all who can't find ten minutes a day to help become less anxious and sad? 
+        The slogan “One Day at a Time”  reminds me to stay present.  It helps pull my attention away from projecting
+         into the future and leaving yesterday's baggage behind. Similarly “Just for today” lightens my load of fear
+          and worry. Another slogan, “Easy does it” reminds me to be gentle with myself when I revert to becoming 
+          anxious and fearful.  To quote Mark Twain again, “Courage is resistance to fear, mastery of fear, 
+          not the absence of fear.”
         '''
-
-    print(nmf_modeler.classify_new_text(model, vectorizer, new_text))
+    dominant_topic, loadings = nmf_modeler.classify_new_text(model, vectorizer, new_text)
+    print(f'new text - dominant topic: {dominant_topic} -- loadings: {loadings}')
