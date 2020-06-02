@@ -1,8 +1,6 @@
 import pandas as pd
 import numpy as np
 from string import punctuation
-import json
-from bs4 import BeautifulSoup
 import nltk
 from sklearn.feature_extraction.stop_words import ENGLISH_STOP_WORDS
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -52,7 +50,7 @@ def vectorize(df, column, stop_words):
 
 def get_nmf(X, n_components=7):
     # Create NMF matrixes based on a TF-IDF matrix
-    nmf = NMF(n_components=n_components, max_iter=100, random_state=12345, alpha=0.0)
+    nmf = NMF(n_components=n_components, max_iter=100, random_state=12345, alpha=0.5)
     W = nmf.fit_transform(X)
     H = nmf.components_
     return W, H, nmf
@@ -80,7 +78,7 @@ def document_topics(W):
     
 def topic_counts(df, text_col):
     grouped = df[['topics',text_col]].groupby(['topics']).count().sort_values(by = text_col,ascending = False)
-    print(tabulate(grouped.head(), headers='keys', tablefmt='github'))
+    print(tabulate(grouped, headers='keys', tablefmt='github'))
     
 additional_stop_words = [
     "therapy",
@@ -95,6 +93,20 @@ additional_stop_words = [
     "like",
     "time",
     "counseling",
+    "psychodynamic",
+    "cognitive",
+    "behavioral",
+    "service",
+    "hand",
+    "furthermore",
+    "suite",
+    "arrange",
+    "location",
+    "2005",
+    "health",
+    "manhattan",
+    "work",
+    "working",
     "zzz",
     "zzz"
 ]
@@ -113,14 +125,14 @@ if __name__ == '__main__':
     
     stop_words = get_stop_words(additional_stop_words)
     punc = punctuation
-    n_topics = 4
+    n_topics = 17
     n_top_words = 10
     clean_column(df, text_col, punc)
 
-    vis.word_distribution(df)
-    vis.word_cloud(df, 'writing_sample')
-    vis.ngram_bar_chart(df['writing_sample'],(1,1), 100)
-    vis.ngram_bar_chart(df['writing_sample'],(2,2), 20)
+    # vis.word_distribution(df)
+    # vis.word_cloud(df, 'writing_sample')
+    # vis.ngram_bar_chart(df['writing_sample'],(1,1), 100)
+    # vis.ngram_bar_chart(df['writing_sample'],(2,2), 20)
 
     X, features, vectorizer = vectorize(df, text_col, stop_words)
     W, H, nmf = get_nmf(X, n_components=n_topics)
