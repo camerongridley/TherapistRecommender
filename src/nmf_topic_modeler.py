@@ -141,11 +141,6 @@ class NmfTopicModeler(object):
         n_top_words = 10
         self.clean_column(df, text_col, punc)
 
-        # vis.word_distribution(df)
-        # vis.word_cloud(df, 'writing_sample')
-        # vis.ngram_bar_chart(df['writing_sample'],(1,1), 100)
-        # vis.ngram_bar_chart(df['writing_sample'],(2,2), 20) 
-
         X, features, vectorizer = self.vectorize(df, stop_words)
         W, H, nmf = self.get_nmf(X, n_components=n_topics)
         top_words = self.get_topic_words(H, features, n_features=n_top_words)
@@ -166,10 +161,6 @@ class NmfTopicModeler(object):
 if __name__ == '__main__':
     np.random.seed(10)
     #df = pd.read_pickle('data/df_processed_testing.pkl')
-    psql = PostgreSQLHandler()
-    vis = Visualizer(psql.get_conn())
-    vis.set_show_figs(True)
-    vis.set_save_figs(False)
     
     text_col = 'writing_sample'
     nmf_modeler = NmfTopicModeler(text_col)
@@ -186,9 +177,17 @@ if __name__ == '__main__':
         model = pickle.load( open( model_filename, "rb" ) )
         vectorizer = pickle.load( open( 'models/nmf_vectorizer', "rb" ) )
     else:
+        psql = PostgreSQLHandler()
+        vis = Visualizer(psql.get_conn())
+        vis.set_show_figs(True)
+        vis.set_save_figs(False)
+        
         sql = 'SELECT * FROM therapists'
         df = psql.sql_to_pandas(sql)
-
+        # vis.word_distribution(df)
+        # vis.word_cloud(df, 'writing_sample')
+        # vis.ngram_bar_chart(df['writing_sample'],(1,1), 100)
+        # vis.ngram_bar_chart(df['writing_sample'],(2,2), 20) 
         model, vectorizer= nmf_modeler.run_nmf(df)
 
         pickle.dump(model, open( model_filename, "wb" ) )
