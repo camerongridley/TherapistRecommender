@@ -201,22 +201,23 @@ class NmfTopicModeler(object):
         return dominant_topic, loadings
 
     def make_recommendations(self, loadings:list, df_therapist_topics:pd.DataFrame,
-            city:str, n_recs):
+            state:str, n_recs):
         
         #for col, val in filters.items():
-        city_filter = df_therapist_topics['city'] == city
-        filtered_df = df_therapist_topics[city_filter]
+        state_filter = df_therapist_topics['state'] == state
+        filtered_df = df_therapist_topics[state_filter]
 
         #filtered_df['cosine_sim'] = filtered_df['topic_weights'].apply(lambda x : cosine_similarity([loadings], [x]))
+        # temporarily drop topics 4 and 6 from loadings for recommendations
         filtered_df['cosine_sim'] = filtered_df['topic_weights'].apply(lambda x : cosine_similarity([np.delete(loadings,[4, 6])], [np.delete(x, [4,6])]))
-        
+
         return filtered_df.sort_values(by=['cosine_sim'], ascending=False).head(n_recs)
 
     def classify_and_recommend(self, nmf_model:NMF, vectorizer:TfidfVectorizer, new_text:str,
-        df_therapist_topics:pd.DataFrame, city:str, n_recs):
+        df_therapist_topics:pd.DataFrame, state:str, n_recs):
         
         dominant_topic, loadings = self.classify_new_text(model, vectorizer, new_text)
-        return self.make_recommendations(loadings, df_therapist_topics, city, n_recs)
+        return self.make_recommendations(loadings, df_therapist_topics, state, n_recs)
 
 if __name__ == '__main__':
     np.random.seed(10)
@@ -281,22 +282,23 @@ We're having trouble now again. I thought we could build the relationship up but
 
 Not sure what to do.'''
 
-
+    state = 'California'
+    n_recs = 5
     dominant_topic, loadings = nmf_modeler.classify_new_text(model, vectorizer, depression_text)
     print(f'depression_text - dominant topic: {dominant_topic} -- loadings: {loadings}')
-    print(f'\nRecs:\n{nmf_modeler.make_recommendations(loadings, df_therapist_topics, "Denver", 5)}\n')
+    print(f'\nRecs:\n{nmf_modeler.make_recommendations(loadings, df_therapist_topics, state, n_recs)}\n')
 
     dominant_topic, loadings = nmf_modeler.classify_new_text(model, vectorizer, ptsd_text)
     print(f'ptsd_text - dominant topic: {dominant_topic} -- loadings: {loadings}')
-    print(f'\nRecs:\n{nmf_modeler.make_recommendations(loadings, df_therapist_topics, "Denver", 5)}\n')
+    print(f'\nRecs:\n{nmf_modeler.make_recommendations(loadings, df_therapist_topics, state, n_recs)}\n')
 
     dominant_topic, loadings = nmf_modeler.classify_new_text(model, vectorizer, addiction_text)
     print(f'addiction_text - dominant topic: {dominant_topic} -- loadings: {loadings}')
-    print(f'\nRecs:\n{nmf_modeler.make_recommendations(loadings, df_therapist_topics, "Denver", 5)}\n')
+    print(f'\nRecs:\n{nmf_modeler.make_recommendations(loadings, df_therapist_topics, state, n_recs)}\n')
 
     dominant_topic, loadings = nmf_modeler.classify_new_text(model, vectorizer, marriage_text)
     print(f'marriage_text - dominant topic: {dominant_topic} -- loadings: {loadings}')
-    print(f'\nRecs:\n{nmf_modeler.make_recommendations(loadings, df_therapist_topics, "Denver", 5)}\n')
+    print(f'\nRecs:\n{nmf_modeler.make_recommendations(loadings, df_therapist_topics, state, n_recs)}\n')
 
     #print(f'\nRecs:\n{nmf_modeler.make_recommendations(loadings, df_therapist_topics, "Denver", 5)}')
 
