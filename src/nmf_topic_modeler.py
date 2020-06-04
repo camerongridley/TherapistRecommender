@@ -118,7 +118,7 @@ class NmfTopicModeler(object):
         grouped = df[['dominant_topic',self.text_col]].groupby(['dominant_topic']).count().sort_values(by = self.text_col,ascending = False)
         print(tabulate(grouped, headers='keys', tablefmt='github'))
 
-    def run_nmf(self, df, n_topics = 15):
+    def run_nmf(self, df, n_topics = 15, save_results=False):
         additional_stop_words = [
             "therapy",
             "therapist",
@@ -175,13 +175,14 @@ class NmfTopicModeler(object):
         df['topic_weights'] = [x for x in W]
         #self.print_topics(top_words)
         self.print_topics(top_words.T)
-        df.to_pickle("data/nmf_pickled_df")
+
+        if save_results:
+            df.to_pickle("data/nmf_pickled_df")
+            pickle.dump(nmf, open( 'deploy/nmf_model', "wb" ) )
+            pickle.dump(vectorizer, open( 'deploy/nmf_vectorizer', "wb" ) )
+            pickle.dump(df, open( 'deploy/nmf_df_topics', "wb" ) )
+
         self.topic_counts(df)
-
-        pickle.dump(nmf, open( 'deploy/nmf_model', "wb" ) )
-        pickle.dump(vectorizer, open( 'deploy/nmf_vectorizer', "wb" ) )
-        pickle.dump(df, open( 'deploy/nmf_df_topics', "wb" ) )
-
         return nmf, vectorizer, df
 
     def prepare_new_text(self, new_text:str):
@@ -249,7 +250,7 @@ class NmfTopicModeler(object):
         vis.make_plot(x=x, y=y, title='Reconstruction Error by Number of Topics', x_label='Number of Topics', y_label='Reconstruction Error')
 
     def get_nmf_reconstr_err(self, c, df):
-        model, vectorizer, df_therapist_topics = self.run_nmf(df, c)
+        model, vectorizer, df_therapist_topics = self.run_nmf(df, c, save_results=False)
         return model.reconstruction_err_
 
 if __name__ == '__main__':
@@ -280,7 +281,7 @@ if __name__ == '__main__':
         sql = 'SELECT * FROM therapists'
         df = psql.sql_to_pandas(sql)
 
-        model, vectorizer, df_therapist_topics = nmf_modeler.run_nmf(df=df, n_topics = 15)
+        model, vectorizer, df_therapist_topics = nmf_modeler.run_nmf(df=df, n_topics = 15, save_results=True)
         pickle.dump(model, open( model_filename, "wb" ) )
 
         # vis.word_distribution(df)
@@ -289,7 +290,7 @@ if __name__ == '__main__':
         # vis.ngram_bar_chart(df['writing_sample'],(2,2), 20) 
         # vis.ngram_bar_chart(df['writing_sample'],(3,3), 20)
 
-        #nmf_modeler.evaluate_n_topics(vis, df, 3, 40)
+        #nmf_modeler.evaluate_n_topics(vis, df, 3, 4)
 
     else:
         # load data, vectorizer and model from local pickle files
