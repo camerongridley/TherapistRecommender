@@ -114,7 +114,7 @@ class Visualizer(object):
         ax.set_title('Practice Description Word Counts')
         ax.hist(writing_lengths, bins=100, color=c1)
         ax.axvline(x=mean, c=c2)
-        plt.text(mean+200, 22, mean_label, bbox=dict(facecolor=c2, alpha=0.5))
+        plt.text(mean+200, 422, mean_label, bbox=dict(facecolor=c2, alpha=0.5))
         if self.save_figs:
             plt.savefig(f'{self.visualiztion_directory}design/word_count_hist.png')
         if self.show_figs:
@@ -164,21 +164,40 @@ class Visualizer(object):
         #     plt.savefig(f'{self.visualiztion_directory}design/website_bar.png')
 
     def word_cloud(self, df:pd.DataFrame, col_name:str, max_words=500)->None:
-        stopwords = set(spacy_stops)
+        #stopwords = set(stop_words)
 
-        wordcloud = WordCloud(
-            background_color='white',
-            stopwords = stopwords,
-            max_words = max_words,
-            max_font_size = 40,
-            random_state = 42
-        ).generate(str(df[col_name]))
+        text = str(df[col_name])
+        # clean_text = [word for word in text.split() if word not in stop_words]
+        # text = ' '.join([str(elem) for elem in clean_text])
+        wordcloud = WordCloud(width=1600, height=800, 
+        background_color='white').generate(text)
+        # Open a plot of the generated image.
 
-        print(wordcloud)
-        fig = plt.figure(1)
+        plt.figure( figsize=(20,10), facecolor='k')
         plt.imshow(wordcloud)
-        plt.axis('off')
+        plt.axis("off")
+        plt.tight_layout(pad=0)
+
+        if self.save_figs:
+            plt.savefig(f'{self.visualiztion_directory}data_vis/word_cloud.png')
+
         plt.show()
+        # wordcloud = WordCloud(
+        #     width=1600, height=800,
+        #     background_color='white',
+        #     stopwords = stopwords,
+        #     max_words = max_words,
+        #     max_font_size = 40,
+        #     random_state = 42,
+        #     interpolation="bilinear"
+        # ).generate(str(df[col_name]))
+
+        # print(wordcloud)
+        # fig = plt.figure(1, dpi=200, figsize=(20, 10))
+        # plt.imshow(wordcloud)
+        # plt.axis('off')
+        # plt.show()
+        
 
     # # returns tuple of ngram and corpus freqency
     # def get_top_n_grams(self, corpus:pd.DataFrame, n_gram_range=(1,1), n=None, stopwords=spacy_stops)->list:
@@ -195,7 +214,7 @@ class Visualizer(object):
     #     return words_freq[:n]
 
     def ngram_bar_chart(self, corpus:pd.DataFrame, n_gram_range:tuple, n:int)->None:
-        data_processor = DataPreProcessor()
+        data_processor = DataPreProcessor('writing_sample')
         common_words = data_processor.get_top_n_grams(corpus=corpus, n_gram_range=n_gram_range, n=n)
         #common_words = self.get_top_n_grams(corpus=corpus, n_gram_range=n_gram_range, n=n)
         df3 = pd.DataFrame(common_words, columns = ['bigram' , 'count'])

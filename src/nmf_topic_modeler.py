@@ -72,7 +72,7 @@ class NmfTopicModeler(object):
     def vectorize(self, df, stop_words):
         # Vectorize a text column of a pandas DataFrame
         text = df[self.text_col].values
-        vectorizer = TfidfVectorizer(stop_words = stop_words) 
+        vectorizer = TfidfVectorizer(ngram_range=(2,2),stop_words = stop_words) 
         X = vectorizer.fit_transform(text)
         features = np.array(vectorizer.get_feature_names())
         return X, features, vectorizer
@@ -160,7 +160,7 @@ class NmfTopicModeler(object):
             "person",
             "come",
             "love",
-            "zzz"
+            "my"
         ]
         stop_words = self.get_stop_words(additional_stop_words)
         punc = punctuation
@@ -207,9 +207,9 @@ class NmfTopicModeler(object):
         state_filter = df_therapist_topics['state'] == state
         filtered_df = df_therapist_topics[state_filter]
 
-        #filtered_df['cosine_sim'] = filtered_df['topic_weights'].apply(lambda x : cosine_similarity([loadings], [x]))
+        filtered_df['cosine_sim'] = filtered_df['topic_weights'].apply(lambda x : cosine_similarity([loadings], [x]))
         # temporarily drop topics 4 and 6 from loadings for recommendations
-        filtered_df['cosine_sim'] = filtered_df['topic_weights'].apply(lambda x : cosine_similarity([np.delete(loadings,[4, 6])], [np.delete(x, [4,6])]))
+        #filtered_df['cosine_sim'] = filtered_df['topic_weights'].apply(lambda x : cosine_similarity([np.delete(loadings,[4, 6])], [np.delete(x, [4,6])]))
 
         return filtered_df.sort_values(by=['cosine_sim'], ascending=False).head(n_recs)
 
@@ -242,15 +242,18 @@ if __name__ == '__main__':
         psql = PostgreSQLHandler()
         vis = Visualizer(psql.get_conn())
         vis.set_show_figs(True)
-        vis.set_save_figs(False)
+        vis.set_save_figs(True)
         
         sql = 'SELECT * FROM therapists'
         df = psql.sql_to_pandas(sql)
-        # vis.word_distribution(df)
-        # vis.word_cloud(df, 'writing_sample')
-        # vis.ngram_bar_chart(df['writing_sample'],(1,1), 100)
-        # vis.ngram_bar_chart(df['writing_sample'],(2,2), 20) 
+
         model, vectorizer, df_therapist_topics = nmf_modeler.run_nmf(df)
+
+        #vis.word_distribution(df)
+        #vis.word_cloud(df, 'writing_sample')
+        #vis.ngram_bar_chart(df['writing_sample'],(1,1), 50)
+        # vis.ngram_bar_chart(df['writing_sample'],(2,2), 20) 
+        # vis.ngram_bar_chart(df['writing_sample'],(3,3), 20)
 
         pickle.dump(model, open( model_filename, "wb" ) )
 
@@ -280,13 +283,15 @@ All intimacy has died. Sex is a chore. We separated temporarily a few times but 
 
 We're having trouble now again. I thought we could build the relationship up but she is averse to therapy. Feels like we are both unhappy and treading water. We're not building any noticeable trust, just trying not to fight.
 
-Not sure what to do.'''
+Not sure what to do.''' 
 
     state = 'California'
     n_recs = 5
     dominant_topic, loadings = nmf_modeler.classify_new_text(model, vectorizer, depression_text)
     print(f'depression_text - dominant topic: {dominant_topic} -- loadings: {loadings}')
-    print(f'\nRecs:\n{nmf_modeler.make_recommendations(loadings, df_therapist_topics, state, n_recs)}\n')
+    recs = nmf_modeler.make_recommendations(loadings, df_therapist_topics, state, n_recs)
+    print(f'\nRecs:\n{recs}\n')
+    nmf_modeler.write_html_file(recs[['first_name', 'last_name', 'website', 'phone']].to_html(), 'img/testing/recs.html')
 
     dominant_topic, loadings = nmf_modeler.classify_new_text(model, vectorizer, ptsd_text)
     print(f'ptsd_text - dominant topic: {dominant_topic} -- loadings: {loadings}')
