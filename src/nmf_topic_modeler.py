@@ -118,7 +118,7 @@ class NmfTopicModeler(object):
         grouped = df[['dominant_topic',self.text_col]].groupby(['dominant_topic']).count().sort_values(by = self.text_col,ascending = False)
         print(tabulate(grouped, headers='keys', tablefmt='github'))
 
-    def run_nmf(self, df):
+    def run_nmf(self, df, n_topics = 15):
         additional_stop_words = [
             "therapy",
             "therapist",
@@ -164,7 +164,7 @@ class NmfTopicModeler(object):
         ]
         stop_words = self.get_stop_words(additional_stop_words)
         punc = punctuation
-        n_topics = 15
+        
         n_top_words = 10
         self.clean_column(df, text_col, punc)
 
@@ -219,6 +219,39 @@ class NmfTopicModeler(object):
         dominant_topic, loadings = self.classify_new_text(model, vectorizer, new_text)
         return self.make_recommendations(loadings, df_therapist_topics, state, n_recs)
 
+    def get_topic_names(self, topic_ids:list)->list:
+        d = {
+            0 : 'Office Environment',
+            1 : 'Relational Conflict',
+            2 : 'Cost and Consultation',
+            3 : 'Experiential',
+            4 : 'Diagnostic',
+            5 : 'Primary Relationship Struggle',
+            6 : 'Trauma',
+            7 : 'Insurance',
+            8 : 'Child and Aldolescence',
+            9 : 'Professional Experience',
+            10 : 'Eastern/Non-Traditional',
+            11 : 'Emergencies',
+            12 : 'Availiability',
+            13 : 'Depression, Anxiety and Grief',
+            14 : 'Safety and Comfort'
+            
+        }
+
+        return [d.get(id) for id in topic_ids]
+
+    def evaluate_n_topics(self, vis:Visualizer, df:pd.DataFrame, min_topics:int, max_topics:int)->None:
+        
+        x = np.arange(start=min_topics, stop=max_topics+1)
+        y = [self.get_nmf_reconstr_err(c, df) for c in x]
+
+        vis.make_plot(x=x, y=y, title='Reconstruction Error by Number of Topics', x_label='Number of Topics', y_label='Reconstruction Error')
+
+    def get_nmf_reconstr_err(self, c, df):
+        model, vectorizer, df_therapist_topics = self.run_nmf(df, c)
+        return model.reconstruction_err_
+
 if __name__ == '__main__':
     np.random.seed(10)
     
@@ -238,6 +271,7 @@ if __name__ == '__main__':
     model_filename = "deploy/nmf_model"
 
     if args.frompsql:
+        # dynamically created data, vectorizer and load data from postgreSQL database
         psql = PostgreSQLHandler()
         vis = Visualizer(psql.get_conn())
         vis.set_show_figs(True)
@@ -246,7 +280,8 @@ if __name__ == '__main__':
         sql = 'SELECT * FROM therapists'
         df = psql.sql_to_pandas(sql)
 
-        model, vectorizer, df_therapist_topics = nmf_modeler.run_nmf(df)
+        model, vectorizer, df_therapist_topics = nmf_modeler.run_nmf(df=df, n_topics = 15)
+        pickle.dump(model, open( model_filename, "wb" ) )
 
         # vis.word_distribution(df)
         # vis.word_cloud(df, 'writing_sample')
@@ -254,12 +289,15 @@ if __name__ == '__main__':
         # vis.ngram_bar_chart(df['writing_sample'],(2,2), 20) 
         # vis.ngram_bar_chart(df['writing_sample'],(3,3), 20)
 
-        pickle.dump(model, open( model_filename, "wb" ) )
+        #nmf_modeler.evaluate_n_topics(vis, df, 3, 40)
 
     else:
+        # load data, vectorizer and model from local pickle files
         model = pickle.load( open( model_filename, "rb" ) )
         vectorizer = pickle.load( open( 'deploy/nmf_vectorizer', "rb" ) )
         df_therapist_topics = pickle.load( open( 'deploy/nmf_df_topics', "rb" ) )
+
+    
 
     depression_text = '''I feel that I need to give a small explanation on the condition I suffer from before I get into my rant: I suffer from POTS, which if you've ever been severely dehydrated- it's those symptoms all the time. I get severe night sweats that make my room smell and soak my clothes, I can't control my temperature (I get painfully hot after showers, and unable to sweat), I CANNOT run up and down the stairs without my legs getting weak and wanting to collapse, I have to eat slowly, in small bites, and in small portions otherwise I feel like I can't breathe or might vomit, etc.
 
@@ -292,21 +330,21 @@ Not sure what to do.'''
     state = 'California'
     n_recs = 5
     dominant_topic, loadings = nmf_modeler.classify_new_text(model, vectorizer, depression_text)
-    print(f'depression_text - dominant topic: {dominant_topic} -- loadings: {loadings}')
+    print(f'depression_text - dominant topic: {nmf_modeler.get_topic_names([dominant_topic])} -- loadings: {loadings}')
     recs = nmf_modeler.make_recommendations(loadings, df_therapist_topics, state, n_recs)
     print(f'\nRecs:\n{recs}\n')
     nmf_modeler.write_html_file(recs[['first_name', 'last_name', 'website', 'phone']].to_html(), 'img/testing/recs.html')
 
     dominant_topic, loadings = nmf_modeler.classify_new_text(model, vectorizer, ptsd_text)
-    print(f'ptsd_text - dominant topic: {dominant_topic} -- loadings: {loadings}')
+    print(f'ptsd_text - dominant topic: {nmf_modeler.get_topic_names([dominant_topic])} -- loadings: {loadings}')
     print(f'\nRecs:\n{nmf_modeler.make_recommendations(loadings, df_therapist_topics, state, n_recs)}\n')
 
     dominant_topic, loadings = nmf_modeler.classify_new_text(model, vectorizer, addiction_text)
-    print(f'addiction_text - dominant topic: {dominant_topic} -- loadings: {loadings}')
+    print(f'addiction_text - dominant topic: {nmf_modeler.get_topic_names([dominant_topic])} -- loadings: {loadings}')
     print(f'\nRecs:\n{nmf_modeler.make_recommendations(loadings, df_therapist_topics, state, n_recs)}\n')
 
     dominant_topic, loadings = nmf_modeler.classify_new_text(model, vectorizer, marriage_text)
-    print(f'marriage_text - dominant topic: {dominant_topic} -- loadings: {loadings}')
+    print(f'marriage_text - dominant topic: {nmf_modeler.get_topic_names([dominant_topic])} -- loadings: {loadings}')
     print(f'\nRecs:\n{nmf_modeler.make_recommendations(loadings, df_therapist_topics, state, n_recs)}\n')
 
     #print(f'\nRecs:\n{nmf_modeler.make_recommendations(loadings, df_therapist_topics, "Denver", 5)}')

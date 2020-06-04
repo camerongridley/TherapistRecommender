@@ -249,6 +249,11 @@ class Visualizer(object):
     #     fig.update_layout(title=go.layout.Title(text=f"Top {n} trigrams in the description text after removing stop words and lemmatization"))
     #     fig.show()
 
-    
-
-    
+    def make_plot(self, x, y, title="", x_label="", y_label=""):
+        fig, ax = plt.subplots()
+        ax.plot(x, y)
+        ax.set_title(title)
+        ax.set_xlabel(x_label)
+        ax.set_ylabel(y_label)
+        plt.tight_layout()
+        plt.show()
