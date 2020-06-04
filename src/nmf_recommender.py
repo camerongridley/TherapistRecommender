@@ -178,10 +178,10 @@ class NmfRecommender(object):
         self.print_topics(top_words.T)
 
         if save_results:
-            df.to_pickle("data/nmf_pickled_df")
-            pickle.dump(nmf, open( 'deploy/nmf_model', "wb" ) )
-            pickle.dump(vectorizer, open( 'deploy/nmf_vectorizer', "wb" ) )
-            pickle.dump(df, open( 'deploy/nmf_df_topics', "wb" ) )
+            df.to_pickle("data/nmf_pickled_df.pkl")
+            pickle.dump(nmf, open( 'deploy/nmf_model.pkl', "wb" ) )
+            pickle.dump(vectorizer, open( 'deploy/nmf_vectorizer.pkl', "wb" ) )
+            pickle.dump(df, open( 'deploy/nmf_df_topics.pkl', "wb" ) )
 
         self.topic_counts(df)
         return nmf, vectorizer, df
@@ -200,7 +200,7 @@ class NmfRecommender(object):
         loadings = nmf_model.transform(X)[0]
         dominant_topic_id = loadings.argsort()[-1]
         
-        return dominant_topic_id, loadings
+        return loadings
 
     def make_recommendations(self, loadings:list, df_therapist_topics:pd.DataFrame,
             state:str, n_recs):
@@ -218,7 +218,7 @@ class NmfRecommender(object):
     def classify_and_recommend(self, nmf_model:NMF, vectorizer:TfidfVectorizer, new_text:str,
         df_therapist_topics:pd.DataFrame, state:str, n_recs):
         
-        dominant_topic_id, loadings = self.classify_new_text(model, vectorizer, new_text)
+        loadings = self.classify_new_text(nmf_model, vectorizer, new_text)
         recs = self.make_recommendations(loadings, df_therapist_topics, state, n_recs)
         return loadings, recs
 
@@ -276,7 +276,7 @@ if __name__ == '__main__':
 
     args = parser.parse_args()
     model = None
-    model_filename = "deploy/nmf_model"
+    model_filename = "deploy/nmf_model.pkl"
 
     if args.frompsql:
         # dynamically created data, vectorizer and load data from postgreSQL database
@@ -302,8 +302,8 @@ if __name__ == '__main__':
     else:
         # load data, vectorizer and model from local pickle files
         model = pickle.load( open( model_filename, "rb" ) )
-        vectorizer = pickle.load( open( 'deploy/nmf_vectorizer', "rb" ) )
-        df_therapist_topics = pickle.load( open( 'deploy/nmf_df_topics', "rb" ) )
+        vectorizer = pickle.load( open( 'deploy/nmf_vectorizer.pkl', "rb" ) )
+        df_therapist_topics = pickle.load( open( 'deploy/nmf_df_topics.pkl', "rb" ) )
 
     
 
