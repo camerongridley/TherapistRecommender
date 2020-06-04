@@ -289,6 +289,8 @@ if __name__ == '__main__':
     tf_matrix, count_vect = nlp.create_tf_matrix(docs=df['writing_sample'], all_stop_words=final_stop_words, 
         n_gram_range=(1,1), max_features=1000, remove_punc=True, tokenizer='wordnet')
 
+    # if select tf matrix, remove standard stopwords plus the n most frequently occuring words
+    # if using tfidf, just remove the standard stopwords
     selected_matrix = tfidf_matrix
     selected_vectorizer = tfidf_vect
 

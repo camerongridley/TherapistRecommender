@@ -178,9 +178,9 @@ class NmfTopicModeler(object):
         df.to_pickle("data/nmf_pickled_df")
         self.topic_counts(df)
 
-        pickle.dump(nmf, open( 'models/nmf_model', "wb" ) )
-        pickle.dump(vectorizer, open( 'models/nmf_vectorizer', "wb" ) )
-        pickle.dump(df, open( 'models/nmf_df_topics', "wb" ) )
+        pickle.dump(nmf, open( 'deploy/nmf_model', "wb" ) )
+        pickle.dump(vectorizer, open( 'deploy/nmf_vectorizer', "wb" ) )
+        pickle.dump(df, open( 'deploy/nmf_df_topics', "wb" ) )
 
         return nmf, vectorizer, df
 
@@ -221,7 +221,6 @@ class NmfTopicModeler(object):
 
 if __name__ == '__main__':
     np.random.seed(10)
-    #df = pd.read_pickle('data/df_processed_testing.pkl')
     
     text_col = 'writing_sample'
     nmf_modeler = NmfTopicModeler(text_col)
@@ -229,16 +228,16 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
    
     parser.add_argument('-fd', '--fromdisk', action='store_true', 
-        help="load model from local file")
+        help="load model with data from local file")
+
+    parser.add_argument('-psql', '--frompsql', action='store_true', 
+        help="load model with data from postgreSql database")
 
     args = parser.parse_args()
     model = None
-    model_filename = "models/nmf_model"
-    if args.fromdisk:
-        model = pickle.load( open( model_filename, "rb" ) )
-        vectorizer = pickle.load( open( 'models/nmf_vectorizer', "rb" ) )
-        df_therapist_topics = pickle.load( open( 'models/nmf_df_topics', "rb" ) )
-    else:
+    model_filename = "deploy/nmf_model"
+
+    if args.frompsql:
         psql = PostgreSQLHandler()
         vis = Visualizer(psql.get_conn())
         vis.set_show_figs(True)
@@ -249,13 +248,18 @@ if __name__ == '__main__':
 
         model, vectorizer, df_therapist_topics = nmf_modeler.run_nmf(df)
 
-        #vis.word_distribution(df)
-        #vis.word_cloud(df, 'writing_sample')
-        #vis.ngram_bar_chart(df['writing_sample'],(1,1), 50)
+        # vis.word_distribution(df)
+        # vis.word_cloud(df, 'writing_sample')
+        # vis.ngram_bar_chart(df['writing_sample'],(1,1), 50)
         # vis.ngram_bar_chart(df['writing_sample'],(2,2), 20) 
         # vis.ngram_bar_chart(df['writing_sample'],(3,3), 20)
 
         pickle.dump(model, open( model_filename, "wb" ) )
+
+    else:
+        model = pickle.load( open( model_filename, "rb" ) )
+        vectorizer = pickle.load( open( 'deploy/nmf_vectorizer', "rb" ) )
+        df_therapist_topics = pickle.load( open( 'deploy/nmf_df_topics', "rb" ) )
 
     depression_text = '''I feel that I need to give a small explanation on the condition I suffer from before I get into my rant: I suffer from POTS, which if you've ever been severely dehydrated- it's those symptoms all the time. I get severe night sweats that make my room smell and soak my clothes, I can't control my temperature (I get painfully hot after showers, and unable to sweat), I CANNOT run up and down the stairs without my legs getting weak and wanting to collapse, I have to eat slowly, in small bites, and in small portions otherwise I feel like I can't breathe or might vomit, etc.
 
