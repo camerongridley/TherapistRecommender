@@ -14,6 +14,14 @@ def index():
 def submit():
     return render_template('submit.html')
 
+@app.route('/about', methods=['GET'])
+def about():
+    return render_template('about.html')
+
+@app.route('/contact', methods=['GET'])
+def contact():
+    return render_template('contact.html')
+
 @app.route('/recommend', methods=['POST'])
 def recommend():
     #np.random.seed(10)
@@ -56,7 +64,7 @@ def recommend():
     dom_topic_names = ', '.join(nmf_recommender.get_dominant_topics(3, loadings)).rstrip()
     #pred = nmf_recommender.predict([content])[0]
 
-    return render_template('recommend.html', topics=dom_topic_names, recommendations=recs.to_html())
+    return render_template('recommend.html', topics=dom_topic_names, recommendations=recs)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8105, debug=True)

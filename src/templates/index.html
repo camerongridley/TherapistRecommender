@@ -1,9 +1,24 @@
 {% extends "base.html" %}
 {% block content %}
 
-<p class="lead">
-	<h1>Therapist Recommender</h1>
-	<p>Ready to find a therapist?</p>
-	<p><a href="/submit">Get Started!</a></p>
-</p>
+<div class="col-md-7">
+	<h2 class="featurette-heading">Helping people find a good therapist with artifical intelligence and machine learning. <span class="text-muted"></span></h2>
+	<p class="lead">
+	  Some description of the app...
+
+	</p>
+	<p class="lead">
+		<h1>Ready to find a therapist?</h1>
+		<p>
+			<button type="button" class="btn btn-info">
+			<a href="/submit">Get Started!</a></button>
+		</p>
+	</p>
+	
+
+  </div> 
+   
+  <div class="col-md-5">
+		<img class="featurette-image img-responsive center-block" id="firstfeaturetteimage" src="../static/img/working-together.jpg" alt="">
+	  </div>
 {% endblock %}

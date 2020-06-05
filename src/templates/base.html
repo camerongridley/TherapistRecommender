@@ -16,7 +16,7 @@
     <meta name="author" content="Cameron Gridley">
     <meta name="google-site-verification" content="npgKRh2HJShFqjfTS0NowTdOM842Jw54AFsENvrgV30" />
     
-    <link rel="icon" href="favicon.ico">
+    <link rel="icon" href="../static/favicon.ico">
 
     <title>Therapist Recommender</title>
     <!-- Google Fonts-->
@@ -70,11 +70,15 @@ pageTracker._trackPageview();
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" id="navbar-brand" href="index.html">Dr. Cameron Gridley, Psy.D.</a>
+                <a class="navbar-brand" id="navbar-brand" href="/">Therapist Recommender</a>
               </div>
               <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                  <li class="active"><a href="index.html">Home</a></li>
+                  <li class="active"><a href="/">Home</a></li>
+                  
+                  <li><a href="/submit">Get Recommendations</a></li>
+                  <li><a href="/about">About Me</a></li>
+                  <li><a href="/contact">Contact</a></li>
                   <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Services <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
@@ -84,15 +88,14 @@ pageTracker._trackPageview();
                       <li><a href="lgbtq.html">LGBTQ Issues</a></li>
                     </ul>
                   </li>
-                  <li class="dropdown">
+                  <!--<li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Resources <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
                       <li><a href="forms.html">Forms & Handouts</a></li>
                       <li><a href="resources.html">Recommended Websites & Books</a></li>
                     </ul>
                   </li>
-                  <li><a href="about.html">About Me</a></li>
-                  <li><a href="contact.html">Contact</a></li>
+                -->
                 </ul>
               </div>
             </div>
@@ -120,10 +123,10 @@ pageTracker._trackPageview();
             <img class="first-slide" id="about-first-slide">
             <div class="container">
               <div class="carousel-caption">
-                <h1>Cameron Gridley, Psy.D.</h1>
-                <h3>Licensed Clinical Psychologist
-                <br>Certified Sex Therapist</h3>
-                <p>Providing couple therapy, sex therapy, and individual therapy in the Denver area.</p>
+                <h1>A.I. Enhanced Therapist Recommender</h1>
+                <h3>Get a better fit from the beginning.</h3>
+
+                <p></p>
 
               </div>
             </div>
@@ -178,17 +181,9 @@ pageTracker._trackPageview();
           <div class="container marketing">
             <hr class="featurette-divider">
             <div class="row featurette">
+              {% block content %}{% endblock %}
+                
               
-              <div class="col-md-7">
-                <h2 class="featurette-heading">Offering Couples Therapy, Sex Therapy and Individual Therapy.  <span class="text-muted">For All of Denver.</span></h2>
-                <p class="lead">As a licensed clinical psychologist and certified sex therapist in Denver, I specialize in couples therapy and sex therapy. I also provide individual counseling for a wide range of issues, including anxiety, depression and dealing with trauma, among others.</p>
-
-                  {% block content %}{% endblock %}
-
-              </div>    
-              <div class="col-md-5">
-                <img class="featurette-image img-responsive center-block" id="firstfeaturetteimage" src="../static/img/denver-skyline.jpg" alt="Couples Therapy, Sex Therapy, and Individual Therapy">
-              </div>
             </div>
             <hr class="featurette-divider">
           </div> <!-- /.container -->
@@ -200,7 +195,7 @@ pageTracker._trackPageview();
 
           <!-- FOOTER -->
           <footer id="footer">
-            <p>&copy; 2020 Cameron Gridley &middot; https://www.linkedin.com/in/cameron-gridley/ &middot; </p>
+            <p>&copy; 2020 Cameron Gridley &middot; <a href="https://www.linkedin.com/in/cameron-gridley/">LinkedIn</a> &middot; </p>
           </footer>
 
           <div id="back-to-top">

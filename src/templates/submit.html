@@ -1,5 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
+<div class="col-md-7">
+	<h2 class="featurette-heading">Tell us what you need.<span class="text-muted"></span></h2>
+	<p class="lead">
+      The more descriptive you are about what you are looking for help with 
+      and what you want in a therapist, the better we can match you up to a 
+      therapist who thinks about these topics in similar ways to you.
+	</p>
 <form action='/recommend' method='POST'>
   <label for="state">State:</label>
   <input type="text" id="state" name="state"><br><br>
@@ -13,6 +20,10 @@
 
   <input type='submit'>
 </form>
+</div>
+<div class="col-md-5">
+    <img class="featurette-image img-responsive center-block" id="firstfeaturetteimage" src="../static/img/compassion.jpg" alt="">
+  </div>
 {% endblock %}
 
 
