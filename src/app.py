@@ -59,4 +59,4 @@ def recommend():
     return render_template('recommend.html', topics=dom_topic_names, recommendations=recs.to_html())
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8080, debug=True)
+    app.run(host='0.0.0.0', port=8105, debug=True)
