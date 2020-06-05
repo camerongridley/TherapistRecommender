@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, jsonify
 import pickle
 import numpy as np
-from nmf_recommender import NmfRecommender
+from nmf_rec_lite import NmfRecommenderLite
 
 app = Flask(__name__)
 
@@ -16,10 +16,10 @@ def submit():
 
 @app.route('/recommend', methods=['POST'])
 def recommend():
-    np.random.seed(10)
+    #np.random.seed(10)
 
     text_col = 'writing_sample'
-    nmf_recommender = NmfRecommender(text_col)
+    nmf_recommender = NmfRecommenderLite(text_col)
     model = pickle.load( open( "../deploy/nmf_model.pkl", "rb" ) )
     vectorizer = pickle.load( open( '../deploy/nmf_vectorizer.pkl', "rb" ) )
     df_therapist_topics = pickle.load( open( '../deploy/nmf_df_topics.pkl', "rb" ) )
@@ -31,7 +31,8 @@ def recommend():
     n_recs = int(request.form['num_recs_choice'])
     state = str(request.form['state'])
 
-    test = '''Although I have been healing for the past two years with lot of therapy and self care . 
+    test = '''
+    Although I have been healing for the past two years with lot of therapy and self care . 
     I don’t feel “normal” . I am not the same person as I was when I was 18 . It is frustrating and 
     sometimes causes me to unable to do things I really want to do . For example , I want to date people 
     and experience more sex but I can’t bring myself to do it . Every time I have feelings for someone , 
@@ -52,7 +53,7 @@ def recommend():
     '''
 
     loadings, recs = nmf_recommender.classify_and_recommend(model, vectorizer, content,df_therapist_topics, state, n_recs)
-    dom_topic_names = nmf_recommender.get_dominant_topics(3, loadings)
+    dom_topic_names = ', '.join(nmf_recommender.get_dominant_topics(3, loadings)).rstrip()
     #pred = nmf_recommender.predict([content])[0]
 
     return render_template('recommend.html', topics=dom_topic_names, recommendations=recs.to_html())

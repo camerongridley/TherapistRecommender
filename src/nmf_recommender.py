@@ -165,7 +165,7 @@ class NmfRecommender(object):
         punc = punctuation
         
         n_top_words = 10
-        self.clean_column(df, text_col, punc)
+        self.clean_column(df, self.text_col, punc)
 
         X, features, vectorizer = self.vectorize(df, stop_words)
 
@@ -293,7 +293,7 @@ if __name__ == '__main__':
 
         # vis.word_distribution(df)
         # vis.word_cloud(df, 'writing_sample')
-        # vis.ngram_bar_chart(df['writing_sample'],(1,1), 50)
+        # vis.ngram_bar_chart(df['writing_sample'],(1,1), 20)
         # vis.ngram_bar_chart(df['writing_sample'],(2,2), 20) 
         # vis.ngram_bar_chart(df['writing_sample'],(3,3), 20)
 
