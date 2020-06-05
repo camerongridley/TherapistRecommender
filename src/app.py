@@ -5,14 +5,22 @@ from nmf_rec_lite import NmfRecommenderLite
 
 app = Flask(__name__)
 
+text_col = 'writing_sample'
+nmf_recommender = NmfRecommenderLite(text_col)
+model = pickle.load( open( "../deploy/nmf_model.pkl", "rb" ) )
+vectorizer = pickle.load( open( '../deploy/nmf_vectorizer.pkl', "rb" ) )
+df_therapist_topics = pickle.load( open( '../deploy/nmf_df_topics.pkl', "rb" ) )
+all_states = df_therapist_topics['state'].unique()
+all_states.sort()
 
 @app.route('/', methods=['GET'])
 def index():
+
     return render_template('index.html')
 
 @app.route('/submit', methods=['GET'])
 def submit():
-    return render_template('submit.html')
+    return render_template('submit.html', state_list=all_states)
 
 @app.route('/about', methods=['GET'])
 def about():
@@ -26,11 +34,7 @@ def contact():
 def recommend():
     #np.random.seed(10)
 
-    text_col = 'writing_sample'
-    nmf_recommender = NmfRecommenderLite(text_col)
-    model = pickle.load( open( "../deploy/nmf_model.pkl", "rb" ) )
-    vectorizer = pickle.load( open( '../deploy/nmf_vectorizer.pkl', "rb" ) )
-    df_therapist_topics = pickle.load( open( '../deploy/nmf_df_topics.pkl', "rb" ) )
+    
 
     print(df_therapist_topics.head())
     print(f'MODEL TYPE: {type(model)}')

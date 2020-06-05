@@ -1,243 +1,36 @@
-
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="Dr. Cameron Gridley is a licensed clinical psychologist located in the Cherry Creek district of Denver." />
-
-    <meta name="keywords" content="certified sex therapist, AASECT, couples therapy,sex therapy,Denver,Cherry Creek,licensed clinical psychologist,cameron gridley,psy.d.,psyd" />
-
-    <meta name="copyright" content="Dr. Cameron Gridley ©2016" />
-    <meta name="revisit-after" content="7 days" />
-    <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW, ARCHIVE" />
-    <meta name="author" content="Cameron Gridley">
-
-    <link rel="icon" href="favicon.ico">
-
-    <title>Contact Dr Cameron Gridley - Individual, Couples and Sex Therapy - Denver</title>
-
-    <!-- Google Fonts-->
-    <link href='http://fonts.googleapis.com/css?family=Oxygen:700|Pontano+Sans' rel='stylesheet' type='text/css'>
-    <!-- Font-Awesome CSS -->
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-
-    <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-    <!-- Custom styles for this template -->
-    <link href="css/carousel.css" rel="stylesheet">
-    
-  </head>
-
-<script type="text/javascript">
-var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
-<script type="text/javascript">
-try {
-var pageTracker = _gat._getTracker("UA-12047471-1");
-pageTracker._trackPageview();
-} catch(err) {}</script>
-
-  <body onload="MM_preloadImages('img/carousel/main.jpg')">
-    <div class="sitecontent" id="sitecontent"> <!-- this div wraps the whole site to allow for limiting it's width and keeping it centered -->
-      <div class="navbar-wrapper">
-        <div class="container">
-
-<!--**************************************************************
-*********************** NAVBAR ********************************
-***************************************************************-->
-          <nav class="navbar navbar-default navbar-static-top">
-            <div class="container">
-              <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                  <span class="sr-only">Toggle navigation</span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="index.html">Dr. Cameron Gridley, Psy.D.</a>
-              </div>
-              <div id="navbar" class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                  <li><a href="index.html">Home</a></li>
-                  <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Services <span class="caret"></span></a>
-                    <ul class="dropdown-menu" role="menu">
-                      <li><a href="sex-therapy.html">Sex Therapy</a></li>
-                      <li><a href="couples-therapy.html">Couples Therapy</a></li>
-                      <li><a href="individual-therapy.html">Individual Therapy</a></li>
-                      <li><a href="lgbtq.html">LGBTQ Issues</a></li>
-                    </ul>
-                  </li>
-                  <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Resources <span class="caret"></span></a>
-                    <ul class="dropdown-menu" role="menu">
-                      <li><a href="forms.html">Forms</a></li>
-                      <li><a href="resources.html">Helpful Information</a></li>
-                    </ul>
-                  </li>
-                  <li><a href="about.html">About Me</a></li>
-                  <li class="active"><a href="contact.html">Contact</a></li>
-                </ul>
-              </div>
-            </div>
-          </nav>
-<!--**************************************************************
-*********************** NAVBAR ********************************
-***************************************************************-->
-
-        </div>
-      </div>
+{% extends "base.html" %}
+{% block content %}
+<div class="col-md-7">
+  <h2 class="featurette-heading">Contact Me</h2>
+  <p class="lead"><strong>Cameron Gridley</strong>
+    <br>Data Scientist | Licenced Clinical Psychologist</p>
 
 
-      <!-- Carousel
-      ================================================== -->
-      <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="false"><!-- set data-interval to 5000 to enable slide rotation every 5 seconds -->
-        <!-- Indicators 
-        <ol class="carousel-indicators">
-          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-          <li data-target="#myCarousel" data-slide-to="1"></li>
-          <li data-target="#myCarousel" data-slide-to="2"></li>
+<p class="lead">303.763.0282<br />
+<a href="mailto:cgridley@gmail.com">cgridley@gmail.com</a></p>
 
-        </ol>-->
-        <div class="carousel-inner" role="listbox">
-          <div class="item active">
-            <img class="first-slide" id="contact-first-slide">
-            <div class="container">
-              <div class="carousel-caption">
-                <h1>Cameron Gridley, Psy.D.</h1>
-                <h3>Licensed Clinical Psychologist
-                <br>Certified Sex Therapist</h3>
-                <p>Providing couple therapy, sex therapy, and individual therapy in the Denver area.</p>
+<p class="lead">
+LinkedIn: <a href='https://www.linkedin.com/in/cameron-gridley/'>https://www.linkedin.com/in/cameron-gridley/</a></p>
 
-              </div>
-            </div>
-          </div>
-          <!--<div class="item">
-            <img class="second-slide" id="contact-second-slide">
-            <div class="container">
-              <div class="carousel-caption">
-                <h1>Cameron Gridley, Psy.D.</h1>
-                <h3>Licensed Clinical Psychologist
-                <br>Certified Sex Therapist</h3>
-                <p>Providing couple therapy, sex therapy, and individual therapy in the Denver area.</p>
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <img class="third-slide"  id="contact-third-slide">
-            <div class="container">
-              <div class="carousel-caption">
-                <h1>Cameron Gridley, Psy.D.</h1>
-                <h3>Licensed Clinical Psychologist
-                <br>Certified Sex Therapist</h3>
-                <p>Providing couple therapy, sex therapy, and individual therapy in the Denver area.</p>
-              </div>
-            </div>
-          </div>
-        -->
-        </div>
-
-        <!--
-        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      -->
-      </div><!-- /.carousel -->
+<p class="lead">
+GitHub: <a href='https://github.com/camerongridley'>https://github.com/camerongridley</a></p>
+<br> 
+</p>
 
 
-      <!-- Marketing messaging and featurettes
-      ================================================== -->
-      <!-- Wrap the rest of the page in another container to center all the content. -->
+<p class="lead"><strong></strong><br />
+ 
+<p class="lead">
+
+</p>
+<br> 
+</p>
+</div>    
+<div class="col-md-5" >
+
+</div>
+{% endblock %}
 
 
-        <!-- START THE FEATURETTES -->
 
-      
-      <div class="marketing-botton-section">
-          <div class="container marketing">
-          	<hr class="featurette-divider">
-            <div class="row featurette">
-              <div class="col-md-7">
-                <h2 class="featurette-heading">Contact Me</h2>
-                <p class="lead"><strong>Cameron Gridley, Psy.D.</strong><br>Licenced Clinical Psychologist</p>
-
-
-				<p class="lead">(303) 720-6177 phone<br />
-				 <a href="mailto:camerongridley@gmail.com">camerongridley@gmail.com</a></p>
-				
-			    <p class="lead">
-			     
-				 4900 East Kentucky Ave., #100<br />
-			     Denver, CO 80246</p>
-				 
-				 <p class="lead">It is a one-story office building on the right side of the street and is shared with Cherry Creek Pediatrics.
-				   The parking lot is around back and the entrance you want to go through is on the <strong>right</strong> side of the building.
-					 <br> 
-				 </p>
-				 
-				 
-				 <p class="lead"><strong>Some tips for easily getting here.</strong><br />
-				 If you are coming from the south, Kentucky runs along the south side of the Whole Foods and Home Depot that are on S. Colorado Blvd.  Turn east onto Kentucky from 
-				 S. Colorado Blvd and my office will be about 4-5 blocks down on the right.  
-         <p class="lead">
-         If you are coming from the north, from S. Colorado Blvd, turn left to go south on Cherry Creek Dr. South and turn right onto Kentucky.  Take the second left and you will arrive at my building.
-         </p>
-				 <br> 
-				 </p>
-              </div>    
-              <div class="col-md-5" id="googlemap">
-                <iframe
-                  width="350"
-                  height="350"
-                  frameborder="0" style="border:0"
-                  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBp88DrBnuCt340n6Z_GO1hvu3T-evfLlY&q=place_id:ChIJZ-WXkdF9bIcRW2sqoT51Tmw" allowfullscreen>
-                </iframe>
-              </div>
-            </div>
-
-            
-
-            <hr class="featurette-divider">
-          </div> <!-- /.container -->
-        </div><!-- /.marketing-botton-section  -->
-
-        <!-- /END THE FEATURETTES -->
-
-        <div class="container marketing">
-
-          <!-- FOOTER -->
-          <footer id="footer">
-            <p>&copy; 2016 Cameron Gridley, Psy.D. LLC &middot; 303.720.6177 &middot; </p>
-          </footer>
-
-          <div id="back-to-top">
-            <a href="#sitecontent"><i class="fa fa-3x fa-chevron-circle-up"></i></a>
-          </div>
-
-        </div><!-- /.container -->
-    </div><!-- /.sitecontent -->
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/smoothscroll.js"></script>
-    <script src="js/main.js"></script>
-  </body>
-</html>
+              

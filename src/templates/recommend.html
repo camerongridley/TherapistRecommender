@@ -1,20 +1,29 @@
 {% extends "base.html" %}
 {% block content %}
-<h1>Recommendations:</h1>
-<h2>Dominant Topics:</h2>
+<div class="col-md-7">
+	<h2 class="featurette-heading">Your Recommendations<span class="text-muted"></span></h2>
+	<p class="lead">
+	  Some description of the recommendations...
+	</p>
+	<p class="lead">
+
+<h3>Dominant Topics:</h3>
 <p>{{topics}}</p>
-<h2>Matching Therapists:</h2>
+<h3>Matching Therapists:</h3>
   {% for key,value in recommendations.iterrows() %}
       {{ value['first_name'] }} {{ value['last_name'] }} - {% if value['website']!='None' %}{{ value['website'] }}{% endif %}
       <br>
   {% endfor %}
   
 </p>
-<p><a href="/submit">Go again!</a>
+<p>
+  <button type="button" class="btn btn-warning">
+    <a href="/submit">Start Over</a></button>
 </p>
-
-<div class="col-md-5">
-  <img class="featurette-image img-responsive center-block" id="firstfeaturetteimage" src="../static/img/peaceful.jpg" alt="">
-  </div>
+  </div> 
+   
+  <div class="col-md-5">
+		<img class="featurette-image img-responsive center-block" id="firstfeaturetteimage" src="../static/img/peaceful.jpg" alt="">
+	  </div>
 {% endblock %}
 
