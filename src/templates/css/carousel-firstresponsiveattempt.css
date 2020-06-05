@@ -1,0 +1,324 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Jun 6, 2015, 3:00:09 PM
+    Author     : cgrid_000
+*/
+
+
+/*!!!!!!! INITIAL STYING IS DESIGNED FOR SMALL MOBILE DEVICES !!!!!!!*/
+/*!!!!!!!   Media Querying adjusts for larger screen sizes    !!!!!!!*/
+
+
+
+/* GLOBAL STYLES
+-------------------------------------------------- */
+/* Padding below the footer and lighter body text */
+
+
+/****************************************
+ Color Scheme - Only put background-color 
+and maybe font colors here 
+*****************************************/
+/*** Primary Color ***/
+body, footer {
+  background-color: green;
+}
+
+/*** Secondary Color ***/
+/* Marketing Sections
+-----------------------------*/
+.marketing-top-section {
+    background-color: white;
+}
+
+
+/*** Tertiary Color ***/
+.marketing-botton-section{
+  background-color: #EBF5D6;
+}
+
+/****************************************
+ /Color Scheme
+*****************************************/
+
+body {
+  padding-bottom: 40px;
+  //color: #5a5a5a;
+  //background-color: lightblue;
+  color: green;
+  /*//background-color: #EBF5D6;
+  background-color: green;*/
+}
+
+footer {
+  padding-top: 50px;
+  color: white;
+  font-size: 16px;
+}
+
+
+a {
+  color: orange;
+}
+
+a:hover {
+  color: lime;
+}
+
+.btn-default, .btn- .btn-group-lg>.btn {
+  font-size: 14px;
+}
+
+
+/* CUSTOMIZE THE NAVBAR
+-------------------------------------------------- */
+
+/* Special class on .container surrounding .navbar, used for positioning it into place. */
+.navbar-wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 20;
+}
+
+/* Flip around the padding for proper display in narrow viewports */
+.navbar-wrapper > .container {
+  padding-right: 0;
+  padding-left: 0;
+}
+.navbar-wrapper .navbar {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+.navbar-wrapper .navbar .container {
+  width: auto;
+}
+
+.navbar-inverse .navbar-brand {
+  color: green;
+}
+
+.navbar-brand {
+  font-size: 14px;
+}
+
+
+/* CUSTOMIZE THE CAROUSEL
+-------------------------------------------------- */
+
+/* Carousel base class */
+.carousel {
+  height: 400px;
+  margin-bottom: 0px;
+}
+
+.carousel h1 {
+  color: green;
+  font-size: 20px;
+  font-weight: bolder;
+  text-shadow: 1px 1px black;
+
+}
+
+.carousel h2 {
+  color: blue;
+  font-size: 20px;
+  font-weight: bold;
+  text-shadow: 1px 1px black;
+}
+
+.carousel h3 {
+  color: orange;
+  font-size: 16px;
+  font-weight: normal;
+}
+
+.carousel p {
+  color: white;
+  font-size: 12px;
+  font-weight: normal;
+  text-shadow: 1px 1px black;
+}
+
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+  z-index: 10;
+  color: white;
+}
+
+/* Declare heights because of positioning of img element */
+.carousel .item {
+  height: 400px;
+  background-color: #777;
+}
+
+.carousel-inner > .item > img {
+  position: absolute;
+  top: 0px;/* change this to adjust vert image pos in carousel */
+  left: 0;
+  min-width: 100%;
+  height: 400px;
+  background-size: cover;
+  background-position: 0,0;
+  background-repeat: no-repeat;
+  opacity: .9;
+}
+
+/* Styles for specific slides */
+img.first-slide{
+    background-image: url("../img/happycouple1-cropped-xsm.jpg");
+}
+
+img.second-slide {
+    background-image: url("../img/coupleinbed1-cropped.jpg");
+}
+
+img.third-slide {
+    background-image: url("../img/couplebeach-cropped.jpg");
+}
+
+img.fourth-slide {
+    background-image: url("../img/couplesilly-cropped.jpg");
+}
+/* MARKETING CONTENT
+-------------------------------------------------- */
+
+/* Center align the text within the three columns below the carousel */
+.marketing .col-lg-4 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+.marketing h2 {
+  font-weight: normal;
+}
+.marketing .col-lg-4 p {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+
+/* Featurettes
+------------------------- */
+
+.featurette-divider {
+  margin: 80px 0; /* Space out the Bootstrap <hr> more */
+  border-color: black;
+}
+
+/* Thin out the marketing headings */
+.featurette-heading {
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -1px;
+}
+
+/* Marketing Sections
+-----------------------------*/
+.marketing-top-section {
+    padding-top: 60px;
+}
+
+.marketing-botton-section{
+  
+}
+
+
+/* RESPONSIVE CSS
+-------------------------------------------------- */
+
+@media (min-width: 768px) {
+  /* Navbar positioning foo */
+  .navbar-wrapper {
+    margin-top: 20px;
+  }
+  .navbar-wrapper .container {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+  .navbar-wrapper .navbar {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  /* The navbar becomes detached from the top, so we round the corners */
+  .navbar-wrapper .navbar {
+    border-radius: 4px;
+  }
+
+  .navbar-brand {
+    font-size: 18px;
+  }
+
+
+/* Make carousel larger for larger screen - adjust .item & .img as well */
+  .carousel {
+    height: 400px;
+  }
+
+
+  /* Declare heights because of positioning of img element */
+  .carousel .item {
+    height: 400px;
+  }
+  .carousel-inner > .item > img {
+    height: 400px;
+    background-position: 0,0;
+  }
+
+  /* Bump up size of carousel content */
+  .carousel h1 {
+    font-size: 36px;
+  }
+
+  .carousel-caption p {
+    margin-bottom: 20px;
+    font-size: 21px;
+    line-height: 1.4;
+  }
+
+  img.first-slide {
+    background-image: url("../img/happycouple1-cropped.jpg");
+  }
+
+  .btn-default, .btn-group-lg>.btn {
+  font-size: 18px;
+  }
+
+  .featurette-heading {
+    font-size: 50px;
+  }
+
+  .marketing-top-section {
+    background-color: orange;
+    padding-top: 60px;
+  }
+
+  .marketing-botton-section{
+    background-color: purple;
+  }
+
+}
+
+
+/* There are few things that need to change when moving from 
+    medium to the largest screen size - maybe image resolutions */
+@media (min-width: 992px) {
+  .featurette-heading {
+    margin-top: 120px;
+  }
+
+  .marketing-top-section {
+    background-color: slategray;
+    padding-top: 60px;
+  }
+
+  .marketing-botton-section{
+    background-color: darkblue;
+  }
+}
+
