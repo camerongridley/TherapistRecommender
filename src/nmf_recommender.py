@@ -198,9 +198,12 @@ class NmfRecommender(object):
         prepared_text = df[self.text_col].values
         X = vectorizer.transform(prepared_text)
         loadings = nmf_model.transform(X)[0]
-        dominant_topic_id = loadings.argsort()[-1]
+        breakpoint()
+        updated_loadings = self.apply_topic_weighting(loadings)
+
+        dominant_topic_id = updated_loadings.argsort()[-1]
         
-        return loadings
+        return updated_loadings
 
     def make_recommendations(self, loadings:list, df_therapist_topics:pd.DataFrame,
             state:str, n_recs):
@@ -210,10 +213,19 @@ class NmfRecommender(object):
         filtered_df = df_therapist_topics[state_filter]
 
         filtered_df['cosine_sim'] = filtered_df['topic_weights'].apply(lambda x : cosine_similarity([loadings], [x]))
-        # temporarily drop topics 4 and 6 from loadings for recommendations
-        #filtered_df['cosine_sim'] = filtered_df['topic_weights'].apply(lambda x : cosine_similarity([np.delete(loadings,[4, 6])], [np.delete(x, [4,6])]))
-
+        
         return filtered_df.sort_values(by=['cosine_sim'], ascending=False).head(n_recs)
+
+    def apply_topic_weighting(self, topic_loadings:list)->list:
+        #set all weights to 1
+        topic_weights = np.ones(len(topic_loadings))
+        #update desired indexes
+        topic_weights[2] = .1 #Cost & Consultation topic
+        topic_weights[7] = .1 # Insurance topic
+
+        adjusted_topic_loadings = topic_weights * topic_loadings
+
+        return adjusted_topic_loadings
 
     def classify_and_recommend(self, nmf_model:NMF, vectorizer:TfidfVectorizer, new_text:str,
         df_therapist_topics:pd.DataFrame, state:str, n_recs):
