@@ -11,11 +11,6 @@ import matplotlib.pyplot as plt
 
 import pickle
 
-from postgresql_handler import PostgreSQLHandler
-from visualizer import Visualizer
-
-import argparse
-
 class NmfRecommender(object):
     def __init__(self, text_col):
         self.text_col = text_col
@@ -90,7 +85,7 @@ class NmfRecommender(object):
         top_word_indexes = H.argsort()[:, ::-1][:,:n_features]
         return features[top_word_indexes]
 
-    def print_topics(self, topics):
+    def print_topics(self, topics, save_results=False):
         # Print topics in markdown format
         n_words = len(topics[0])
         cols = ["Topic #"+ str(i) for i in range(n_words)]
@@ -101,7 +96,8 @@ class NmfRecommender(object):
         df_pretty['Word #'] = row_idx
         df_pretty = df_pretty.set_index('Word #')
         print(tabulate(df_pretty, headers='keys', tablefmt='github'))
-        self.write_html_file(df_pretty.to_html(), 'vis/topic_words.html')
+        if save_results:
+            self.write_html_file(df_pretty.to_html(), 'vis/topic_words.html')
         
         return
 
@@ -174,8 +170,8 @@ class NmfRecommender(object):
         top_words = self.get_topic_words(H, features, n_features=n_top_words)
         df['dominant_topic'] = self.document_topics(W)
         df['topic_weights'] = [x for x in W]
-        #self.print_topics(top_words)
-        self.print_topics(top_words.T)
+        #self.print_topics(top_words, save_results=False)
+        self.print_topics(top_words.T, save_results=False)
 
         if save_results:
             df.to_pickle("data/nmf_pickled_df.pkl")
@@ -198,7 +194,7 @@ class NmfRecommender(object):
         prepared_text = df[self.text_col].values
         X = vectorizer.transform(prepared_text)
         loadings = nmf_model.transform(X)[0]
-        breakpoint()
+        
         updated_loadings = self.apply_topic_weighting(loadings)
 
         dominant_topic_id = updated_loadings.argsort()[-1]
@@ -261,18 +257,28 @@ class NmfRecommender(object):
 
         return [d.get(id) for id in topic_ids]
 
-    def evaluate_n_topics(self, vis:Visualizer, df:pd.DataFrame, min_topics:int, max_topics:int)->None:
+    def evaluate_n_topics(self, df:pd.DataFrame, min_topics:int, max_topics:int)->None:
+        # evaluates nmf model within specified range of topics
+        # returns x array of topic number choice and y array of reconstruction error for corresponding topic num
         
         x = np.arange(start=min_topics, stop=max_topics+1)
-        y = [self.get_nmf_reconstr_err(c, df) for c in x]
+        y =[]#[self.get_nmf_reconstr_err(c, df) for c in x]
 
-        vis.make_plot(x=x, y=y, title='Reconstruction Error by Number of Topics', x_label='Number of Topics', y_label='Reconstruction Error')
+        for num in x:
+            model, vectorizer, df_therapist_topics = self.run_nmf(df, num, save_results=False)
+            y.append(model.reconstruction_err_)
 
-    def get_nmf_reconstr_err(self, c, df):
-        model, vectorizer, df_therapist_topics = self.run_nmf(df, c, save_results=False)
-        return model.reconstruction_err_
+        return x, y
+
+    # def get_nmf_reconstr_err(self, c, df):
+    #     model, vectorizer, df_therapist_topics = self.run_nmf(df, c, save_results=False)
+    #     return model.reconstruction_err_
 
 if __name__ == '__main__':
+    from postgresql_handler import PostgreSQLHandler
+    from visualizer import Visualizer
+    import argparse
+
     np.random.seed(10)
     
     text_col = 'writing_sample'
@@ -295,7 +301,7 @@ if __name__ == '__main__':
         psql = PostgreSQLHandler()
         vis = Visualizer(psql.get_conn())
         vis.set_show_figs(True)
-        vis.set_save_figs(True)
+        vis.set_save_figs(False)
         
         sql = 'SELECT * FROM therapists'
         df = psql.sql_to_pandas(sql)
@@ -309,7 +315,9 @@ if __name__ == '__main__':
         # vis.ngram_bar_chart(df['writing_sample'],(2,2), 20) 
         # vis.ngram_bar_chart(df['writing_sample'],(3,3), 20)
 
-        # nmf_recommender.evaluate_n_topics(vis, df, 3, 50)
+        # plot reconstuction error for range of topic lengths
+        # x, y = nmf_recommender.evaluate_n_topics(df, 3, 6)
+        # vis.make_plot(x=x, y=y, title='Reconstruction Error by Number of Topics', x_label='Number of Topics', y_label='Reconstruction Error')
 
     else:
         # load data, vectorizer and model from local pickle files

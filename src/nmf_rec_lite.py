@@ -247,3 +247,7 @@ class NmfRecommenderLite(object):
     def get_nmf_reconstr_err(self, c, df):
         model, vectorizer, df_therapist_topics = self.run_nmf(df, c, save_results=False)
         return model.reconstruction_err_
+
+
+if __name__ == '__main__':
+    pass
