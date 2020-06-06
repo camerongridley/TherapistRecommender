@@ -1,12 +1,12 @@
 from flask import Flask, render_template, request, jsonify
 import pickle
 import numpy as np
-from nmf_rec_lite import NmfRecommenderLite
+from nmf_recommender import NmfRecommender
 
 app = Flask(__name__)
 
 text_col = 'writing_sample'
-nmf_recommender = NmfRecommenderLite(text_col)
+nmf_recommender = NmfRecommender(text_col)
 model = pickle.load( open( "../deploy/nmf_model.pkl", "rb" ) )
 vectorizer = pickle.load( open( '../deploy/nmf_vectorizer.pkl', "rb" ) )
 df_therapist_topics = pickle.load( open( '../deploy/nmf_df_topics.pkl', "rb" ) )
