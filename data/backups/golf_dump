@@ -1,0 +1,99 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 12.2 (Debian 12.2-2.pgdg100+1)
+-- Dumped by pg_dump version 12.2 (Debian 12.2-2.pgdg100+1)
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+SET default_tablespace = '';
+
+SET default_table_access_method = heap;
+
+--
+-- Name: golf; Type: TABLE; Schema: public; Owner: ender
+--
+
+CREATE TABLE public.golf (
+    date date,
+    outlook character varying,
+    temperature integer,
+    humidity integer,
+    windy boolean,
+    result character varying,
+    out_copy character varying
+);
+
+
+ALTER TABLE public.golf OWNER TO ender;
+
+--
+-- Name: quotes; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.quotes (
+    title text,
+    author text,
+    tag text
+);
+
+
+ALTER TABLE public.quotes OWNER TO postgres;
+
+--
+-- Data for Name: golf; Type: TABLE DATA; Schema: public; Owner: ender
+--
+
+COPY public.golf (date, outlook, temperature, humidity, windy, result, out_copy) FROM stdin;
+2014-07-01	sunny	85	85	f	Don't Play	sunny
+2014-07-02	sunny	80	90	t	Don't Play	sunny
+2014-07-03	overcast	83	78	f	Play	overcast
+2014-07-04	rain	70	96	f	Play	rain
+2014-07-05	rain	68	80	f	Play	rain
+2014-07-06	rain	65	70	t	Don't Play	rain
+2014-07-07	overcast	64	65	t	Play	overcast
+2014-07-08	sunny	72	95	f	Don't Play	sunny
+2014-07-09	sunny	69	70	f	Play	sunny
+2014-07-10	rain	75	80	f	Play	rain
+2014-07-11	sunny	75	70	t	Play	sunny
+2014-07-12	overcast	72	90	t	Play	overcast
+2014-07-13	overcast	81	75	f	Play	overcast
+2014-07-14	rain	71	80	t	Don't Play	rain
+2014-08-14	snow	23	65	f	Play	snow
+2014-08-14	hail	23	65	f	Play	hail
+2014-08-14	hail	23	65	f	Play	hail
+\.
+
+
+--
+-- Data for Name: quotes; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.quotes (title, author, tag) FROM stdin;
+“The world as we have created it is a process of our thinking. It cannot be changed without changing our thinking.”	Albert Einstein	change
+“It is our choices, Harry, that show what we truly are, far more than our abilities.”	J.K. Rowling	abilities
+“There are only two ways to live your life. One is as though nothing is a miracle. The other is as though everything is a miracle.”	Albert Einstein	inspirational
+“The person, be it gentleman or lady, who has not pleasure in a good novel, must be intolerably stupid.”	Jane Austen	aliteracy
+“Imperfection is beauty, madness is genius and it's better to be absolutely ridiculous than absolutely boring.”	Marilyn Monroe	be-yourself
+“Try not to become a man of success. Rather become a man of value.”	Albert Einstein	adulthood
+“It is better to be hated for what you are than to be loved for what you are not.”	André Gide	life
+“I have not failed. I've just found 10,000 ways that won't work.”	Thomas A. Edison	edison
+“A woman is like a tea bag; you never know how strong it is until it's in hot water.”	Eleanor Roosevelt	misattributed-eleanor-roosevelt
+“A day without sunshine is like, you know, night.”	Steve Martin	humor
+\.
+
+
+--
+-- PostgreSQL database dump complete
+--
+

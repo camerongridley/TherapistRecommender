@@ -50,7 +50,7 @@ def recommend():
     and experience more sex but I can’t bring myself to do it . Every time I have feelings for someone , 
     I ended up telling myself that I don’t deserve to be with that person because for years , I have 
     convinced myself that I am “broken “ . I feel that a lot of my experiences to explore more of my 
-    sexuality and sex was robbed by a traumatic event I had when I was eighteen . I ran away from it 
+    sexuality and sex was robbed by an event I had when I was eighteen . I ran away from it 
     by joining a Christian campus group which I regret deeply . I was even more further shamed for my 
     sexuality and a desire to have sex . Thankfully , I left that fucking group ,later joined a university 
     in a diverse city after I graduated from a community college . I am super happy that I did because 
