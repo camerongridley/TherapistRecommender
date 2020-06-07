@@ -13,7 +13,6 @@ vectorizer = pickle.load( open( '../deploy/nmf_vectorizer.pkl', "rb" ) )
 df_therapist_topics = pickle.load( open( '../deploy/nmf_df_topics.pkl', "rb" ) )
 
 df_alt_names = pd.read_csv('../deploy/forbes_celebrity_100.csv')
-#alt_names_dict = df_alt_names['Name'].to_dict()
 
 all_states = df_therapist_topics['state'].unique()
 all_states.sort()
