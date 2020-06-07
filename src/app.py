@@ -14,6 +14,7 @@ df_therapist_topics = pickle.load( open( '../deploy/nmf_df_topics.pkl', "rb" ) )
 
 df_alt_names = pd.read_csv('../deploy/forbes_celebrity_100.csv')
 
+
 all_states = df_therapist_topics['state'].unique()
 all_states.sort()
 
@@ -33,6 +34,10 @@ def about():
 @app.route('/contact', methods=['GET'])
 def contact():
     return render_template('contact.html')
+
+@app.route('/test', methods=['GET'])
+def test():
+    return render_template('starter.html')
 
 @app.route('/recommend', methods=['POST'])
 def recommend():

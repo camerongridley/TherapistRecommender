@@ -1,5 +1,99 @@
 {% extends "base.html" %}
 {% block content %}
+
+  <div class="card bg-light text-white mx-auto" style="width: 60rem;">
+    <img class="card-img-top" src="https://images.unsplash.com/photo-1517303650219-83c8b1788c4c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=bd4c162d27ea317ff8c67255e955e3c8&auto=format&fit=crop&w=2691&q=80" rel="nofollow" alt="Card image cap">
+    <div class="card-img-overlay">
+      <h2 class="card-title">Tell us what you need.</h2>
+      <p class="card-text">The more descriptive you are about what you are looking for help with 
+        and what you want in a therapist, the better we can match you up to a 
+        therapist who thinks about these topics in similar ways to you.</p>
+      <p class="card-text"></p>
+    </div>
+    <div class="card-body">
+      <p class="card-text">
+
+
+        <!--
+      <form action='/recommend' method='POST'>
+        <div class="form-group">
+          <label for="state">Please select a state:</label>
+          <select class="form-control" name="state" id="state">
+            {% for s in state_list %}
+            <option value={{s.strip()}} {%if s.strip() == 'California' %}selected{% endif%}>{{s}}</option>
+            {%endfor%}
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="num_recs_choice">How many Recommendations?</label>
+          <select class="form-control" name="num_recs_choice" id="num_recs_choice">
+            {% for i in range(1,11,1) %}
+            <option value={{i}} {%if i == 4 %}selected{% endif%}>{{i}}</option>
+            {%endfor%}
+          </select>
+        </div>
+        <div class="form-group">
+          
+          <textarea class="form-control" id="writing_sample" id="writing_sample" rows="5"></textarea>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>  
+  </form>
+
+-->
+
+
+
+
+  <form action='/recommend' method='POST'>
+    <div class="form-group">
+      <label for="state">Please select a state:</label>
+      <select class="form-control" name="state" id="state">
+        {% for s in state_list %}
+        <option value={{s.strip()}} {%if s.strip() == 'California' %}selected{% endif%}>{{s}}</option>
+        {%endfor%}
+      </select>
+    </div>
+      
+  <br>
+  
+  
+  <div class="form-group">
+    <label for="num_recs_choice">How many Recommendations?</label>
+    <select class="form-control" name="num_recs_choice" id="num_recs_choice">
+      {% for i in range(1,11,1) %}
+      <option value={{i}} {%if i == 4 %}selected{% endif%}>{{i}}</option>
+      {%endfor%}
+    </select>
+  </div>
+    <br>
+    <label for="writing_sample">What are you looking for help with?</label>
+    <textarea class="form-control" name="writing_sample"  id="writing_sample" rows="5" cols="30"></textarea>
+  
+  
+    <br>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </p>
+    </div>
+  </div>
+  
+
+<!--
 <div class="col-md-7">
 	<h2 class="featurette-heading">Tell us what you need.<span class="text-muted"></span></h2>
 	<p class="lead">
@@ -36,6 +130,8 @@
 <div class="col-md-5">
     <img class="featurette-image img-responsive center-block" id="firstfeaturetteimage" src="../static/img/compassion.jpg" alt="">
   </div>
+-->
+
 {% endblock %}
 
 
