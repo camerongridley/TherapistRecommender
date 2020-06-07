@@ -13,7 +13,7 @@
   {% for key,value in recommendations.iterrows() %}
       <p>
         <button class="btn btn-info btn-block" type="button" data-toggle="collapse" data-target="#rec_{{key}}_collapse" aria-expanded="false" aria-controls="rec_{{key}}_collapse">
-          {{ value['first_name'] }} {{ value['last_name'] }}
+          {{alt_names.iloc[key]['Name']}}<!-- - {{ value['first_name'] }} {{ value['last_name'] }}-->
         </button>
       </p>
       <div class="collapse" id="rec_{{key}}_collapse">

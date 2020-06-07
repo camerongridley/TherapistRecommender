@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, jsonify
+import pandas as pd
 import pickle
 import numpy as np
 from nmf_recommender import NmfRecommender
@@ -10,6 +11,10 @@ nmf_recommender = NmfRecommender(text_col)
 model = pickle.load( open( "../deploy/nmf_model.pkl", "rb" ) )
 vectorizer = pickle.load( open( '../deploy/nmf_vectorizer.pkl', "rb" ) )
 df_therapist_topics = pickle.load( open( '../deploy/nmf_df_topics.pkl', "rb" ) )
+
+df_alt_names = pd.read_csv('../deploy/forbes_celebrity_100.csv')
+#alt_names_dict = df_alt_names['Name'].to_dict()
+
 all_states = df_therapist_topics['state'].unique()
 all_states.sort()
 
@@ -68,7 +73,7 @@ def recommend():
     dom_topic_names = ', '.join(nmf_recommender.get_dominant_topics(3, loadings)).rstrip()
     #pred = nmf_recommender.predict([content])[0]
 
-    return render_template('recommend.html', topics=dom_topic_names, recommendations=recs)
+    return render_template('recommend.html', topics=dom_topic_names, recommendations=recs, alt_names=df_alt_names)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8105, debug=True)
