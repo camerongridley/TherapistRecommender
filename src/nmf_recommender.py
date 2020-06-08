@@ -193,22 +193,22 @@ class NmfRecommender(object):
         df = self.prepare_new_text(new_text)
         prepared_text = df[self.text_col].values
         X = vectorizer.transform(prepared_text)
-        loadings = nmf_model.transform(X)[0]
+        topic_loadings = nmf_model.transform(X)[0]
         
-        updated_loadings = self.apply_topic_weighting(loadings)
+        updated_loadings = self.apply_topic_weighting(topic_loadings)
 
         dominant_topic_id = updated_loadings.argsort()[-1]
         
         return updated_loadings
 
-    def make_recommendations(self, loadings:list, df_therapist_topics:pd.DataFrame,
+    def make_recommendations(self, topic_loadings:list, df_therapist_topics:pd.DataFrame,
             state:str, n_recs):
         
         #for col, val in filters.items():
         state_filter = df_therapist_topics['state'] == state
         filtered_df = df_therapist_topics[state_filter]
 
-        filtered_df['cosine_sim'] = filtered_df['topic_weights'].apply(lambda x : cosine_similarity([loadings], [x]))
+        filtered_df['cosine_sim'] = filtered_df['topic_weights'].apply(lambda x : cosine_similarity([topic_loadings], [x]))
         
         return filtered_df.sort_values(by=['cosine_sim'], ascending=False).head(n_recs)
 
@@ -226,9 +226,9 @@ class NmfRecommender(object):
     def classify_and_recommend(self, nmf_model:NMF, vectorizer:TfidfVectorizer, new_text:str,
         df_therapist_topics:pd.DataFrame, state:str, n_recs):
         
-        loadings = self.classify_new_text(nmf_model, vectorizer, new_text)
-        recs = self.make_recommendations(loadings, df_therapist_topics, state, n_recs)
-        return loadings, recs
+        topic_loadings = self.classify_new_text(nmf_model, vectorizer, new_text)
+        recs = self.make_recommendations(topic_loadings, df_therapist_topics, state, n_recs)
+        return topic_loadings, recs
 
     def get_dominant_topics(self, top_n_topics:int, topic_loadings:list):
         dominant_topic_ids = topic_loadings.argsort()[::-1][:top_n_topics] 
@@ -270,12 +270,21 @@ class NmfRecommender(object):
 
         return x, y
 
-    # def get_nmf_reconstr_err(self, c, df):
-    #     model, vectorizer, df_therapist_topics = self.run_nmf(df, c, save_results=False)
-    #     return model.reconstruction_err_
 
 if __name__ == '__main__':
-    pass
+    nmf_recommender = NmfRecommender('writing_sample')
+    model = pickle.load( open( 'pat/to/file', "rb" ) )
+    vectorizer = pickle.load( open( 'deploy/nmf_vectorizer.pkl', "rb" ) )
+    df_therapist_topics = pickle.load( open( 'deploy/nmf_df_topics.pkl', "rb" ) )
+    ptsd_text = '''Although I have been healing for the past two years with lot of therapy and self care . I don’t feel “normal” . I am not the same person as I was when I was 18 . It is frustrating and sometimes causes me to unable to do things I really want to do . For example , I want to date people and experience more sex but I can’t bring myself to do it . Every time I have feelings for someone , I ended up telling myself that I don’t deserve to be with that person because for years , I have convinced myself that I am “broken “ . I feel that a lot of my experiences to explore more of my sexuality and sex was robbed by a traumatic event I had when I was eighteen . I ran away from it by joining a Christian campus group which I regret deeply . I was even more further shamed for my sexuality and a desire to have sex . Thankfully , I left that fucking group ,later joined a university in a diverse city after I graduated from a community college . I am super happy that I did because I finally was able to learn what an healthy sex life looks like . I had feelings for several people but was unable to tell them . I even joined tinder and met some people but I freaked out and stop responding to people that I was interested in dating ( I know it is a dick move, I was paralyzed with fear . I still feel guilty about it ) . I want to stop being paranoid about people but honestly it really because I don’t trust myself sometimes . I fucking hate it . I hate that it made me feel invalidated. I have this stupid fear that people wouldn’t want to be with me because I haven’t have a lot of experience in having sex. I am 27 now and I haven’t been in relationships or have sex or dated . What is wrong with me ?'''
+    
+    topic_loadings, recs = nmf_recommender.classify_and_recommend(model, vectorizer, ptsd_text, df_therapist_topics, 'state', 'n_recs')
+    
+    print(f'PTSD Text - Dominant Topics: {nmf_recommender.get_dominant_topics(3, topic_loadings)}')
+    print(f'\nRecs:\n{recs}')
+
+
+
 
     # Moved all code below to test_nmf.py - keeping here until tested the move futher.
 
@@ -352,21 +361,21 @@ if __name__ == '__main__':
     # state = 'California'
     # n_recs = 5
 
-    # loadings, recs = nmf_recommender.classify_and_recommend(model, vectorizer, depression_text, df_therapist_topics, state, n_recs)
-    # print(f'Depression Text - Dominant Topics: {nmf_recommender.get_dominant_topics(3, loadings)}')
+    # topic_loadings, recs = nmf_recommender.classify_and_recommend(model, vectorizer, depression_text, df_therapist_topics, state, n_recs)
+    # print(f'Depression Text - Dominant Topics: {nmf_recommender.get_dominant_topics(3, topic_loadings)}')
     # print(f'\nRecs:\n{recs}')
     # print('********************************************************************************')
 
-    # loadings, recs = nmf_recommender.classify_and_recommend(model, vectorizer, ptsd_text, df_therapist_topics, state, n_recs)
-    # print(f'PTSD Text - Dominant Topics: {nmf_recommender.get_dominant_topics(3, loadings)}')
+    # topic_loadings, recs = nmf_recommender.classify_and_recommend(model, vectorizer, ptsd_text, df_therapist_topics, state, n_recs)
+    # print(f'PTSD Text - Dominant Topics: {nmf_recommender.get_dominant_topics(3, topic_loadings)}')
     # print(f'\nRecs:\n{recs}')
     # print('********************************************************************************')
 
-    # loadings, recs = nmf_recommender.classify_and_recommend(model, vectorizer, addiction_text, df_therapist_topics, state, n_recs)
-    # print(f'Addiction Text - Dominant Topics: {nmf_recommender.get_dominant_topics(3, loadings)}')
+    # topic_loadings, recs = nmf_recommender.classify_and_recommend(model, vectorizer, addiction_text, df_therapist_topics, state, n_recs)
+    # print(f'Addiction Text - Dominant Topics: {nmf_recommender.get_dominant_topics(3, topic_loadings)}')
     # print(f'\nRecs:\n{recs}')
     # print('********************************************************************************')
     
-    # loadings, recs = nmf_recommender.classify_and_recommend(model, vectorizer, marriage_text, df_therapist_topics, state, n_recs)
-    # print(f'Marriage Text - Dominant Topics: {nmf_recommender.get_dominant_topics(3, loadings)}')
+    # topic_loadings, recs = nmf_recommender.classify_and_recommend(model, vectorizer, marriage_text, df_therapist_topics, state, n_recs)
+    # print(f'Marriage Text - Dominant Topics: {nmf_recommender.get_dominant_topics(3, topic_loadings)}')
     # print(f'\nRecs:\n{recs}')
