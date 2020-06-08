@@ -21,23 +21,19 @@ all_states.sort()
 @app.route('/', methods=['GET'])
 def index():
 
-    return render_template('index.html')
+    return render_template('index.html', current_page='INDEX')
 
 @app.route('/submit', methods=['GET'])
 def submit():
-    return render_template('submit.html', state_list=all_states)
+    return render_template('submit.html', current_page='SUBMIT', state_list=all_states)
 
 @app.route('/about', methods=['GET'])
 def about():
-    return render_template('about.html')
+    return render_template('about.html' ,current_page='ABOUT')
 
 @app.route('/contact', methods=['GET'])
 def contact():
-    return render_template('contact.html')
-
-@app.route('/test', methods=['GET'])
-def test():
-    return render_template('starter.html')
+    return render_template('contact.html', current_page='CONTACT')
 
 @app.route('/recommend', methods=['POST'])
 def recommend():
@@ -67,7 +63,7 @@ def recommend():
     but was unable to tell them . I even joined tinder and met some people but I freaked out and stop 
     responding to people that I was interested in dating ( I know it is a dick move, I was paralyzed 
     with fear . I still feel guilty about it ) . I want to stop being paranoid about people but honestly 
-    it really because I don’t trust myself sometimes . I fucking hate it . I hate that it made me feel 
+    it really because I don’t trust myself sometimes . I hate it . I hate that it made me feel 
     invalidated. I have this stupid fear that people wouldn’t want to be with me because I haven’t have 
     a lot of experience in having sex. I am 27 now and I haven’t been in relationships or have sex or 
     dated . What is wrong with me ?
@@ -77,7 +73,7 @@ def recommend():
     dom_topic_names = ' | '.join(nmf_recommender.get_dominant_topics(3, loadings)).rstrip()
     #pred = nmf_recommender.predict([content])[0]
 
-    return render_template('recommend.html', topics=dom_topic_names, recommendations=recs, alt_names=df_alt_names)
+    return render_template('recommend.html', current_page='RECOMMEND', topics=dom_topic_names, recommendations=recs, alt_names=df_alt_names)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8105, debug=True)

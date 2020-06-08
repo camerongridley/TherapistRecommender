@@ -27,16 +27,16 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarText">
           <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
+            <li class="nav-item {% if current_page == 'INDEX' %}active{% endif %}">
               <a class="nav-link" href="/">Home</a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item {% if current_page == 'SUBMIT' %}active{% endif %}">
               <a class="nav-link" href="/submit">Get Recommendations<span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item {% if current_page == 'ABOUT' %}active{% endif %}">
               <a class="nav-link" href="/about">About</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item {% if current_page == 'CONTACT' %}active{% endif %}">
               <a class="nav-link" href="/contact">Contact</a>
             </li>
           </ul>
