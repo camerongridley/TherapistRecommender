@@ -7,7 +7,7 @@
     <!--<div class="card-icon">
       <i class="material-icons">language</i>
     </div>-->
-    <h3>Dominant Topics:</h3>
+    <h3><strong>Dominant Topics:</strong></h3>
   </div>
   <div class="card-body">
       <h4 class="card-title">{{topics}}</h4>
@@ -21,7 +21,7 @@
       <!--<div class="card-icon">
         <i class="material-icons">language</i>
       </div>-->
-      <h3>Recommendations:</h3>
+      <h3><strong>Recommendations:</strong></h3>
     </div>
     <div class="card-body">
 <br>
@@ -41,7 +41,7 @@
               </button>
             </p>
             <div class="collapse" id="rec_{{key}}_collapse">
-                <p class="category">{% if value['website']!='None' %}<strong>Website:</strong> <a href="{{ value['website'] }}">{{ value['website'] }}</a><br>{% endif %}</p>
+                <p class="category">{% if value['website']!='None' %}<strong>Website:</strong><a href="{{ value['website'] }}">{{ value['website'] }}</a><br>{% endif %}</p>
                 <strong>Phone</strong> (555) 123-4567<br>
                 <strong>Address:</strong> 123 Main St.<br>
                 <strong>What this therapist has to say:</strong><br>

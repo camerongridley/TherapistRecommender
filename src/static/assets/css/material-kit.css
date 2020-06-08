@@ -22,7 +22,7 @@
 }
 
 .card {
-  font-size: .875rem;
+  font-size: 1rem;
 }
 
 *,
@@ -12725,7 +12725,7 @@ form {
   padding-left: 0;
   padding-right: 0;
   border-radius: 0;
-  font-size: 14px;
+  font-size: 18px;
 }
 
 .form-control:focus,
@@ -14383,7 +14383,7 @@ label.checkbox-inline,
 .checkbox label,
 .radio label,
 label {
-  font-size: 0.875rem;
+  font-size: 1.1rem;
 }
 
 .bmd-label-floating,
@@ -15433,7 +15433,7 @@ h6,
 }
 
 p {
-  font-size: 14px;
+  font-size: 18px;
   margin: 0 0 10px;
 }
 
