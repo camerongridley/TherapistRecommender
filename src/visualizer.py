@@ -182,21 +182,6 @@ class Visualizer(object):
             plt.savefig(f'{self.visualiztion_directory}data_vis/word_cloud.png')
 
         plt.show()
-        # wordcloud = WordCloud(
-        #     width=1600, height=800,
-        #     background_color='white',
-        #     stopwords = stopwords,
-        #     max_words = max_words,
-        #     max_font_size = 40,
-        #     random_state = 42,
-        #     interpolation="bilinear"
-        # ).generate(str(df[col_name]))
-
-        # print(wordcloud)
-        # fig = plt.figure(1, dpi=200, figsize=(20, 10))
-        # plt.imshow(wordcloud)
-        # plt.axis('off')
-        # plt.show()
         
 
     # # returns tuple of ngram and corpus freqency
