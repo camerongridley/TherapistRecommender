@@ -35,6 +35,10 @@ def about():
 def contact():
     return render_template('contact.html', current_page='CONTACT')
 
+@app.route('/test', methods=['GET'])
+def test():
+    return render_template('landing-page.html', current_page='CONTACT')
+
 @app.route('/recommend', methods=['POST'])
 def recommend():
     #np.random.seed(10)
