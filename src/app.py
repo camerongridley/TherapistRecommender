@@ -37,7 +37,7 @@ def contact():
 
 @app.route('/test', methods=['GET'])
 def test():
-    return render_template('landing-page.html', current_page='CONTACT')
+    return render_template('test.html', current_page='CONTACT')
 
 @app.route('/recommend', methods=['POST'])
 def recommend():
