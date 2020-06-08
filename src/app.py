@@ -74,7 +74,7 @@ def recommend():
     '''
 
     loadings, recs = nmf_recommender.classify_and_recommend(model, vectorizer, content,df_therapist_topics, state, n_recs)
-    dom_topic_names = ', '.join(nmf_recommender.get_dominant_topics(3, loadings)).rstrip()
+    dom_topic_names = ' | '.join(nmf_recommender.get_dominant_topics(3, loadings)).rstrip()
     #pred = nmf_recommender.predict([content])[0]
 
     return render_template('recommend.html', topics=dom_topic_names, recommendations=recs, alt_names=df_alt_names)
