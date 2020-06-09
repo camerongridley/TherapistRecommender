@@ -43,7 +43,6 @@ class NmfRecommender(object):
         df[column] = df[column].apply(lambda x: self.lemmatize_str(x))
         return 
     
-    
     def get_top_n_grams(self, corpus:pd.DataFrame, n_gram_range=(1,1), n=None, stop_words=None)->list:
         # returns tuple of ngram and corpus freqency
         vec = CountVectorizer(ngram_range=n_gram_range, stop_words=stop_words).fit(corpus)
@@ -99,7 +98,6 @@ class NmfRecommender(object):
         if save_results:
             self.write_html_file(df_pretty.to_html(), 'vis/topic_words.html')
         
-        return
 
     def write_html_file(self, html, filename):
         html_file= open(filename,"w")
@@ -164,7 +162,6 @@ class NmfRecommender(object):
         self.clean_column(df, self.text_col, punc)
 
         X, features, vectorizer = self.vectorize(df, stop_words)
-
         
         W, H, nmf = self.get_nmf(X, n_components=n_topics)
         top_words = self.get_topic_words(H, features, n_features=n_top_words)
@@ -187,7 +184,7 @@ class NmfRecommender(object):
         
         topic_loadings = self.classify_new_text(nmf_model, vectorizer, new_text)
         recs = self.make_recommendations(topic_loadings, df_therapist_topics, state, n_recs)
-        
+
         return topic_loadings, recs
 
     def classify_new_text(self, nmf_model:NMF, vectorizer:TfidfVectorizer, new_text:str):
