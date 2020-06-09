@@ -2,62 +2,69 @@
 {% block content %}
 
 
-<div class="card">
-  <div class="card-header card-header-icon card-header-rose">
-    <!--<div class="card-icon">
-      <i class="material-icons">language</i>
-    </div>-->
-    <h3><strong>Dominant Topics:</strong></h3>
-  </div>
-  <div class="card-body">
-    <br>
-      <h4 class="card-title">{{topics}}</h4>
-    </div>
-</div>
-
-  <p></p>
-<br>
-  <div class="card">
-    <div class="card-header card-header-icon card-header-rose">
-      <!--<div class="card-icon">
-        <i class="material-icons">language</i>
-      </div>-->
-      <h3><strong>Recommendations:</strong></h3>
-    </div>
-    <div class="card-body">
-<br>
-{% for key,value in recommendations.iterrows() %}
-<div class="container">
-
-  <div class="row">
-    <div class="col">
-      <div class="card">
-        <div class="card-header">
-          <h4 class="card-title"> {{alt_names.iloc[key]['Name']}}</h4>
-        </div>
-        <div class="card-body">
-            <p>
-              <button class="btn btn-info btn-block" type="button" data-toggle="collapse" data-target="#rec_{{key}}_collapse" aria-expanded="false" aria-controls="rec_{{key}}_collapse">
-                More Info
-              </button>
-            </p>
-            <div class="collapse" id="rec_{{key}}_collapse">
-                <p class="category">{% if value['website']!='None' %}<strong>Website:</strong><a href="{{ value['website'] }}">{{ value['website'] }}</a><br>{% endif %}</p>
-                <strong>Phone</strong> (555) 123-4567<br>
-                <strong>Address:</strong> 123 Main St.<br>
-                <strong>What this therapist has to say:</strong><br>
-                {{ value['orig_writing'] }}
-                <br>
-
+  <div class="container">
+    <div class="section">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <div class="card">
+            <div class="card-header card-header-icon card-header-rose">
+              <!--<div class="card-icon">
+                <i class="material-icons">language</i>
+              </div>-->
+              <h3><strong>Dominant Topics:</strong></h3>
+            </div>
+            <div class="card-body">
+              <br>
+                <h4 class="card-title">{{topics}}</h4>
+              </div>
+          </div>
+          
+            <p></p>
+          <br>
+            <div class="card">
+              <div class="card-header card-header-icon card-header-rose">
+                <!--<div class="card-icon">
+                  <i class="material-icons">language</i>
+                </div>-->
+                <h3><strong>Recommendations:</strong></h3>
+              </div>
+              <div class="card-body">
+          <br>
+          {% for key,value in recommendations.iterrows() %}
+          <div class="container">
+          
+            <div class="row">
+              <div class="col">
+                <div class="card">
+                  <div class="card-header">
+                    <h4 class="card-title"> {{alt_names.iloc[key]['Name']}}</h4>
+                  </div>
+                  <div class="card-body">
+                      <p>
+                        <button class="btn btn-info btn-block" type="button" data-toggle="collapse" data-target="#rec_{{key}}_collapse" aria-expanded="false" aria-controls="rec_{{key}}_collapse">
+                          More Info
+                        </button>
+                      </p>
+                      <div class="collapse" id="rec_{{key}}_collapse">
+                          <p class="category">{% if value['website']!='None' %}<strong>Website:</strong><a href="{{ value['website'] }}">{{ value['website'] }}</a><br>{% endif %}</p>
+                          <strong>Phone</strong> (555) 123-4567<br>
+                          <strong>Address:</strong> 123 Main St.<br>
+                          <strong>What this therapist has to say:</strong><br>
+                          {{ value['orig_writing'] }}
+                          <br>
+          
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+                </div>
             </div>
         </div>
       </div>
     </div>
   </div>
-</div>
-{% endfor %}
-      </div>
-  </div>
-    
-{% endblock %}
 
+{% endblock %}
