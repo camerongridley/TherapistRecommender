@@ -115,8 +115,9 @@ class Visualizer(object):
         ax.hist(writing_lengths, bins=100, color=c1)
         ax.axvline(x=mean, c=c2)
         plt.text(mean+200, 422, mean_label, bbox=dict(facecolor=c2, alpha=0.5))
+        plt.tight_layout()
         if self.save_figs:
-            plt.savefig(f'{self.visualiztion_directory}design/word_count_hist.png')
+            plt.savefig(f'{self.visualiztion_directory}data_vis/word_count_hist.png')
         if self.show_figs:
             plt.show()
 
@@ -204,8 +205,10 @@ class Visualizer(object):
         #common_words = self.get_top_n_grams(corpus=corpus, n_gram_range=n_gram_range, n=n)
         df3 = pd.DataFrame(common_words, columns = ['bigram' , 'count'])
 
-        fig = go.Figure([go.Bar(x=df3['bigram'], y=df3['count'])])
-        fig.update_layout(title=go.layout.Title(text=f"Top {n} ngrams of length {n_gram_range[0]} in the description text after removing stop words and lemmatization"))
+        fig, ax = plt.subplots()
+        ax.bar(df3['bigram'], df3['count'])
+        #fig = go.Figure([go.Bar(x=df3['bigram'], y=df3['count'])])
+        #fig.update_layout(title=go.layout.Title(text=f"Top {n} ngrams of length {n_gram_range[0]} in the description text after removing stop words and lemmatization"))
         fig.show()
         
     # def unigram_bar_chart(self, corpus, n):

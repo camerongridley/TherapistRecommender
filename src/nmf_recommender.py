@@ -182,12 +182,13 @@ class NmfRecommender(object):
         self.topic_counts(df)
         return nmf, vectorizer, df
 
-    def prepare_new_text(self, new_text:str):
-        d = {self.text_col: [new_text]}
-        df = pd.DataFrame(data=d)
-        self.clean_column(df, self.text_col, punctuation)
-
-        return df
+    def classify_and_recommend(self, nmf_model:NMF, vectorizer:TfidfVectorizer, new_text:str,
+        df_therapist_topics:pd.DataFrame, state:str, n_recs):
+        
+        topic_loadings = self.classify_new_text(nmf_model, vectorizer, new_text)
+        recs = self.make_recommendations(topic_loadings, df_therapist_topics, state, n_recs)
+        
+        return topic_loadings, recs
 
     def classify_new_text(self, nmf_model:NMF, vectorizer:TfidfVectorizer, new_text:str):
         df = self.prepare_new_text(new_text)
@@ -201,16 +202,12 @@ class NmfRecommender(object):
         
         return updated_loadings
 
-    def make_recommendations(self, topic_loadings:list, df_therapist_topics:pd.DataFrame,
-            state:str, n_recs):
-        
-        #for col, val in filters.items():
-        state_filter = df_therapist_topics['state'] == state
-        filtered_df = df_therapist_topics[state_filter]
+    def prepare_new_text(self, new_text:str):
+        d = {self.text_col: [new_text]}
+        df = pd.DataFrame(data=d)
+        self.clean_column(df, self.text_col, punctuation)
 
-        filtered_df['cosine_sim'] = filtered_df['topic_weights'].apply(lambda x : cosine_similarity([topic_loadings], [x]))
-        
-        return filtered_df.sort_values(by=['cosine_sim'], ascending=False).head(n_recs)
+        return df
 
     def apply_topic_weighting(self, topic_loadings:list)->list:
         #set all weights to 1
@@ -223,12 +220,16 @@ class NmfRecommender(object):
 
         return adjusted_topic_loadings
 
-    def classify_and_recommend(self, nmf_model:NMF, vectorizer:TfidfVectorizer, new_text:str,
-        df_therapist_topics:pd.DataFrame, state:str, n_recs):
+    def make_recommendations(self, topic_loadings:list, df_therapist_topics:pd.DataFrame,
+            state:str, n_recs):
         
-        topic_loadings = self.classify_new_text(nmf_model, vectorizer, new_text)
-        recs = self.make_recommendations(topic_loadings, df_therapist_topics, state, n_recs)
-        return topic_loadings, recs
+        #for col, val in filters.items():
+        state_filter = df_therapist_topics['state'] == state
+        filtered_df = df_therapist_topics[state_filter]
+
+        filtered_df['cosine_sim'] = filtered_df['topic_weights'].apply(lambda x : cosine_similarity([topic_loadings], [x]))
+        
+        return filtered_df.sort_values(by=['cosine_sim'], ascending=False).head(n_recs)
 
     def get_dominant_topics(self, top_n_topics:int, topic_loadings:list):
         dominant_topic_ids = topic_loadings.argsort()[::-1][:top_n_topics] 
