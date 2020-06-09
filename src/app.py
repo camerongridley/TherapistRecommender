@@ -37,7 +37,7 @@ def contact():
 
 @app.route('/test', methods=['GET'])
 def test():
-    return render_template('test.html', current_page='CONTACT')
+    return render_template('card_demo.html', current_page='CONTACT')
 
 @app.route('/recommend', methods=['POST'])
 def recommend():
@@ -74,7 +74,7 @@ def recommend():
     '''
 
     loadings, recs = nmf_recommender.classify_and_recommend(model, vectorizer, content,df_therapist_topics, state, n_recs)
-    dom_topic_names = ' | '.join(nmf_recommender.get_dominant_topics(3, loadings)).rstrip()
+    dom_topic_names = '  |  '.join(nmf_recommender.get_dominant_topics(3, loadings)).rstrip()
     #pred = nmf_recommender.predict([content])[0]
 
     return render_template('recommend.html', current_page='RECOMMEND', topics=dom_topic_names, recommendations=recs, alt_names=df_alt_names)
