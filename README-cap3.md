@@ -1,6 +1,12 @@
-# NLP Analysis of Therapists' Profile Writing
+# **Who Do I Talk To?**
+
+## Using Natural Language Processing to Recommend Therapists
 
 ![](img/design/banner-head-shade.png)
+
+## 5/10/202 - Please note this document is a work in progress. Please check back soon if you'd like to see an updated version
+
+
 
 ## The Problem: 
 
@@ -28,28 +34,9 @@ In **Denver**, there are **1,912 therapists** listed on PsychologyToday.com's th
 
 
 
-### Capstone 2 Goals:
-
-- Create a dataset of therapist writing samples from therapist profiles found from publicly available data on GoodTherapy.com
-
-- Perform **topic modeling on writing samples** of Greater Denver Area therapists to see what themes cluster therapists together base on what words they use to describe their practice.
-
-- A key part of the training and education of therapists is learning the different **theoretical orientations** that are the bedrock of psychotherapy. "*A theoretical orientation is a counselor’s philosophy about how problems develop and how these are resolved or treated. It also informs the  counselor’s focus in each counseling session, goals of counseling, and  interventions you will experience in counseling sessions.*" A theoretical orientation is different than a type of therapy in that it can be seen as the parent class to the type of therapy. I hope to explore how the topics generated align with the traditional orientations.
-
-  - The classic theoretical orientations are:
-    - Psychoanalytic/Psychodymanic
-    - Cognitive/Cognitive-Behavioral
-    - Family Systems
-    - Humanistic/Existential
-    - Eclectic
-  - **My theory is that since a therapists theoretical orientation informs the basics of their therapy, their primary orientation will be reflected in their writing.** 
-    - **Capstone 3** this the case,  if we were to also analyze a client's writing (e.g. a journal entry) and run it through the model and find which orientation their writing weights on, might this be a good help fit a therapist to a potential client.
-
-  
-
 ## The Data
 
-I obtained profile data for **273** therapists in the Denver Metro Area from **GoodTherapy.com**. 
+I obtained profile data for **4062** therapists in the Denver Metro Area from **GoodTherapy.com**. 
 
 ### Sample Profile
 
@@ -78,6 +65,8 @@ The primary field for analysis is **writing_sample**, which is main body of text
 | professions **(list)**       | strings   | Counselor, Mental Health Counselor, Licensed Clinical Psychologist |
 | license_verified             | boolean   | True                                                         |
 | writing_sample               | text      | I want to hear from you what your struggles and concerns are, what you  feel you need, what you want your life to be and what you find  challenges you from having the life you most want. Life can be  overwhelming... |
+
+R
 
 
 
@@ -109,7 +98,19 @@ The database design was based of data available on GoodTherapy.org and Psycholog
 
 ###### Here we see that there are far more possible options for issues and therapy types and accordingly, these are the categories that have the most entries on therapist profiles. Might this be unhelpful to potential clients in that it could be overwhelming to understand what so many terms mean?
 
+### N-Grams
 
+Since I will be using a bag-of-word method to analyze the data, and thus loose the contextual information for each word, I decided to explore the use of bi-grams (two-word combinations) and tri-grams (three-word combinations). As this charts show, some context can be retained with bi-grams and tri-grams. I ultimately decide to use bi-grams for the model in order to capture some of the context since so many terms in psychology are dependent on their neighbors for their meaning.
+
+![](img/data_vis/unigrams.png)
+
+
+
+![](img/data_vis/bigrams.png)
+
+
+
+![](img/data_vis/trigrams.png)
 
 ## Looking for Structure with Principal Component Analysis
 
@@ -117,37 +118,17 @@ The database design was based of data available on GoodTherapy.org and Psycholog
 
 ![pca_2_comps_tfidf](img/data_vis/pca_2_comps_tfidf.png)
 
-
+###### Here we confirm that there is adequate structure within the data to warrant topic modeling.
 
 ![pca_cum_scree_tfidf](img/data_vis/pca_cum_scree_tfidf.png)
 
-Here we see that there isn't a lot of structure with the TFIDF.
-
-
-
-### With TF Matrix
-
-![pca_2_comps_tf](img/data_vis/pca_2_comps_tf.png)
-
-
-
-![pca_cum_scree_tf](img/data_vis/pca_cum_scree_tf.png)
-
-Unfortunately, while things improve with the TF Matrix, the model still lacks solid structure.
+##### While have over 200 topics to reach 90% cumulative variance explained would be ideal, for the purposes of this project I have chosen a smaller number of topics.
 
 
 
 ## Latent Dirichlet Allocation Model (LDA)
 
-#### Number of Features: 1000
-
-#### Number of Topics: 3
-
-#### Custom Stop Words list: 
-
-change, find, approach, couples, issues, also, anxiety, working, relationship, relationships, therapist, counseling, people, feel, clients, help, work, therapy, psychotherapy, get, warson, counseling, way, practice, call, today, health, helping, free, depression, like, trauma, may, together, make, process, want, support, believe, goal, one, session, time, offer, individual, need, year, need, consultation, well, skill, new, emotional, provide, take, use, goal, person, individual,  many, healing, problem, see, know
-
-
+I first tried the Latent Dirichlet Allocation Model which produced the following results:
 
 [**Perplexity**](https://en.wikipedia.org/wiki/Perplexity) is a statistical measure of how well a probability model predicts a sample. Lower is better.
 
@@ -155,37 +136,69 @@ change, find, approach, couples, issues, also, anxiety, working, relationship, r
 
 Despite having quite a high perplexity score, some interesting topics emerged.
 
+### Top Words for 3 Topics from LDA
+
+#### Topic: Adult Relationships, Couples
+
+##### Top words
+
+- experience,
+- place
+- love
+- often
+- safe
+
+#### Topic: Mind-Body/Somatic
+
+##### Top words
+
+- body
+- wellbeing
+- philosophy
+- towards
+- mind
+
+#### Topic: Family and Children
+
+##### Top words
+
+- client
+- family
+- office
+- child
+- adult
 
 
-### Topic: Adult Relationships, Couples
 
-#### Orientation: Psychodynamic?
+## Non Negative Matrix Factorization (NMF)
 
-![freud_speech_bubble1](img/design/freud_speech_bubble1.png)
+I also wanted to see what kind of topics NMF would produce using a similar text processing pipeline.
 
+![](img/data_vis/nmf_n_topic_reconstr_err_50.png)
 
-
-### Topic: Mind-Body/Somatic
-
-#### Orientation: Humanistic/Existential?
-
-![freud_speech_bubble2](img/design/freud_speech_bubble2.png)
+Again, we see that a large number of topics would be ideas for this model, however after much testing and due to time and resource constraints, I decided that 15 topics would be adequate to capture enough signal to produce good recommendation results. I based this off of my domain expertise in the field of clinical psychology.
 
 
 
-### Topic: Family and Children
+### Top Words for 3 Topics from NMF
 
-#### Orientation: Family Systems?
+![](img/data_vis/3topics.png)
 
-![freud_speech_bubble3](img/design/freud_speech_bubble3.png)
+NMF Ended up producing much better topics than LDA, as the words clustered within topics strongly and were clearly different from the top words of other topics. Therefore I chose NMF for my final recommender model.
 
+## The Recommender
 
+The recommender takes a new text submission from a person seeking therapy and fits their text to the existing model. I then use cosine similarity to compare the person's writing to all of the therapists in the geographic region specified by the user and return the therapists with the highest similarity score.
+
+I built a Flask Web App to demonstrate the recommender in action. It can be found here:
+
+[Find Your Fit - An NLP-Based Therapist Recommender](http://ec2-18-216-146-179.us-east-2.compute.amazonaws.com:8105/)
 
 ## Conclusions
 
-The lack of structure is likely due to having too little data. Obtaining more profiles and writing samples will hopefully allow for greater structure.
+In conclusion, I believe this demonstrates that using natural language processing to find important themes within client and therapists writing can be a powerful tool in finding a good therapeutic fit, without the need for the client to understand jargon or the therapist to have to worry about explaining jargon.
 
-Still, there appears to be promise that theoretical orientation may be found in the latent topics of the text.
+There are some clear limitations to this project. Two primary limitations are therapist writing sample was not provided with this use-case in mind, so the actual writing sample may be different when provided with this recommender in mind. Also, with my dataset, there is no way of knowing if the writing sample was actually written by the therapist.
 
-[a relative link](vis/ldavis_tfidf)
-<a href='vis/ldavis_tfidf'>pyLDAvis</a>
+If this were to be put into production, new writing samples would need to be collected.
+
