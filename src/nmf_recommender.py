@@ -40,8 +40,7 @@ class NmfRecommender(object):
         # Apply data cleaning pipeline to a given pandas DataFrame column
         df[column] = df[column].apply(lambda x: str(x).lower())
         df[column] = df[column].apply(lambda x: self.remove_punctuation(x, punctuation))
-        df[column] = df[column].apply(lambda x: self.lemmatize_str(x))
-        return 
+        df[column] = df[column].apply(lambda x: self.lemmatize_str(x)) 
     
     def get_top_n_grams(self, corpus:pd.DataFrame, n_gram_range=(1,1), n=None, stop_words=None)->list:
         # returns tuple of ngram and corpus freqency
