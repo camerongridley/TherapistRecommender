@@ -2,7 +2,7 @@
 
 ## Using Natural Language Processing to Recommend Therapists
 
-![](/home/cgridley/Galvanize/repos/capstones/TherapistFitter/img/design/banner-head-shade.png)
+![](img/design/banner-head-shade.png)
 
 ## 5/10/202 - Please note this document is a work in progress. Please check back soon if you'd like to see an updated version
 
@@ -40,7 +40,7 @@ I obtained profile data for **4062** therapists in the Denver Metro Area from **
 
 ### Sample Profile
 
-![](/home/cgridley/Galvanize/repos/capstones/TherapistFitter/img/design/profile_example.png)
+![](img/design/profile_example.png)
 
 
 
@@ -72,7 +72,7 @@ R
 
 ### Work-flow
 
-![](/home/cgridley/Galvanize/repos/capstones/TherapistFitter/img/design/Workflow.svg)
+![](img/design/Workflow.svg)
 
 ### Database Design
 
@@ -80,7 +80,7 @@ PostgreSQL is "a general purpose and object-relational database management syste
 
 The database design was based of data available on GoodTherapy.org and PsychologyToday.com. Both had very similar data with some different naming conventions. 
 
-![](/home/cgridley/Galvanize/repos/capstones/TherapistFitter/img/design/TherapistFitterSchema.png)
+![](img/design/TherapistFitterSchema.png)
 
 
 
@@ -88,13 +88,13 @@ The database design was based of data available on GoodTherapy.org and Psycholog
 
 ## Here's some sparse EDA to accompany the sparse matrices later on...
 
-![](/home/cgridley/Galvanize/repos/capstones/TherapistFitter/img/data_vis/word_count_hist.png)
+![](img/data_vis/word_count_hist.png)
 
 ###### Most people seem to use about 2000 words in their profile.
 
 
 
-![](/home/cgridley/Galvanize/repos/capstones/TherapistFitter/img/data_vis/uniques_per_category.png)
+![](img/data_vis/uniques_per_category.png)
 
 ###### Here we see that there are far more possible options for issues and therapy types and accordingly, these are the categories that have the most entries on therapist profiles. Might this be unhelpful to potential clients in that it could be overwhelming to understand what so many terms mean?
 
@@ -102,25 +102,25 @@ The database design was based of data available on GoodTherapy.org and Psycholog
 
 Since I will be using a bag-of-word method to analyze the data, and thus loose the contextual information for each word, I decided to explore the use of bi-grams (two-word combinations) and tri-grams (three-word combinations). As this charts show, some context can be retained with bi-grams and tri-grams. I ultimately decide to use bi-grams for the model in order to capture some of the context since so many terms in psychology are dependent on their neighbors for their meaning.
 
-![](/home/cgridley/Galvanize/repos/capstones/TherapistFitter/img/data_vis/unigrams.png)
+![](img/data_vis/unigrams.png)
 
 
 
-![](/home/cgridley/Galvanize/repos/capstones/TherapistFitter/img/data_vis/bigrams.png)
+![](img/data_vis/bigrams.png)
 
 
 
-![](/home/cgridley/Galvanize/repos/capstones/TherapistFitter/img/data_vis/trigrams.png)
+![](img/data_vis/trigrams.png)
 
 ## Looking for Structure with Principal Component Analysis
 
 #### PCA With TFIDF Matrix
 
-![pca_2_comps_tfidf](/home/cgridley/Galvanize/repos/capstones/TherapistFitter/img/data_vis/pca_2_comps_tfidf.png)
+![pca_2_comps_tfidf](img/data_vis/pca_2_comps_tfidf.png)
 
 ###### Here we confirm that there is adequate structure within the data to warrant topic modeling.
 
-![pca_cum_scree_tfidf](/home/cgridley/Galvanize/repos/capstones/TherapistFitter/img/data_vis/pca_cum_scree_tfidf.png)
+![pca_cum_scree_tfidf](img/data_vis/pca_cum_scree_tfidf.png)
 
 ##### While have over 200 topics to reach 90% cumulative variance explained would be ideal, for the purposes of this project I have chosen a smaller number of topics.
 
@@ -174,7 +174,7 @@ Despite having quite a high perplexity score, some interesting topics emerged.
 
 I also wanted to see what kind of topics NMF would produce using a similar text processing pipeline.
 
-![](/home/cgridley/Galvanize/repos/capstones/TherapistFitter/img/data_vis/nmf_n_topic_reconstr_err_50.png)
+![](img/data_vis/nmf_n_topic_reconstr_err_50.png)
 
 Again, we see that a large number of topics would be ideas for this model, however after much testing and due to time and resource constraints, I decided that 15 topics would be adequate to capture enough signal to produce good recommendation results. I based this off of my domain expertise in the field of clinical psychology.
 
@@ -182,7 +182,7 @@ Again, we see that a large number of topics would be ideas for this model, howev
 
 ### Top Words for 3 Topics from NMF
 
-![](/home/cgridley/Galvanize/repos/capstones/TherapistFitter/img/data_vis/3topics.png)
+![](img/data_vis/3topics.png)
 
 NMF Ended up producing much better topics than LDA, as the words clustered within topics strongly and were clearly different from the top words of other topics. Therefore I chose NMF for my final recommender model.
 
