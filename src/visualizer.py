@@ -210,32 +210,6 @@ class Visualizer(object):
         #fig = go.Figure([go.Bar(x=df3['bigram'], y=df3['count'])])
         #fig.update_layout(title=go.layout.Title(text=f"Top {n} ngrams of length {n_gram_range[0]} in the description text after removing stop words and lemmatization"))
         fig.show()
-        
-    # def unigram_bar_chart(self, corpus, n):
-    #     common_words = self.get_top_n_grams(corpus=corpus, n_gram_range=(1,1), n=n)
-    #     df2 = pd.DataFrame(common_words, columns = ['unigram' , 'count'])
-
-    #     fig = go.Figure([go.Bar(x=df2['unigram'], y=df2['count'])])
-    #     fig.update_layout(title=go.layout.Title(text=f"Top {n} unigrams in the description text after removing stop words and lemmatization"))
-    #     fig.show()
-
-    # def bigram_bar_chart(self, corpus, n):
-    #     #common_words = self.get_top_n_bigrams(corpus, n)
-    #     common_words = self.get_top_n_grams(corpus=corpus, n_gram_range=(2,2), n=n)
-    #     df3 = pd.DataFrame(common_words, columns = ['bigram' , 'count'])
-
-    #     fig = go.Figure([go.Bar(x=df3['bigram'], y=df3['count'])])
-    #     fig.update_layout(title=go.layout.Title(text=f"Top {n} bigrams in the description text after removing stop words and lemmatization"))
-    #     fig.show()
-
-    # def trigram_bar_chart(self, corpus, n):
-    #     #common_words = self.get_top_n_bigrams(corpus, n)
-    #     common_words = self.get_top_n_grams(corpus=corpus, n_gram_range=(3,3), n=n)
-    #     df3 = pd.DataFrame(common_words, columns = ['bigram' , 'count'])
-
-    #     fig = go.Figure([go.Bar(x=df3['bigram'], y=df3['count'])])
-    #     fig.update_layout(title=go.layout.Title(text=f"Top {n} trigrams in the description text after removing stop words and lemmatization"))
-    #     fig.show()
 
     def make_plot(self, x, y, title="", x_label="", y_label=""):
         fig, ax = plt.subplots()
