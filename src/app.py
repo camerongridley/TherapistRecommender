@@ -42,13 +42,18 @@ def test():
 @app.route('/recommend', methods=['POST'])
 def recommend():
     #np.random.seed(10)
-
     
+    content = str(request.form[text_col])
+    print(f'content: {content}')
+
+    if content.strip() == "":
+        return render_template('submit.html', current_page='SUBMIT', state_list=all_states, msg='Please tell us about what you are looking for help with.')
+
+    if len(content.strip()) < 200:
+        return render_template('submit.html', current_page='SUBMIT', state_list=all_states, msg='We need to know more about you before being able to make good recommedations. Please use at least 200 words.')
 
     print(df_therapist_topics.head())
-    print(f'MODEL TYPE: {type(model)}')
-
-    content = str(request.form[text_col])
+    
     n_recs = int(request.form['num_recs_choice'])
     state = str(request.form['state'])
 

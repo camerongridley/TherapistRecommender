@@ -5,14 +5,25 @@
   <div class="container">
     <div class="section">
       <div class="row">
+        {% if msg %}
+        <div class="col-md-12 alert alert-warning">
+          <div class="container">
+            <div class="alert-icon">
+              <i class="material-icons">warning</i>
+            </div>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true"><i class="material-icons">clear</i></span>
+            </button>
+            <b>Oops!:</b> {{msg}}
+          </div>
+        </div>
+        {% endif %}
         <div class = "col-md-12">
           <div class="card card-blog">
             <div class="card-header card-header-image">
               <a href="#pablo">
                 <img class="img" src="https://images.unsplash.com/photo-1517303650219-83c8b1788c4c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=bd4c162d27ea317ff8c67255e955e3c8&auto=format&fit=crop&w=2691&q=80" rel="nofollow" alt="Card image cap">
-                <div class="card-title">
-                  Tell us what you need.
-                </div>
+                <div class="card-title">Tell us what you need.</div>
               </a>
             </div>
             <div class="card-body">
@@ -45,8 +56,7 @@
                 </div>
                   <br>
                   <label for="writing_sample">What are you looking for help with?</label>
-                  <textarea class="md-textarea form-control" name="writing_sample"  id="writing_sample" rows="10" cols="30">
-              </textarea>
+                  <textarea class="md-textarea form-control" name="writing_sample"  id="writing_sample" rows="10" cols="30"></textarea>
                 
                 
                   <br>
