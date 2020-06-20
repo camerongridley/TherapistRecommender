@@ -261,8 +261,8 @@ if __name__ == '__main__':
     nlp = NlpProcessor(log_file_path='logs/lda_results_log.txt')
     
     # define colors for visualizations
-    palette = ['#13bdb4','#80d090','#dad977','#e49046','#d43d51']
-    vis = Visualizer(nlp.get_conn, palette)
+    # palette = ['#13bdb4','#80d090','#dad977','#e49046','#d43d51']
+    vis = Visualizer(nlp.get_conn)
 
     # connect to the database and load pandas dataframes
     sql = "select * from therapists;"
@@ -294,25 +294,30 @@ if __name__ == '__main__':
     selected_matrix = tfidf_matrix
     selected_vectorizer = tfidf_vect
 
-    # vis.set_save_figs(False)
+    vis.set_save_figs(True)
     vis.set_show_figs(True)
 
     # General EDA
-    #nlp.run_initial_eda(vis, df)
+    nlp.run_initial_eda(vis, df)
     
     # PCA
-    nlp.run_pca_tfidf(vis, tfidf_matrix)
-    nlp.run_pca_tf(vis, tf_matrix)
+    # nlp.run_pca_tfidf(vis, tfidf_matrix)
+    # nlp.run_pca_tf(vis, tf_matrix)
 
-    # LDA
-    n_topics = 3
-    lda = nlp.fit_lda_model(selected_matrix, num_topics=n_topics, alpha=1/n_topics, beta=1/n_topics)    
-    num_top_n_grams = 10
-    feature_names = selected_vectorizer.get_feature_names()
-    nlp.display_topics(lda, feature_names, num_top_n_grams, custom_stop_words, log_lda=True)
-    words, counts = nlp.get_most_freq_words(selected_vectorizer, selected_matrix, 20, print_dict_to_terminal=False)
-    print('Most Frequent words/n_grams')
-    print(words)
-    print("Model perplexity: {0:0.3f}".format(lda.perplexity(selected_matrix)))
+    # # LDA
+    # n_topics = 3
+    # lda = nlp.fit_lda_model(selected_matrix, num_topics=n_topics, alpha=1/n_topics, beta=1/n_topics)    
+    # num_top_n_grams = 10
+    # feature_names = selected_vectorizer.get_feature_names()
+    # nlp.display_topics(lda, feature_names, num_top_n_grams, custom_stop_words, log_lda=True)
+    # words, counts = nlp.get_most_freq_words(selected_vectorizer, selected_matrix, 20, print_dict_to_terminal=False)
+    # print('Most Frequent words/n_grams')
+    # print(words)
+    # print("Model perplexity: {0:0.3f}".format(lda.perplexity(selected_matrix)))
     
+
+    vis = pyLDAvis.sklearn.prepare(lda, selected_matrix, selected_vectorizer)
+    pyLDAvis.save_html(vis, 'vis/ldavis_tfidf')
+
+
     nlp.close_conn()

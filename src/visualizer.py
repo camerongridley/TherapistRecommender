@@ -31,12 +31,12 @@ plt.rcParams['figure.figsize'] = [10,6]
 
 class Visualizer(object):
 
-    def __init__(self, conn, palette = ['#13bdb4','#80d090','#dad977','#e49046','#d43d51']):
+    def __init__(self, conn, palette = ['#636efa','#41b3ff','#a8e5ff','#4f979f','#004e45']):
         self.conn = conn
         self.save_figs = False
         self.show_figs = False
         self.palette = palette
-        self.visualiztion_directory = 'img/testing/'
+        self.visualiztion_directory = 'img/'
 
     def sql_to_pandas(self, sql:str)->pd.DataFrame:
         df = pd.read_sql_query(sql, self.conn)
@@ -52,7 +52,7 @@ class Visualizer(object):
     def plot_2_pca_comps(self, X_pca:np.ndarray, title_suffix='', filename_suffix='')->None:
         fig, ax = plt.subplots(1, 1)
         ax.scatter(X_pca[:, 0], X_pca[:, 1],
-                cmap=plt.cm.Set1, edgecolor='k', s=40)
+                edgecolor='k', s=40)
         ax.set_title(f'First two PCA directions {title_suffix}')
         ax.set_xlabel("1st eigenvector (PC1)")
         ax.set_ylabel("2nd eigenvector (PC2)")
@@ -85,7 +85,7 @@ class Visualizer(object):
 
         fig, ax = plt.subplots()
         ax.plot(prop_var_expl, color=self.palette[0], linewidth=2, label='Explained variance')
-        ax.axhline(0.9, label='90% goal', linestyle='--', color=self.palette[3], linewidth=1)
+        ax.axhline(0.9, label='90% goal', linestyle='--', color=self.palette[1], linewidth=1)
         ax.set_ylabel('cumulative prop. of explained variance')
         ax.set_xlabel('number of principal components')
         plt.title(title)
@@ -107,7 +107,7 @@ class Visualizer(object):
         mean = np.mean(writing_lengths)
         mean_label = f'Mean: {np.around(mean, decimals=0)}'
         c1 = self.palette[0]
-        c2 = self.palette[4]
+        c2 = self.palette[1]
         fig, ax = plt.subplots()
         ax.set_xlabel('Word Count')
         ax.set_ylabel('Therapists')
@@ -207,8 +207,8 @@ class Visualizer(object):
 
         fig, ax = plt.subplots()
         ax.bar(df3['bigram'], df3['count'])
-        #fig = go.Figure([go.Bar(x=df3['bigram'], y=df3['count'])])
-        #fig.update_layout(title=go.layout.Title(text=f"Top {n} ngrams of length {n_gram_range[0]} in the description text after removing stop words and lemmatization"))
+        fig = go.Figure([go.Bar(x=df3['bigram'], y=df3['count'])])
+        fig.update_layout(title=go.layout.Title(text=f"Top {n} ngrams of length {n_gram_range[0]} in the description text after removing stop words and lemmatization"))
         fig.show()
 
     def make_plot(self, x, y, title="", x_label="", y_label=""):

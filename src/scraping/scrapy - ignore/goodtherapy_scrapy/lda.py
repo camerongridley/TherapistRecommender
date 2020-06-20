@@ -22,7 +22,7 @@ from sklearn.decomposition import PCA
 from sklearn.preprocessing import StandardScaler
 scaler = StandardScaler(copy=True, with_mean=True, with_std=True)
 
-class NlpProcessor(object):
+class LdaTopicModeler(object):
 
     def __init__(self):
         self.conn = self.open_conn()
@@ -190,7 +190,7 @@ class NlpProcessor(object):
         file_log.close()
 
 if __name__ == '__main__':
-    nlp = NlpProcessor()
+    nlp = LdaTopicModeler()
 
     sql = "select * from therapists;"
     df = nlp.sql_to_pandas(sql)

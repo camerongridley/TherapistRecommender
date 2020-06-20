@@ -32,18 +32,20 @@ if args.frompsql:
     sql = 'SELECT * FROM therapists'
     df = psql.sql_to_pandas(sql)
 
-    model, vectorizer, df_therapist_topics = nmf_recommender.run_nmf(df=df, n_topics = 15, save_results=True)
+    model, vectorizer, df_therapist_topics = nmf_recommender.run_nmf(df=df, n_topics = 15, save_results=False)
     pickle.dump(model, open( model_filename, "wb" ) )
 
-    #vis.word_distribution(df)
+    # vis.word_distribution(df)
     # vis.word_cloud(df, 'writing_sample')
-    vis.ngram_bar_chart(df['writing_sample'],(1,1), 20)
-    # vis.ngram_bar_chart(df['writing_sample'],(2,2), 20) 
-    # vis.ngram_bar_chart(df['writing_sample'],(3,3), 20)
+    # vis.ngram_bar_chart(df['writing_sample'],(1,1), 10)
+    # vis.ngram_bar_chart(df['writing_sample'],(2,2), 10) 
+    # vis.ngram_bar_chart(df['writing_sample'],(3,3), 10)
 
     # plot reconstuction error for range of topic lengths
     # x, y = nmf_recommender.evaluate_n_topics(df, 3, 6)
     # vis.make_plot(x=x, y=y, title='Reconstruction Error by Number of Topics', x_label='Number of Topics', y_label='Reconstruction Error')
+
+    psql.close_conn()
 
 else:
     # load data, vectorizer and model from local pickle files
@@ -92,3 +94,4 @@ print('*************************************************************************
 loadings, recs = nmf_recommender.classify_and_recommend(model, vectorizer, marriage_text, df_therapist_topics, state, n_recs)
 print(f'Marriage Text - Dominant Topics: {nmf_recommender.get_dominant_topics(3, loadings)}')
 print(f'\nRecs:\n{recs}')
+
