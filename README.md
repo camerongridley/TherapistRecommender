@@ -120,7 +120,7 @@ The PCA analysis confirms adequate structure within the data. We can also see th
 
 ![pca_cum_scree_tfidf](img/data_vis/pca_cum_scree_tfidf.png)
 
-While have over 200 topics to reach 90% cumulative variance explained would be ideal, for the purposes of this project I have chosen a smaller number of topics.
+While having over 200 topics to reach 90% cumulative variance explained would be ideal, for the purposes of this project I have chosen a smaller number of topics.
 
 ## Topic Modeling
 
