@@ -8,10 +8,6 @@
 
 #### For a live demo of the recommender [click here](http://ec2-18-216-146-179.us-east-2.compute.amazonaws.com:8105/).
 
-**Table of Contents**
-
-[TOC]
-
 ## The Problem: 
 
 People often are confused about how to choose a therapist. The best resource for a recommendation tends to be from a trusted family or friend. However, that is often not available or the person doesn't feel comfortable letting others know they are seeking therapy. So where to go? 
@@ -73,8 +69,6 @@ The primary field for analysis is **writing_sample**, which is main body of text
 | writing_sample               | text      | I want to hear from you what your struggles and concerns are, what you  feel you need, what you want your life to be and what you find  challenges you from having the life you most want. Life can be  overwhelming... |
 
 
-
-### Technologies Used![](img/design/Workflow.svg)
 
 ### Database Design
 
