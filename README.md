@@ -6,7 +6,7 @@
 
 
 
-#### For a live demo of the recommender [click here](http://ec2-18-216-146-179.us-east-2.compute.amazonaws.com:8105/).
+#### For a live demo of the recommender [click here](http://ec2-13-59-161-52.us-east-2.compute.amazonaws.com:8105/).
 
 ## The Problem: 
 
@@ -162,7 +162,7 @@ The recommender takes a new text submission from a person seeking therapy and fi
 
 I built a Flask Web App to demonstrate the recommender in action. It can be found here:
 
-**[Find Your Fit - An NLP-Based Therapist Recommender](http://ec2-18-216-146-179.us-east-2.compute.amazonaws.com:8105/)**
+**[Find Your Fit - An NLP-Based Therapist Recommender](http://ec2-13-59-161-52.us-east-2.compute.amazonaws.com:8105/)**
 
 ![img](img/design/web_app_home.png)
 
