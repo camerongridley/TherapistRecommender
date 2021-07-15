@@ -138,7 +138,7 @@ I first tried the Latent Dirichlet Allocation Model. I used pyLDAvis to visualiz
 
 #### Top Words for 5 Topics from LDA
 
-![](/home/cgridley/Galvanize/repos/capstones/TherapistFitter/img/data_vis/lda_topics.png)
+![](img/data_vis/lda_topics.png)
 
 ### Non Negative Matrix Factorization (NMF)
 
